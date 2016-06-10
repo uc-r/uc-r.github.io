@@ -11,7 +11,7 @@ permalink:           pretty
 # Setup
 title:               R Programming @ UC
 tagline:             ''
-description:         '<img src="https://raw.githubusercontent.com/uc-r/uc-r.github.io/master/public/uc_logo.png" height=60 </img>  Follow us on twitter <a href="https://twitter.com/simplystats">@simplystats</a>'
+description:         '<img src="https://raw.githubusercontent.com/uc-r/uc-r.github.io/master/public/uc_logo.png" height=60 </img>  Follow us on twitter <a href="https://twitter.com/bradleyboehmke">@something</a>'
 url:                 http://uc-r.github.io
 baseurl:             ''
 
