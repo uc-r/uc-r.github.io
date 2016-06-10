@@ -1,10 +1,10 @@
 # Site settings
-title: Bradley Boehmke
+title: R Programming @ UC
 email: bradleyboehmke@gmail.com
 description: > # this means to ignore newlines until "baseurl:"
   
-baseurl: "http://bradleyboehmke.github.io/" # the subpath of your site, e.g. /blog/
-url: "http://bradleyboehmke.github.io/" # the base hostname & protocol for your site
+baseurl: "http://r-uc.github.io" # the subpath of your site, e.g. /blog/
+url: "http://r-uc.github.io" # the base hostname & protocol for your site
 twitter_username: bradleyboehmke
 github_username:  bradleyboehmke
 permalink: /:year/:month/:title.html
