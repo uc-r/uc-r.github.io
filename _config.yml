@@ -1,14 +1,17 @@
-# Site settings
-title: R Programming @ UC
-email: bradleyboehmke@gmail.com
-description: > # this means to ignore newlines until "baseurl:"
-  
-baseurl: "http://r-uc.github.io/" # the subpath of your site, e.g. /blog/
-url: "http://r-uc.github.io/" # the base hostname & protocol for your site
-twitter_username: bradleyboehmke
-github_username:  uc-r
-permalink: /:year/:month/:title.html
-excerpt_separator: <!--more-->
+# Dependencies
+gems:                [jekyll-paginate]
+paginate: 5
+paginate_path: "page:num"
 
-# Build settings
-markdown: kramdown
+# Permalinks
+#
+# Use of `relative_permalinks` ensures post links from the index work properly.
+permalink:           pretty
+
+# Setup
+title:               Simply Statistics
+tagline:             'A statistics blog by <a href="https://twitter.com/rafalab">Rafa Irizarry<a>, <a href="https://twitter.com/rdpeng">Roger Peng<a>, and <a href="https://twitter.com/jtleek">Jeff Leek<a>'
+description:         '<img src="https://raw.githubusercontent.com/simplystats/simplystats.github.io/master/public/sslogo.png" height=60 </img>  Follow us on twitter <a href="https://twitter.com/simplystats">@simplystats</a>'
+url:                 http://simplystats.github.io
+baseurl:             ''
+
