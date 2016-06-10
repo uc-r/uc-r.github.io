@@ -6,11 +6,11 @@
     <meta name="viewport" content="width=device-width initial-scale=1" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>Bradley Boehmke</title>
+    <title>R Programming @ UC</title>
     <meta name="description" content="">
 
-    <link rel="stylesheet" href="http://bradleyboehmke.github.io//css/main.css">
-    <link rel="canonical" href="http://bradleyboehmke.github.io/http://bradleyboehmke.github.io//tutorials/descriptives_categorical">
+    <link rel="stylesheet" href="http://r-uc.github.io//css/main.css">
+    <link rel="canonical" href="http://r-uc.github.io/http://r-uc.github.io//tutorials/descriptives_categorical">
 </head>
 
 
@@ -20,7 +20,7 @@
 
   <div class="wrapper">
 
-    <a class="site-title" href="http://bradleyboehmke.github.io/">Bradley Boehmke</a>
+    <a class="site-title" href="http://r-uc.github.io/">R Programming @ UC</a>
 
     <nav class="site-nav">
       <a href="#" class="menu-icon">
@@ -34,17 +34,25 @@
       <div class="trigger">
         
           
-          <a class="page-link" href="http://bradleyboehmke.github.io//about/">About</a>
+          <a class="page-link" href="http://r-uc.github.io//404">404 - Page not found</a>
           
         
           
+          <a class="page-link" href="http://r-uc.github.io//about/">About</a>
+          
+        
+          
         
           
         
           
         
           
-          <a class="page-link" href="http://bradleyboehmke.github.io//categoryview/">Archive</a>
+          <a class="page-link" href="http://r-uc.github.io//categoryview/">Archive</a>
+          
+        
+          
+        
           
         
           
@@ -76,7 +84,7 @@
           
         
           
-          <a class="page-link" href="http://bradleyboehmke.github.io//cv/">CV</a>
+          <a class="page-link" href="http://r-uc.github.io//cv/">CV</a>
           
         
           
@@ -130,7 +138,7 @@
           
         
           
-          <a class="page-link" href="http://bradleyboehmke.github.io//tutorials/">Tutorials</a>
+          <a class="page-link" href="http://r-uc.github.io//tutorials/">Tutorials</a>
           
         
           
@@ -182,7 +190,7 @@
           
         
           
-          <a class="page-link" href="http://bradleyboehmke.github.io//tutorials/scraping_with_apis_DSCOE.Rmd">Scraping Data with APIs</a>
+          <a class="page-link" href="http://r-uc.github.io//tutorials/scraping_with_apis_DSCOE.Rmd">Scraping Data with APIs</a>
           
         
           
@@ -218,22 +226,41 @@
         <div class="post">
 
   <article class="post-content">
-    <p><a href="index">R Vocab Topics</a> » <a href="analytics">Analytics</a> » <a href="exploratory">Exploratory data analysis</a> » <a href="descriptives">Descriptive statistics</a> » Categorical data</p>
+    <p><a href="index">R Vocab Topics</a> » <a href="analytics">Analytics</a> » Categorical data descriptive statistics</p>
 
 <p><br /></p>
 
-<p>When summarizing categorical variables we are primarily limited to assessing:</p>
+<p><img src="/public/images/analytics/descriptives/descriptive_stats_categorical_icon.png" style="float:right; margin: 2px 0px 0px 10px; width: 30%; height: 30%;" />
+Descriptive statistics are the first pieces of information used to understand and represent a dataset. There goal, in essence, is to describe the main features of numerical and categorical information with simple summaries. These summaries can be presented with a single numeric measure, using summary tables, or via graphical representation. Here, I illustrate the most common forms of descriptive statistics for categorical data but keep in mind there are numerous ways to describe and illustrate key features of data.</p>
 
-<ol>
+<p><br /></p>
+
+<h2 id="tldr">tl;dr</h2>
+<p>This tutorial covers the key features we are initially interested in understanding for categorical data, to include:</p>
+
+<ul>
   <li><a href="#frequencies">Frequencies:</a>  The number of observations for a particular category</li>
   <li><a href="#proportions">Proportions:</a>  The percent that each category accounts for out of the whole</li>
   <li><a href="#marginals">Marginals:</a>  The totals in a cross tabulation by row or column</li>
   <li><a href="#visualization">Visualization:</a> We should understand these features of the data through statistics <em>and</em> visualization</li>
-</ol>
+</ul>
 
-<p>To illustrate ways to compute these summary statistics and to visualize categorical data, I’ll demonstrate using this <a href="https://github.com/bradleyboehmke/bradleyboehmke.github.io/blob/master/public/data/Supermarket%20Transactions.xlsx">data</a> which contains artificial supermarket transaction data:</p>
+<p><br /></p>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="c1">##   Customer ID Gender Marital Status Annual Income          City     Product Category Units Sold Revenue
+<h2 id="replication-requirements">Replication Requirements</h2>
+<p>To illustrate ways to compute these summary statistics and to visualize categorical data, I’ll demonstrate using this <a href="https://github.com/bradleyboehmke/bradleyboehmke.github.io/blob/master/public/data/Supermarket%20Transactions.xlsx">data</a> which contains artificial supermarket transaction data.  In addition, the packages we will leverage include the following:</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">library</span><span class="p">(</span><span class="n">readxl</span><span class="p">)</span>         <span class="c1"># for reading in excel data
+</span><span class="n">library</span><span class="p">(</span><span class="n">ggplot2</span><span class="p">)</span>        <span class="err">#</span> <span class="k">for</span> <span class="n">generating</span> <span class="n">visualizations</span></code></pre></figure>
+
+<p>☛ <em>See <a href="http://bradleyboehmke.github.io/tutorials/basics/packages/">Working with packages</a> for more information on installing, loading, and getting help with packages.</em></p>
+
+<p>First, let’s read in the data.  The data frame consists of 16 variables, which I illustrate a select few below:</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">supermarket</span> <span class="o">&lt;-</span> <span class="n">read_excel</span><span class="p">(</span><span class="s2">"Data/Supermarket Transactions.xlsx"</span><span class="p">,</span> <span class="n">sheet</span> <span class="o">=</span> <span class="m">2</span><span class="p">)</span>
+
+<span class="n">head</span><span class="p">(</span><span class="n">supermarket</span><span class="p">[,</span> <span class="n">c</span><span class="p">(</span><span class="m">3</span><span class="o">:</span><span class="m">5</span><span class="p">,</span><span class="m">8</span><span class="o">:</span><span class="m">9</span><span class="p">,</span><span class="m">14</span><span class="o">:</span><span class="m">16</span><span class="p">)])</span>
+<span class="c1">##   Customer ID Gender Marital Status Annual Income          City     Product Category Units Sold Revenue
 ## 1        7223      F              S   $30K - $50K   Los Angeles          Snack Foods          5   27.38
 ## 2        7841      M              M   $70K - $90K   Los Angeles           Vegetables          5   14.90
 ## 3        8374      F              M   $50K - $70K     Bremerton          Snack Foods          3    5.52
@@ -243,23 +270,25 @@
 
 <p><br /></p>
 
-<h3 id="frequencies">Frequencies</h3>
-<p>To produce contingency tables with which calculate counts for each combination of categorical variables we can use R’s <code class="highlighter-rouge">table()</code> function:</p>
+<h2 id="frequencies">Frequencies</h2>
+<p>To produce <a href="https://en.wikipedia.org/wiki/Contingency_table">contingency tables</a> which calculate counts for each combination of categorical variables we can use R’s <code class="highlighter-rouge">table()</code> function. For instance, we may want to get the total count of female and male customers.</p>
 
 <figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="c1"># counts for gender categories
 </span><span class="n">table</span><span class="p">(</span><span class="n">supermarket</span><span class="o">$</span><span class="n">Gender</span><span class="p">)</span>
 <span class="c1">## 
 ##    F    M 
-## 7170 6889
-</span>
-<span class="c1"># cross classication counts for gender by marital status
+</span><span class="err">##</span> <span class="m">7170</span> <span class="m">6889</span></code></pre></figure>
+
+<p>If we want to understand the number of married and single females and male customers we can produce a cross classification table:</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="c1"># cross classication counts for gender by marital status
 </span><span class="n">table</span><span class="p">(</span><span class="n">supermarket</span><span class="o">$</span><span class="sb">`Marital Status`</span><span class="p">,</span> <span class="n">supermarket</span><span class="o">$</span><span class="n">Gender</span><span class="p">)</span>
 <span class="c1">##    
 ##        F    M
 ##   M 3602 3264
 </span><span class="err">##</span>   <span class="n">S</span> <span class="m">3568</span> <span class="m">3625</span></code></pre></figure>
 
-<p>We can also produce multidimensional tables based on three or more categorical variables. For this, we leverage the <code class="highlighter-rouge">ftable()</code> function to print the results more attractively:</p>
+<p>We can also produce multidimensional tables based on three or more categorical variables. For this, we leverage the <code class="highlighter-rouge">ftable()</code> function to print the results more attractively. In this case we assess the count of customers by marital status, gender, and location:</p>
 
 <figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="c1"># customer counts across location by gender and marital status
 </span><span class="n">table1</span> <span class="o">&lt;-</span> <span class="n">table</span><span class="p">(</span><span class="n">supermarket</span><span class="o">$</span><span class="sb">`Marital Status`</span><span class="p">,</span> <span class="n">supermarket</span><span class="o">$</span><span class="n">Gender</span><span class="p">,</span> 
@@ -277,8 +306,8 @@
 
 <p><br /></p>
 
-<h3 id="proportions">Proportions</h3>
-<p>We can also produce contingency tables that present the proportions (percentages) of each category or combination of categories. To do this we simply feed the frequency tables produced by <code class="highlighter-rouge">table()</code> to the <code class="highlighter-rouge">prop.table()</code> function</p>
+<h2 id="proportions">Proportions</h2>
+<p>We can also produce contingency tables that present the proportions (percentages) of each category or combination of categories. To do this we simply feed the frequency tables produced by <code class="highlighter-rouge">table()</code> to the <code class="highlighter-rouge">prop.table()</code> function. The following reproduces the previous tables but calculates the proportions rather than counts:</p>
 
 <figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="c1"># percentages of gender categories
 </span><span class="n">table2</span> <span class="o">&lt;-</span> <span class="n">table</span><span class="p">(</span><span class="n">supermarket</span><span class="o">$</span><span class="n">Gender</span><span class="p">)</span>
@@ -309,7 +338,7 @@
 
 <p><br /></p>
 
-<h3 id="marginals">Marginals</h3>
+<h2 id="marginals">Marginals</h2>
 <p>Marginals show the total counts or percentages across columns or rows in a contingency table.  For instance, if we go back to <code class="highlighter-rouge">table3</code> which is the cross classication counts for gender by marital status:</p>
 
 <figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">table3</span>
@@ -353,34 +382,30 @@
 
 <p><br /></p>
 
-<h3 id="visualization">Visualization</h3>
-<p>Bar charts are most often used to visualize categorical variables.</p>
-
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="c1"># Frequency bar charts
-</span><span class="n">ggplot</span><span class="p">(</span><span class="n">supermarket</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">Gender</span><span class="p">))</span> <span class="o">+</span>
-        <span class="n">geom_bar</span><span class="p">()</span></code></pre></figure>
-
-<p><img src="/public/images/analytics/descriptives/unnamed-chunk-21-1.png" style="display: block; margin: auto;" /></p>
+<h2 id="visualization">Visualization</h2>
+<p>Bar charts are most often used to visualize categorical variables. Here we can assess the count of customers by location:</p>
 
 <figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">ggplot</span><span class="p">(</span><span class="n">supermarket</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="sb">`State or Province`</span><span class="p">))</span> <span class="o">+</span>
         <span class="n">geom_bar</span><span class="p">()</span> <span class="o">+</span>
         <span class="n">theme</span><span class="p">(</span><span class="n">axis.text.x</span> <span class="o">=</span> <span class="n">element_text</span><span class="p">(</span><span class="n">angle</span> <span class="o">=</span> <span class="m">45</span><span class="p">,</span> <span class="n">hjust</span> <span class="o">=</span> <span class="m">1</span><span class="p">))</span></code></pre></figure>
 
-<p><img src="/public/images/analytics/descriptives/unnamed-chunk-21-2.png" style="display: block; margin: auto;" /></p>
+<p><img src="/public/images/analytics/descriptives/unnamed-chunk-7-1.png" style="display: block; margin: auto;" /></p>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="c1"># reorder bar chart in descending order - note that there are multiple ways
-# to reorder bar charts - just search "Order Bars in ggplot2 bar graph" in 
-# Stackoverflow. Here I create a function that sorts the underlying factors  
-# and then apply that function in ggplot
+<p>To make the bar chart easier to digest we can reorder the bars in descending order. Note that there are multiple ways to reorder bar charts, just search “Order Bars in ggplot2 bar graph” in <a href="http://stackoverflow.com/">Stackoverflow</a>.  Here I create a function that sorts the underlying factors and then apply that function in <code class="highlighter-rouge">ggplot</code>.</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="c1"># re-order levels
 </span><span class="n">reorder_size</span> <span class="o">&lt;-</span> <span class="k">function</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="p">{</span>
         <span class="n">factor</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">levels</span> <span class="o">=</span> <span class="n">names</span><span class="p">(</span><span class="n">sort</span><span class="p">(</span><span class="n">table</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">decreasing</span> <span class="o">=</span> <span class="n">TRUE</span><span class="p">)))</span>
 <span class="p">}</span>
+
 <span class="n">ggplot</span><span class="p">(</span><span class="n">supermarket</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">reorder_size</span><span class="p">(</span><span class="sb">`State or Province`</span><span class="p">)))</span> <span class="o">+</span>
         <span class="n">geom_bar</span><span class="p">()</span> <span class="o">+</span>
         <span class="n">xlab</span><span class="p">(</span><span class="s2">"State or Province"</span><span class="p">)</span> <span class="o">+</span>
         <span class="n">theme</span><span class="p">(</span><span class="n">axis.text.x</span> <span class="o">=</span> <span class="n">element_text</span><span class="p">(</span><span class="n">angle</span> <span class="o">=</span> <span class="m">45</span><span class="p">,</span> <span class="n">hjust</span> <span class="o">=</span> <span class="m">1</span><span class="p">))</span></code></pre></figure>
 
-<p><img src="/public/images/analytics/descriptives/unnamed-chunk-21-3.png" style="display: block; margin: auto;" /></p>
+<p><img src="/public/images/analytics/descriptives/unnamed-chunk-7-2.png" style="display: block; margin: auto;" /></p>
+
+<p>We can also produce a proportions bar chart where the y-axis now provides the percentage of the total that that category makes up.</p>
 
 <figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="c1"># Proportions bar charts
 </span><span class="n">ggplot</span><span class="p">(</span><span class="n">supermarket</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">reorder_size</span><span class="p">(</span><span class="sb">`State or Province`</span><span class="p">)))</span> <span class="o">+</span>
@@ -389,28 +414,29 @@
         <span class="n">scale_y_continuous</span><span class="p">(</span><span class="n">labels</span> <span class="o">=</span> <span class="n">scales</span><span class="o">::</span><span class="n">percent</span><span class="p">,</span> <span class="n">name</span> <span class="o">=</span> <span class="s2">"Proportion"</span><span class="p">)</span> <span class="o">+</span>
         <span class="n">theme</span><span class="p">(</span><span class="n">axis.text.x</span> <span class="o">=</span> <span class="n">element_text</span><span class="p">(</span><span class="n">angle</span> <span class="o">=</span> <span class="m">45</span><span class="p">,</span> <span class="n">hjust</span> <span class="o">=</span> <span class="m">1</span><span class="p">))</span></code></pre></figure>
 
-<p><img src="/public/images/analytics/descriptives/unnamed-chunk-21-4.png" style="display: block; margin: auto;" /></p>
+<p><img src="/public/images/analytics/descriptives/unnamed-chunk-7-3.png" style="display: block; margin: auto;" /></p>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="c1"># We can also create contingency table-like bar charts by creating facets
-# Here I plot customer proportions across location and by Gender
-</span><span class="n">ggplot</span><span class="p">(</span><span class="n">supermarket</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">reorder_size</span><span class="p">(</span><span class="sb">`State or Province`</span><span class="p">)))</span> <span class="o">+</span>
+<p>We can also create contingency table-like bar charts by using the <code class="highlighter-rouge">facet_grid()</code> function to produce small multiples. Here I plot customer proportions across location and by Gender.</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">ggplot</span><span class="p">(</span><span class="n">supermarket</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">reorder_size</span><span class="p">(</span><span class="sb">`State or Province`</span><span class="p">)))</span> <span class="o">+</span>
         <span class="n">geom_bar</span><span class="p">(</span><span class="n">aes</span><span class="p">(</span><span class="n">y</span> <span class="o">=</span> <span class="p">(</span><span class="err">.</span><span class="n">.count..</span><span class="p">)</span><span class="o">/</span><span class="n">sum</span><span class="p">(</span><span class="err">.</span><span class="n">.count..</span><span class="p">)))</span> <span class="o">+</span>
         <span class="n">xlab</span><span class="p">(</span><span class="s2">"State or Province"</span><span class="p">)</span> <span class="o">+</span>
         <span class="n">scale_y_continuous</span><span class="p">(</span><span class="n">labels</span> <span class="o">=</span> <span class="n">scales</span><span class="o">::</span><span class="n">percent</span><span class="p">,</span> <span class="n">name</span> <span class="o">=</span> <span class="s2">"Proportion"</span><span class="p">)</span> <span class="o">+</span>
         <span class="n">facet_grid</span><span class="p">(</span><span class="o">~</span> <span class="n">Gender</span><span class="p">)</span> <span class="o">+</span>
         <span class="n">theme</span><span class="p">(</span><span class="n">axis.text.x</span> <span class="o">=</span> <span class="n">element_text</span><span class="p">(</span><span class="n">angle</span> <span class="o">=</span> <span class="m">45</span><span class="p">,</span> <span class="n">hjust</span> <span class="o">=</span> <span class="m">1</span><span class="p">))</span></code></pre></figure>
 
-<p><img src="/public/images/analytics/descriptives/unnamed-chunk-21-5.png" style="display: block; margin: auto;" /></p>
+<p><img src="/public/images/analytics/descriptives/unnamed-chunk-8-1.png" style="display: block; margin: auto;" /></p>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="c1"># I can also do the same plot by Gender and by Marital status
-</span><span class="n">ggplot</span><span class="p">(</span><span class="n">supermarket</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">reorder_size</span><span class="p">(</span><span class="sb">`State or Province`</span><span class="p">)))</span> <span class="o">+</span>
+<p>I can also do the same plot by Gender and by Marital status.</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">ggplot</span><span class="p">(</span><span class="n">supermarket</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">reorder_size</span><span class="p">(</span><span class="sb">`State or Province`</span><span class="p">)))</span> <span class="o">+</span>
         <span class="n">geom_bar</span><span class="p">(</span><span class="n">aes</span><span class="p">(</span><span class="n">y</span> <span class="o">=</span> <span class="p">(</span><span class="err">.</span><span class="n">.count..</span><span class="p">)</span><span class="o">/</span><span class="n">sum</span><span class="p">(</span><span class="err">.</span><span class="n">.count..</span><span class="p">)))</span> <span class="o">+</span>
         <span class="n">xlab</span><span class="p">(</span><span class="s2">"State or Province"</span><span class="p">)</span> <span class="o">+</span>
         <span class="n">scale_y_continuous</span><span class="p">(</span><span class="n">labels</span> <span class="o">=</span> <span class="n">scales</span><span class="o">::</span><span class="n">percent</span><span class="p">,</span> <span class="n">name</span> <span class="o">=</span> <span class="s2">"Proportion"</span><span class="p">)</span> <span class="o">+</span>
         <span class="n">facet_grid</span><span class="p">(</span><span class="sb">`Marital Status`</span> <span class="o">~</span> <span class="n">Gender</span><span class="p">)</span> <span class="o">+</span>
         <span class="n">theme</span><span class="p">(</span><span class="n">axis.text.x</span> <span class="o">=</span> <span class="n">element_text</span><span class="p">(</span><span class="n">angle</span> <span class="o">=</span> <span class="m">45</span><span class="p">,</span> <span class="n">hjust</span> <span class="o">=</span> <span class="m">1</span><span class="p">))</span></code></pre></figure>
 
-<p><img src="/public/images/analytics/descriptives/unnamed-chunk-21-6.png" style="display: block; margin: auto;" /></p>
+<p><img src="/public/images/analytics/descriptives/unnamed-chunk-9-1.png" style="display: block; margin: auto;" /></p>
 
 <p><a href="#top">Go to top</a></p>
 

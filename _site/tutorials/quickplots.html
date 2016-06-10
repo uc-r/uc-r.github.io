@@ -6,11 +6,11 @@
     <meta name="viewport" content="width=device-width initial-scale=1" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>Bradley Boehmke</title>
+    <title>R Programming @ UC</title>
     <meta name="description" content="">
 
-    <link rel="stylesheet" href="http://bradleyboehmke.github.io//css/main.css">
-    <link rel="canonical" href="http://bradleyboehmke.github.io/http://bradleyboehmke.github.io//tutorials/quickplots">
+    <link rel="stylesheet" href="http://r-uc.github.io//css/main.css">
+    <link rel="canonical" href="http://r-uc.github.io/http://r-uc.github.io//tutorials/quickplots">
 </head>
 
 
@@ -20,7 +20,7 @@
 
   <div class="wrapper">
 
-    <a class="site-title" href="http://bradleyboehmke.github.io/">Bradley Boehmke</a>
+    <a class="site-title" href="http://r-uc.github.io/">R Programming @ UC</a>
 
     <nav class="site-nav">
       <a href="#" class="menu-icon">
@@ -34,17 +34,25 @@
       <div class="trigger">
         
           
-          <a class="page-link" href="http://bradleyboehmke.github.io//about/">About</a>
+          <a class="page-link" href="http://r-uc.github.io//404">404 - Page not found</a>
           
         
           
+          <a class="page-link" href="http://r-uc.github.io//about/">About</a>
+          
+        
+          
         
           
         
           
         
           
-          <a class="page-link" href="http://bradleyboehmke.github.io//categoryview/">Archive</a>
+          <a class="page-link" href="http://r-uc.github.io//categoryview/">Archive</a>
+          
+        
+          
+        
           
         
           
@@ -76,7 +84,7 @@
           
         
           
-          <a class="page-link" href="http://bradleyboehmke.github.io//cv/">CV</a>
+          <a class="page-link" href="http://r-uc.github.io//cv/">CV</a>
           
         
           
@@ -130,7 +138,7 @@
           
         
           
-          <a class="page-link" href="http://bradleyboehmke.github.io//tutorials/">Tutorials</a>
+          <a class="page-link" href="http://r-uc.github.io//tutorials/">Tutorials</a>
           
         
           
@@ -182,7 +190,7 @@
           
         
           
-          <a class="page-link" href="http://bradleyboehmke.github.io//tutorials/scraping_with_apis_DSCOE.Rmd">Scraping Data with APIs</a>
+          <a class="page-link" href="http://r-uc.github.io//tutorials/scraping_with_apis_DSCOE.Rmd">Scraping Data with APIs</a>
           
         
           
@@ -222,11 +230,23 @@
 
 <p><br /></p>
 
-<p>For quick data exploration, base R plotting functions can provide a quick and straightforward approach to understanding your data. These functions are installed by default with R and do not require additional visualization packages to be installed. This tutorial shows how to use these base functions for visualizations and I’ll use data sets that come with R.</p>
+<p>For quick data exploration, base R plotting functions can provide an expeditious and straightforward approach to understanding your data. These functions are installed by default in base R and do not require additional visualization packages to be installed. This straightforward tutorial should teach you the basics, and give you a good idea of what you want to do next.</p>
 
 <p>In addition, I’ll show how to make similar graphics with the <code class="highlighter-rouge">qplot()</code> function in <code class="highlighter-rouge">ggplot2</code>, which has a syntax similar to the base graphics functions. For each <code class="highlighter-rouge">qplot()</code> graph, there is also an equivalent using the more powerful <code class="highlighter-rouge">ggplot()</code> function which I illustrate in later visualization tutorials. This will, hopefully, help you transition to using <code class="highlighter-rouge">ggplot2</code> when you want to make more sophisticated graphics.</p>
 
+<p><br /></p>
+
+<center>
+<img src="/public/images/visual/quickplots/quickplots.png" style="display: block; margin: auto;" />
+</center>
+
+<p><br /></p>
+
+<h2 id="tldr">tl;dr</h2>
+<p>Don’t have the time to scroll through the full tutorial?  Skip directly to the section of interest:</p>
+
 <ul>
+  <li><a href="#replication">Replication requirements</a></li>
   <li><a href="#scatter">Scatter plot</a></li>
   <li><a href="#line">Line chart</a></li>
   <li><a href="#bar">Bar chart</a></li>
@@ -237,22 +257,38 @@
 
 <p><br /></p>
 
+<h2 id="replication">Replication Requirements</h2>
+<p>To illustrate these quick plots I’ll use several built in data sets that come with base R. R has 104 built in data sets that can be viewed with <code class="highlighter-rouge">data()</code>. The ones I’ll use below include <code class="highlighter-rouge">mtcars</code>, <code class="highlighter-rouge">pressure</code>, <code class="highlighter-rouge">BOD</code>, and <code class="highlighter-rouge">faithful</code>. You can type these in your R console at anytime to see the data.  Also, in addition to base R plotting functions I illustrate how to use the <code class="highlighter-rouge">qplot()</code> function from the <code class="highlighter-rouge">ggplot2</code> package.</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="c1"># data sets used
+</span><span class="n">mtcars</span>
+<span class="n">pressure</span>
+<span class="n">BOD</span>
+<span class="n">faithful</span>
+
+<span class="c1"># package used
+</span><span class="n">library</span><span class="p">(</span><span class="n">ggplot2</span><span class="p">)</span></code></pre></figure>
+
+<p>☛ <em>See <a href="http://bradleyboehmke.github.io/tutorials/basics/packages/">Working with packages</a> for more information on installing, loading, and getting help with packages.</em></p>
+
+<p><br /></p>
+
 <h2 id="scatter">Scatter Plot</h2>
 <p>To make a scatter plot use <code class="highlighter-rouge">plot()</code> with a vector of x values and a vector of y values:</p>
 
 <figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="c1"># base R
 </span><span class="n">plot</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">mtcars</span><span class="o">$</span><span class="n">wt</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">mtcars</span><span class="o">$</span><span class="n">mpg</span><span class="p">)</span></code></pre></figure>
 
-<p><img src="/public/images/visual/quickplots/unnamed-chunk-1-1.png" style="display: block; margin: auto;" /></p>
+<p><img src="/public/images/visual/quickplots/unnamed-chunk-4-1.png" style="display: block; margin: auto;" /></p>
 
 <p>You can get a similar result using <code class="highlighter-rouge">qplot()</code>:</p>
 
 <figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">library</span><span class="p">(</span><span class="n">ggplot2</span><span class="p">)</span>
 <span class="n">qplot</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">mtcars</span><span class="o">$</span><span class="n">wt</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">mtcars</span><span class="o">$</span><span class="n">mpg</span><span class="p">)</span></code></pre></figure>
 
-<p><img src="/public/images/visual/quickplots/unnamed-chunk-2-1.png" style="display: block; margin: auto;" /></p>
+<p><img src="/public/images/visual/quickplots/unnamed-chunk-5-1.png" style="display: block; margin: auto;" /></p>
 
-<p>If the two vectors are already in the same data frame, note that the following functions produce the same outpt:</p>
+<p>If the two vectors are already in the same data frame, note that the following functions produce the same output:</p>
 
 <figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="c1"># specifying only x and y vectors
 </span><span class="n">qplot</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">mtcars</span><span class="o">$</span><span class="n">wt</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">mtcars</span><span class="o">$</span><span class="n">mpg</span><span class="p">)</span>
@@ -264,16 +300,29 @@
 </span><span class="n">ggplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">mtcars</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">wt</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">mpg</span><span class="p">))</span> <span class="o">+</span>
         <span class="n">geom_point</span><span class="p">()</span></code></pre></figure>
 
+<p>You can also get a scatter plot matrix to observe several plots at once.  In this case you just pass the multiple variables (columns) in the data frame to <code class="highlighter-rouge">plot()</code> and a scatter plot matrix will be returned. The <code class="highlighter-rouge">qplot()</code> function does not have this same functionality; however, you can do more advanced plotting matrices by using <code class="highlighter-rouge">ggplot()</code>’s facetting arguments.  This will be covered in later tutorials.</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="c1"># passing multiple variables to plot
+</span><span class="n">plot</span><span class="p">(</span><span class="n">mtcars</span><span class="p">[,</span> <span class="m">4</span><span class="o">:</span><span class="m">6</span><span class="p">])</span></code></pre></figure>
+
+<p><img src="/public/images/visual/quickplots/unnamed-chunk-8-1.png" style="display: block; margin: auto;" /></p>
+
 <p><a href="#top">Go to top</a></p>
 
 <p><br /></p>
 
 <h2 id="line">Line Chart</h2>
-<p>To make a line graph using <code class="highlighter-rouge">plot()</code>, pass it the vector of x and y values, and specify type =” l” for <em>line</em>:</p>
+<p>By default the <code class="highlighter-rouge">plot()</code> function produces a scatter plot with dots. To make a line graph, pass it the vector of x and y values, and specify <code class="highlighter-rouge">type = "l"</code> for <em>line</em>:</p>
 
 <figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">plot</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">pressure</span><span class="o">$</span><span class="n">temperature</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">pressure</span><span class="o">$</span><span class="n">pressure</span><span class="p">,</span> <span class="n">type</span> <span class="o">=</span> <span class="s2">"l"</span><span class="p">)</span></code></pre></figure>
 
-<p><img src="/public/images/visual/quickplots/unnamed-chunk-4-1.png" style="display: block; margin: auto;" /></p>
+<p><img src="/public/images/visual/quickplots/unnamed-chunk-10-1.png" style="display: block; margin: auto;" /></p>
+
+<p>Similarly, you can pass it the argument <code class="highlighter-rouge">type = "s"</code> to produce a stepped line chart:</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">plot</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">pressure</span><span class="o">$</span><span class="n">temperature</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">pressure</span><span class="o">$</span><span class="n">pressure</span><span class="p">,</span> <span class="n">type</span> <span class="o">=</span> <span class="s2">"s"</span><span class="p">)</span></code></pre></figure>
+
+<p><img src="/public/images/visual/quickplots/unnamed-chunk-12-1.png" style="display: block; margin: auto;" /></p>
 
 <p>To include multiple lines or to plot the points, first call <code class="highlighter-rouge">plot()</code> for the first line, then add additional lines and points with <code class="highlighter-rouge">lines()</code> and <code class="highlighter-rouge">points()</code> respectively:</p>
 
@@ -289,19 +338,24 @@
 <span class="c1"># add points to second line
 </span><span class="n">points</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">pressure</span><span class="o">$</span><span class="n">temperature</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">pressure</span><span class="o">$</span><span class="n">pressure</span><span class="o">/</span><span class="m">2</span><span class="p">,</span> <span class="n">col</span> <span class="o">=</span> <span class="s2">"red"</span><span class="p">)</span></code></pre></figure>
 
-<p><img src="/public/images/visual/quickplots/unnamed-chunk-5-1.png" style="display: block; margin: auto;" /></p>
+<p><img src="/public/images/visual/quickplots/unnamed-chunk-14-1.png" style="display: block; margin: auto;" /></p>
 
 <p>We can use <code class="highlighter-rouge">qplot()</code> to get similar results by using the <code class="highlighter-rouge">geom</code> argument. <code class="highlighter-rouge">geom</code> means adding a geometric object (line, points, etc.) to visually represent the data and in this case we want to represent the data using a line and then also points:</p>
 
 <figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="c1"># using qplot for a line chart
 </span><span class="n">qplot</span><span class="p">(</span><span class="n">temperature</span><span class="p">,</span> <span class="n">pressure</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">pressure</span><span class="p">,</span> <span class="n">geom</span> <span class="o">=</span> <span class="s2">"line"</span><span class="p">)</span></code></pre></figure>
 
-<p><img src="/public/images/visual/quickplots/unnamed-chunk-6-1.png" style="display: block; margin: auto;" /></p>
+<p><img src="/public/images/visual/quickplots/unnamed-chunk-15-1.png" style="display: block; margin: auto;" /></p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="c1"># using qplot for a stepped line chart
+</span><span class="n">qplot</span><span class="p">(</span><span class="n">temperature</span><span class="p">,</span> <span class="n">pressure</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">pressure</span><span class="p">,</span> <span class="n">geom</span> <span class="o">=</span> <span class="s2">"step"</span><span class="p">)</span></code></pre></figure>
+
+<p><img src="/public/images/visual/quickplots/unnamed-chunk-15-2.png" style="display: block; margin: auto;" /></p>
 
 <figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="c1"># using qplot for a line chart with points
 </span><span class="n">qplot</span><span class="p">(</span><span class="n">temperature</span><span class="p">,</span> <span class="n">pressure</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">pressure</span><span class="p">,</span> <span class="n">geom</span> <span class="o">=</span> <span class="n">c</span><span class="p">(</span><span class="s2">"line"</span><span class="p">,</span> <span class="s2">"point"</span><span class="p">))</span></code></pre></figure>
 
-<p><img src="/public/images/visual/quickplots/unnamed-chunk-6-2.png" style="display: block; margin: auto;" /></p>
+<p><img src="/public/images/visual/quickplots/unnamed-chunk-15-3.png" style="display: block; margin: auto;" /></p>
 
 <p>We can get the same output using the full <code class="highlighter-rouge">ggplot()</code> syntax:</p>
 
@@ -309,6 +363,10 @@
 </span><span class="n">ggplot</span><span class="p">(</span><span class="n">pressure</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">temperature</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">pressure</span><span class="p">))</span> <span class="o">+</span>
         <span class="n">geom_line</span><span class="p">()</span>
 
+<span class="c1"># step chart
+</span><span class="n">ggplot</span><span class="p">(</span><span class="n">pressure</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">temperature</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">pressure</span><span class="p">))</span> <span class="o">+</span>
+        <span class="n">geom_step</span><span class="p">()</span>
+        
 <span class="c1"># line chart with points
 </span><span class="n">ggplot</span><span class="p">(</span><span class="n">pressure</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">temperature</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">pressure</span><span class="p">))</span> <span class="o">+</span>
         <span class="n">geom_line</span><span class="p">()</span> <span class="o">+</span>
@@ -323,7 +381,7 @@
 
 <figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">barplot</span><span class="p">(</span><span class="n">height</span> <span class="o">=</span> <span class="n">BOD</span><span class="o">$</span><span class="n">demand</span><span class="p">,</span> <span class="n">names.arg</span> <span class="o">=</span> <span class="n">BOD</span><span class="o">$</span><span class="n">Time</span><span class="p">)</span></code></pre></figure>
 
-<p><img src="/public/images/visual/quickplots/unnamed-chunk-8-1.png" style="display: block; margin: auto;" /></p>
+<p><img src="/public/images/visual/quickplots/unnamed-chunk-18-1.png" style="display: block; margin: auto;" /></p>
 
 <p>When you want the bar chart to represent the <em>count</em> of cases in each category then you need to generate the count of unique values. For instance, in the <code class="highlighter-rouge">mtcars</code> dataset we may want to look at the cylinder variable and understand the distribtion. To do this we can use the <code class="highlighter-rouge">table()</code> function which will provide us the count of each unique value in this variable.  We can then pass this to the <code class="highlighter-rouge">barplot()</code> function to plot the counts of cylinders:</p>
 
@@ -340,19 +398,23 @@
 <span class="c1"># plot the count of 4, 6 &amp; 8 cylinder cars in the dataset
 </span><span class="n">barplot</span><span class="p">(</span><span class="n">table</span><span class="p">(</span><span class="n">mtcars</span><span class="o">$</span><span class="n">cyl</span><span class="p">))</span></code></pre></figure>
 
-<p><img src="/public/images/visual/quickplots/unnamed-chunk-9-1.png" style="display: block; margin: auto;" /></p>
+<p><img src="/public/images/visual/quickplots/unnamed-chunk-20-1.png" style="display: block; margin: auto;" /></p>
 
 <p>To get the same result using <code class="highlighter-rouge">qplot()</code> we use <code class="highlighter-rouge">geom = "bar"</code>.</p>
 
 <figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="c1"># x defaults to a continuous variable
 </span><span class="n">qplot</span><span class="p">(</span><span class="n">mtcars</span><span class="o">$</span><span class="n">cyl</span><span class="p">,</span> <span class="n">geom</span> <span class="o">=</span> <span class="s2">"bar"</span><span class="p">)</span></code></pre></figure>
 
-<p><img src="/public/images/visual/quickplots/unnamed-chunk-10-1.png" style="display: block; margin: auto;" /></p>
+<p><img src="/public/images/visual/quickplots/unnamed-chunk-21-1.png" style="display: block; margin: auto;" /></p>
+
+<p>Note how the x axis defaults to a continuous variable in the plot above. Since bar charts are designed for categorical variables we want our x variable to a factor variable so that our x axis appropriately represents the data.</p>
 
 <figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="c1"># use factor(x) to make it discrete
 </span><span class="n">qplot</span><span class="p">(</span><span class="n">factor</span><span class="p">(</span><span class="n">mtcars</span><span class="o">$</span><span class="n">cyl</span><span class="p">),</span> <span class="n">geom</span> <span class="o">=</span> <span class="s2">"bar"</span><span class="p">)</span></code></pre></figure>
 
-<p><img src="/public/images/visual/quickplots/unnamed-chunk-10-2.png" style="display: block; margin: auto;" /></p>
+<p><img src="/public/images/visual/quickplots/unnamed-chunk-22-1.png" style="display: block; margin: auto;" /></p>
+
+<p>☛ <em>See the <a href="http://bradleyboehmke.github.io/tutorials/factors">Factors</a> tutorial for more information on categorical variables (aka factors) in R.</em></p>
 
 <p><a href="#top">Go to top</a></p>
 
@@ -364,55 +426,64 @@
 <figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="c1"># default bins
 </span><span class="n">hist</span><span class="p">(</span><span class="n">mtcars</span><span class="o">$</span><span class="n">mpg</span><span class="p">)</span></code></pre></figure>
 
-<p><img src="/public/images/visual/quickplots/unnamed-chunk-11-1.png" style="display: block; margin: auto;" /></p>
+<p><img src="/public/images/visual/quickplots/unnamed-chunk-24-1.png" style="display: block; margin: auto;" /></p>
 
 <figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="c1"># adjust binning
 </span><span class="n">hist</span><span class="p">(</span><span class="n">mtcars</span><span class="o">$</span><span class="n">mpg</span><span class="p">,</span> <span class="n">breaks</span> <span class="o">=</span> <span class="m">10</span><span class="p">)</span></code></pre></figure>
 
-<p><img src="/public/images/visual/quickplots/unnamed-chunk-11-2.png" style="display: block; margin: auto;" /></p>
+<p><img src="/public/images/visual/quickplots/unnamed-chunk-26-1.png" style="display: block; margin: auto;" /></p>
 
 <p>To get the same result using <code class="highlighter-rouge">qplot()</code> we use don’t need to specify a <code class="highlighter-rouge">geom</code> argument as when you feed <code class="highlighter-rouge">qplot()</code> with a single variable it will default to using a histogram. You can also control the binning by using the <code class="highlighter-rouge">binwidth</code> argument. Although not necessary I add the <code class="highlighter-rouge">color</code> argument to outline the bars.</p>
 
 <figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">qplot</span><span class="p">(</span><span class="n">mtcars</span><span class="o">$</span><span class="n">mpg</span><span class="p">,</span> <span class="n">binwidth</span> <span class="o">=</span> <span class="m">3</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="n">I</span><span class="p">(</span><span class="s2">"white"</span><span class="p">))</span></code></pre></figure>
 
-<p><img src="/public/images/visual/quickplots/unnamed-chunk-12-1.png" style="display: block; margin: auto;" /></p>
+<p><img src="/public/images/visual/quickplots/unnamed-chunk-27-1.png" style="display: block; margin: auto;" /></p>
 
 <p><a href="#top">Go to top</a></p>
 
 <p><br /></p>
 
 <h2 id="box">Box Plot</h2>
-<p>To make a box-whisker plot (aka box plot), use plot() and pass it a <u>factor</u> of x values and a vector of y values. When x is a factor (as opposed to a numeric vector), it will automatically create a box plot:</p>
+<p>To make a box-whisker plot (aka box plot), use plot() and pass it x values that are categorical (aka factor) and a vector of y values. However, you need to ensure that the x values are factors otherwise you will get a scatter plot by default:</p>
 
 <figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="c1"># if x is not a factor it will produce a scatter plot
 </span><span class="n">plot</span><span class="p">(</span><span class="n">mtcars</span><span class="o">$</span><span class="n">cyl</span><span class="p">,</span> <span class="n">mtcars</span><span class="o">$</span><span class="n">mpg</span><span class="p">)</span></code></pre></figure>
 
-<p><img src="/public/images/visual/quickplots/unnamed-chunk-13-1.png" style="display: block; margin: auto;" /></p>
+<p><img src="/public/images/visual/quickplots/unnamed-chunk-29-1.png" style="display: block; margin: auto;" /></p>
+
+<p>When x is a <a href="http://bradleyboehmke.github.io/tutorials/factors">factor</a> (as opposed to a numeric vector), it will automatically create a box plot:</p>
 
 <figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="c1"># if x is a factor it will produce a box plot
 </span><span class="n">plot</span><span class="p">(</span><span class="n">factor</span><span class="p">(</span><span class="n">mtcars</span><span class="o">$</span><span class="n">cyl</span><span class="p">),</span> <span class="n">mtcars</span><span class="o">$</span><span class="n">mpg</span><span class="p">)</span></code></pre></figure>
 
-<p><img src="/public/images/visual/quickplots/unnamed-chunk-13-2.png" style="display: block; margin: auto;" /></p>
+<p><img src="/public/images/visual/quickplots/unnamed-chunk-31-1.png" style="display: block; margin: auto;" /></p>
 
-<p>Alternatively, we can use the <code class="highlighter-rouge">boxplot()</code> function to get the same results. In this case we use the “~” to state that we want to assess <em>y</em> by <em>x</em>.</p>
+<p>Alternatively, we can use the <code class="highlighter-rouge">boxplot()</code> function to create a box plot.  We can create a single box plot with the following:</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="c1"># boxplot of mpg
+</span><span class="n">boxplot</span><span class="p">(</span><span class="n">mtcars</span><span class="o">$</span><span class="n">mpg</span><span class="p">)</span></code></pre></figure>
+
+<p><img src="/public/images/visual/quickplots/unnamed-chunk-33-1.png" style="display: block; margin: auto;" /></p>
+
+<p>To get a box plot that displays the distribution of mpg values across the different cylinders we use the “~” to state that we want to assess <em>y</em> by <em>x</em>:</p>
 
 <figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="c1"># boxplot of mpg by cyl
 </span><span class="n">boxplot</span><span class="p">(</span><span class="n">mpg</span> <span class="o">~</span> <span class="n">cyl</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">mtcars</span><span class="p">)</span></code></pre></figure>
 
-<p><img src="/public/images/visual/quickplots/unnamed-chunk-14-1.png" style="display: block; margin: auto;" /></p>
+<p><img src="/public/images/visual/quickplots/unnamed-chunk-35-1.png" style="display: block; margin: auto;" /></p>
 
-<p>We can also assess interactions. In this case we look at the distribution of mpg by cylinders and V/S. Note on the y axis is mpg and on the x axis are the cylinder~V/S interaction. So the x-axis values of 4.0, 6.0, 8.0, 4.1, etc. represent 4 cylinder without V/S, 6 cylinder without V/S, 8 cylinder without V/S, 4 cylinder with V/S, etc.</p>
+<p>We can also assess interactions. In this case we look at the distribution of mpg by cylinders and transmission. Note on the y axis is mpg and on the x axis are the cylinder ~ transmission interaction. Note that the transmission variable is coded as 0 for automatic and 1 for manual. So the x-axis values of 4.0, 6.0, 8.0, 4.1, etc. represent 4 cylinder with automatic transmission, 6 cylinder with automatic transmission, 8 cylinder with automatic transmission, 4 cylinder with manual transmission, etc.</p>
 
 <figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="c1"># boxplot of mpg based on interaction of two variables
 </span><span class="n">boxplot</span><span class="p">(</span><span class="n">mpg</span> <span class="o">~</span> <span class="n">cyl</span> <span class="o">+</span> <span class="n">am</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">mtcars</span><span class="p">)</span></code></pre></figure>
 
-<p><img src="/public/images/visual/quickplots/unnamed-chunk-15-1.png" style="display: block; margin: auto;" /></p>
+<p><img src="/public/images/visual/quickplots/unnamed-chunk-37-1.png" style="display: block; margin: auto;" /></p>
 
 <p>Similar results are attained with <code class="highlighter-rouge">qplot()</code> using <code class="highlighter-rouge">geom = "boxplot"</code>:</p>
 
 <figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">qplot</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">factor</span><span class="p">(</span><span class="n">cyl</span><span class="p">),</span> <span class="n">y</span> <span class="o">=</span> <span class="n">mpg</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">mtcars</span><span class="p">,</span> <span class="n">geom</span> <span class="o">=</span> <span class="s2">"boxplot"</span><span class="p">)</span></code></pre></figure>
 
-<p><img src="/public/images/visual/quickplots/unnamed-chunk-16-1.png" style="display: block; margin: auto;" /></p>
+<p><img src="/public/images/visual/quickplots/unnamed-chunk-38-1.png" style="display: block; margin: auto;" /></p>
 
 <p><a href="#top">Go to top</a></p>
 

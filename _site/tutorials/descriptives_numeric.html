@@ -6,11 +6,11 @@
     <meta name="viewport" content="width=device-width initial-scale=1" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>Bradley Boehmke</title>
+    <title>R Programming @ UC</title>
     <meta name="description" content="">
 
-    <link rel="stylesheet" href="http://bradleyboehmke.github.io//css/main.css">
-    <link rel="canonical" href="http://bradleyboehmke.github.io/http://bradleyboehmke.github.io//tutorials/descriptives_numeric">
+    <link rel="stylesheet" href="http://r-uc.github.io//css/main.css">
+    <link rel="canonical" href="http://r-uc.github.io/http://r-uc.github.io//tutorials/descriptives_numeric">
 </head>
 
 
@@ -20,7 +20,7 @@
 
   <div class="wrapper">
 
-    <a class="site-title" href="http://bradleyboehmke.github.io/">Bradley Boehmke</a>
+    <a class="site-title" href="http://r-uc.github.io/">R Programming @ UC</a>
 
     <nav class="site-nav">
       <a href="#" class="menu-icon">
@@ -34,17 +34,25 @@
       <div class="trigger">
         
           
-          <a class="page-link" href="http://bradleyboehmke.github.io//about/">About</a>
+          <a class="page-link" href="http://r-uc.github.io//404">404 - Page not found</a>
           
         
           
+          <a class="page-link" href="http://r-uc.github.io//about/">About</a>
+          
+        
+          
         
           
         
           
         
           
-          <a class="page-link" href="http://bradleyboehmke.github.io//categoryview/">Archive</a>
+          <a class="page-link" href="http://r-uc.github.io//categoryview/">Archive</a>
+          
+        
+          
+        
           
         
           
@@ -76,7 +84,7 @@
           
         
           
-          <a class="page-link" href="http://bradleyboehmke.github.io//cv/">CV</a>
+          <a class="page-link" href="http://r-uc.github.io//cv/">CV</a>
           
         
           
@@ -130,7 +138,7 @@
           
         
           
-          <a class="page-link" href="http://bradleyboehmke.github.io//tutorials/">Tutorials</a>
+          <a class="page-link" href="http://r-uc.github.io//tutorials/">Tutorials</a>
           
         
           
@@ -182,7 +190,7 @@
           
         
           
-          <a class="page-link" href="http://bradleyboehmke.github.io//tutorials/scraping_with_apis_DSCOE.Rmd">Scraping Data with APIs</a>
+          <a class="page-link" href="http://r-uc.github.io//tutorials/scraping_with_apis_DSCOE.Rmd">Scraping Data with APIs</a>
           
         
           
@@ -218,21 +226,30 @@
         <div class="post">
 
   <article class="post-content">
-    <p><a href="index">R Vocab Topics</a> » <a href="analytics">Analytics</a> » <a href="exploratory">Exploratory data analysis</a> » <a href="descriptives">Descriptive statistics</a> » Numerical data</p>
+    <p><a href="index">R Vocab Topics</a> » <a href="analytics">Analytics</a> » Numerical data descriptive statistics</p>
 
 <p><br /></p>
 
-<p>When summarizing numerical values, the key features we are initially interested in understanding include:</p>
+<p><img src="/public/images/analytics/descriptives/descriptive_stats_numeric_icon2.png" style="float:right; margin: 2px 0px 0px 10px; width: 30%; height: 30%;" />
+Descriptive statistics are the first pieces of information used to understand and represent a dataset. There goal, in essence, is to describe the main features of numerical and categorical information with simple summaries.  These summaries can be presented with a single numeric measure, using summary tables, or via graphical representation. Here, I illustrate the most common forms of descriptive statistics for numerical data but keep in mind there are numerous ways to describe and illustrate key features of data.</p>
 
-<ol>
+<p><br /></p>
+
+<h2 id="tldr">tl;dr</h2>
+<p>This tutorial covers the key features we are initially interested in understanding for numerical data, to include:</p>
+
+<ul>
   <li><a href="#central">Central Tendency:</a> What are the most typical values?</li>
   <li><a href="#variability">Variability:</a> How do the values vary?</li>
   <li><a href="#range">Shape:</a> Are the values symmetrically or assymetrically distributed?</li>
   <li><a href="#shape">Outliers:</a> Are there values that represent abnormalities in the data?</li>
   <li><a href="#visualization">Visualization:</a> We should understand these features of the data through statistics <em>and</em> visualization</li>
-</ol>
+</ul>
 
-<p>To illustrate ways to compute different summary statistics and visualize the data to provide understanding of these key features, I’ll demonstrate using this <a href="https://github.com/bradleyboehmke/bradleyboehmke.github.io/blob/master/public/data/Baseball%20Salaries%202011.xlsx">data</a> which contains data on 843 MLB players in the 2011 season:</p>
+<p><br /></p>
+
+<h2 id="replication-requirements">Replication Requirements</h2>
+<p>To illustrate ways to compute different summary statistics, and to visualize the data to provide understanding of these key features, I’ll demonstrate using this <a href="https://github.com/bradleyboehmke/bradleyboehmke.github.io/blob/master/public/data/Baseball%20Salaries%202011.xlsx">data</a> which contains data on 843 MLB players in the 2011 season:</p>
 
 <figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="c1">##            Player                Team Position   Salary
 ## 1    A.J. Burnett    New York Yankees  Pitcher 16500000
@@ -242,9 +259,17 @@
 ## 5      Aaron Crow  Kansas City Royals  Pitcher  1400000
 </span><span class="err">##</span> <span class="m">6</span>    <span class="n">Aaron</span> <span class="n">Harang</span>    <span class="n">San</span> <span class="n">Diego</span> <span class="n">Padres</span>  <span class="n">Pitcher</span>  <span class="m">3500000</span></code></pre></figure>
 
+<p>In addition, the packages we will leverage include the following:</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">library</span><span class="p">(</span><span class="n">moments</span><span class="p">)</span>        <span class="c1"># for calculating the skew and kurtosis
+</span><span class="n">library</span><span class="p">(</span><span class="n">outliers</span><span class="p">)</span>       <span class="c1"># identifying and extracting outliers
+</span><span class="n">library</span><span class="p">(</span><span class="n">ggplot2</span><span class="p">)</span>        <span class="err">#</span> <span class="k">for</span> <span class="n">generating</span> <span class="n">visualizations</span></code></pre></figure>
+
+<p>☛ <em>See <a href="http://bradleyboehmke.github.io/tutorials/basics/packages/">Working with packages</a> for more information on installing, loading, and getting help with packages.</em></p>
+
 <p><br /></p>
 
-<h3 id="central">Central Tendency</h3>
+<h2 id="central">Central Tendency</h2>
 <p>There are three common measures of central tendency, all of which try to answer the basic question of which value is the most “typical.” These are the mean (average of all observations), median (middle observation), and mode (appears most often). Each of these measures can be calculated for an individual variable or across all variables in a particular data frame.</p>
 
 <figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">mean</span><span class="p">(</span><span class="n">salaries</span><span class="o">$</span><span class="n">Salary</span><span class="p">,</span> <span class="n">na.rm</span> <span class="o">=</span> <span class="n">TRUE</span><span class="p">)</span>
@@ -266,10 +291,10 @@
 
 <p><br /></p>
 
-<h3 id="variability">Variability</h3>
+<h2 id="variability">Variability</h2>
 <p>The central tendencies give you a sense of the most typical values (salaries in this case) but do not provide you with information on the variability of the values. Variability can be summarized in different ways, each providing you unique understanding of how the values are spread out.</p>
 
-<h4 id="range">Range</h4>
+<h3 id="range">Range</h3>
 <p>The range is a fairly crude measure of variability, defining the maximum and minimum values and the difference thereof.  We can compute range summaries with the following:</p>
 
 <figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="c1"># get the minimum value
@@ -288,7 +313,7 @@
 </span><span class="n">max</span><span class="p">(</span><span class="n">salaries</span><span class="o">$</span><span class="n">Salary</span><span class="p">,</span> <span class="n">na.rm</span> <span class="o">=</span> <span class="n">FALSE</span><span class="p">)</span> <span class="o">-</span> <span class="n">min</span><span class="p">(</span><span class="n">salaries</span><span class="o">$</span><span class="n">Salary</span><span class="p">,</span> <span class="n">na.rm</span> <span class="o">=</span> <span class="n">FALSE</span><span class="p">)</span>
 <span class="err">##</span> <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">31586000</span></code></pre></figure>
 
-<h4 id="percentiles">Percentiles</h4>
+<h3 id="percentiles">Percentiles</h3>
 <p>Given a certain percentage such as 25%, what is the salary value such that this percentage of salaries is below it? This type of question leads to <u>percentiles</u> and <u>quartiles</u>. Specifically, for any percentage <em>p</em>, the <em>p</em>th percentile is the value such that a percentage <em>p</em> of all values are less than it. Similarly, the first, second, and third quartiles are the percentiles corresponding to <em>p=25%</em>, <em>p=50%</em>, and <em>p=75%</em>. These three values divide the data into four groups, each with (approximately) a quarter of all observations. Note that the second quartile is equal to the median by definition. These measures are easily computed in R:</p>
 
 <figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="c1"># fivenum() function provides min, 25%, 50% (median), 75%, and max
@@ -318,7 +343,7 @@
 <span class="c1">##     Min.  1st Qu.   Median     Mean  3rd Qu.     Max. 
 </span><span class="err">##</span>   <span class="m">414000</span>   <span class="m">430300</span>  <span class="m">1175000</span>  <span class="m">3305000</span>  <span class="m">4306000</span> <span class="m">32000000</span></code></pre></figure>
 
-<h4 id="variance">Variance</h4>
+<h3 id="variance">Variance</h3>
 <p>Although the range provides a crude measure of variability and percentiles/quartiles provide an understanding of divisions of the data, the most common measures to summarize variability are variance and its derivatives (standard deviation and mean/median absolute deviation). We can compute each of these as follows:</p>
 
 <figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="c1"># variance
@@ -342,7 +367,7 @@
 
 <p><br /></p>
 
-<h3 id="shape">Shape</h3>
+<h2 id="shape">Shape</h2>
 <p>Two additional measures of a distribution that you will hear occasionally include <u>skewness</u> and <u>kurtosis</u>. Skewness is a measure of <u>symmetry</u> for a distribution. Negative values represent a <em>left-skewed</em> distribution where there are more extreme values to the left causing the mean to be less than the median. Positive values represent a <em>right-skewed</em> distribution where there are more extreme values to the right causing the mean to be more than the median.</p>
 
 <p>Kurtosis is a measure of <u>peakedness</u> for a distribution. Negative values indicate a flat (platykurtic) distribution, positive values indicate a peaked (leptokurtic) distribution, and a near-zero value indicates a normal (mesokurtic) distribution.</p>
@@ -360,7 +385,7 @@
 
 <p><br /></p>
 
-<h3 id="outliers">Outliers</h3>
+<h2 id="outliers">Outliers</h2>
 <p>Outliers in data can distort predictions and affect their accuracy. Consequently, its important to understand if outliers are present and, if so, which observations are considered outliers.  The <a href=""><code class="highlighter-rouge">outliers</code></a> package provides a number of useful functions to systematically extract outliers. The functions of most use are <code class="highlighter-rouge">outlier()</code> and <code class="highlighter-rouge">scores()</code>.  The <code class="highlighter-rouge">outlier()</code> function gets the most extreme observation from the mean.  The <code class="highlighter-rouge">scores()</code> function computes the normalized (<em>z</em>, <em>t</em>, <em>chisq</em>, etc.) score which you can use to find observation(s) that lie beyond a given value.</p>
 
 <figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">library</span><span class="p">(</span><span class="n">outliers</span><span class="p">)</span>
@@ -396,14 +421,14 @@
 
 <p><br /></p>
 
-<h3 id="visualization">Visualization</h3>
+<h2 id="visualization">Visualization</h2>
 <p>There are many graphical representations to illustrate these summary measures for numerical variables, but there are a couple fundamental ones that nearly everyone agrees needs to be assessed - histograms and boxplots.</p>
 
-<p>Histograms are the most common type of chart for showing the distribution of a numerical variable. Histograms display a 1D distribution by dividing into bins and counting the number of observations in each bin.  Whereas the previously discussed summary measures - mean, median, standard deviation, skewness - describes only one aspect of a numerical variable, a histogram provides the complete picture by illustrating the center of the distribution, the variability, skewness, and other aspects in one convenient chart. We can quickly visualize the histogram for our MLB salaries using base R graphics:</p>
+<p><a href="http://bradleyboehmke.github.io/tutorials/histograms">Histograms</a> are the most common type of chart for showing the distribution of a numerical variable. Histograms display a 1D distribution by dividing into bins and counting the number of observations in each bin.  Whereas the previously discussed summary measures - mean, median, standard deviation, skewness - describes only one aspect of a numerical variable, a histogram provides the complete picture by illustrating the center of the distribution, the variability, skewness, and other aspects in one convenient chart. We can quickly visualize the histogram for our MLB salaries using base R graphics:</p>
 
 <figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">hist</span><span class="p">(</span><span class="n">salaries</span><span class="o">$</span><span class="n">Salary</span><span class="p">)</span></code></pre></figure>
 
-<p><img src="/public/images/analytics/descriptives/unnamed-chunk-10-1.png" style="display: block; margin: auto;" /></p>
+<p><img src="/public/images/analytics/descriptives/unnamed-chunk-11-1 2.png" style="display: block; margin: auto;" /></p>
 
 <p>However, we can use <code class="highlighter-rouge">ggplot</code> to customize our graphic and create a more presentable product:</p>
 
@@ -417,7 +442,7 @@
 </span>        <span class="n">annotate</span><span class="p">(</span><span class="s2">"text"</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="n">mean</span><span class="p">(</span><span class="n">salaries</span><span class="o">$</span><span class="n">Salary</span><span class="p">)</span> <span class="o">*</span> <span class="m">2</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="m">155</span><span class="p">,</span>
                  <span class="n">label</span> <span class="o">=</span> <span class="n">paste0</span><span class="p">(</span><span class="s2">"Avg: $"</span><span class="p">,</span> <span class="n">round</span><span class="p">(</span><span class="n">mean</span><span class="p">(</span><span class="n">salaries</span><span class="o">$</span><span class="n">Salary</span><span class="p">)</span><span class="o">/</span><span class="m">1000000</span><span class="p">,</span> <span class="m">1</span><span class="p">),</span><span class="s2">"M"</span><span class="p">))</span></code></pre></figure>
 
-<p><img src="/public/images/analytics/descriptives/unnamed-chunk-11-1.png" style="display: block; margin: auto;" /></p>
+<p><img src="/public/images/analytics/descriptives/unnamed-chunk-13-1 2.png" style="display: block; margin: auto;" /></p>
 
 <p>An alternative, and highly effective way to visualize data is with <code class="highlighter-rouge">dotplots</code>. In a dotplot a dot is placed at the appropriate value on the x axis for each case with multiples cases of a particular value resulting in dots stacking up. The dotplot below helps to illustrate that there is one unique player with a salary greater than $30M (Alex Rodriguez) and only six players with salaries greater than $20M.</p>
 
@@ -425,7 +450,7 @@
         <span class="n">geom_dotplot</span><span class="p">()</span> <span class="o">+</span>
         <span class="n">scale_x_continuous</span><span class="p">(</span><span class="n">labels</span> <span class="o">=</span> <span class="n">scales</span><span class="o">::</span><span class="n">dollar</span><span class="p">)</span></code></pre></figure>
 
-<p><img src="/public/images/analytics/descriptives/unnamed-chunk-12-1.png" style="display: block; margin: auto;" /></p>
+<p><img src="/public/images/analytics/descriptives/unnamed-chunk-14-1 2.png" style="display: block; margin: auto;" /></p>
 
 <p>Boxplots are an alternative way to illustrate the distribution of a variable and is a concise way to illustrate the standard quantiles, shape, and outliers of data. As the generic diagram indicates, the box itself extends, left to right, from the 1st quartile to the 3rd quartile. This means that it contains the middle half of the data. The line inside the box is positioned at the median. The lines (whiskers) coming out either side of the box extend to 1.5 interquartlie ranges (IQRs) from the quartlies. These generally include most of the data outside the box. More distant values, called outliers, are denoted separately by individual points.</p>
 
@@ -438,7 +463,7 @@
 <figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="c1"># I use a log scale to spread out the data
 </span><span class="n">boxplot</span><span class="p">(</span><span class="n">salaries</span><span class="o">$</span><span class="n">Salary</span><span class="p">,</span> <span class="n">horizontal</span> <span class="o">=</span> <span class="n">TRUE</span><span class="p">,</span> <span class="n">log</span> <span class="o">=</span> <span class="s2">"x"</span><span class="p">)</span></code></pre></figure>
 
-<p><img src="/public/images/analytics/descriptives/unnamed-chunk-13-1.png" style="display: block; margin: auto;" /></p>
+<p><img src="/public/images/analytics/descriptives/unnamed-chunk-16-1.png" style="display: block; margin: auto;" /></p>
 
 <p>As before, we can use <code class="highlighter-rouge">ggplot</code> to refine the boxplot and add additional features such as a point illustrating the mean and also show the actual distribution of observations:</p>
 
@@ -451,7 +476,7 @@
         <span class="n">geom_jitter</span><span class="p">(</span><span class="n">shape</span> <span class="o">=</span> <span class="m">16</span><span class="p">,</span> <span class="n">position</span> <span class="o">=</span> <span class="n">position_jitter</span><span class="p">(</span><span class="m">0.4</span><span class="p">),</span> <span class="n">alpha</span> <span class="o">=</span> <span class="m">.3</span><span class="p">)</span> <span class="o">+</span>
         <span class="n">stat_summary</span><span class="p">(</span><span class="n">fun.y</span> <span class="o">=</span> <span class="n">mean</span><span class="p">,</span> <span class="n">geom</span> <span class="o">=</span> <span class="s2">"point"</span><span class="p">,</span> <span class="n">shape</span> <span class="o">=</span> <span class="m">23</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="m">4</span><span class="p">,</span> <span class="n">fill</span> <span class="o">=</span> <span class="s2">"blue"</span><span class="p">)</span></code></pre></figure>
 
-<p><img src="/public/images/analytics/descriptives/unnamed-chunk-14-1.png" style="display: block; margin: auto;" /></p>
+<p><img src="/public/images/analytics/descriptives/unnamed-chunk-17-1.png" style="display: block; margin: auto;" /></p>
 
 <p>However, boxplots are more useful when comparing distributions.  For instance, if you wanted to compare the distributions of salaries across the different positions boxplots provide a quick comparative assessment:</p>
 
@@ -460,7 +485,7 @@
         <span class="n">scale_y_continuous</span><span class="p">(</span><span class="n">labels</span> <span class="o">=</span> <span class="n">scales</span><span class="o">::</span><span class="n">dollar</span><span class="p">)</span> <span class="o">+</span>
         <span class="n">coord_flip</span><span class="p">()</span></code></pre></figure>
 
-<p><img src="/public/images/analytics/descriptives/unnamed-chunk-15-1.png" style="display: block; margin: auto;" /></p>
+<p><img src="/public/images/analytics/descriptives/unnamed-chunk-18-1.png" style="display: block; margin: auto;" /></p>
 
 <p><a href="#top">Go to top</a></p>
 
