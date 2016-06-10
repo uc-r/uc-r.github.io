@@ -37,6 +37,10 @@ So now that you know how awesome R is, it's time to learn how to use it.
 
 
 
+<hr>
+
+<br>
+
 
 [^naming]: Consequently, R is named partly after its authors (Ross and Robert) and partly as a play on the name of S.
 [^morandat]: Morandat, Frances; Hill, Brandon (2012). Evaluating the design of the R language: objects and functions for data analysis. *ECOOP'12 Proceedings of the 26th European conference on Object-Oriented Programming.*
