@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Bradley Boehmke</title>
+    <meta name="description" content="">
+
+    <link rel="stylesheet" href="http://bradleyboehmke.github.io//css/main.css">
+    <link rel="canonical" href="http://bradleyboehmke.github.io/http://bradleyboehmke.github.io//tutorials/descriptives_categorical">
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="http://bradleyboehmke.github.io/">Bradley Boehmke</a>
+
+    <nav class="site-nav">
+      <a href="#" class="menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+
+      <div class="trigger">
+        
+          
+          <a class="page-link" href="http://bradleyboehmke.github.io//about/">About</a>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+          <a class="page-link" href="http://bradleyboehmke.github.io//categoryview/">Archive</a>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+          <a class="page-link" href="http://bradleyboehmke.github.io//cv/">CV</a>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+          <a class="page-link" href="http://bradleyboehmke.github.io//tutorials/">Tutorials</a>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+          <a class="page-link" href="http://bradleyboehmke.github.io//tutorials/scraping_with_apis_DSCOE.Rmd">Scraping Data with APIs</a>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <div class="post">
+
+  <article class="post-content">
+    <p><a href="index">R Vocab Topics</a> » <a href="analytics">Analytics</a> » <a href="exploratory">Exploratory data analysis</a> » <a href="descriptives">Descriptive statistics</a> » Categorical data</p>
+
+<p><br /></p>
+
+<p>When summarizing categorical variables we are primarily limited to assessing:</p>
+
+<ol>
+  <li><a href="#frequencies">Frequencies:</a>  The number of observations for a particular category</li>
+  <li><a href="#proportions">Proportions:</a>  The percent that each category accounts for out of the whole</li>
+  <li><a href="#marginals">Marginals:</a>  The totals in a cross tabulation by row or column</li>
+  <li><a href="#visualization">Visualization:</a> We should understand these features of the data through statistics <em>and</em> visualization</li>
+</ol>
+
+<p>To illustrate ways to compute these summary statistics and to visualize categorical data, I’ll demonstrate using this <a href="https://github.com/bradleyboehmke/bradleyboehmke.github.io/blob/master/public/data/Supermarket%20Transactions.xlsx">data</a> which contains artificial supermarket transaction data:</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="c1">##   Customer ID Gender Marital Status Annual Income          City     Product Category Units Sold Revenue
+## 1        7223      F              S   $30K - $50K   Los Angeles          Snack Foods          5   27.38
+## 2        7841      M              M   $70K - $90K   Los Angeles           Vegetables          5   14.90
+## 3        8374      F              M   $50K - $70K     Bremerton          Snack Foods          3    5.52
+## 4        9619      M              M   $30K - $50K      Portland                Candy          4    4.44
+## 5        1900      F              S $130K - $150K Beverly Hills Carbonated Beverages          4   14.00
+</span><span class="err">##</span> <span class="m">6</span>        <span class="m">6696</span>      <span class="n">F</span>              <span class="n">M</span>   <span class="o">$</span><span class="m">10</span><span class="n">K</span> <span class="o">-</span> <span class="o">$</span><span class="m">30</span><span class="n">K</span> <span class="n">Beverly</span> <span class="n">Hills</span>          <span class="n">Side</span> <span class="n">Dishes</span>          <span class="m">3</span>    <span class="m">4.37</span></code></pre></figure>
+
+<p><br /></p>
+
+<h3 id="frequencies">Frequencies</h3>
+<p>To produce contingency tables with which calculate counts for each combination of categorical variables we can use R’s <code class="highlighter-rouge">table()</code> function:</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="c1"># counts for gender categories
+</span><span class="n">table</span><span class="p">(</span><span class="n">supermarket</span><span class="o">$</span><span class="n">Gender</span><span class="p">)</span>
+<span class="c1">## 
+##    F    M 
+## 7170 6889
+</span>
+<span class="c1"># cross classication counts for gender by marital status
+</span><span class="n">table</span><span class="p">(</span><span class="n">supermarket</span><span class="o">$</span><span class="sb">`Marital Status`</span><span class="p">,</span> <span class="n">supermarket</span><span class="o">$</span><span class="n">Gender</span><span class="p">)</span>
+<span class="c1">##    
+##        F    M
+##   M 3602 3264
+</span><span class="err">##</span>   <span class="n">S</span> <span class="m">3568</span> <span class="m">3625</span></code></pre></figure>
+
+<p>We can also produce multidimensional tables based on three or more categorical variables. For this, we leverage the <code class="highlighter-rouge">ftable()</code> function to print the results more attractively:</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="c1"># customer counts across location by gender and marital status
+</span><span class="n">table1</span> <span class="o">&lt;-</span> <span class="n">table</span><span class="p">(</span><span class="n">supermarket</span><span class="o">$</span><span class="sb">`Marital Status`</span><span class="p">,</span> <span class="n">supermarket</span><span class="o">$</span><span class="n">Gender</span><span class="p">,</span> 
+                <span class="n">supermarket</span><span class="o">$</span><span class="sb">`State or Province`</span><span class="p">)</span>
+
+<span class="n">ftable</span><span class="p">(</span><span class="n">table1</span><span class="p">)</span>
+<span class="c1">##        BC   CA   DF Guerrero Jalisco   OR Veracruz   WA Yucatan Zacatecas
+##                                                                          
+## M F   190  638  188       77      15  510      142 1166     200       476
+##   M   197  692  210       94       5  514      108 1160     129       155
+## S F   183  686  175      107      30  607      125 1134     164       357
+</span><span class="err">##</span>   <span class="n">M</span>   <span class="m">239</span>  <span class="m">717</span>  <span class="m">242</span>      <span class="m">105</span>      <span class="m">25</span>  <span class="m">631</span>       <span class="m">89</span> <span class="m">1107</span>     <span class="m">161</span>       <span class="m">309</span></code></pre></figure>
+
+<p><a href="#top">Go to top</a></p>
+
+<p><br /></p>
+
+<h3 id="proportions">Proportions</h3>
+<p>We can also produce contingency tables that present the proportions (percentages) of each category or combination of categories. To do this we simply feed the frequency tables produced by <code class="highlighter-rouge">table()</code> to the <code class="highlighter-rouge">prop.table()</code> function</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="c1"># percentages of gender categories
+</span><span class="n">table2</span> <span class="o">&lt;-</span> <span class="n">table</span><span class="p">(</span><span class="n">supermarket</span><span class="o">$</span><span class="n">Gender</span><span class="p">)</span>
+<span class="n">prop.table</span><span class="p">(</span><span class="n">table2</span><span class="p">)</span>
+<span class="c1">## 
+##         F         M 
+## 0.5099936 0.4900064
+</span>
+<span class="c1"># percentages for gender by marital status
+</span><span class="n">table3</span> <span class="o">&lt;-</span> <span class="n">table</span><span class="p">(</span><span class="n">supermarket</span><span class="o">$</span><span class="sb">`Marital Status`</span><span class="p">,</span> <span class="n">supermarket</span><span class="o">$</span><span class="n">Gender</span><span class="p">)</span>
+<span class="n">prop.table</span><span class="p">(</span><span class="n">table3</span><span class="p">)</span>
+<span class="c1">##    
+##             F         M
+##   M 0.2562060 0.2321644
+##   S 0.2537876 0.2578420
+</span>
+<span class="c1"># customer percentages across location by gender and marital status
+# using table1 from previous code chunk
+</span><span class="n">ftable</span><span class="p">(</span><span class="n">round</span><span class="p">(</span><span class="n">prop.table</span><span class="p">(</span><span class="n">table1</span><span class="p">),</span> <span class="m">3</span><span class="p">))</span>
+<span class="c1">##         BC    CA    DF Guerrero Jalisco    OR Veracruz    WA Yucatan Zacatecas
+##                                                                               
+## M F  0.014 0.045 0.013    0.005   0.001 0.036    0.010 0.083   0.014     0.034
+##   M  0.014 0.049 0.015    0.007   0.000 0.037    0.008 0.083   0.009     0.011
+## S F  0.013 0.049 0.012    0.008   0.002 0.043    0.009 0.081   0.012     0.025
+</span><span class="err">##</span>   <span class="n">M</span>  <span class="m">0.017</span> <span class="m">0.051</span> <span class="m">0.017</span>    <span class="m">0.007</span>   <span class="m">0.002</span> <span class="m">0.045</span>    <span class="m">0.006</span> <span class="m">0.079</span>   <span class="m">0.011</span>     <span class="m">0.022</span></code></pre></figure>
+
+<p><a href="#top">Go to top</a></p>
+
+<p><br /></p>
+
+<h3 id="marginals">Marginals</h3>
+<p>Marginals show the total counts or percentages across columns or rows in a contingency table.  For instance, if we go back to <code class="highlighter-rouge">table3</code> which is the cross classication counts for gender by marital status:</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">table3</span>
+<span class="c1">##    
+##        F    M
+##   M 3602 3264
+</span><span class="err">##</span>   <span class="n">S</span> <span class="m">3568</span> <span class="m">3625</span></code></pre></figure>
+
+<p>We can compute the marginal frequencies with <code class="highlighter-rouge">margin.table()</code> and the percentages for these marginal frequencies with <code class="highlighter-rouge">prop.table()</code> using the <code class="highlighter-rouge">margin</code> argument:</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="c1"># FREQUENCY MARGINALS
+# row marginals - totals for each marital status across gender
+</span><span class="n">margin.table</span><span class="p">(</span><span class="n">table3</span><span class="p">,</span> <span class="m">1</span><span class="p">)</span>
+<span class="c1">## 
+##    M    S 
+## 6866 7193
+</span>
+<span class="c1"># colum marginals - totals for each gender across marital status
+</span><span class="n">margin.table</span><span class="p">(</span><span class="n">table3</span><span class="p">,</span> <span class="m">2</span><span class="p">)</span>
+<span class="c1">## 
+##    F    M 
+## 7170 6889
+</span>
+
+<span class="c1"># PERCENTAGE MARGINALS
+# row marginals - row percentages across gender
+</span><span class="n">prop.table</span><span class="p">(</span><span class="n">table3</span><span class="p">,</span> <span class="n">margin</span> <span class="o">=</span> <span class="m">1</span><span class="p">)</span>
+<span class="c1">##    
+##             F         M
+##   M 0.5246140 0.4753860
+##   S 0.4960378 0.5039622
+</span>
+<span class="c1"># colum marginals - column percentages across marital status
+</span><span class="n">prop.table</span><span class="p">(</span><span class="n">table3</span><span class="p">,</span> <span class="n">margin</span> <span class="o">=</span> <span class="m">2</span><span class="p">)</span>
+<span class="c1">##    
+##             F         M
+##   M 0.5023710 0.4737988
+</span><span class="err">##</span>   <span class="n">S</span> <span class="m">0.4976290</span> <span class="m">0.5262012</span></code></pre></figure>
+
+<p><a href="#top">Go to top</a></p>
+
+<p><br /></p>
+
+<h3 id="visualization">Visualization</h3>
+<p>Bar charts are most often used to visualize categorical variables.</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="c1"># Frequency bar charts
+</span><span class="n">ggplot</span><span class="p">(</span><span class="n">supermarket</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">Gender</span><span class="p">))</span> <span class="o">+</span>
+        <span class="n">geom_bar</span><span class="p">()</span></code></pre></figure>
+
+<p><img src="/public/images/analytics/descriptives/unnamed-chunk-21-1.png" style="display: block; margin: auto;" /></p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">ggplot</span><span class="p">(</span><span class="n">supermarket</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="sb">`State or Province`</span><span class="p">))</span> <span class="o">+</span>
+        <span class="n">geom_bar</span><span class="p">()</span> <span class="o">+</span>
+        <span class="n">theme</span><span class="p">(</span><span class="n">axis.text.x</span> <span class="o">=</span> <span class="n">element_text</span><span class="p">(</span><span class="n">angle</span> <span class="o">=</span> <span class="m">45</span><span class="p">,</span> <span class="n">hjust</span> <span class="o">=</span> <span class="m">1</span><span class="p">))</span></code></pre></figure>
+
+<p><img src="/public/images/analytics/descriptives/unnamed-chunk-21-2.png" style="display: block; margin: auto;" /></p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="c1"># reorder bar chart in descending order - note that there are multiple ways
+# to reorder bar charts - just search "Order Bars in ggplot2 bar graph" in 
+# Stackoverflow. Here I create a function that sorts the underlying factors  
+# and then apply that function in ggplot
+</span><span class="n">reorder_size</span> <span class="o">&lt;-</span> <span class="k">function</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">factor</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">levels</span> <span class="o">=</span> <span class="n">names</span><span class="p">(</span><span class="n">sort</span><span class="p">(</span><span class="n">table</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">decreasing</span> <span class="o">=</span> <span class="n">TRUE</span><span class="p">)))</span>
+<span class="p">}</span>
+<span class="n">ggplot</span><span class="p">(</span><span class="n">supermarket</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">reorder_size</span><span class="p">(</span><span class="sb">`State or Province`</span><span class="p">)))</span> <span class="o">+</span>
+        <span class="n">geom_bar</span><span class="p">()</span> <span class="o">+</span>
+        <span class="n">xlab</span><span class="p">(</span><span class="s2">"State or Province"</span><span class="p">)</span> <span class="o">+</span>
+        <span class="n">theme</span><span class="p">(</span><span class="n">axis.text.x</span> <span class="o">=</span> <span class="n">element_text</span><span class="p">(</span><span class="n">angle</span> <span class="o">=</span> <span class="m">45</span><span class="p">,</span> <span class="n">hjust</span> <span class="o">=</span> <span class="m">1</span><span class="p">))</span></code></pre></figure>
+
+<p><img src="/public/images/analytics/descriptives/unnamed-chunk-21-3.png" style="display: block; margin: auto;" /></p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="c1"># Proportions bar charts
+</span><span class="n">ggplot</span><span class="p">(</span><span class="n">supermarket</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">reorder_size</span><span class="p">(</span><span class="sb">`State or Province`</span><span class="p">)))</span> <span class="o">+</span>
+        <span class="n">geom_bar</span><span class="p">(</span><span class="n">aes</span><span class="p">(</span><span class="n">y</span> <span class="o">=</span> <span class="p">(</span><span class="err">.</span><span class="n">.count..</span><span class="p">)</span><span class="o">/</span><span class="n">sum</span><span class="p">(</span><span class="err">.</span><span class="n">.count..</span><span class="p">)))</span> <span class="o">+</span>
+        <span class="n">xlab</span><span class="p">(</span><span class="s2">"State or Province"</span><span class="p">)</span> <span class="o">+</span>
+        <span class="n">scale_y_continuous</span><span class="p">(</span><span class="n">labels</span> <span class="o">=</span> <span class="n">scales</span><span class="o">::</span><span class="n">percent</span><span class="p">,</span> <span class="n">name</span> <span class="o">=</span> <span class="s2">"Proportion"</span><span class="p">)</span> <span class="o">+</span>
+        <span class="n">theme</span><span class="p">(</span><span class="n">axis.text.x</span> <span class="o">=</span> <span class="n">element_text</span><span class="p">(</span><span class="n">angle</span> <span class="o">=</span> <span class="m">45</span><span class="p">,</span> <span class="n">hjust</span> <span class="o">=</span> <span class="m">1</span><span class="p">))</span></code></pre></figure>
+
+<p><img src="/public/images/analytics/descriptives/unnamed-chunk-21-4.png" style="display: block; margin: auto;" /></p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="c1"># We can also create contingency table-like bar charts by creating facets
+# Here I plot customer proportions across location and by Gender
+</span><span class="n">ggplot</span><span class="p">(</span><span class="n">supermarket</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">reorder_size</span><span class="p">(</span><span class="sb">`State or Province`</span><span class="p">)))</span> <span class="o">+</span>
+        <span class="n">geom_bar</span><span class="p">(</span><span class="n">aes</span><span class="p">(</span><span class="n">y</span> <span class="o">=</span> <span class="p">(</span><span class="err">.</span><span class="n">.count..</span><span class="p">)</span><span class="o">/</span><span class="n">sum</span><span class="p">(</span><span class="err">.</span><span class="n">.count..</span><span class="p">)))</span> <span class="o">+</span>
+        <span class="n">xlab</span><span class="p">(</span><span class="s2">"State or Province"</span><span class="p">)</span> <span class="o">+</span>
+        <span class="n">scale_y_continuous</span><span class="p">(</span><span class="n">labels</span> <span class="o">=</span> <span class="n">scales</span><span class="o">::</span><span class="n">percent</span><span class="p">,</span> <span class="n">name</span> <span class="o">=</span> <span class="s2">"Proportion"</span><span class="p">)</span> <span class="o">+</span>
+        <span class="n">facet_grid</span><span class="p">(</span><span class="o">~</span> <span class="n">Gender</span><span class="p">)</span> <span class="o">+</span>
+        <span class="n">theme</span><span class="p">(</span><span class="n">axis.text.x</span> <span class="o">=</span> <span class="n">element_text</span><span class="p">(</span><span class="n">angle</span> <span class="o">=</span> <span class="m">45</span><span class="p">,</span> <span class="n">hjust</span> <span class="o">=</span> <span class="m">1</span><span class="p">))</span></code></pre></figure>
+
+<p><img src="/public/images/analytics/descriptives/unnamed-chunk-21-5.png" style="display: block; margin: auto;" /></p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="c1"># I can also do the same plot by Gender and by Marital status
+</span><span class="n">ggplot</span><span class="p">(</span><span class="n">supermarket</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">reorder_size</span><span class="p">(</span><span class="sb">`State or Province`</span><span class="p">)))</span> <span class="o">+</span>
+        <span class="n">geom_bar</span><span class="p">(</span><span class="n">aes</span><span class="p">(</span><span class="n">y</span> <span class="o">=</span> <span class="p">(</span><span class="err">.</span><span class="n">.count..</span><span class="p">)</span><span class="o">/</span><span class="n">sum</span><span class="p">(</span><span class="err">.</span><span class="n">.count..</span><span class="p">)))</span> <span class="o">+</span>
+        <span class="n">xlab</span><span class="p">(</span><span class="s2">"State or Province"</span><span class="p">)</span> <span class="o">+</span>
+        <span class="n">scale_y_continuous</span><span class="p">(</span><span class="n">labels</span> <span class="o">=</span> <span class="n">scales</span><span class="o">::</span><span class="n">percent</span><span class="p">,</span> <span class="n">name</span> <span class="o">=</span> <span class="s2">"Proportion"</span><span class="p">)</span> <span class="o">+</span>
+        <span class="n">facet_grid</span><span class="p">(</span><span class="sb">`Marital Status`</span> <span class="o">~</span> <span class="n">Gender</span><span class="p">)</span> <span class="o">+</span>
+        <span class="n">theme</span><span class="p">(</span><span class="n">axis.text.x</span> <span class="o">=</span> <span class="n">element_text</span><span class="p">(</span><span class="n">angle</span> <span class="o">=</span> <span class="m">45</span><span class="p">,</span> <span class="n">hjust</span> <span class="o">=</span> <span class="m">1</span><span class="p">))</span></code></pre></figure>
+
+<p><img src="/public/images/analytics/descriptives/unnamed-chunk-21-6.png" style="display: block; margin: auto;" /></p>
+
+<p><a href="#top">Go to top</a></p>
+
+  </article>
+
+</div>
+
+      </div>
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col  footer-col-1">
+
+      </div>
+
+      <div class="footer-col  footer-col-2">
+        <ul class="social-media-list">
+        <center>
+          <li>
+            <a href="https://github.com/bradleyboehmke">
+              <span class="icon  icon--github">
+                <svg viewBox="0 0 16 16">
+                  <path fill="#828282" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761 c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32 c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472 c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037 C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65 c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261 c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082 c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129 c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/>
+                </svg>
+              </span>
+            </a>
+            &nbsp;
+            <a href="http://www.twitter.com/bradleyboehmke">
+              <span class="icon  icon--twitter">
+                <svg viewBox="0 0 16 16">
+                  <path fill="#828282" d="M15.969,3.058c-0.586,0.26-1.217,0.436-1.878,0.515c0.675-0.405,1.194-1.045,1.438-1.809
+                  c-0.632,0.375-1.332,0.647-2.076,0.793c-0.596-0.636-1.446-1.033-2.387-1.033c-1.806,0-3.27,1.464-3.27,3.27 c0,0.256,0.029,0.506,0.085,0.745C5.163,5.404,2.753,4.102,1.14,2.124C0.859,2.607,0.698,3.168,0.698,3.767 c0,1.134,0.577,2.135,1.455,2.722C1.616,6.472,1.112,6.325,0.671,6.08c0,0.014,0,0.027,0,0.041c0,1.584,1.127,2.906,2.623,3.206 C3.02,9.402,2.731,9.442,2.433,9.442c-0.211,0-0.416-0.021-0.615-0.059c0.416,1.299,1.624,2.245,3.055,2.271 c-1.119,0.877-2.529,1.4-4.061,1.4c-0.264,0-0.524-0.015-0.78-0.046c1.447,0.928,3.166,1.469,5.013,1.469 c6.015,0,9.304-4.983,9.304-9.304c0-0.142-0.003-0.283-0.009-0.423C14.976,4.29,15.531,3.714,15.969,3.058z"/>
+                </svg>
+              </span>
+            </a>
+            &nbsp;
+            <a href="https://www.linkedin.com/in/brad-boehmke-ph-d-9b0a257">
+              <span class="icon  icon--linkedin">
+                <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"  width="25" height="25" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.414"><path fill="#828282" d="M13.632 13.635h-2.37V9.922c0-.886-.018-2.025-1.234-2.025-1.235 0-1.424.964-1.424 1.96v3.778h-2.37V6H8.51V7.04h.03c.318-.6 1.092-1.233 2.247-1.233 2.4 0 2.845 1.58 2.845 3.637v4.188zM3.558 4.955c-.762 0-1.376-.617-1.376-1.377 0-.758.614-1.375 1.376-1.375.76 0 1.376.617 1.376 1.375 0 .76-.617 1.377-1.376 1.377zm1.188 8.68H2.37V6h2.376v7.635zM14.816 0H1.18C.528 0 0 .516 0 1.153v13.694C0 15.484.528 16 1.18 16h13.635c.652 0 1.185-.516 1.185-1.153V1.153C16 .516 15.467 0 14.815 0z" fill-rule="nonzero"/>
+                </svg>
+              </span>
+            </a>
+          </li>
+
+        </ul>
+        </center>
+      </div>
+
+      <div class="footer-col  footer-col-3">
+        <p class="text"></p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>

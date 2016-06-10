@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Bradley Boehmke</title>
+    <meta name="description" content="">
+
+    <link rel="stylesheet" href="http://bradleyboehmke.github.io//css/main.css">
+    <link rel="canonical" href="http://bradleyboehmke.github.io/http://bradleyboehmke.github.io//tutorials/descriptives_numeric">
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="http://bradleyboehmke.github.io/">Bradley Boehmke</a>
+
+    <nav class="site-nav">
+      <a href="#" class="menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+
+      <div class="trigger">
+        
+          
+          <a class="page-link" href="http://bradleyboehmke.github.io//about/">About</a>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+          <a class="page-link" href="http://bradleyboehmke.github.io//categoryview/">Archive</a>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+          <a class="page-link" href="http://bradleyboehmke.github.io//cv/">CV</a>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+          <a class="page-link" href="http://bradleyboehmke.github.io//tutorials/">Tutorials</a>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+          <a class="page-link" href="http://bradleyboehmke.github.io//tutorials/scraping_with_apis_DSCOE.Rmd">Scraping Data with APIs</a>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <div class="post">
+
+  <article class="post-content">
+    <p><a href="index">R Vocab Topics</a> » <a href="analytics">Analytics</a> » <a href="exploratory">Exploratory data analysis</a> » <a href="descriptives">Descriptive statistics</a> » Numerical data</p>
+
+<p><br /></p>
+
+<p>When summarizing numerical values, the key features we are initially interested in understanding include:</p>
+
+<ol>
+  <li><a href="#central">Central Tendency:</a> What are the most typical values?</li>
+  <li><a href="#variability">Variability:</a> How do the values vary?</li>
+  <li><a href="#range">Shape:</a> Are the values symmetrically or assymetrically distributed?</li>
+  <li><a href="#shape">Outliers:</a> Are there values that represent abnormalities in the data?</li>
+  <li><a href="#visualization">Visualization:</a> We should understand these features of the data through statistics <em>and</em> visualization</li>
+</ol>
+
+<p>To illustrate ways to compute different summary statistics and visualize the data to provide understanding of these key features, I’ll demonstrate using this <a href="https://github.com/bradleyboehmke/bradleyboehmke.github.io/blob/master/public/data/Baseball%20Salaries%202011.xlsx">data</a> which contains data on 843 MLB players in the 2011 season:</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="c1">##            Player                Team Position   Salary
+## 1    A.J. Burnett    New York Yankees  Pitcher 16500000
+## 2      A.J. Ellis Los Angeles Dodgers  Catcher   421000
+## 3 A.J. Pierzynski   Chicago White Sox  Catcher  2000000
+## 4      Aaron Cook    Colorado Rockies  Pitcher  9875000
+## 5      Aaron Crow  Kansas City Royals  Pitcher  1400000
+</span><span class="err">##</span> <span class="m">6</span>    <span class="n">Aaron</span> <span class="n">Harang</span>    <span class="n">San</span> <span class="n">Diego</span> <span class="n">Padres</span>  <span class="n">Pitcher</span>  <span class="m">3500000</span></code></pre></figure>
+
+<p><br /></p>
+
+<h3 id="central">Central Tendency</h3>
+<p>There are three common measures of central tendency, all of which try to answer the basic question of which value is the most “typical.” These are the mean (average of all observations), median (middle observation), and mode (appears most often). Each of these measures can be calculated for an individual variable or across all variables in a particular data frame.</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">mean</span><span class="p">(</span><span class="n">salaries</span><span class="o">$</span><span class="n">Salary</span><span class="p">,</span> <span class="n">na.rm</span> <span class="o">=</span> <span class="n">TRUE</span><span class="p">)</span>
+<span class="c1">## [1] 3305055
+</span><span class="n">median</span><span class="p">(</span><span class="n">salaries</span><span class="o">$</span><span class="n">Salary</span><span class="p">,</span> <span class="n">na.rm</span> <span class="o">=</span> <span class="n">TRUE</span><span class="p">)</span>
+<span class="err">##</span> <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">1175000</span></code></pre></figure>
+
+<p>Unfortunately, there is not a built in function to compute the mode of a variable<sup id="fnref:mode"><a href="#fn:mode" class="footnote">1</a></sup>. However, we can create a function that takes the vector as an input and gives the mode value as an output:</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">get_mode</span> <span class="o">&lt;-</span> <span class="k">function</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">unique_value</span> <span class="o">&lt;-</span> <span class="n">unique</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+        <span class="n">unique_value</span><span class="p">[</span><span class="n">which.max</span><span class="p">(</span><span class="n">tabulate</span><span class="p">(</span><span class="n">match</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">unique_value</span><span class="p">)))]</span>
+<span class="p">}</span>
+
+<span class="n">get_mode</span><span class="p">(</span><span class="n">salaries</span><span class="o">$</span><span class="n">Salary</span><span class="p">)</span>
+<span class="err">##</span> <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">414000</span></code></pre></figure>
+
+<p><a href="#top">Go to top</a></p>
+
+<p><br /></p>
+
+<h3 id="variability">Variability</h3>
+<p>The central tendencies give you a sense of the most typical values (salaries in this case) but do not provide you with information on the variability of the values. Variability can be summarized in different ways, each providing you unique understanding of how the values are spread out.</p>
+
+<h4 id="range">Range</h4>
+<p>The range is a fairly crude measure of variability, defining the maximum and minimum values and the difference thereof.  We can compute range summaries with the following:</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="c1"># get the minimum value
+</span><span class="n">min</span><span class="p">(</span><span class="n">salaries</span><span class="o">$</span><span class="n">Salary</span><span class="p">,</span> <span class="n">na.rm</span> <span class="o">=</span> <span class="n">FALSE</span><span class="p">)</span>
+<span class="c1">## [1] 414000
+</span>
+<span class="c1"># get the maximum value
+</span><span class="n">max</span><span class="p">(</span><span class="n">salaries</span><span class="o">$</span><span class="n">Salary</span><span class="p">,</span> <span class="n">na.rm</span> <span class="o">=</span> <span class="n">FALSE</span><span class="p">)</span>
+<span class="c1">## [1] 3.2e+07
+</span>
+<span class="c1"># get both the min and max values
+</span><span class="n">range</span><span class="p">(</span><span class="n">salaries</span><span class="o">$</span><span class="n">Salary</span><span class="p">,</span> <span class="n">na.rm</span> <span class="o">=</span> <span class="n">FALSE</span><span class="p">)</span>
+<span class="c1">## [1]   414000 32000000
+</span>
+<span class="c1"># compute the spread between min &amp; max values
+</span><span class="n">max</span><span class="p">(</span><span class="n">salaries</span><span class="o">$</span><span class="n">Salary</span><span class="p">,</span> <span class="n">na.rm</span> <span class="o">=</span> <span class="n">FALSE</span><span class="p">)</span> <span class="o">-</span> <span class="n">min</span><span class="p">(</span><span class="n">salaries</span><span class="o">$</span><span class="n">Salary</span><span class="p">,</span> <span class="n">na.rm</span> <span class="o">=</span> <span class="n">FALSE</span><span class="p">)</span>
+<span class="err">##</span> <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">31586000</span></code></pre></figure>
+
+<h4 id="percentiles">Percentiles</h4>
+<p>Given a certain percentage such as 25%, what is the salary value such that this percentage of salaries is below it? This type of question leads to <u>percentiles</u> and <u>quartiles</u>. Specifically, for any percentage <em>p</em>, the <em>p</em>th percentile is the value such that a percentage <em>p</em> of all values are less than it. Similarly, the first, second, and third quartiles are the percentiles corresponding to <em>p=25%</em>, <em>p=50%</em>, and <em>p=75%</em>. These three values divide the data into four groups, each with (approximately) a quarter of all observations. Note that the second quartile is equal to the median by definition. These measures are easily computed in R:</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="c1"># fivenum() function provides min, 25%, 50% (median), 75%, and max
+</span><span class="n">fivenum</span><span class="p">(</span><span class="n">salaries</span><span class="o">$</span><span class="n">Salary</span><span class="p">)</span>
+<span class="c1">## [1]   414000   430325  1175000  4306250 32000000
+</span>
+<span class="c1"># default quantile() percentiles are 0%, 25%, 50%, 75%, and 100% 
+# provides same output as fivenum()
+</span><span class="n">quantile</span><span class="p">(</span><span class="n">salaries</span><span class="o">$</span><span class="n">Salary</span><span class="p">,</span> <span class="n">na.rm</span> <span class="o">=</span> <span class="n">TRUE</span><span class="p">)</span>
+<span class="c1">##       0%      25%      50%      75%     100% 
+##   414000   430325  1175000  4306250 32000000
+</span>
+<span class="c1"># we can customize quantile() for specific percentiles
+</span><span class="n">quantile</span><span class="p">(</span><span class="n">salaries</span><span class="o">$</span><span class="n">Salary</span><span class="p">,</span> <span class="n">probs</span> <span class="o">=</span> <span class="n">seq</span><span class="p">(</span><span class="n">from</span> <span class="o">=</span> <span class="m">0</span><span class="p">,</span> <span class="n">to</span> <span class="o">=</span> <span class="m">1</span><span class="p">,</span> <span class="n">by</span> <span class="o">=</span> <span class="m">.1</span><span class="p">),</span> <span class="n">na.rm</span> <span class="o">=</span> <span class="n">TRUE</span><span class="p">)</span>
+<span class="c1">##       0%      10%      20%      30%      40%      50%      60%      70% 
+##   414000   416520   424460   441300   672000  1175000  2004000  3320000 
+##      80%      90%     100% 
+##  5500000  9800000 32000000
+</span>
+<span class="c1"># we can quickly compute the difference between the 1st and 3rd quantile
+</span><span class="n">IQR</span><span class="p">(</span><span class="n">salaries</span><span class="o">$</span><span class="n">Salary</span><span class="p">)</span>
+<span class="err">##</span> <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">3875925</span></code></pre></figure>
+
+<p>An alternative approach to is to use the <code class="highlighter-rouge">summary()</code> function with is a generic R function used to produce min, 1st quantile, median, mean, 3rd quantile, and max summary measures.  However, note that the 1st and 3rd quantiles produced by <code class="highlighter-rouge">summary()</code> differ from the 1st and 3rd quantiles produced by <code class="highlighter-rouge">fivenum()</code> and the default <code class="highlighter-rouge">quantile()</code>.  The reason for this is due to the lack of universal agreement on how the 1st and 3rd quartiles should be calculated.<sup id="fnref:disagreement"><a href="#fn:disagreement" class="footnote">2</a></sup> Eric Cai provided a good <a href="https://chemicalstatistician.wordpress.com/2013/08/12/exploratory-data-analysis-the-5-number-summary-two-different-methods-in-r-2/">blog post</a> that discusses this difference in the R functions.</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">summary</span><span class="p">(</span><span class="n">salaries</span><span class="o">$</span><span class="n">Salary</span><span class="p">)</span>
+<span class="c1">##     Min.  1st Qu.   Median     Mean  3rd Qu.     Max. 
+</span><span class="err">##</span>   <span class="m">414000</span>   <span class="m">430300</span>  <span class="m">1175000</span>  <span class="m">3305000</span>  <span class="m">4306000</span> <span class="m">32000000</span></code></pre></figure>
+
+<h4 id="variance">Variance</h4>
+<p>Although the range provides a crude measure of variability and percentiles/quartiles provide an understanding of divisions of the data, the most common measures to summarize variability are variance and its derivatives (standard deviation and mean/median absolute deviation). We can compute each of these as follows:</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="c1"># variance
+</span><span class="n">var</span><span class="p">(</span><span class="n">salaries</span><span class="o">$</span><span class="n">Salary</span><span class="p">)</span>
+<span class="c1">## [1] 2.056389e+13
+</span>
+<span class="c1"># standard deviation
+</span><span class="n">sd</span><span class="p">(</span><span class="n">salaries</span><span class="o">$</span><span class="n">Salary</span><span class="p">)</span>
+<span class="c1">## [1] 4534742
+</span>
+<span class="c1"># mean absolute deviation
+</span><span class="n">mad</span><span class="p">(</span><span class="n">salaries</span><span class="o">$</span><span class="n">Salary</span><span class="p">,</span> <span class="n">center</span> <span class="o">=</span> <span class="n">mean</span><span class="p">(</span><span class="n">salaries</span><span class="o">$</span><span class="n">Salary</span><span class="p">))</span>
+<span class="c1">## [1] 4229672
+</span>
+<span class="c1"># median absolute deviation - note that the center argument defaults to median
+# so it does not need to be specified, although I do just be clear
+</span><span class="n">mad</span><span class="p">(</span><span class="n">salaries</span><span class="o">$</span><span class="n">Salary</span><span class="p">,</span> <span class="n">center</span> <span class="o">=</span> <span class="n">median</span><span class="p">(</span><span class="n">salaries</span><span class="o">$</span><span class="n">Salary</span><span class="p">))</span>
+<span class="err">##</span> <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">1126776</span></code></pre></figure>
+
+<p><a href="#top">Go to top</a></p>
+
+<p><br /></p>
+
+<h3 id="shape">Shape</h3>
+<p>Two additional measures of a distribution that you will hear occasionally include <u>skewness</u> and <u>kurtosis</u>. Skewness is a measure of <u>symmetry</u> for a distribution. Negative values represent a <em>left-skewed</em> distribution where there are more extreme values to the left causing the mean to be less than the median. Positive values represent a <em>right-skewed</em> distribution where there are more extreme values to the right causing the mean to be more than the median.</p>
+
+<p>Kurtosis is a measure of <u>peakedness</u> for a distribution. Negative values indicate a flat (platykurtic) distribution, positive values indicate a peaked (leptokurtic) distribution, and a near-zero value indicates a normal (mesokurtic) distribution.</p>
+
+<p>We can get both skewness and kurtosis values using the <a href="https://cran.r-project.org/web/packages/moments/moments.pdf"><code class="highlighter-rouge">moments</code></a> package:</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">library</span><span class="p">(</span><span class="n">moments</span><span class="p">)</span>
+
+<span class="n">skewness</span><span class="p">(</span><span class="n">salaries</span><span class="o">$</span><span class="n">Salary</span><span class="p">,</span> <span class="n">na.rm</span> <span class="o">=</span> <span class="n">TRUE</span><span class="p">)</span>
+<span class="c1">## [1] 2.252809
+</span><span class="n">kurtosis</span><span class="p">(</span><span class="n">salaries</span><span class="o">$</span><span class="n">Salary</span><span class="p">,</span> <span class="n">na.rm</span> <span class="o">=</span> <span class="n">TRUE</span><span class="p">)</span>
+<span class="err">##</span> <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">8.682261</span></code></pre></figure>
+
+<p><a href="#top">Go to top</a></p>
+
+<p><br /></p>
+
+<h3 id="outliers">Outliers</h3>
+<p>Outliers in data can distort predictions and affect their accuracy. Consequently, its important to understand if outliers are present and, if so, which observations are considered outliers.  The <a href=""><code class="highlighter-rouge">outliers</code></a> package provides a number of useful functions to systematically extract outliers. The functions of most use are <code class="highlighter-rouge">outlier()</code> and <code class="highlighter-rouge">scores()</code>.  The <code class="highlighter-rouge">outlier()</code> function gets the most extreme observation from the mean.  The <code class="highlighter-rouge">scores()</code> function computes the normalized (<em>z</em>, <em>t</em>, <em>chisq</em>, etc.) score which you can use to find observation(s) that lie beyond a given value.</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">library</span><span class="p">(</span><span class="n">outliers</span><span class="p">)</span>
+
+<span class="c1"># gets most extreme right-tail observation
+</span><span class="n">outlier</span><span class="p">(</span><span class="n">salaries</span><span class="o">$</span><span class="n">Salary</span><span class="p">)</span>
+<span class="c1">## [1] 3.2e+07
+</span>
+<span class="c1"># gets most extreme left-tail observation
+</span><span class="n">outlier</span><span class="p">(</span><span class="n">salaries</span><span class="o">$</span><span class="n">Salary</span><span class="p">,</span> <span class="n">opposite</span> <span class="o">=</span> <span class="n">TRUE</span><span class="p">)</span>
+<span class="c1">## [1] 414000
+</span>
+<span class="c1"># observations that are outliers based on z-scores
+</span><span class="n">z_scores</span> <span class="o">&lt;-</span> <span class="n">scores</span><span class="p">(</span><span class="n">salaries</span><span class="o">$</span><span class="n">Salary</span><span class="p">,</span> <span class="n">type</span> <span class="o">=</span> <span class="s2">"z"</span><span class="p">)</span>
+<span class="n">which</span><span class="p">(</span><span class="n">abs</span><span class="p">(</span><span class="n">z_scores</span><span class="p">)</span> <span class="o">&gt;</span> <span class="m">1.96</span><span class="p">)</span>
+<span class="c1">##  [1]   1  11  22  24  33  34  38  54  64 132 134 138 139 146 151 161 164
+## [18] 168 211 236 242 248 249 348 355 370 384 441 452 460 484 496 517 520
+## [35] 535 538 576 577 585 601 627 629 649 692 695 728 729 733 737 790 794
+## [52] 801 803 816 843
+</span>
+<span class="c1"># outliers based on values less than or greater than the "whiskers" on a 
+# boxplot (1.5 x IQR or more below 1st quartile or above 3rd quartile)
+</span><span class="n">which</span><span class="p">(</span><span class="n">scores</span><span class="p">(</span><span class="n">salaries</span><span class="o">$</span><span class="n">Salary</span><span class="p">,</span> <span class="n">type</span> <span class="o">=</span> <span class="s2">"iqr"</span><span class="p">,</span> <span class="n">lim</span> <span class="o">=</span> <span class="m">1.5</span><span class="p">))</span>
+<span class="c1">##  [1]   1  11  12  22  24  33  34  38  54  64  83  97 132 134 138 139 146
+## [18] 151 161 164 168 189 208 211 236 242 248 249 293 298 300 329 336 348
+## [35] 355 370 384 408 440 441 442 452 460 475 484 493 496 517 520 535 538
+## [52] 547 576 577 585 601 620 627 629 649 664 679 692 695 707 728 729 733
+</span><span class="err">##</span> <span class="p">[</span><span class="m">69</span><span class="p">]</span> <span class="m">737</span> <span class="m">760</span> <span class="m">790</span> <span class="m">794</span> <span class="m">801</span> <span class="m">803</span> <span class="m">816</span> <span class="m">818</span> <span class="m">843</span></code></pre></figure>
+
+<p>How you deal with outliers is a topic worthy of its own tutorial; however, if you want to simply remove an outlier or replace it with the sample mean or median then I recommend the <code class="highlighter-rouge">rm.outlier()</code> function provided also by the <code class="highlighter-rouge">outliers</code> package.</p>
+
+<p><a href="#top">Go to top</a></p>
+
+<p><br /></p>
+
+<h3 id="visualization">Visualization</h3>
+<p>There are many graphical representations to illustrate these summary measures for numerical variables, but there are a couple fundamental ones that nearly everyone agrees needs to be assessed - histograms and boxplots.</p>
+
+<p>Histograms are the most common type of chart for showing the distribution of a numerical variable. Histograms display a 1D distribution by dividing into bins and counting the number of observations in each bin.  Whereas the previously discussed summary measures - mean, median, standard deviation, skewness - describes only one aspect of a numerical variable, a histogram provides the complete picture by illustrating the center of the distribution, the variability, skewness, and other aspects in one convenient chart. We can quickly visualize the histogram for our MLB salaries using base R graphics:</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">hist</span><span class="p">(</span><span class="n">salaries</span><span class="o">$</span><span class="n">Salary</span><span class="p">)</span></code></pre></figure>
+
+<p><img src="/public/images/analytics/descriptives/unnamed-chunk-10-1.png" style="display: block; margin: auto;" /></p>
+
+<p>However, we can use <code class="highlighter-rouge">ggplot</code> to customize our graphic and create a more presentable product:</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">library</span><span class="p">(</span><span class="n">ggplot2</span><span class="p">)</span>
+
+<span class="n">ggplot</span><span class="p">(</span><span class="n">salaries</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="n">Salary</span><span class="p">))</span> <span class="o">+</span> 
+        <span class="n">geom_histogram</span><span class="p">(</span><span class="n">colour</span> <span class="o">=</span> <span class="s2">"black"</span><span class="p">,</span> <span class="n">fill</span> <span class="o">=</span> <span class="s2">"white"</span><span class="p">)</span> <span class="o">+</span>
+        <span class="n">scale_x_log10</span><span class="p">(</span><span class="n">labels</span> <span class="o">=</span> <span class="n">scales</span><span class="o">::</span><span class="n">dollar</span><span class="p">)</span> <span class="o">+</span>          <span class="c1"># x axis log &amp; $$ labels
+</span>        <span class="n">geom_vline</span><span class="p">(</span><span class="n">aes</span><span class="p">(</span><span class="n">xintercept</span> <span class="o">=</span> <span class="n">mean</span><span class="p">(</span><span class="n">Salary</span><span class="p">)),</span> 
+                   <span class="n">color</span> <span class="o">=</span> <span class="s2">"red"</span><span class="p">,</span> <span class="n">linetype</span> <span class="o">=</span> <span class="s2">"dashed"</span><span class="p">)</span> <span class="o">+</span>  <span class="c1"># add line for mean
+</span>        <span class="n">annotate</span><span class="p">(</span><span class="s2">"text"</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="n">mean</span><span class="p">(</span><span class="n">salaries</span><span class="o">$</span><span class="n">Salary</span><span class="p">)</span> <span class="o">*</span> <span class="m">2</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="m">155</span><span class="p">,</span>
+                 <span class="n">label</span> <span class="o">=</span> <span class="n">paste0</span><span class="p">(</span><span class="s2">"Avg: $"</span><span class="p">,</span> <span class="n">round</span><span class="p">(</span><span class="n">mean</span><span class="p">(</span><span class="n">salaries</span><span class="o">$</span><span class="n">Salary</span><span class="p">)</span><span class="o">/</span><span class="m">1000000</span><span class="p">,</span> <span class="m">1</span><span class="p">),</span><span class="s2">"M"</span><span class="p">))</span></code></pre></figure>
+
+<p><img src="/public/images/analytics/descriptives/unnamed-chunk-11-1.png" style="display: block; margin: auto;" /></p>
+
+<p>An alternative, and highly effective way to visualize data is with <code class="highlighter-rouge">dotplots</code>. In a dotplot a dot is placed at the appropriate value on the x axis for each case with multiples cases of a particular value resulting in dots stacking up. The dotplot below helps to illustrate that there is one unique player with a salary greater than $30M (Alex Rodriguez) and only six players with salaries greater than $20M.</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">ggplot</span><span class="p">(</span><span class="n">salaries</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">Salary</span><span class="p">))</span> <span class="o">+</span> 
+        <span class="n">geom_dotplot</span><span class="p">()</span> <span class="o">+</span>
+        <span class="n">scale_x_continuous</span><span class="p">(</span><span class="n">labels</span> <span class="o">=</span> <span class="n">scales</span><span class="o">::</span><span class="n">dollar</span><span class="p">)</span></code></pre></figure>
+
+<p><img src="/public/images/analytics/descriptives/unnamed-chunk-12-1.png" style="display: block; margin: auto;" /></p>
+
+<p>Boxplots are an alternative way to illustrate the distribution of a variable and is a concise way to illustrate the standard quantiles, shape, and outliers of data. As the generic diagram indicates, the box itself extends, left to right, from the 1st quartile to the 3rd quartile. This means that it contains the middle half of the data. The line inside the box is positioned at the median. The lines (whiskers) coming out either side of the box extend to 1.5 interquartlie ranges (IQRs) from the quartlies. These generally include most of the data outside the box. More distant values, called outliers, are denoted separately by individual points.</p>
+
+<center>
+<img src="https://www.leansigmacorporation.com/wp/wp-content/uploads/2015/12/Box-Plot-MTB_01.png" alt="Generic Box Plot" width="500" vspace="20" />
+</center>
+
+<p>For a quick univariate assessment we can use the <code class="highlighter-rouge">boxplot()</code> function in base R graphics. This single boxplot illustrates the highly skewed nature of the distribution with many outliers on the right side.</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="c1"># I use a log scale to spread out the data
+</span><span class="n">boxplot</span><span class="p">(</span><span class="n">salaries</span><span class="o">$</span><span class="n">Salary</span><span class="p">,</span> <span class="n">horizontal</span> <span class="o">=</span> <span class="n">TRUE</span><span class="p">,</span> <span class="n">log</span> <span class="o">=</span> <span class="s2">"x"</span><span class="p">)</span></code></pre></figure>
+
+<p><img src="/public/images/analytics/descriptives/unnamed-chunk-13-1.png" style="display: block; margin: auto;" /></p>
+
+<p>As before, we can use <code class="highlighter-rouge">ggplot</code> to refine the boxplot and add additional features such as a point illustrating the mean and also show the actual distribution of observations:</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">ggplot</span><span class="p">(</span><span class="n">salaries</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">factor</span><span class="p">(</span><span class="m">0</span><span class="p">),</span> <span class="n">y</span> <span class="o">=</span> <span class="n">Salary</span><span class="p">))</span> <span class="o">+</span>
+        <span class="n">geom_boxplot</span><span class="p">()</span> <span class="o">+</span>
+        <span class="n">xlab</span><span class="p">(</span><span class="s2">""</span><span class="p">)</span> <span class="o">+</span>
+        <span class="n">scale_x_discrete</span><span class="p">(</span><span class="n">breaks</span> <span class="o">=</span> <span class="n">NULL</span><span class="p">)</span> <span class="o">+</span>
+        <span class="n">scale_y_log10</span><span class="p">(</span><span class="n">labels</span> <span class="o">=</span> <span class="n">scales</span><span class="o">::</span><span class="n">dollar</span><span class="p">)</span> <span class="o">+</span>
+        <span class="n">coord_flip</span><span class="p">()</span> <span class="o">+</span>
+        <span class="n">geom_jitter</span><span class="p">(</span><span class="n">shape</span> <span class="o">=</span> <span class="m">16</span><span class="p">,</span> <span class="n">position</span> <span class="o">=</span> <span class="n">position_jitter</span><span class="p">(</span><span class="m">0.4</span><span class="p">),</span> <span class="n">alpha</span> <span class="o">=</span> <span class="m">.3</span><span class="p">)</span> <span class="o">+</span>
+        <span class="n">stat_summary</span><span class="p">(</span><span class="n">fun.y</span> <span class="o">=</span> <span class="n">mean</span><span class="p">,</span> <span class="n">geom</span> <span class="o">=</span> <span class="s2">"point"</span><span class="p">,</span> <span class="n">shape</span> <span class="o">=</span> <span class="m">23</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="m">4</span><span class="p">,</span> <span class="n">fill</span> <span class="o">=</span> <span class="s2">"blue"</span><span class="p">)</span></code></pre></figure>
+
+<p><img src="/public/images/analytics/descriptives/unnamed-chunk-14-1.png" style="display: block; margin: auto;" /></p>
+
+<p>However, boxplots are more useful when comparing distributions.  For instance, if you wanted to compare the distributions of salaries across the different positions boxplots provide a quick comparative assessment:</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">ggplot</span><span class="p">(</span><span class="n">salaries</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">Position</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">Salary</span><span class="p">))</span> <span class="o">+</span>
+        <span class="n">geom_boxplot</span><span class="p">()</span> <span class="o">+</span>
+        <span class="n">scale_y_continuous</span><span class="p">(</span><span class="n">labels</span> <span class="o">=</span> <span class="n">scales</span><span class="o">::</span><span class="n">dollar</span><span class="p">)</span> <span class="o">+</span>
+        <span class="n">coord_flip</span><span class="p">()</span></code></pre></figure>
+
+<p><img src="/public/images/analytics/descriptives/unnamed-chunk-15-1.png" style="display: block; margin: auto;" /></p>
+
+<p><a href="#top">Go to top</a></p>
+
+<p><br /></p>
+
+<p><br /></p>
+
+<div class="footnotes">
+  <ol>
+    <li id="fn:mode">
+      <p>There is a <code class="highlighter-rouge">mode()</code> function in R; however, it is used to get or set the type or storage mode of an object rather than to compute the statistical mode of a variable. <a href="#fnref:mode" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:disagreement">
+      <p>See Hyndman, R. &amp; Fan, Y. (1996). Sample Quantiles in Statistical Packages, <em>The American Statistician, 50</em>(4), 361-365 for more discussion. <a href="#fnref:disagreement" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+
+  </article>
+
+</div>
+
+      </div>
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col  footer-col-1">
+
+      </div>
+
+      <div class="footer-col  footer-col-2">
+        <ul class="social-media-list">
+        <center>
+          <li>
+            <a href="https://github.com/bradleyboehmke">
+              <span class="icon  icon--github">
+                <svg viewBox="0 0 16 16">
+                  <path fill="#828282" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761 c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32 c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472 c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037 C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65 c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261 c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082 c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129 c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/>
+                </svg>
+              </span>
+            </a>
+            &nbsp;
+            <a href="http://www.twitter.com/bradleyboehmke">
+              <span class="icon  icon--twitter">
+                <svg viewBox="0 0 16 16">
+                  <path fill="#828282" d="M15.969,3.058c-0.586,0.26-1.217,0.436-1.878,0.515c0.675-0.405,1.194-1.045,1.438-1.809
+                  c-0.632,0.375-1.332,0.647-2.076,0.793c-0.596-0.636-1.446-1.033-2.387-1.033c-1.806,0-3.27,1.464-3.27,3.27 c0,0.256,0.029,0.506,0.085,0.745C5.163,5.404,2.753,4.102,1.14,2.124C0.859,2.607,0.698,3.168,0.698,3.767 c0,1.134,0.577,2.135,1.455,2.722C1.616,6.472,1.112,6.325,0.671,6.08c0,0.014,0,0.027,0,0.041c0,1.584,1.127,2.906,2.623,3.206 C3.02,9.402,2.731,9.442,2.433,9.442c-0.211,0-0.416-0.021-0.615-0.059c0.416,1.299,1.624,2.245,3.055,2.271 c-1.119,0.877-2.529,1.4-4.061,1.4c-0.264,0-0.524-0.015-0.78-0.046c1.447,0.928,3.166,1.469,5.013,1.469 c6.015,0,9.304-4.983,9.304-9.304c0-0.142-0.003-0.283-0.009-0.423C14.976,4.29,15.531,3.714,15.969,3.058z"/>
+                </svg>
+              </span>
+            </a>
+            &nbsp;
+            <a href="https://www.linkedin.com/in/brad-boehmke-ph-d-9b0a257">
+              <span class="icon  icon--linkedin">
+                <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"  width="25" height="25" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.414"><path fill="#828282" d="M13.632 13.635h-2.37V9.922c0-.886-.018-2.025-1.234-2.025-1.235 0-1.424.964-1.424 1.96v3.778h-2.37V6H8.51V7.04h.03c.318-.6 1.092-1.233 2.247-1.233 2.4 0 2.845 1.58 2.845 3.637v4.188zM3.558 4.955c-.762 0-1.376-.617-1.376-1.377 0-.758.614-1.375 1.376-1.375.76 0 1.376.617 1.376 1.375 0 .76-.617 1.377-1.376 1.377zm1.188 8.68H2.37V6h2.376v7.635zM14.816 0H1.18C.528 0 0 .516 0 1.153v13.694C0 15.484.528 16 1.18 16h13.635c.652 0 1.185-.516 1.185-1.153V1.153C16 .516 15.467 0 14.815 0z" fill-rule="nonzero"/>
+                </svg>
+              </span>
+            </a>
+          </li>
+
+        </ul>
+        </center>
+      </div>
+
+      <div class="footer-col  footer-col-3">
+        <p class="text"></p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>

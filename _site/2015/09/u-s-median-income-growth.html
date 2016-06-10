@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>U.S. Median Income Growth</title>
+    <meta name="description" content="">
+
+    <link rel="stylesheet" href="http://bradleyboehmke.github.io//css/main.css">
+    <link rel="canonical" href="http://bradleyboehmke.github.io/http://bradleyboehmke.github.io//2015/09/u-s-median-income-growth.html">
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="http://bradleyboehmke.github.io/">Bradley Boehmke</a>
+
+    <nav class="site-nav">
+      <a href="#" class="menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+
+      <div class="trigger">
+        
+          
+          <a class="page-link" href="http://bradleyboehmke.github.io//about/">About</a>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+          <a class="page-link" href="http://bradleyboehmke.github.io//categoryview/">Archive</a>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+          <a class="page-link" href="http://bradleyboehmke.github.io//cv/">CV</a>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+          <a class="page-link" href="http://bradleyboehmke.github.io//tutorials/">Tutorials</a>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+          <a class="page-link" href="http://bradleyboehmke.github.io//tutorials/scraping_with_apis_DSCOE.Rmd">Scraping Data with APIs</a>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <div class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">U.S. Median Income Growth</h1>
+    <p class="post-meta">Sep 21, 2015 &nbsp; • &nbsp; Categories: 
+      
+            &nbsp;<a href="http://bradleyboehmke.github.io/categoryview/#programming" style="color: rgb(128,128,128)">programming</a>
+      
+            &nbsp;<a href="http://bradleyboehmke.github.io/categoryview/#visualization" style="color: rgb(128,128,128)">visualization</a>
+      
+            &nbsp;<a href="http://bradleyboehmke.github.io/categoryview/#economics" style="color: rgb(128,128,128)">economics</a>
+      
+       &nbsp; • &nbsp; Tags: 
+      
+            &nbsp;<a href="http://bradleyboehmke.github.io/categoryview/#r" style="color: rgb(128,128,128)">r</a>
+      
+            &nbsp;<a href="http://bradleyboehmke.github.io/categoryview/#ggplot2" style="color: rgb(128,128,128)">ggplot2</a>
+      
+    </p>
+      
+      <br>
+      
+  </header>
+
+  <article class="post-content">
+    <p>This post walks through the code behind the <a href="https://twitter.com/bradleyboehmke/status/558490399917236226">visual graphic</a> created to illustrate the historical growth rates of median income in the United States.</p>
+
+<p><img src="http://bradleyboehmke.github.io/figure/source/u-s-median-income-growth/2015-12-28-u-s-median-income-growth/median_income.jpg" alt="Final_Graphic" /></p>
+
+<!--more-->
+
+<p><br /></p>
+
+<h3 id="font-faceserifr-packages-utilizedfont"><font face="serif">R Packages Utilized</font></h3>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="c1"># Preprocessing &amp; summarizing data
+</span><span class="n">library</span><span class="p">(</span><span class="n">dplyr</span><span class="p">)</span>
+<span class="n">library</span><span class="p">(</span><span class="n">tidyr</span><span class="p">)</span>
+
+<span class="c1"># Visualization development
+</span><span class="n">library</span><span class="p">(</span><span class="n">grid</span><span class="p">)</span>
+<span class="n">library</span><span class="p">(</span><span class="n">scales</span><span class="p">)</span>
+<span class="n">library</span><span class="p">(</span><span class="n">ggplot2</span><span class="p">)</span></code></pre></figure>
+
+<p><br /></p>
+
+<h3 id="font-faceserifgetting--preparing-the-datafont"><font face="serif">Getting &amp; Preparing the Data</font></h3>
+<p>The data used was obtained from the <a href="https://www.census.gov/hhes/www/income/data/statemedian/">U.S. Census Bureau</a> website which contains median income for all 50 U.S. states, D.C., and the overall U.S. median income.  The values have been inflation adjusted to 2013 constant year dollars and range from 1984-2013.  The raw data included standard errors for each year which I removed prior to reading into R.  So, the initial data I am starting with here looks like:</p>
+
+<figure class="highlight"><pre><code class="language-text" data-lang="text">##           State X2013 X2012 X2011 X2010 X2009 X2008 X2007 X2006 X2005
+## 1 United States 51939 51758 51842 52646 54059 54423 56436 55689 55278
+## 2       Alabama 41381 44096 44112 43733 43420 48119 47424 43848 44329
+## 3        Alaska 61137 64573 59483 61804 66904 69230 70771 65183 66691
+## 4       Arizona 50602 47728 50358 50103 49674 50757 53045 53905 53988
+## 5      Arkansas 39919 39585 42778 41226 39681 42828 45832 42814 43742
+## 6    California 57528 57849 55274 57996 60963 61684 62616 63913 61756</code></pre></figure>
+
+<p>The first step I took was to create my baseline comparison which is the overall U.S. median income.  This simply required me to filter out values only for the U.S. (labeled <em>“United States”</em>), transpose the data into a long format using <code class="highlighter-rouge">gather()</code>, and removing the unecessary “X” at the beginning of each year value by using <code class="highlighter-rouge">separate()</code>.</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="c1"># clean overall U.S. data and turn it into long format
+</span><span class="n">us</span> <span class="o">&lt;-</span> <span class="n">data</span> <span class="o">%&gt;%</span>
+        <span class="n">filter</span><span class="p">(</span><span class="n">State</span> <span class="o">==</span> <span class="s2">"United States"</span><span class="p">)</span> <span class="o">%&gt;%</span>
+        <span class="n">gather</span><span class="p">(</span><span class="n">Year</span><span class="p">,</span> <span class="n">Income</span><span class="p">,</span> <span class="n">X2013</span><span class="o">:</span><span class="n">X1984</span><span class="p">)</span> <span class="o">%&gt;%</span>
+        <span class="n">separate</span><span class="p">(</span><span class="n">Year</span><span class="p">,</span> <span class="n">c</span><span class="p">(</span><span class="s2">"left"</span><span class="p">,</span><span class="s2">"Year"</span><span class="p">),</span> <span class="n">sep</span><span class="o">=</span><span class="s2">"X"</span><span class="p">)</span> <span class="o">%&gt;%</span>
+        <span class="n">select</span><span class="p">(</span><span class="o">-</span><span class="n">left</span><span class="p">)</span> <span class="o">%&gt;%</span>
+        <span class="n">arrange</span><span class="p">(</span><span class="n">Year</span><span class="p">)</span>
+
+<span class="c1"># extract 1984 value as the baseline value and add to us dataframe
+</span><span class="n">us_base</span> <span class="o">&lt;-</span> <span class="n">us</span><span class="p">[</span><span class="n">us</span><span class="o">$</span><span class="n">Year</span><span class="o">==</span><span class="m">1984</span><span class="p">,</span><span class="m">3</span><span class="p">]</span>
+<span class="n">us</span><span class="o">$</span><span class="n">us_baseline</span> <span class="o">&lt;-</span> <span class="n">us_base</span>
+
+<span class="c1"># calculate the percent change in U.S. median income for each year as compared
+# to 1984 (aka the baseline)
+</span><span class="n">us</span> <span class="o">&lt;-</span> <span class="n">us</span> <span class="o">%&gt;%</span> <span class="n">mutate</span><span class="p">(</span><span class="n">us_change</span> <span class="o">=</span> <span class="p">(</span><span class="n">Income</span><span class="o">-</span><span class="n">us_baseline</span><span class="p">)</span><span class="o">/</span><span class="n">us_baseline</span><span class="p">)</span></code></pre></figure>
+
+<p>The second step is to do the same process but for each of the states.</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="c1"># create a states dataframe, clean and turn into long format
+</span><span class="n">states</span> <span class="o">&lt;-</span> <span class="n">data</span> <span class="o">%&gt;%</span>
+        <span class="n">filter</span><span class="p">(</span><span class="n">State</span> <span class="o">!=</span> <span class="s2">"United States"</span><span class="p">)</span> <span class="o">%&gt;%</span>
+        <span class="n">gather</span><span class="p">(</span><span class="n">Year</span><span class="p">,</span> <span class="n">Income</span><span class="p">,</span> <span class="n">X2013</span><span class="o">:</span><span class="n">X1984</span><span class="p">)</span> <span class="o">%&gt;%</span>
+        <span class="n">separate</span><span class="p">(</span><span class="n">Year</span><span class="p">,</span> <span class="n">c</span><span class="p">(</span><span class="s2">"left"</span><span class="p">,</span><span class="s2">"Year"</span><span class="p">),</span> <span class="n">sep</span><span class="o">=</span><span class="s2">"X"</span><span class="p">)</span> <span class="o">%&gt;%</span>
+        <span class="n">select</span><span class="p">(</span><span class="o">-</span><span class="n">left</span><span class="p">)</span> <span class="o">%&gt;%</span>
+        <span class="n">arrange</span><span class="p">(</span><span class="n">Year</span><span class="p">)</span> <span class="o">%&gt;%</span>
+        <span class="n">filter</span><span class="p">(</span><span class="n">Income</span> <span class="o">!=</span> <span class="s2">"NA"</span><span class="p">)</span>
+
+<span class="c1"># create baselines for each state
+</span><span class="n">state_base</span> <span class="o">&lt;-</span> <span class="n">states</span> <span class="o">%&gt;%</span>
+        <span class="n">filter</span><span class="p">(</span><span class="n">Year</span> <span class="o">==</span> <span class="m">1984</span><span class="p">)</span> <span class="o">%&gt;%</span>
+        <span class="n">select</span><span class="p">(</span><span class="n">State</span><span class="p">,</span> <span class="n">State_Baseline</span> <span class="o">=</span> <span class="n">Income</span><span class="p">)</span>
+
+<span class="c1"># add baseline to the states and calculate the percent change in median income
+# for each state as compared to 1984 (aka the baseline)
+</span><span class="n">states</span> <span class="o">&lt;-</span> <span class="n">states</span> <span class="o">%&gt;%</span>
+        <span class="n">left_join</span><span class="p">(</span><span class="n">state_base</span><span class="p">)</span> <span class="o">%&gt;%</span>
+        <span class="n">arrange</span><span class="p">(</span><span class="n">State</span><span class="p">)</span> <span class="o">%&gt;%</span>
+        <span class="n">mutate</span><span class="p">(</span><span class="n">state_change</span> <span class="o">=</span> <span class="p">(</span><span class="n">Income</span><span class="o">-</span><span class="n">State_Baseline</span><span class="p">)</span><span class="o">/</span><span class="n">State_Baseline</span><span class="p">)</span>
+
+<span class="c1"># change year variables from character to numeric
+</span><span class="n">states</span><span class="o">$</span><span class="n">Year</span> <span class="o">&lt;-</span> <span class="n">as.numeric</span><span class="p">(</span><span class="n">states</span><span class="o">$</span><span class="n">Year</span><span class="p">)</span>
+<span class="n">us</span><span class="o">$</span><span class="n">Year</span> <span class="o">&lt;-</span> <span class="n">as.numeric</span><span class="p">(</span><span class="n">us</span><span class="o">$</span><span class="n">Year</span><span class="p">)</span>
+
+<span class="c1"># get top 5 and bottom 5 states which will allow me to identify them
+# graphically
+</span><span class="n">rank</span> <span class="o">&lt;-</span> <span class="n">states</span> <span class="o">%&gt;%</span> 
+        <span class="n">filter</span><span class="p">(</span><span class="n">Year</span> <span class="o">==</span> <span class="m">2013</span><span class="p">)</span> <span class="o">%&gt;%</span> 
+        <span class="n">arrange</span><span class="p">(</span><span class="n">desc</span><span class="p">(</span><span class="n">state_change</span><span class="p">))</span> <span class="o">%&gt;%</span>
+        <span class="n">mutate</span><span class="p">(</span><span class="n">rank</span> <span class="o">=</span> <span class="n">seq</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="n">length</span><span class="p">(</span><span class="n">State</span><span class="p">),</span> <span class="n">by</span><span class="o">=</span><span class="m">1</span><span class="p">))</span> <span class="o">%&gt;%</span>
+        <span class="n">filter</span><span class="p">(</span><span class="n">rank</span> <span class="o">&lt;</span> <span class="m">6</span> <span class="o">|</span> <span class="n">rank</span> <span class="o">&gt;</span> <span class="m">46</span> <span class="p">)</span></code></pre></figure>
+
+<p><br /></p>
+
+<h3 id="font-faceserifcreating-the-visual-graphicfont"><font face="serif">Creating the Visual Graphic</font></h3>
+<p>Now that we have our data formatted properly we can proceed to building our graphic.</p>
+
+<p><br /></p>
+
+<h4 id="ufont-faceserifstep-1fontu"><u><font face="serif">Step 1</font></u></h4>
+<p>The first thing I like to do is create my canvas.  I tend to stay true to Edward Tufte’s principles and keep it as minimalistic as possible. This usually includes the <code class="highlighter-rouge">theme_bw()</code> theme along with minimal gridlines.  For this plot I also remove the borders, axis tick marks, titles, and make the y-axis major gridlines a light grey with a dotted linetype.  Next, I plot the trend lines for all 50 states (and D.C.).  Since this creates a lot of noise, I use a light grey with some transparency because I want this to act as a “backdrop” of sorts.</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">p</span> <span class="o">&lt;-</span> <span class="n">ggplot</span><span class="p">(</span><span class="n">states</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="n">Year</span><span class="p">,</span> <span class="n">state_change</span><span class="p">,</span> <span class="n">group</span><span class="o">=</span><span class="n">State</span><span class="p">))</span> <span class="o">+</span>
+        <span class="n">theme_bw</span><span class="p">()</span> <span class="o">+</span>
+        <span class="n">theme</span><span class="p">(</span><span class="n">plot.background</span> <span class="o">=</span> <span class="n">element_blank</span><span class="p">(),</span>
+              <span class="n">panel.grid.minor</span> <span class="o">=</span> <span class="n">element_blank</span><span class="p">(),</span>
+              <span class="n">panel.grid.major.x</span> <span class="o">=</span> <span class="n">element_blank</span><span class="p">(),</span>
+              <span class="n">panel.grid.major.y</span> <span class="o">=</span> <span class="n">element_line</span><span class="p">(</span><span class="n">linetype</span> <span class="o">=</span> <span class="m">3</span><span class="p">,</span> <span class="n">colour</span> <span class="o">=</span> <span class="s2">"grey50"</span><span class="p">),</span>
+              <span class="n">panel.border</span> <span class="o">=</span> <span class="n">element_blank</span><span class="p">(),</span>
+              <span class="n">panel.background</span> <span class="o">=</span> <span class="n">element_blank</span><span class="p">(),</span>
+              <span class="n">axis.ticks</span> <span class="o">=</span> <span class="n">element_blank</span><span class="p">(),</span>  
+              <span class="n">axis.title</span> <span class="o">=</span> <span class="n">element_blank</span><span class="p">())</span> <span class="o">+</span>
+        <span class="n">geom_line</span><span class="p">(</span><span class="n">colour</span><span class="o">=</span><span class="s2">"grey90"</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="m">.9</span><span class="p">)</span>
+
+<span class="n">print</span><span class="p">(</span><span class="n">p</span><span class="p">)</span></code></pre></figure>
+
+<p><img src="http://bradleyboehmke.github.io/figure/source/u-s-median-income-growth/2015-12-28-u-s-median-income-growth/unnamed-chunk-5-1.png" alt="plot of chunk unnamed-chunk-5" /></p>
+
+<p><br /></p>
+
+<h4 id="ufont-faceserifstep-2fontu"><u><font face="serif">Step 2</font></u></h4>
+<p>Next, I plot the U.S. overall average with a dashed line.</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">p</span> <span class="o">&lt;-</span> <span class="n">p</span> <span class="o">+</span>
+        <span class="n">geom_line</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">us</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="n">Year</span><span class="p">,</span> <span class="n">us_change</span><span class="p">,</span> <span class="n">group</span><span class="o">=</span><span class="m">1</span><span class="p">),</span> <span class="n">linetype</span><span class="o">=</span><span class="m">5</span><span class="p">)</span>
+
+<span class="n">print</span><span class="p">(</span><span class="n">p</span><span class="p">)</span></code></pre></figure>
+
+<p><img src="http://bradleyboehmke.github.io/figure/source/u-s-median-income-growth/2015-12-28-u-s-median-income-growth/unnamed-chunk-6-1.png" alt="plot of chunk unnamed-chunk-6" /></p>
+
+<p><br /></p>
+
+<h4 id="ufont-faceserifstep-3fontu"><u><font face="serif">Step 3</font></u></h4>
+<p>I also wanted to identify how my own state (Ohio) has trended over the years so I filtered the states dataframe for only Ohio data and singled it out with a blue color.</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">p</span> <span class="o">&lt;-</span> <span class="n">p</span> <span class="o">+</span>
+        <span class="n">geom_line</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">filter</span><span class="p">(</span><span class="n">states</span><span class="p">,</span> <span class="n">State</span><span class="o">==</span><span class="s2">"Ohio"</span><span class="p">),</span> 
+                  <span class="n">aes</span><span class="p">(</span><span class="n">Year</span><span class="p">,</span> <span class="n">state_change</span><span class="p">,</span> <span class="n">group</span><span class="o">=</span><span class="n">State</span><span class="p">),</span> <span class="n">colour</span><span class="o">=</span><span class="s2">"dodgerblue"</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="m">1</span><span class="p">)</span>
+
+<span class="n">print</span><span class="p">(</span><span class="n">p</span><span class="p">)</span></code></pre></figure>
+
+<p><img src="http://bradleyboehmke.github.io/figure/source/u-s-median-income-growth/2015-12-28-u-s-median-income-growth/unnamed-chunk-7-1.png" alt="plot of chunk unnamed-chunk-7" /></p>
+
+<p><br /></p>
+
+<h4 id="ufont-faceserifstep-4fontu"><u><font face="serif">Step 4</font></u></h4>
+<p>I wanted to create some boundaries with the biggest economic “winner” and “loser”.  So I identified the state that had the largest growth from 1984 to 2013 and the state that had the greatest contraction and singled these out with a slightly darker grey than all the other states.</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">p</span> <span class="o">&lt;-</span> <span class="n">p</span> <span class="o">+</span>
+        <span class="n">geom_line</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">filter</span><span class="p">(</span><span class="n">states</span><span class="p">,</span> <span class="n">State</span><span class="o">==</span><span class="s2">"D.C."</span><span class="p">),</span> 
+                  <span class="n">aes</span><span class="p">(</span><span class="n">Year</span><span class="p">,</span> <span class="n">state_change</span><span class="p">,</span> <span class="n">group</span><span class="o">=</span><span class="n">State</span><span class="p">),</span> <span class="n">colour</span><span class="o">=</span><span class="s2">"grey70"</span><span class="p">)</span> <span class="o">+</span>
+        <span class="n">geom_line</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">filter</span><span class="p">(</span><span class="n">states</span><span class="p">,</span> <span class="n">State</span><span class="o">==</span><span class="s2">"Nevada"</span><span class="p">),</span> 
+                  <span class="n">aes</span><span class="p">(</span><span class="n">Year</span><span class="p">,</span> <span class="n">state_change</span><span class="p">,</span> <span class="n">group</span><span class="o">=</span><span class="n">State</span><span class="p">),</span> <span class="n">colour</span><span class="o">=</span><span class="s2">"grey70"</span><span class="p">)</span>
+
+<span class="n">print</span><span class="p">(</span><span class="n">p</span><span class="p">)</span></code></pre></figure>
+
+<p><img src="http://bradleyboehmke.github.io/figure/source/u-s-median-income-growth/2015-12-28-u-s-median-income-growth/unnamed-chunk-8-1.png" alt="plot of chunk unnamed-chunk-8" /></p>
+
+<p><br /></p>
+
+<h4 id="ufont-faceserifstep-5fontu"><u><font face="serif">Step 5</font></u></h4>
+<p>Next, I identify the top 5 and bottom 5 states along the overall US by plotting points on their 2013 values.</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">p</span> <span class="o">&lt;-</span> <span class="n">p</span> <span class="o">+</span>
+        <span class="n">geom_point</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">rank</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="n">Year</span><span class="p">,</span> <span class="n">state_change</span><span class="p">),</span> <span class="n">shape</span><span class="o">=</span><span class="m">21</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="m">1.5</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="m">.6</span><span class="p">)</span> <span class="o">+</span>
+        <span class="n">geom_point</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">filter</span><span class="p">(</span><span class="n">us</span><span class="p">,</span> <span class="n">Year</span> <span class="o">==</span> <span class="m">2013</span><span class="p">),</span> <span class="n">aes</span><span class="p">(</span><span class="n">Year</span><span class="p">,</span> <span class="n">us_change</span><span class="p">),</span> <span class="n">size</span><span class="o">=</span><span class="m">2.5</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="m">.6</span><span class="p">)</span>
+
+<span class="n">print</span><span class="p">(</span><span class="n">p</span><span class="p">)</span></code></pre></figure>
+
+<p><img src="http://bradleyboehmke.github.io/figure/source/u-s-median-income-growth/2015-12-28-u-s-median-income-growth/unnamed-chunk-9-1.png" alt="plot of chunk unnamed-chunk-9" /></p>
+
+<p><br /></p>
+
+<h4 id="ufont-faceserifstep-6fontu"><u><font face="serif">Step 6</font></u></h4>
+<p>The last step I performed in R was to format the x- and y-axis.  For the y-axis I fixed the limits and breaks (this was primarily because I was tinkering around with the dimensions of the chart but wanted to keep the breaks fixed) and turned the labels to a percent format.  For the x-axis I increased the breaks to every 5 years and reduced the padding at the ends of the axis.  Also note that I extend the x-axis to 1983 even though my data only goes back to 1984.  This is to add more space on the left side of the x-axis; the reason for this becomes evident in the final graphic where I move the y-axis labels.</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">p</span> <span class="o">&lt;-</span> <span class="n">p</span> <span class="o">+</span>
+        <span class="n">scale_y_continuous</span><span class="p">(</span><span class="n">limits</span><span class="o">=</span><span class="n">c</span><span class="p">(</span><span class="m">-.2</span><span class="p">,</span><span class="m">.55</span><span class="p">),</span> <span class="n">breaks</span><span class="o">=</span><span class="n">seq</span><span class="p">(</span><span class="m">-.2</span><span class="p">,</span><span class="m">.4</span><span class="p">,</span><span class="n">by</span><span class="o">=</span><span class="m">.2</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="n">percent</span><span class="p">)</span> <span class="o">+</span>
+        <span class="n">scale_x_continuous</span><span class="p">(</span><span class="n">limits</span><span class="o">=</span><span class="n">c</span><span class="p">(</span><span class="m">1983</span><span class="p">,</span><span class="m">2013</span><span class="p">),</span><span class="n">breaks</span><span class="o">=</span><span class="n">seq</span><span class="p">(</span><span class="m">1985</span><span class="p">,</span><span class="m">2010</span><span class="p">,</span><span class="n">by</span><span class="o">=</span><span class="m">5</span><span class="p">),</span> <span class="n">expand</span><span class="o">=</span><span class="n">c</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">.25</span><span class="p">))</span>
+
+<span class="n">print</span><span class="p">(</span><span class="n">p</span><span class="p">)</span></code></pre></figure>
+
+<p><img src="http://bradleyboehmke.github.io/figure/source/u-s-median-income-growth/2015-12-28-u-s-median-income-growth/unnamed-chunk-10-1.png" alt="plot of chunk unnamed-chunk-10" /></p>
+
+<p><br /></p>
+
+<h4 id="ufont-faceserifstep-7fontu"><u><font face="serif">Step 7</font></u></h4>
+<p>With my data plotted, all that was left was to annotate the graphic.  Annotation can be done in R, which I showed the intricacies required in my <a href="http://bradleyboehmke.github.io//2015/08/new-post.html">weather graphic tutorial</a>; however, I find it much easier to use Adobe Illustrator to annotate finely detailed graphics like this one.</p>
+
+<p>I’m a big fan of Georgia font so in Illustrator I usually change my fonts to include my axis labels. I also ended up increasing the size of the axis labels and adjusted the position of the y-axis labels to sit on top of the gridlines rather than adjacent to them.</p>
+
+<p>Annotation adds a lot to a graphic and is really what makes it able to tell a story on its own. Whether you do it in R or in editor such as Illustrator, these are the final touches that really make a graphic shine.</p>
+
+<p><img src="http://bradleyboehmke.github.io/figure/source/u-s-median-income-growth/2015-12-28-u-s-median-income-growth/median_income.jpg" alt="Final_Graphic" /></p>
+
+  </article>
+
+</div>
+
+
+
+
+
+      </div>
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col  footer-col-1">
+
+      </div>
+
+      <div class="footer-col  footer-col-2">
+        <ul class="social-media-list">
+        <center>
+          <li>
+            <a href="https://github.com/bradleyboehmke">
+              <span class="icon  icon--github">
+                <svg viewBox="0 0 16 16">
+                  <path fill="#828282" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761 c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32 c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472 c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037 C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65 c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261 c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082 c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129 c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/>
+                </svg>
+              </span>
+            </a>
+            &nbsp;
+            <a href="http://www.twitter.com/bradleyboehmke">
+              <span class="icon  icon--twitter">
+                <svg viewBox="0 0 16 16">
+                  <path fill="#828282" d="M15.969,3.058c-0.586,0.26-1.217,0.436-1.878,0.515c0.675-0.405,1.194-1.045,1.438-1.809
+                  c-0.632,0.375-1.332,0.647-2.076,0.793c-0.596-0.636-1.446-1.033-2.387-1.033c-1.806,0-3.27,1.464-3.27,3.27 c0,0.256,0.029,0.506,0.085,0.745C5.163,5.404,2.753,4.102,1.14,2.124C0.859,2.607,0.698,3.168,0.698,3.767 c0,1.134,0.577,2.135,1.455,2.722C1.616,6.472,1.112,6.325,0.671,6.08c0,0.014,0,0.027,0,0.041c0,1.584,1.127,2.906,2.623,3.206 C3.02,9.402,2.731,9.442,2.433,9.442c-0.211,0-0.416-0.021-0.615-0.059c0.416,1.299,1.624,2.245,3.055,2.271 c-1.119,0.877-2.529,1.4-4.061,1.4c-0.264,0-0.524-0.015-0.78-0.046c1.447,0.928,3.166,1.469,5.013,1.469 c6.015,0,9.304-4.983,9.304-9.304c0-0.142-0.003-0.283-0.009-0.423C14.976,4.29,15.531,3.714,15.969,3.058z"/>
+                </svg>
+              </span>
+            </a>
+            &nbsp;
+            <a href="https://www.linkedin.com/in/brad-boehmke-ph-d-9b0a257">
+              <span class="icon  icon--linkedin">
+                <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"  width="25" height="25" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.414"><path fill="#828282" d="M13.632 13.635h-2.37V9.922c0-.886-.018-2.025-1.234-2.025-1.235 0-1.424.964-1.424 1.96v3.778h-2.37V6H8.51V7.04h.03c.318-.6 1.092-1.233 2.247-1.233 2.4 0 2.845 1.58 2.845 3.637v4.188zM3.558 4.955c-.762 0-1.376-.617-1.376-1.377 0-.758.614-1.375 1.376-1.375.76 0 1.376.617 1.376 1.375 0 .76-.617 1.377-1.376 1.377zm1.188 8.68H2.37V6h2.376v7.635zM14.816 0H1.18C.528 0 0 .516 0 1.153v13.694C0 15.484.528 16 1.18 16h13.635c.652 0 1.185-.516 1.185-1.153V1.153C16 .516 15.467 0 14.815 0z" fill-rule="nonzero"/>
+                </svg>
+              </span>
+            </a>
+          </li>
+
+        </ul>
+        </center>
+      </div>
+
+      <div class="footer-col  footer-col-3">
+        <p class="text"></p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>

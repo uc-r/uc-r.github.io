@@ -1,0 +1,29 @@
+---
+layout: default
+---
+<div class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">{{ page.title }}</h1>
+    <p class="post-meta">{{ page.date | date: "%b %-d, %Y" }}{% if page.author %}  &nbsp; •  &nbsp; {{ page.author }}{% endif %}{% if page.meta %} • {{ page.meta }}{% endif %}{% if page.categories %} &nbsp; • &nbsp; Categories: 
+      {% for category in page.categories %}
+            &nbsp;<a href="http://bradleyboehmke.github.io/categoryview/#{{ category }}" style="color: rgb(128,128,128)">{{ category | replace:'-', ' ' }}</a>
+      {% endfor %}{% endif %}
+      {% if page.tags %} &nbsp; • &nbsp; Tags: 
+      {% for tag in page.tags %}
+            &nbsp;<a href="http://bradleyboehmke.github.io/categoryview/#{{ tag }}" style="color: rgb(128,128,128)">{{ tag | replace:'-', ' ' }}</a>
+      {% endfor %}{% endif %}
+    </p>
+      
+      <br>
+      
+  </header>
+
+  <article class="post-content">
+    {{ content }}
+  </article>
+
+</div>
+
+{% assign dep_file = page.url | split: '/' | last | prepend : 'htmlwidgets/' %}
+{% include {{dep_file}} %}

@@ -1,0 +1,50 @@
+---
+layout: default
+---
+<style>
+  h2 {margin:0; padding:0;}
+  
+  hr {
+    border: 0;
+    height: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+</style>
+
+<div class="home">
+
+<p style="font-family:Baskerville;">
+<font size="8" ><em>Musings</em></font>
+</p>
+<p>
+  <br>
+</p>
+
+  <ul class="post-list">
+    {% for post in site.posts %}
+      <li>
+        <p>
+        <h2>
+          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+        </h2>
+        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+        </p>
+        <p>
+        {{ post.excerpt }}
+        <div style="margin-right: 50px; float: right;">
+          <a class="btn btn-default" style="color: rgb(60, 60, 60); font-family: Overpass; font-size: 14px; font-weight: 700; background-color: rgb(253, 253, 253);" href="{{ post.url | prepend: site.baseurl }}" type="button">READ MORE...</a>
+        </div>
+        </p>
+        <p>
+          <br>
+        <hr>
+        </p>
+      </li>
+    {% endfor %}
+  </ul>
+
+  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
+
+</div>

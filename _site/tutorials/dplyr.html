@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Bradley Boehmke</title>
+    <meta name="description" content="">
+
+    <link rel="stylesheet" href="http://bradleyboehmke.github.io//css/main.css">
+    <link rel="canonical" href="http://bradleyboehmke.github.io/http://bradleyboehmke.github.io//tutorials/dplyr">
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="http://bradleyboehmke.github.io/">Bradley Boehmke</a>
+
+    <nav class="site-nav">
+      <a href="#" class="menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+
+      <div class="trigger">
+        
+          
+          <a class="page-link" href="http://bradleyboehmke.github.io//about/">About</a>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+          <a class="page-link" href="http://bradleyboehmke.github.io//categoryview/">Archive</a>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+          <a class="page-link" href="http://bradleyboehmke.github.io//cv/">CV</a>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+          <a class="page-link" href="http://bradleyboehmke.github.io//tutorials/">Tutorials</a>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+          <a class="page-link" href="http://bradleyboehmke.github.io//tutorials/scraping_with_apis_DSCOE.Rmd">Scraping Data with APIs</a>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <div class="post">
+
+  <article class="post-content">
+    <p><a href="index">R Vocab Topics</a> » <a href="data_wrangling">Data wrangling</a> » dplyr for manipulating, summarizing, and joining data frames</p>
+
+<p><br /></p>
+
+<p>Although many fundamental data manipulation functions exist in R, they have been a bit convoluted to date and have lacked consistent coding 
+and the ability to easily <em>flow</em> together.  This leads to difficult-to-read nested functions and/or <em>choppy</em> code. <a href="http://www.rstudio.com/">R Studio</a> is driving a lot of new packages to collate data management tasks and better integrate them with other analysis activities.
+As a result, a lot of data processing tasks are becoming packaged in more cohesive and consistent ways, which leads to:</p>
+
+<ul>
+  <li>More efficient code</li>
+  <li>Easier to remember syntax</li>
+  <li>Easier to read syntax</li>
+</ul>
+
+<p><code class="highlighter-rouge">dplyr</code> is one such package which was built for the sole purpose of simplifying the process of manipulating, sorting, summarizing, and joining data frames. This tutorial serves to introduce you to the basic functions offered by the <code class="highlighter-rouge">dplyr</code> package. These fundamental functions of data transformation that the dplyr package offers includes:</p>
+
+<ul>
+  <li><a href="#select"><strong><code class="highlighter-rouge">select()</code></strong></a> selects variables</li>
+  <li><a href="#filter"><strong><code class="highlighter-rouge">filter()</code></strong></a> provides basic filtering capabilities</li>
+  <li><a href="#group"><strong><code class="highlighter-rouge">group_by()</code></strong></a> groups data by categorical levels</li>
+  <li><a href="#summarise"><strong><code class="highlighter-rouge">summarise()</code></strong></a> summarizes data by functions of choice</li>
+  <li><a href="#arrange"><strong><code class="highlighter-rouge">arrange()</code></strong></a> orders data</li>
+  <li><a href="#join"><strong><code class="highlighter-rouge">join()</code></strong></a> joins separate dataframes</li>
+  <li><a href="#mutate"><strong><code class="highlighter-rouge">mutate()</code></strong></a> creates new variables</li>
+  <li><a href="#resources">Additional Resources</a></li>
+</ul>
+
+<p><br /></p>
+
+<h2 id="upackages-utilizedu"><u>Packages Utilized</u></h2>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">install.packages</span><span class="p">(</span><span class="s2">"dplyr"</span><span class="p">)</span>
+<span class="n">library</span><span class="p">(</span><span class="n">dplyr</span><span class="p">)</span></code></pre></figure>
+
+<p><br /></p>
+
+<p>For the examples that follow, we’ll use the following <a href="http://www.census.gov/en.html">census data</a> which includes the K-12 public school expenditures by state.  This data frame currently is 50x16 and includes expenditure data for 14 unique years.</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="c1">##   Division      State   X1980    X1990    X2000    X2001    X2002    X2003    X2004    X2005    X2006    X2007    X2008    X2009    X2010    X2011
+## 1        6    Alabama 1146713  2275233  4176082  4354794  4444390  4657643  4812479  5164406  5699076  6245031  6832439  6683843  6670517  6592925
+## 2        9     Alaska  377947   828051  1183499  1229036  1284854  1326226  1354846  1442269  1529645  1634316  1918375  2007319  2084019  2201270
+## 3        8    Arizona  949753  2258660  4288739  4846105  5395814  5892227  6071785  6579957  7130341  7815720  8403221  8726755  8482552  8340211
+## 4        7   Arkansas  666949  1404545  2380331  2505179  2822877  2923401  3109644  3546999  3808011  3997701  4156368  4240839  4459910  4578136
+## 5        9 California 9172158 21485782 38129479 42908787 46265544 47983402 49215866 50918654 53436103 57352599 61570555 60080929 58248662 57526835
+</span><span class="err">##</span> <span class="m">6</span>        <span class="m">8</span>   <span class="n">Colorado</span> <span class="m">1243049</span>  <span class="m">2451833</span>  <span class="m">4401010</span>  <span class="m">4758173</span>  <span class="m">5151003</span>  <span class="m">5551506</span>  <span class="m">5666191</span>  <span class="m">5994440</span>  <span class="m">6368289</span>  <span class="m">6579053</span>  <span class="m">7338766</span>  <span class="m">7187267</span>  <span class="m">7429302</span>  <span class="m">7409462</span></code></pre></figure>
+
+<p><br /></p>
+
+<p><a id="pipe"> </a></p>
+
+<h2 id="ufont-faceconsolasfont-operatoru"><u><font face="consolas">%&gt;%</font> Operator</u></h2>
+
+<p>Although not required, the tidyr and dplyr packages make use of the pipe operator <code class="highlighter-rouge">%&gt;%</code> developed by <a href="https://twitter.com/stefanbache">Stefan Milton Bache</a> in the R package <a href="http://cran.r-project.org/web/packages/magrittr/magrittr.pdf">magrittr</a>.  Although all the functions in tidyr and dplyr <em>can be used without the pipe operator</em>, one of the great conveniences these packages provide is the ability to string multiple functions together by incorporating <code class="highlighter-rouge">%&gt;%</code>.</p>
+
+<p>This operator will forward a value, or the result of an expression, into the next function call/expression.  For instance a function to filter data can be written as:</p>
+
+<center>filter(data, variable == <em>numeric_value</em>)</center>
+
+<center><em><u>or</u></em></center>
+
+<center>data %&gt;% filter(variable == <em>numeric_value</em>)</center>
+
+<p><br /></p>
+
+<p>Both functions complete the same task and the benefit of using <code class="highlighter-rouge">%&gt;%</code> is not evident; however, when you desire to perform multiple functions its advantage becomes obvious.  For instance, if we want to filter some data, summarize it, and then order the summarized results we would write it out as:</p>
+
+<p>  <u>Nested Option:</u></p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">arrange</span><span class="p">(</span>
+    <span class="n">summarize</span><span class="p">(</span>
+        <span class="n">filter</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">variable</span> <span class="o">==</span> <span class="o">*</span><span class="n">numeric_value</span><span class="o">*</span><span class="p">),</span>
+        <span class="n">Total</span> <span class="o">=</span> <span class="n">sum</span><span class="p">(</span><span class="n">variable</span><span class="p">)</span>
+    <span class="p">),</span>
+    <span class="n">desc</span><span class="p">(</span><span class="n">Total</span><span class="p">)</span><span class="o">&lt;</span><span class="n">br</span><span class="o">&gt;</span>
+<span class="p">)</span></code></pre></figure>
+
+<p>            <em><u>or</u></em></p>
+
+<p>  <u>Multiple Object Option:</u></p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">a</span> <span class="o">&lt;-</span> <span class="n">filter</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">variable</span> <span class="o">==</span> <span class="o">*</span><span class="n">numeric_value</span><span class="o">*</span><span class="p">)</span>
+<span class="n">b</span> <span class="o">&lt;-</span> <span class="n">summarise</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">Total</span> <span class="o">=</span> <span class="n">sum</span><span class="p">(</span><span class="n">variable</span><span class="p">))</span>
+<span class="n">c</span> <span class="o">&lt;-</span> <span class="n">arrange</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">desc</span><span class="p">(</span><span class="n">Total</span><span class="p">))</span></code></pre></figure>
+
+<p>            <em><u>or</u></em></p>
+
+<p>  <u>%&gt;% Option:</u></p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">data</span> <span class="o">%&gt;%</span>
+    <span class="n">filter</span><span class="p">(</span><span class="n">variable</span> <span class="o">==</span> <span class="s2">"value"</span><span class="p">)</span> <span class="o">%&gt;%</span>
+    <span class="n">summarise</span><span class="p">(</span><span class="n">Total</span> <span class="o">=</span> <span class="n">sum</span><span class="p">(</span><span class="n">variable</span><span class="p">))</span> <span class="o">%&gt;%</span>
+    <span class="n">arrange</span><span class="p">(</span><span class="n">desc</span><span class="p">(</span><span class="n">Total</span><span class="p">))</span></code></pre></figure>
+
+<p>As your function tasks get longer the <code class="highlighter-rouge">%&gt;%</code> operator becomes more efficient <em><u>and</u></em> makes your code more legible.  In addition, although not covered in this tutorial, the <code class="highlighter-rouge">%&gt;%</code> operator allows you to flow from data manipulation tasks straight into vizualization functions <em>(via ggplot and ggvis)</em> and also into many analytic functions.</p>
+
+<p>To learn more about the <code class="highlighter-rouge">%&gt;%</code> operator and the magrittr package visit any of the following:</p>
+
+<ul>
+  <li><a href="http://cran.r-project.org/web/packages/magrittr/vignettes/magrittr.html">http://cran.r-project.org/web/packages/magrittr/vignettes/magrittr.html</a></li>
+  <li><a href="http://www.r-bloggers.com/simpler-r-coding-with-pipes-the-present-and-future-of-the-magrittr-package/">http://www.r-bloggers.com/simpler-r-coding-with-pipes-the-present-and-future-of-the-magrittr-package/</a></li>
+  <li><a href="http://blog.revolutionanalytics.com/2014/07/magrittr-simplifying-r-code-with-pipes.html">http://blog.revolutionanalytics.com/2014/07/magrittr-simplifying-r-code-with-pipes.html</a></li>
+</ul>
+
+<p><a href="#">Go to top</a></p>
+
+<p><br />
+<a id="select"> </a></p>
+
+<h2 id="uselect--functionu"><u>select( ) function</u>:</h2>
+<p><strong>Objective:</strong> Reduce dataframe size to only desired variables for current task</p>
+
+<p><strong>Description:</strong> When working with a sizable dataframe, often we desire to only assess specific variables.  The <code class="highlighter-rouge">select()</code> function allows you to select and/or rename variables.</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">Function</span><span class="o">:</span>       <span class="n">select</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="k">...</span><span class="p">)</span>
+<span class="n">Same</span> <span class="n">as</span><span class="o">:</span>        <span class="n">data</span> <span class="o">%&gt;%</span> <span class="n">select</span><span class="p">(</span><span class="k">...</span><span class="p">)</span>
+
+<span class="n">Arguments</span><span class="o">:</span>
+        <span class="n">data</span><span class="o">:</span>           <span class="n">data</span> <span class="n">frame</span>
+        <span class="k">...</span><span class="o">:</span>            <span class="n">call</span> <span class="n">variables</span> <span class="n">by</span> <span class="n">name</span> <span class="n">or</span> <span class="n">by</span> <span class="k">function</span>
+
+<span class="n">Special</span> <span class="n">functions</span><span class="o">:</span>
+        <span class="n">starts_with</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">ignore.case</span> <span class="o">=</span> <span class="n">TRUE</span><span class="p">)</span><span class="o">:</span> <span class="n">names</span> <span class="n">starts</span> <span class="n">with</span> <span class="n">x</span>
+        <span class="n">ends_with</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">ignore.case</span> <span class="o">=</span> <span class="n">TRUE</span><span class="p">)</span><span class="o">:</span>   <span class="n">names</span> <span class="n">ends</span> <span class="k">in</span> <span class="n">x</span>
+        <span class="n">contains</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">ignore.case</span> <span class="o">=</span> <span class="n">TRUE</span><span class="p">)</span><span class="o">:</span>    <span class="n">selects</span> <span class="n">all</span> <span class="n">variables</span> <span class="n">whose</span> <span class="n">name</span> <span class="n">contains</span> <span class="n">x</span>
+        <span class="n">matches</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">ignore.case</span> <span class="o">=</span> <span class="n">TRUE</span><span class="p">)</span><span class="o">:</span>     <span class="n">selects</span> <span class="n">all</span> <span class="n">variables</span> <span class="n">whose</span> <span class="n">name</span> <span class="n">matches</span> <span class="n">the</span> <span class="n">regular</span> <span class="n">expression</span> <span class="n">x</span></code></pre></figure>
+
+<p><strong>Example</strong>
+Let’s say our goal is to only assess the 5 most recent years worth of expenditure data.  Applying the <code class="highlighter-rouge">select()</code> function we can <em>select</em> only the variables of concern.</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">sub.exp</span> <span class="o">&lt;-</span> <span class="n">expenditures</span> <span class="o">%&gt;%</span> <span class="n">select</span><span class="p">(</span><span class="n">Division</span><span class="p">,</span> <span class="n">State</span><span class="p">,</span> <span class="n">X2007</span><span class="o">:</span><span class="n">X2011</span><span class="p">)</span>
+<span class="n">head</span><span class="p">(</span><span class="n">sub.exp</span><span class="p">)</span>  <span class="c1"># for brevity only display first 6 rows
+</span>
+<span class="c1">##   Division      State    X2007    X2008    X2009    X2010    X2011
+## 1        6    Alabama  6245031  6832439  6683843  6670517  6592925
+## 2        9     Alaska  1634316  1918375  2007319  2084019  2201270
+## 3        8    Arizona  7815720  8403221  8726755  8482552  8340211
+## 4        7   Arkansas  3997701  4156368  4240839  4459910  4578136
+## 5        9 California 57352599 61570555 60080929 58248662 57526835
+</span><span class="err">##</span> <span class="m">6</span>        <span class="m">8</span>   <span class="n">Colorado</span>  <span class="m">6579053</span>  <span class="m">7338766</span>  <span class="m">7187267</span>  <span class="m">7429302</span>  <span class="m">7409462</span></code></pre></figure>
+
+<p>We can also apply some of the special functions within <code class="highlighter-rouge">select()</code>. For instance we can select all variables that start with ‘X’:</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">head</span><span class="p">(</span><span class="n">expenditures</span> <span class="o">%&gt;%</span> <span class="n">select</span><span class="p">(</span><span class="n">starts_with</span><span class="p">(</span><span class="s2">"X"</span><span class="p">)))</span>
+
+<span class="c1">##     X1980    X1990    X2000    X2001    X2002    X2003    X2004    X2005  X2006    X2007    X2008    X2009    X2010    X2011
+## 1 1146713  2275233  4176082  4354794  4444390  4657643  4812479  5164406  5699076  6245031  6832439  6683843  6670517  6592925
+## 2  377947   828051  1183499  1229036  1284854  1326226  1354846  1442269  1529645  1634316  1918375  2007319  2084019  2201270
+## 3  949753  2258660  4288739  4846105  5395814  5892227  6071785  6579957  7130341  7815720  8403221  8726755  8482552  8340211
+## 4  666949  1404545  2380331  2505179  2822877  2923401  3109644  3546999  3808011  3997701  4156368  4240839  4459910  4578136
+## 5 9172158 21485782 38129479 42908787 46265544 47983402 49215866 50918654 53436103 57352599 61570555 60080929 58248662 57526835
+</span><span class="err">##</span> <span class="m">6</span> <span class="m">1243049</span>  <span class="m">2451833</span>  <span class="m">4401010</span>  <span class="m">4758173</span>  <span class="m">5151003</span>  <span class="m">5551506</span>  <span class="m">5666191</span>  <span class="m">5994440</span>  <span class="m">6368289</span>  <span class="m">6579053</span>  <span class="m">7338766</span>  <span class="m">7187267</span>  <span class="m">7429302</span>  <span class="m">7409462</span></code></pre></figure>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">You</span> <span class="n">can</span> <span class="n">also</span> <span class="n">de</span><span class="o">-</span><span class="n">select</span> <span class="n">variables</span> <span class="n">by</span> <span class="n">using</span> <span class="s2">"-"</span> <span class="n">prior</span> <span class="n">to</span> <span class="n">name</span> <span class="n">or</span> <span class="n">function.</span>  <span class="n">The</span> <span class="n">following</span> <span class="n">produces</span> <span class="n">the</span> <span class="n">inverse</span> <span class="n">of</span> <span class="n">functions</span> <span class="n">above</span>
+        <span class="n">expenditures</span> <span class="o">%&gt;%</span> <span class="n">select</span><span class="p">(</span><span class="o">-</span><span class="n">X1980</span><span class="o">:-</span><span class="n">X2006</span><span class="p">)</span>
+        <span class="n">expenditures</span> <span class="o">%&gt;%</span> <span class="n">select</span><span class="p">(</span><span class="o">-</span><span class="n">starts_with</span><span class="p">(</span><span class="s2">"X"</span><span class="p">))</span></code></pre></figure>
+
+<p><a href="#">Go to top</a></p>
+
+<p><br />
+<a id="filter"> </a></p>
+
+<h2 id="ufilter--functionu"><u>filter( ) function</u>:</h2>
+<p><strong>Objective:</strong> Reduce rows/observations with matching conditions</p>
+
+<p><strong>Description:</strong> Filtering data is a common task to identify/select observations in which a particular variable matches a specific value/condition. The <code class="highlighter-rouge">filter()</code> function provides this capability.</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">Function</span><span class="o">:</span>       <span class="n">filter</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="k">...</span><span class="p">)</span>
+<span class="n">Same</span> <span class="n">as</span><span class="o">:</span>        <span class="n">data</span> <span class="o">%&gt;%</span> <span class="n">filter</span><span class="p">(</span><span class="k">...</span><span class="p">)</span>
+
+<span class="n">Arguments</span><span class="o">:</span>
+        <span class="n">data</span><span class="o">:</span>           <span class="n">data</span> <span class="n">frame</span>
+        <span class="k">...</span><span class="o">:</span>            <span class="n">conditions</span> <span class="n">to</span> <span class="n">be</span> <span class="n">met</span></code></pre></figure>
+
+<p><strong>Examples</strong></p>
+
+<p>Continuing with our <strong>sub.exp</strong> dataframe which includes only the recent 5 years worth of expenditures, we can filter by <em>Division</em>:</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">sub.exp</span> <span class="o">%&gt;%</span> <span class="n">filter</span><span class="p">(</span><span class="n">Division</span> <span class="o">==</span> <span class="m">3</span><span class="p">)</span>
+
+<span class="c1">##   Division     State    X2007    X2008    X2009    X2010    X2011
+## 1        3  Illinois 20326591 21874484 23495271 24695773 24554467
+## 2        3   Indiana  9497077  9281709  9680895  9921243  9687949
+## 3        3  Michigan 17013259 17053521 17217584 17227515 16786444
+## 4        3      Ohio 18251361 18892374 19387318 19801670 19988921
+</span><span class="err">##</span> <span class="m">5</span>        <span class="m">3</span> <span class="n">Wisconsin</span>  <span class="m">9029660</span>  <span class="m">9366134</span>  <span class="m">9696228</span>  <span class="m">9966244</span> <span class="m">10333016</span></code></pre></figure>
+
+<p>We can apply multiple logic rules in the <code class="highlighter-rouge">filter()</code> function such as:</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="o">&lt;</span>   <span class="n">Less</span> <span class="n">than</span>                    <span class="o">!=</span>      <span class="n">Not</span> <span class="n">equal</span> <span class="n">to</span>
+<span class="o">&gt;</span>   <span class="n">Greater</span> <span class="n">than</span>                 <span class="o">%</span><span class="k">in</span><span class="o">%</span>    <span class="n">Group</span> <span class="n">membership</span>
+<span class="o">==</span>  <span class="n">Equal</span> <span class="n">to</span>                     <span class="n">is.na</span>   <span class="n">is</span> <span class="n">NA</span>
+<span class="o">&lt;=</span>  <span class="n">Less</span> <span class="n">than</span> <span class="n">or</span> <span class="n">equal</span> <span class="n">to</span>        <span class="o">!</span><span class="n">is.na</span>  <span class="n">is</span> <span class="n">not</span> <span class="n">NA</span>
+<span class="o">&gt;=</span>  <span class="n">Greater</span> <span class="n">than</span> <span class="n">or</span> <span class="n">equal</span> <span class="n">to</span>     <span class="o">&amp;</span><span class="p">,</span><span class="o">|</span><span class="p">,</span><span class="o">!</span>   <span class="n">Boolean</span> <span class="n">operators</span></code></pre></figure>
+
+<p>For instance, we can filter for Division 3 and expenditures in 2011 that were greater than $10B.  This results in Indiana, which is in Division 3, being excluded since its expenditures were &lt; $10B <em>(FYI - the raw census data are reported in units of $1,000)</em>.</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="c1"># Raw census data are in units of $1,000
+</span><span class="n">sub.exp</span> <span class="o">%&gt;%</span> <span class="n">filter</span><span class="p">(</span><span class="n">Division</span> <span class="o">==</span> <span class="m">3</span><span class="p">,</span> <span class="n">X2011</span> <span class="o">&gt;</span> <span class="m">10000000</span><span class="p">)</span>  
+
+<span class="c1">##   Division     State    X2007    X2008    X2009    X2010    X2011
+## 1        3  Illinois 20326591 21874484 23495271 24695773 24554467
+## 2        3  Michigan 17013259 17053521 17217584 17227515 16786444
+## 3        3      Ohio 18251361 18892374 19387318 19801670 19988921
+</span><span class="err">##</span> <span class="m">4</span>        <span class="m">3</span> <span class="n">Wisconsin</span>  <span class="m">9029660</span>  <span class="m">9366134</span>  <span class="m">9696228</span>  <span class="m">9966244</span> <span class="m">10333016</span></code></pre></figure>
+
+<p><a href="#">Go to top</a></p>
+
+<p><br />
+<a id="group"> </a></p>
+
+<h2 id="ugroupby--functionu"><u>group_by( ) function</u>:</h2>
+<p><strong>Objective:</strong> Group data by categorical variables</p>
+
+<p><strong>Description:</strong> Often, observations are nested within groups or categories and our goals is to perform statistical analysis both at the observation level and also at the group level.  The <code class="highlighter-rouge">group_by()</code> function allows us to create these categorical groupings.</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">Function</span><span class="o">:</span>       <span class="n">group_by</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="k">...</span><span class="p">)</span>
+<span class="n">Same</span> <span class="n">as</span><span class="o">:</span>        <span class="n">data</span> <span class="o">%&gt;%</span> <span class="n">group_by</span><span class="p">(</span><span class="k">...</span><span class="p">)</span>
+
+<span class="n">Arguments</span><span class="o">:</span>
+        <span class="n">data</span><span class="o">:</span>           <span class="n">data</span> <span class="n">frame</span>
+        <span class="k">...</span><span class="o">:</span>            <span class="n">variables</span> <span class="n">to</span> <span class="n">group_by</span>
+
+<span class="o">*</span><span class="n">Use</span> <span class="n">ungroup</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="n">to</span> <span class="n">remove</span> <span class="n">groups</span></code></pre></figure>
+
+<p><strong>Example</strong>
+The <code class="highlighter-rouge">group_by()</code> function is a <em>silent</em> function in which no observable manipulation of the data is performed as a result of applying the function.  Rather, the only change you’ll notice is, if you print the dataframe you will notice underneath the <em>Source</em> information and prior to the actual dataframe, an indicator of what variable the data is grouped by will be provided. The real magic of the <code class="highlighter-rouge">group_by()</code> function comes when we perform summary statistics which we will cover shortly.</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">group.exp</span> <span class="o">&lt;-</span> <span class="n">sub.exp</span> <span class="o">%&gt;%</span> <span class="n">group_by</span><span class="p">(</span><span class="n">Division</span><span class="p">)</span>
+
+<span class="n">head</span><span class="p">(</span><span class="n">group.exp</span><span class="p">)</span>
+
+<span class="c1">## Source: local data frame [6 x 7]
+## Groups: Division
+## 
+##   Division      State    X2007    X2008    X2009    X2010    X2011
+## 1        6    Alabama  6245031  6832439  6683843  6670517  6592925
+## 2        9     Alaska  1634316  1918375  2007319  2084019  2201270
+## 3        8    Arizona  7815720  8403221  8726755  8482552  8340211
+## 4        7   Arkansas  3997701  4156368  4240839  4459910  4578136
+## 5        9 California 57352599 61570555 60080929 58248662 57526835
+</span><span class="err">##</span> <span class="m">6</span>        <span class="m">8</span>   <span class="n">Colorado</span>  <span class="m">6579053</span>  <span class="m">7338766</span>  <span class="m">7187267</span>  <span class="m">7429302</span>  <span class="m">7409462</span></code></pre></figure>
+
+<p><a href="#">Go to top</a></p>
+
+<p><br />
+<a id="summarise"> </a></p>
+
+<h2 id="usummarise--functionu"><u>summarise( ) function</u>:</h2>
+<p><strong>Objective:</strong> Perform summary statistics on variables</p>
+
+<p><strong>Description:</strong> Obviously the goal of all this data <em>wrangling</em> is to be able to perform statistical analysis on our data.  The <code class="highlighter-rouge">summarise()</code> function allows us to perform the majority of the initial summary statistics when performing exploratory data analysis.</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">Function</span><span class="o">:</span>       <span class="n">summarise</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="k">...</span><span class="p">)</span>
+<span class="n">Same</span> <span class="n">as</span><span class="o">:</span>        <span class="n">data</span> <span class="o">%&gt;%</span> <span class="n">summarise</span><span class="p">(</span><span class="k">...</span><span class="p">)</span>
+
+<span class="n">Arguments</span><span class="o">:</span>
+        <span class="n">data</span><span class="o">:</span>           <span class="n">data</span> <span class="n">frame</span>
+        <span class="k">...</span><span class="o">:</span>            <span class="n">Name</span><span class="o">-</span><span class="n">value</span> <span class="n">pairs</span> <span class="n">of</span> <span class="n">summary</span> <span class="n">functions</span> <span class="n">like</span> <span class="n">min</span><span class="p">(),</span> <span class="n">mean</span><span class="p">(),</span> <span class="n">max</span><span class="p">()</span> <span class="n">etc.</span>
+
+<span class="o">*</span><span class="n">Developer</span> <span class="n">is</span> <span class="n">from</span> <span class="n">New</span> <span class="n">Zealand...can</span> <span class="n">use</span> <span class="s2">"summarise(x)"</span> <span class="n">or</span> <span class="s2">"summarize(x)"</span></code></pre></figure>
+
+<p><strong>Examples</strong></p>
+
+<p>Lets get the mean expenditure value across all states in 2011</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">sub.exp</span> <span class="o">%&gt;%</span> <span class="n">summarise</span><span class="p">(</span><span class="n">Mean_2011</span> <span class="o">=</span> <span class="n">mean</span><span class="p">(</span><span class="n">X2011</span><span class="p">))</span>
+
+<span class="c1">##   Mean_2011
+</span><span class="err">##</span> <span class="m">1</span>  <span class="m">10513678</span></code></pre></figure>
+
+<p>Not too bad, lets get some more summary stats</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">sub.exp</span> <span class="o">%&gt;%</span> <span class="n">summarise</span><span class="p">(</span><span class="n">Min</span> <span class="o">=</span> <span class="n">min</span><span class="p">(</span><span class="n">X2011</span><span class="p">,</span> <span class="n">na.rm</span><span class="o">=</span><span class="n">TRUE</span><span class="p">),</span>
+                     <span class="n">Median</span> <span class="o">=</span> <span class="n">median</span><span class="p">(</span><span class="n">X2011</span><span class="p">,</span> <span class="n">na.rm</span><span class="o">=</span><span class="n">TRUE</span><span class="p">),</span>
+                     <span class="n">Mean</span> <span class="o">=</span> <span class="n">mean</span><span class="p">(</span><span class="n">X2011</span><span class="p">,</span> <span class="n">na.rm</span><span class="o">=</span><span class="n">TRUE</span><span class="p">),</span>
+                     <span class="n">Var</span> <span class="o">=</span> <span class="n">var</span><span class="p">(</span><span class="n">X2011</span><span class="p">,</span> <span class="n">na.rm</span><span class="o">=</span><span class="n">TRUE</span><span class="p">),</span>
+                     <span class="n">SD</span> <span class="o">=</span> <span class="n">sd</span><span class="p">(</span><span class="n">X2011</span><span class="p">,</span> <span class="n">na.rm</span><span class="o">=</span><span class="n">TRUE</span><span class="p">),</span>
+                     <span class="n">Max</span> <span class="o">=</span> <span class="n">max</span><span class="p">(</span><span class="n">X2011</span><span class="p">,</span> <span class="n">na.rm</span><span class="o">=</span><span class="n">TRUE</span><span class="p">),</span>
+                     <span class="n">N</span> <span class="o">=</span> <span class="n">n</span><span class="p">())</span>
+
+<span class="c1">##       Min  Median     Mean         Var       SD      Max  N
+</span><span class="err">##</span> <span class="m">1</span> <span class="m">1049772</span> <span class="m">6527404</span> <span class="m">10513678</span> <span class="m">1.48619e+14</span> <span class="m">12190938</span> <span class="m">57526835</span> <span class="m">50</span></code></pre></figure>
+
+<p>This information is useful, but being able to compare summary statistics at multiple levels is when you really start to gather some insights.  This is where the <code class="highlighter-rouge">group_by()</code> function comes in.  First, let’s group by <em>Division</em> and see how the different regions compared in by 2010 and 2011.</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">sub.exp</span> <span class="o">%&gt;%</span>
+        <span class="n">group_by</span><span class="p">(</span><span class="n">Division</span><span class="p">)</span><span class="o">%&gt;%</span> 
+        <span class="n">summarise</span><span class="p">(</span><span class="n">Mean_2010</span> <span class="o">=</span> <span class="n">mean</span><span class="p">(</span><span class="n">X2010</span><span class="p">,</span> <span class="n">na.rm</span><span class="o">=</span><span class="n">TRUE</span><span class="p">),</span>
+                  <span class="n">Mean_2011</span> <span class="o">=</span> <span class="n">mean</span><span class="p">(</span><span class="n">X2011</span><span class="p">,</span> <span class="n">na.rm</span><span class="o">=</span><span class="n">TRUE</span><span class="p">))</span>
+
+<span class="c1">## Source: local data frame [9 x 3]
+## 
+##   Division Mean_2010 Mean_2011
+## 1        1   5121003   5222277
+## 2        2  32415457  32877923
+## 3        3  16322489  16270159
+## 4        4   4672332   4672687
+## 5        5  10975194  11023526
+## 6        6   6161967   6267490
+## 7        7  14916843  15000139
+## 8        8   3894003   3882159
+</span><span class="err">##</span> <span class="m">9</span>        <span class="m">9</span>  <span class="m">15540681</span>  <span class="m">15468173</span></code></pre></figure>
+
+<p>Now we’re starting to see some differences pop out.  How about we compare states within a Division?  We can start to apply multiple functions we’ve learned so far to get the 5 year average for each state within Division 3.</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">sub.exp</span> <span class="o">%&gt;%</span>
+        <span class="n">gather</span><span class="p">(</span><span class="n">Year</span><span class="p">,</span> <span class="n">Expenditure</span><span class="p">,</span> <span class="n">X2007</span><span class="o">:</span><span class="n">X2011</span><span class="p">)</span> <span class="o">%&gt;%</span>   <span class="c1"># this turns our wide data to a long format
+</span>        <span class="n">filter</span><span class="p">(</span><span class="n">Division</span> <span class="o">==</span> <span class="m">3</span><span class="p">)</span> <span class="o">%&gt;%</span>                    <span class="c1"># we only want to compare states within Division 3
+</span>        <span class="n">group_by</span><span class="p">(</span><span class="n">State</span><span class="p">)</span> <span class="o">%&gt;%</span>                          <span class="c1"># we want to summarize data at the state level
+</span>        <span class="n">summarise</span><span class="p">(</span><span class="n">Mean</span> <span class="o">=</span> <span class="n">mean</span><span class="p">(</span><span class="n">Expenditure</span><span class="p">),</span>
+                  <span class="n">SD</span> <span class="o">=</span> <span class="n">sd</span><span class="p">(</span><span class="n">Expenditure</span><span class="p">))</span>
+
+<span class="c1">## Source: local data frame [5 x 3]
+## 
+##       State     Mean        SD
+## 1  Illinois 22989317 1867527.7
+## 2   Indiana  9613775  238971.6
+## 3  Michigan 17059665  180245.0
+## 4      Ohio 19264329  705930.2
+</span><span class="err">##</span> <span class="m">5</span> <span class="n">Wisconsin</span>  <span class="m">9678256</span>  <span class="m">507461.2</span></code></pre></figure>
+
+<p><a href="#">Go to top</a></p>
+
+<p><br />
+<a id="arrange"> </a></p>
+
+<h2 id="uarrange--functionu"><u>arrange( ) function</u>:</h2>
+<p><strong>Objective:</strong> Order variable values</p>
+
+<p><strong>Description:</strong>  Often, we desire to view observations in rank order for a particular variable(s). The <code class="highlighter-rouge">arrange()</code> function allows us to order data by variables in accending or descending order.</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">Function</span><span class="o">:</span>       <span class="n">arrange</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="k">...</span><span class="p">)</span>
+<span class="n">Same</span> <span class="n">as</span><span class="o">:</span>        <span class="n">data</span> <span class="o">%&gt;%</span> <span class="n">arrange</span><span class="p">(</span><span class="k">...</span><span class="p">)</span>
+
+<span class="n">Arguments</span><span class="o">:</span>
+        <span class="n">data</span><span class="o">:</span>           <span class="n">data</span> <span class="n">frame</span>
+        <span class="k">...</span><span class="o">:</span>            <span class="n">Variable</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="n">to</span> <span class="n">order</span>
+
+<span class="o">*</span><span class="n">use</span> <span class="n">desc</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="n">to</span> <span class="n">sort</span> <span class="n">variable</span> <span class="k">in</span> <span class="n">descending</span> <span class="n">order</span></code></pre></figure>
+
+<p><strong>Examples</strong></p>
+
+<p>For instance, in the summarise example we compared the the mean expenditures for each division. We could apply the <code class="highlighter-rouge">arrange()</code> function at the end to order the divisions from lowest to highest expenditure for 2011.  This makes it easier to see the significant differences between Divisions 8,4,1 &amp; 6 as compared to Divisions 5,7,9,3 &amp; 2.</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">sub.exp</span> <span class="o">%&gt;%</span>
+        <span class="n">group_by</span><span class="p">(</span><span class="n">Division</span><span class="p">)</span><span class="o">%&gt;%</span> 
+        <span class="n">summarise</span><span class="p">(</span><span class="n">Mean_2010</span> <span class="o">=</span> <span class="n">mean</span><span class="p">(</span><span class="n">X2010</span><span class="p">,</span> <span class="n">na.rm</span><span class="o">=</span><span class="n">TRUE</span><span class="p">),</span>
+                  <span class="n">Mean_2011</span> <span class="o">=</span> <span class="n">mean</span><span class="p">(</span><span class="n">X2011</span><span class="p">,</span> <span class="n">na.rm</span><span class="o">=</span><span class="n">TRUE</span><span class="p">))</span> <span class="o">%&gt;%</span>
+        <span class="n">arrange</span><span class="p">(</span><span class="n">Mean_2011</span><span class="p">)</span>
+
+<span class="c1">## Source: local data frame [9 x 3]
+## 
+##   Division Mean_2010 Mean_2011
+## 1        8   3894003   3882159
+## 2        4   4672332   4672687
+## 3        1   5121003   5222277
+## 4        6   6161967   6267490
+## 5        5  10975194  11023526
+## 6        7  14916843  15000139
+## 7        9  15540681  15468173
+## 8        3  16322489  16270159
+</span><span class="err">##</span> <span class="m">9</span>        <span class="m">2</span>  <span class="m">32415457</span>  <span class="m">32877923</span></code></pre></figure>
+
+<p>We can also apply an <em>descending</em> argument to rank-order from highest to lowest.  The following shows the same data but in descending order by applying <code class="highlighter-rouge">desc()</code> within the <code class="highlighter-rouge">arrange()</code> function.</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">sub.exp</span> <span class="o">%&gt;%</span>
+        <span class="n">group_by</span><span class="p">(</span><span class="n">Division</span><span class="p">)</span><span class="o">%&gt;%</span> 
+        <span class="n">summarise</span><span class="p">(</span><span class="n">Mean_2010</span> <span class="o">=</span> <span class="n">mean</span><span class="p">(</span><span class="n">X2010</span><span class="p">,</span> <span class="n">na.rm</span><span class="o">=</span><span class="n">TRUE</span><span class="p">),</span>
+                  <span class="n">Mean_2011</span> <span class="o">=</span> <span class="n">mean</span><span class="p">(</span><span class="n">X2011</span><span class="p">,</span> <span class="n">na.rm</span><span class="o">=</span><span class="n">TRUE</span><span class="p">))</span> <span class="o">%&gt;%</span>
+        <span class="n">arrange</span><span class="p">(</span><span class="n">desc</span><span class="p">(</span><span class="n">Mean_2011</span><span class="p">))</span>
+
+<span class="c1">## Source: local data frame [9 x 3]
+## 
+##   Division Mean_2010 Mean_2011
+## 1        2  32415457  32877923
+## 2        3  16322489  16270159
+## 3        9  15540681  15468173
+## 4        7  14916843  15000139
+## 5        5  10975194  11023526
+## 6        6   6161967   6267490
+## 7        1   5121003   5222277
+## 8        4   4672332   4672687
+</span><span class="err">##</span> <span class="m">9</span>        <span class="m">8</span>   <span class="m">3894003</span>   <span class="m">3882159</span></code></pre></figure>
+
+<p><a href="#">Go to top</a></p>
+
+<p><br />
+<a id="join"> </a></p>
+
+<h2 id="ujoin--functionsu"><u>join( ) functions</u>:</h2>
+<p><strong>Objective:</strong> Join two datasets together</p>
+
+<p><strong>Description:</strong> Often we have separate dataframes that can have common and differing variables for similar observations and we wish to <em>join</em> these dataframes together.  The multiple <code class="highlighter-rouge">xxx_join()</code> functions provide multiple ways to join dataframes.</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">Description</span><span class="o">:</span>    <span class="n">Join</span> <span class="n">two</span> <span class="n">datasets</span>
+
+<span class="n">Function</span><span class="o">:</span>       
+                <span class="n">inner_join</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">by</span> <span class="o">=</span> <span class="n">NULL</span><span class="p">)</span>
+                <span class="n">left_join</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">by</span> <span class="o">=</span> <span class="n">NULL</span><span class="p">)</span>
+                <span class="n">semi_join</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">by</span> <span class="o">=</span> <span class="n">NULL</span><span class="p">)</span>
+                <span class="n">anti_join</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">by</span> <span class="o">=</span> <span class="n">NULL</span><span class="p">)</span>
+
+<span class="n">Arguments</span><span class="o">:</span>
+        <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="o">:</span>           <span class="n">data</span> <span class="n">frames</span> <span class="n">to</span> <span class="n">join</span>
+        <span class="n">by</span><span class="o">:</span>            <span class="n">a</span> <span class="n">character</span> <span class="n">vector</span> <span class="n">of</span> <span class="n">variables</span> <span class="n">to</span> <span class="n">join</span> <span class="n">by.</span> <span class="n">If</span> <span class="n">NULL</span><span class="p">,</span> <span class="n">the</span> <span class="n">default</span><span class="p">,</span> <span class="n">join</span> <span class="n">will</span> <span class="n">do</span> <span class="n">a</span> <span class="n">natural</span> <span class="n">join</span><span class="p">,</span> <span class="n">using</span> <span class="n">all</span> 
+                        <span class="n">variables</span> <span class="n">with</span> <span class="n">common</span> <span class="n">names</span> <span class="n">across</span> <span class="n">the</span> <span class="n">two</span> <span class="n">tables.</span></code></pre></figure>
+
+<p><strong>Example</strong></p>
+
+<p>Our public education expenditure data represents then-year dollars.  To make any accurate assessments of longitudinal trends and comparison we need to adjust for inflation.  I have the following dataframe which provides inflation adjustment factors for base-year 2012 dollars <em>(obviously I should use 2014 values but I had these easily accessable and it only serves for illustrative purposes)</em>.</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="c1">##    Year  Annual Inflation
+## 28 2007 207.342 0.9030811
+## 29 2008 215.303 0.9377553
+## 30 2009 214.537 0.9344190
+## 31 2010 218.056 0.9497461
+## 32 2011 224.939 0.9797251
+</span><span class="err">##</span> <span class="m">33</span> <span class="m">2012</span> <span class="m">229.594</span> <span class="m">1.0000000</span></code></pre></figure>
+
+<p>To join to my expenditure data I obviously need to get my expenditure data in the proper form that allows my to join these two dataframes.  I can apply the following functions to accomplish this:</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">long.exp</span> <span class="o">&lt;-</span> <span class="n">sub.exp</span> <span class="o">%&gt;%</span>
+        <span class="n">gather</span><span class="p">(</span><span class="n">Year</span><span class="p">,</span> <span class="n">Expenditure</span><span class="p">,</span> <span class="n">X2007</span><span class="o">:</span><span class="n">X2011</span><span class="p">)</span> <span class="o">%&gt;%</span>         <span class="c1"># turn to long format
+</span>        <span class="n">separate</span><span class="p">(</span><span class="n">Year</span><span class="p">,</span> <span class="n">into</span><span class="o">=</span><span class="n">c</span><span class="p">(</span><span class="s2">"x"</span><span class="p">,</span> <span class="s2">"Year"</span><span class="p">),</span> <span class="n">sep</span><span class="o">=</span><span class="s2">"X"</span><span class="p">)</span> <span class="o">%&gt;%</span>   <span class="c1"># separate "X" from year value
+</span>        <span class="n">select</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="p">)</span>                                         <span class="c1"># remove "x" column
+</span>
+<span class="n">long.exp</span><span class="o">$</span><span class="n">Year</span> <span class="o">&lt;-</span> <span class="n">as.numeric</span><span class="p">(</span><span class="n">long.exp</span><span class="o">$</span> <span class="n">Year</span><span class="p">)</span>  <span class="c1"># convert from character to numeric
+</span>
+<span class="n">head</span><span class="p">(</span><span class="n">long.exp</span><span class="p">)</span>
+
+<span class="c1">##   Division      State Year Expenditure
+## 1        6    Alabama 2007     6245031
+## 2        9     Alaska 2007     1634316
+## 3        8    Arizona 2007     7815720
+## 4        7   Arkansas 2007     3997701
+## 5        9 California 2007    57352599
+</span><span class="err">##</span> <span class="m">6</span>        <span class="m">8</span>   <span class="n">Colorado</span> <span class="m">2007</span>     <span class="m">6579053</span></code></pre></figure>
+
+<p>I can now apply the <code class="highlighter-rouge">left_join()</code> function to join the inflation data to the expenditure data.  This aligns the data in both dataframes by the <em>Year</em> variable and then joins the remaining inflation data to the expenditure dataframe as new variables.</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">join.exp</span> <span class="o">&lt;-</span> <span class="n">long.exp</span> <span class="o">%&gt;%</span> <span class="n">left_join</span><span class="p">(</span><span class="n">inflation</span><span class="p">)</span>
+
+<span class="n">head</span><span class="p">(</span><span class="n">join.exp</span><span class="p">)</span>
+
+<span class="c1">##   Division      State Year Expenditure  Annual Inflation
+## 1        6    Alabama 2007     6245031 207.342 0.9030811
+## 2        9     Alaska 2007     1634316 207.342 0.9030811
+## 3        8    Arizona 2007     7815720 207.342 0.9030811
+## 4        7   Arkansas 2007     3997701 207.342 0.9030811
+## 5        9 California 2007    57352599 207.342 0.9030811
+</span><span class="err">##</span> <span class="m">6</span>        <span class="m">8</span>   <span class="n">Colorado</span> <span class="m">2007</span>     <span class="m">6579053</span> <span class="m">207.342</span> <span class="m">0.9030811</span></code></pre></figure>
+
+<p>To illustrate the other joining methods we can use these two simple dateframes:</p>
+
+<p>Dataframe “x”:</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="c1">##     name instrument
+## 1   John     guitar
+## 2   Paul       bass
+## 3 George     guitar
+## 4  Ringo      drums
+## 5 Stuart       bass
+</span><span class="err">##</span> <span class="m">6</span>   <span class="n">Pete</span>      <span class="n">drums</span></code></pre></figure>
+
+<p>Dataframe “y”:</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="c1">##     name  band
+## 1   John  TRUE
+## 2   Paul  TRUE
+## 3 George  TRUE
+## 4  Ringo  TRUE
+</span><span class="err">##</span> <span class="m">5</span>  <span class="n">Brian</span> <span class="n">FALSE</span></code></pre></figure>
+
+<p><br /></p>
+
+<p><code class="highlighter-rouge">inner_join()</code>: Include only rows in both x and y that have a matching value</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">inner_join</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+
+<span class="c1">##     name instrument band
+## 1   John     guitar TRUE
+## 2   Paul       bass TRUE
+## 3 George     guitar TRUE
+</span><span class="err">##</span> <span class="m">4</span>  <span class="n">Ringo</span>      <span class="n">drums</span> <span class="n">TRUE</span></code></pre></figure>
+
+<p><br /></p>
+
+<p><code class="highlighter-rouge">left_join()</code>: Include all of x, and matching rows of y</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">left_join</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+
+<span class="c1">##     name instrument band
+## 1   John     guitar TRUE
+## 2   Paul       bass TRUE
+## 3 George     guitar TRUE
+## 4  Ringo      drums TRUE
+## 5 Stuart       bass &lt;NA&gt;
+</span><span class="err">##</span> <span class="m">6</span>   <span class="n">Pete</span>      <span class="n">drums</span> <span class="o">&lt;</span><span class="n">NA</span><span class="o">&gt;</span></code></pre></figure>
+
+<p><br /></p>
+
+<p><code class="highlighter-rouge">semi_join()</code>: Include rows of x that match y but only keep the columns from x</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">semi_join</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+
+<span class="c1">##     name instrument
+## 1   John     guitar
+## 2   Paul       bass
+## 3 George     guitar
+</span><span class="err">##</span> <span class="m">4</span>  <span class="n">Ringo</span>      <span class="n">drums</span></code></pre></figure>
+
+<p><br /></p>
+
+<p><code class="highlighter-rouge">anti_join()</code>: Opposite of semi_join</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">anti_join</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+
+<span class="c1">##     name instrument
+## 1   Pete      drums
+</span><span class="err">##</span> <span class="m">2</span> <span class="n">Stuart</span>       <span class="n">bass</span></code></pre></figure>
+
+<p><br /></p>
+
+<p><a href="#">Go to top</a></p>
+
+<p><br />
+<a id="mutate"> </a></p>
+
+<h2 id="umutate--functionu"><u>mutate( ) function</u>:</h2>
+<p><strong>Objective:</strong> Creates new variables</p>
+
+<p><strong>Description:</strong> Often we want to create a new variable that is a function of the current variables in our dataframe or even just add a new variable.  The <code class="highlighter-rouge">mutate()</code> function allows us to add new variables while preserving the existing variables.</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">Function</span><span class="o">:</span>       
+                <span class="n">mutate</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="k">...</span><span class="p">)</span>
+<span class="n">Same</span> <span class="n">as</span><span class="o">:</span>        <span class="n">data</span> <span class="o">%&gt;%</span> <span class="n">mutate</span><span class="p">(</span><span class="k">...</span><span class="p">)</span>                
+
+<span class="n">Arguments</span><span class="o">:</span>
+        <span class="n">data</span><span class="o">:</span>           <span class="n">data</span> <span class="n">frame</span>
+        <span class="k">...</span><span class="o">:</span>            <span class="n">Expression</span><span class="p">(</span><span class="n">s</span><span class="p">)</span></code></pre></figure>
+
+<p><strong>Examples</strong></p>
+
+<p>If we go back to our previous <strong>join.exp</strong> dataframe, remember that we joined inflation rates to our non-inflation adjusted expenditures for public schools.  The dataframe looks like:</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="c1">##   Division      State Year Expenditure  Annual Inflation
+## 1        6    Alabama 2007     6245031 207.342 0.9030811
+## 2        9     Alaska 2007     1634316 207.342 0.9030811
+## 3        8    Arizona 2007     7815720 207.342 0.9030811
+## 4        7   Arkansas 2007     3997701 207.342 0.9030811
+## 5        9 California 2007    57352599 207.342 0.9030811
+</span><span class="err">##</span> <span class="m">6</span>        <span class="m">8</span>   <span class="n">Colorado</span> <span class="m">2007</span>     <span class="m">6579053</span> <span class="m">207.342</span> <span class="m">0.9030811</span></code></pre></figure>
+
+<p>If we wanted to adjust our annual expenditures for inflation we can use <code class="highlighter-rouge">mutate()</code> to create a new inflation adjusted cost variable which we’ll name <em>Adj_Exp</em>:</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">inflation_adj</span> <span class="o">&lt;-</span> <span class="n">join.exp</span> <span class="o">%&gt;%</span> <span class="n">mutate</span><span class="p">(</span><span class="n">Adj_Exp</span> <span class="o">=</span> <span class="n">Expenditure</span><span class="o">/</span><span class="n">Inflation</span><span class="p">)</span>
+
+<span class="n">head</span><span class="p">(</span><span class="n">inflation_adj</span><span class="p">)</span>
+
+<span class="c1">##   Division      State Year Expenditure  Annual Inflation  Adj_Exp
+## 1        6    Alabama 2007     6245031 207.342 0.9030811  6915249
+## 2        9     Alaska 2007     1634316 207.342 0.9030811  1809711
+## 3        8    Arizona 2007     7815720 207.342 0.9030811  8654505
+## 4        7   Arkansas 2007     3997701 207.342 0.9030811  4426735
+## 5        9 California 2007    57352599 207.342 0.9030811 63507696
+</span><span class="err">##</span> <span class="m">6</span>        <span class="m">8</span>   <span class="n">Colorado</span> <span class="m">2007</span>     <span class="m">6579053</span> <span class="m">207.342</span> <span class="m">0.9030811</span>  <span class="m">7285119</span></code></pre></figure>
+
+<p>Lets say we wanted to create a variable that rank-orders state-level expenditures (inflation adjusted) for the year 2010 from the highest level of expenditures to the lowest.</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">rank_exp</span> <span class="o">&lt;-</span> <span class="n">inflation_adj</span> <span class="o">%&gt;%</span> 
+        <span class="n">filter</span><span class="p">(</span><span class="n">Year</span> <span class="o">==</span> <span class="m">2010</span><span class="p">)</span> <span class="o">%&gt;%</span>
+        <span class="n">arrange</span><span class="p">(</span><span class="n">desc</span><span class="p">(</span><span class="n">Adj_Exp</span><span class="p">))</span> <span class="o">%&gt;%</span>
+        <span class="n">mutate</span><span class="p">(</span><span class="n">Rank</span> <span class="o">=</span> <span class="m">1</span><span class="o">:</span><span class="n">length</span><span class="p">(</span><span class="n">Adj_Exp</span><span class="p">))</span>
+
+<span class="n">head</span><span class="p">(</span><span class="n">rank_exp</span><span class="p">)</span>
+
+<span class="c1">##   Division      State Year Expenditure  Annual Inflation  Adj_Exp Rank
+## 1        9 California 2010    58248662 218.056 0.9497461 61330774    1
+## 2        2   New York 2010    50251461 218.056 0.9497461 52910417    2
+## 3        7      Texas 2010    42621886 218.056 0.9497461 44877138    3
+## 4        3   Illinois 2010    24695773 218.056 0.9497461 26002501    4
+## 5        2 New Jersey 2010    24261392 218.056 0.9497461 25545135    5
+</span><span class="err">##</span> <span class="m">6</span>        <span class="m">5</span>    <span class="n">Florida</span> <span class="m">2010</span>    <span class="m">23349314</span> <span class="m">218.056</span> <span class="m">0.9497461</span> <span class="m">24584797</span>    <span class="m">6</span></code></pre></figure>
+
+<p>If you wanted to assess the percent change in cost for a particular state you can use the <code class="highlighter-rouge">lag()</code> function within the <code class="highlighter-rouge">mutate()</code> function:</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">inflation_adj</span> <span class="o">%&gt;%</span>
+        <span class="n">filter</span><span class="p">(</span><span class="n">State</span> <span class="o">==</span> <span class="s2">"Ohio"</span><span class="p">)</span> <span class="o">%&gt;%</span>
+        <span class="n">mutate</span><span class="p">(</span><span class="n">Perc_Chg</span> <span class="o">=</span> <span class="p">(</span><span class="n">Adj_Exp</span><span class="o">-</span><span class="n">lag</span><span class="p">(</span><span class="n">Adj_Exp</span><span class="p">))</span><span class="o">/</span><span class="n">lag</span><span class="p">(</span><span class="n">Adj_Exp</span><span class="p">))</span>
+
+<span class="c1">##   Division State Year Expenditure  Annual Inflation  Adj_Exp     Perc_Chg
+## 1        3  Ohio 2007    18251361 207.342 0.9030811 20210102           NA
+## 2        3  Ohio 2008    18892374 215.303 0.9377553 20146378 -0.003153057
+## 3        3  Ohio 2009    19387318 214.537 0.9344190 20747992  0.029862103
+## 4        3  Ohio 2010    19801670 218.056 0.9497461 20849436  0.004889357
+</span><span class="err">##</span> <span class="m">5</span>        <span class="m">3</span>  <span class="n">Ohio</span> <span class="m">2011</span>    <span class="m">19988921</span> <span class="m">224.939</span> <span class="m">0.9797251</span> <span class="m">20402582</span> <span class="m">-0.021432441</span></code></pre></figure>
+
+<p>You could also look at what percent of all US expenditures each state made up in 2011.  In this case we use <code class="highlighter-rouge">mutate()</code> to take each state’s inflation adjusted expenditure and divide by the sum of the entire inflation adjusted expenditure column.  We also apply a second function within <code class="highlighter-rouge">mutate()</code> that provides the cummalative percent in rank-order.  This shows that in 2011, the top 8 states with the highest expenditures represented over 50% of the total U.S. expenditures in K-12 public schools.  <em>(I remove the non-inflation adjusted Expenditure, Annual &amp; Inflation columns so that the columns don’t wrap on the screen view)</em></p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">perc.of.whole</span> <span class="o">&lt;-</span> <span class="n">inflation_adj</span> <span class="o">%&gt;%</span>
+        <span class="n">filter</span><span class="p">(</span><span class="n">Year</span> <span class="o">==</span> <span class="m">2011</span><span class="p">)</span> <span class="o">%&gt;%</span>
+        <span class="n">arrange</span><span class="p">(</span><span class="n">desc</span><span class="p">(</span><span class="n">Adj_Exp</span><span class="p">))</span> <span class="o">%&gt;%</span>
+        <span class="n">mutate</span><span class="p">(</span><span class="n">Perc_of_Total</span> <span class="o">=</span> <span class="n">Adj_Exp</span><span class="o">/</span><span class="n">sum</span><span class="p">(</span><span class="n">Adj_Exp</span><span class="p">),</span>
+               <span class="n">Cum_Perc</span> <span class="o">=</span> <span class="n">cumsum</span><span class="p">(</span><span class="n">Perc_of_Total</span><span class="p">))</span> <span class="o">%&gt;%</span>
+        <span class="n">select</span><span class="p">(</span><span class="o">-</span><span class="n">Expenditure</span><span class="p">,</span> <span class="o">-</span><span class="n">Annual</span><span class="p">,</span> <span class="o">-</span><span class="n">Inflation</span><span class="p">)</span>
+        
+<span class="n">head</span><span class="p">(</span><span class="n">perc.of.whole</span><span class="p">,</span> <span class="m">8</span><span class="p">)</span>
+
+<span class="c1">##   Division        State Year  Adj_Exp Perc_of_Total  Cum_Perc
+## 1        9   California 2011 58717324    0.10943237 0.1094324
+## 2        2     New York 2011 52575244    0.09798528 0.2074177
+## 3        7        Texas 2011 43751346    0.08154005 0.2889577
+## 4        3     Illinois 2011 25062609    0.04670957 0.3356673
+## 5        5      Florida 2011 24364070    0.04540769 0.3810750
+## 6        2   New Jersey 2011 24128484    0.04496862 0.4260436
+## 7        2 Pennsylvania 2011 23971218    0.04467552 0.4707191
+</span><span class="err">##</span> <span class="m">8</span>        <span class="m">3</span>         <span class="n">Ohio</span> <span class="m">2011</span> <span class="m">20402582</span>    <span class="m">0.03802460</span> <span class="m">0.5087437</span></code></pre></figure>
+
+<p><a href="#">Go to top</a></p>
+
+<p><br /></p>
+
+<p><a id="resources"> </a></p>
+
+<h2 id="additional-resources">Additional Resources</h2>
+
+<ul>
+  <li>Data wrangling <a href="Data_Wrangling_MU">presentation</a> I gave at Miami University</li>
+  <li>R Studio’s <a href="http://www.rstudio.com/resources/webinars/">Data wrangling with R and RStudio webinar</a></li>
+  <li>R Studio’s <a href="https://github.com/rstudio/webinars/blob/master/2015-01/wrangling-webinar.pdf">Data wrangling GitHub repository</a></li>
+  <li>R Studio’s <a href="http://www.rstudio.com/resources/cheatsheets/">Data wrangling cheat sheet</a></li>
+  <li>Hadley Wickhamâs dplyr tutorial at useR! 2014, <a href="http://www.r-bloggers.com/hadley-wickhams-dplyr-tutorial-at-user-2014-part-1/">Part 1</a></li>
+  <li>Hadley Wickhamâs dplyr tutorial at useR! 2014, <a href="http://www.r-bloggers.com/hadley-wickhams-dplyr-tutorial-at-user-2014-part-2/">Part 2</a></li>
+</ul>
+
+<p><a href="#">Go to top</a></p>
+
+  </article>
+
+</div>
+
+      </div>
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col  footer-col-1">
+
+      </div>
+
+      <div class="footer-col  footer-col-2">
+        <ul class="social-media-list">
+        <center>
+          <li>
+            <a href="https://github.com/bradleyboehmke">
+              <span class="icon  icon--github">
+                <svg viewBox="0 0 16 16">
+                  <path fill="#828282" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761 c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32 c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472 c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037 C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65 c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261 c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082 c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129 c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/>
+                </svg>
+              </span>
+            </a>
+            &nbsp;
+            <a href="http://www.twitter.com/bradleyboehmke">
+              <span class="icon  icon--twitter">
+                <svg viewBox="0 0 16 16">
+                  <path fill="#828282" d="M15.969,3.058c-0.586,0.26-1.217,0.436-1.878,0.515c0.675-0.405,1.194-1.045,1.438-1.809
+                  c-0.632,0.375-1.332,0.647-2.076,0.793c-0.596-0.636-1.446-1.033-2.387-1.033c-1.806,0-3.27,1.464-3.27,3.27 c0,0.256,0.029,0.506,0.085,0.745C5.163,5.404,2.753,4.102,1.14,2.124C0.859,2.607,0.698,3.168,0.698,3.767 c0,1.134,0.577,2.135,1.455,2.722C1.616,6.472,1.112,6.325,0.671,6.08c0,0.014,0,0.027,0,0.041c0,1.584,1.127,2.906,2.623,3.206 C3.02,9.402,2.731,9.442,2.433,9.442c-0.211,0-0.416-0.021-0.615-0.059c0.416,1.299,1.624,2.245,3.055,2.271 c-1.119,0.877-2.529,1.4-4.061,1.4c-0.264,0-0.524-0.015-0.78-0.046c1.447,0.928,3.166,1.469,5.013,1.469 c6.015,0,9.304-4.983,9.304-9.304c0-0.142-0.003-0.283-0.009-0.423C14.976,4.29,15.531,3.714,15.969,3.058z"/>
+                </svg>
+              </span>
+            </a>
+            &nbsp;
+            <a href="https://www.linkedin.com/in/brad-boehmke-ph-d-9b0a257">
+              <span class="icon  icon--linkedin">
+                <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"  width="25" height="25" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.414"><path fill="#828282" d="M13.632 13.635h-2.37V9.922c0-.886-.018-2.025-1.234-2.025-1.235 0-1.424.964-1.424 1.96v3.778h-2.37V6H8.51V7.04h.03c.318-.6 1.092-1.233 2.247-1.233 2.4 0 2.845 1.58 2.845 3.637v4.188zM3.558 4.955c-.762 0-1.376-.617-1.376-1.377 0-.758.614-1.375 1.376-1.375.76 0 1.376.617 1.376 1.375 0 .76-.617 1.377-1.376 1.377zm1.188 8.68H2.37V6h2.376v7.635zM14.816 0H1.18C.528 0 0 .516 0 1.153v13.694C0 15.484.528 16 1.18 16h13.635c.652 0 1.185-.516 1.185-1.153V1.153C16 .516 15.467 0 14.815 0z" fill-rule="nonzero"/>
+                </svg>
+              </span>
+            </a>
+          </li>
+
+        </ul>
+        </center>
+      </div>
+
+      <div class="footer-col  footer-col-3">
+        <p class="text"></p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>

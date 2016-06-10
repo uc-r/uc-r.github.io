@@ -1,0 +1,4 @@
+variable 1	variable 2	variable 3
+10	beer	TRUE
+25	wine	TRUE
+8	cheese	FALSE

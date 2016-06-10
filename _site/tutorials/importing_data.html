@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Bradley Boehmke</title>
+    <meta name="description" content="">
+
+    <link rel="stylesheet" href="http://bradleyboehmke.github.io//css/main.css">
+    <link rel="canonical" href="http://bradleyboehmke.github.io/http://bradleyboehmke.github.io//tutorials/importing_data">
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="http://bradleyboehmke.github.io/">Bradley Boehmke</a>
+
+    <nav class="site-nav">
+      <a href="#" class="menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+
+      <div class="trigger">
+        
+          
+          <a class="page-link" href="http://bradleyboehmke.github.io//about/">About</a>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+          <a class="page-link" href="http://bradleyboehmke.github.io//categoryview/">Archive</a>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+          <a class="page-link" href="http://bradleyboehmke.github.io//cv/">CV</a>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+          <a class="page-link" href="http://bradleyboehmke.github.io//tutorials/">Tutorials</a>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+          <a class="page-link" href="http://bradleyboehmke.github.io//tutorials/scraping_with_apis_DSCOE.Rmd">Scraping Data with APIs</a>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <div class="post">
+
+  <article class="post-content">
+    <p><a href="index">R Vocab Topics</a> » <a href="data_inputs_outputs">Importing, Scraping, and exporting data</a> » Importing data</p>
+
+<p><br /></p>
+
+<p>The first step to any data analysis process is to <em>get</em> the data.  Data can come from many sources but two of the most common include text &amp; Excel files.  This section covers how to import data into R by reading data from common text files and Excel spreadsheets.  In addition, I cover how to load data from saved R object files, which is the preferred method for holding data that has been processed in R.  In addition to the the commonly used base R functions to perform data importing, I will also cover functions from the popular <a href="https://cran.rstudio.com/web/packages/readr/"><code class="highlighter-rouge">readr</code></a>, <a href="https://cran.rstudio.com/web/packages/xlsx/"><code class="highlighter-rouge">xlsx</code></a>, and <a href="https://cran.rstudio.com/web/packages/readxl/"><code class="highlighter-rouge">readxl</code></a> packages.</p>
+
+<ul>
+  <li><a href="#csv">Reading data from text files</a></li>
+  <li><a href="#excel">Reading data from Excel files</a></li>
+  <li><a href="#robject">Load data from saved R object files</a></li>
+  <li><a href="#importing_resources">Additional resources</a></li>
+</ul>
+
+<p><br /></p>
+
+<p><a name="csv"></a></p>
+
+<h2 id="reading-data-from-text-files">Reading data from text files</h2>
+<p>Text files are a popular way to hold and exchange tabular data as almost any data application supports exporting data to the CSV (or other text file) formats.  Text file formats use delimiters to separate the different elements in a line, and each line of data is in its own line in the text file.  Therefore, importing different text kinds of text files can follow a fairly consistent process once you’ve identified the delimiter.</p>
+
+<p>There are two main groups of functions that we can use to read in text files:</p>
+
+<ul>
+  <li><a href="#base_text_import">Base R functions</a></li>
+  <li><a href="#readr_text_import"><code class="highlighter-rouge">readr</code> package functions</a></li>
+</ul>
+
+<p><br /></p>
+
+<p><a name="base_text_import"></a></p>
+
+<h3 id="base-r-functions">Base R functions</h3>
+<p><code class="highlighter-rouge">read.table()</code> is a multipurpose work-horse function in base R for importing data.  The functions <code class="highlighter-rouge">read.csv()</code> and <code class="highlighter-rouge">read.delim()</code> are special cases of <code class="highlighter-rouge">read.table()</code> in which the defaults have been adjusted for efficiency.  To illustrate these functions let’s work with a CSV file that is saved in our working directory which looks like:</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">variable</span> <span class="m">1</span><span class="p">,</span><span class="n">variable</span> <span class="m">2</span><span class="p">,</span><span class="n">variable</span> <span class="m">3</span>
+<span class="m">10</span><span class="p">,</span><span class="n">beer</span><span class="p">,</span><span class="n">TRUE</span>
+<span class="m">25</span><span class="p">,</span><span class="n">wine</span><span class="p">,</span><span class="n">TRUE</span>
+<span class="m">8</span><span class="p">,</span><span class="n">cheese</span><span class="p">,</span><span class="n">FALSE</span></code></pre></figure>
+
+<p>To read in the CSV file we can use <code class="highlighter-rouge">read.csv()</code>.  Note that when we assess the structure of the data set that we read in, <code class="highlighter-rouge">variable.2</code> is automatically coerced to a factor variable and <code class="highlighter-rouge">variable.3</code> is automatically coerced to a logical variable.  Furthermore, any whitespace in the column names are replaced with a “.”.</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">mydata</span> <span class="o">=</span> <span class="n">read.csv</span><span class="p">(</span><span class="s2">"mydata.csv"</span><span class="p">)</span>
+<span class="n">mydata</span>
+<span class="c1">##   variable.1 variable.2 variable.3
+## 1         10       beer       TRUE
+## 2         25       wine       TRUE
+## 3          8     cheese      FALSE
+</span>
+<span class="n">str</span><span class="p">(</span><span class="n">mydata</span><span class="p">)</span>
+<span class="c1">## 'data.frame':	3 obs. of  3 variables:
+##  $ variable.1: int  10 25 8
+##  $ variable.2: Factor w/ 3 levels "beer","cheese",..: 1 3 2
+</span><span class="err">##</span>  <span class="o">$</span> <span class="n">variable.3</span><span class="o">:</span> <span class="n">logi</span>  <span class="n">TRUE</span> <span class="n">TRUE</span> <span class="n">FALSE</span></code></pre></figure>
+
+<p>For many reasons we may want to read in <code class="highlighter-rouge">variable.2</code> as a character variable rather then a factor.  We can take care of this by changing the <code class="highlighter-rouge">stringsAsFactors</code> argument.  The default has <code class="highlighter-rouge">stringsAsFactors = TRUE</code>; however, setting it equal to <code class="highlighter-rouge">FALSE</code> will read in the variable as a character variable.</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">mydata_2</span> <span class="o">=</span> <span class="n">read.csv</span><span class="p">(</span><span class="s2">"mydata.csv"</span><span class="p">,</span> <span class="n">stringsAsFactors</span> <span class="o">=</span> <span class="n">FALSE</span><span class="p">)</span>
+<span class="n">mydata_2</span>
+<span class="c1">##   variable.1 variable.2 variable.3
+## 1         10       beer       TRUE
+## 2         25       wine       TRUE
+## 3          8     cheese      FALSE
+</span>
+<span class="n">str</span><span class="p">(</span><span class="n">mydata_2</span><span class="p">)</span>
+<span class="c1">## 'data.frame':	3 obs. of  3 variables:
+##  $ variable.1: int  10 25 8
+##  $ variable.2: chr  "beer" "wine" "cheese"
+</span><span class="err">##</span>  <span class="o">$</span> <span class="n">variable.3</span><span class="o">:</span> <span class="n">logi</span>  <span class="n">TRUE</span> <span class="n">TRUE</span> <span class="n">FALSE</span></code></pre></figure>
+
+<p>As previously stated <code class="highlighter-rouge">read.csv</code> is just a wrapper for <code class="highlighter-rouge">read.table</code> but with adjusted default arguments.  Therefore, we can use <code class="highlighter-rouge">read.table</code> to read in this same data.  The two arguments we need to be aware of are the field separator (<code class="highlighter-rouge">sep</code>) and the argument indicating whether the file contains the names of the variables as its first line (<code class="highlighter-rouge">header</code>).  In <code class="highlighter-rouge">read.table</code> the defaults are <code class="highlighter-rouge">sep = ""</code> and <code class="highlighter-rouge">header = FALSE</code> whereas in <code class="highlighter-rouge">read.csv</code> the defaults are <code class="highlighter-rouge">sep = ","</code> and <code class="highlighter-rouge">header = TRUE</code>.  There are multiple other arguments we can use for certain situations which we illustrate below:</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="c1"># provides same results as read.csv above
+</span><span class="n">read.table</span><span class="p">(</span><span class="s2">"mydata.csv"</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">","</span><span class="p">,</span> <span class="n">header</span> <span class="o">=</span> <span class="n">TRUE</span><span class="p">,</span> <span class="n">stringsAsFactors</span> <span class="o">=</span> <span class="n">FALSE</span><span class="p">)</span>
+<span class="c1">##   variable.1 variable.2 variable.3
+## 1         10       beer       TRUE
+## 2         25       wine       TRUE
+## 3          8     cheese      FALSE
+</span>
+<span class="c1"># set column and row names
+</span><span class="n">read.table</span><span class="p">(</span><span class="s2">"mydata.csv"</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">","</span><span class="p">,</span> <span class="n">header</span> <span class="o">=</span> <span class="n">TRUE</span><span class="p">,</span> <span class="n">stringsAsFactors</span> <span class="o">=</span> <span class="n">FALSE</span><span class="p">,</span>
+           <span class="n">col.names</span> <span class="o">=</span> <span class="n">c</span><span class="p">(</span><span class="s2">"Var 1"</span><span class="p">,</span> <span class="s2">"Var 2"</span><span class="p">,</span> <span class="s2">"Var 3"</span><span class="p">),</span>
+           <span class="n">row.names</span> <span class="o">=</span> <span class="n">c</span><span class="p">(</span><span class="s2">"Row 1"</span><span class="p">,</span> <span class="s2">"Row 2"</span><span class="p">,</span> <span class="s2">"Row 3"</span><span class="p">))</span>
+<span class="c1">##       Var.1  Var.2 Var.3
+## Row 1    10   beer  TRUE
+## Row 2    25   wine  TRUE
+## Row 3     8 cheese FALSE
+</span>
+<span class="c1"># manually set the classes of the columns 
+</span><span class="n">set_classes</span> <span class="o">&lt;-</span> <span class="n">read.table</span><span class="p">(</span><span class="s2">"mydata.csv"</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">","</span><span class="p">,</span> <span class="n">header</span> <span class="o">=</span> <span class="n">TRUE</span><span class="p">,</span>
+                          <span class="n">colClasses</span> <span class="o">=</span> <span class="n">c</span><span class="p">(</span><span class="s2">"numeric"</span><span class="p">,</span> <span class="s2">"character"</span><span class="p">,</span> <span class="s2">"character"</span><span class="p">))</span>
+<span class="n">str</span><span class="p">(</span><span class="n">set_classes</span><span class="p">)</span>
+<span class="c1">## 'data.frame':	3 obs. of  3 variables:
+##  $ variable.1: num  10 25 8
+##  $ variable.2: chr  "beer" "wine" "cheese"
+##  $ variable.3: chr  "TRUE" "TRUE" "FALSE"
+</span>
+<span class="c1"># limit the number of rows to read in
+</span><span class="n">read.table</span><span class="p">(</span><span class="s2">"mydata.csv"</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">","</span><span class="p">,</span> <span class="n">header</span> <span class="o">=</span> <span class="n">TRUE</span><span class="p">,</span> <span class="n">nrows</span> <span class="o">=</span> <span class="m">2</span><span class="p">)</span>
+<span class="c1">##   variable.1 variable.2 variable.3
+## 1         10       beer       TRUE
+</span><span class="err">##</span> <span class="m">2</span>         <span class="m">25</span>       <span class="n">wine</span>       <span class="n">TRUE</span></code></pre></figure>
+
+<p>In addition to CSV files, there are other text files that <code class="highlighter-rouge">read.table</code> works with.  The primary difference is what separates the elements.  For example, tab delimited text files typically end with the <code class="highlighter-rouge">.txt</code> extension.  You can also use the <code class="highlighter-rouge">read.delim()</code> function as, similiar to <code class="highlighter-rouge">read.csv()</code>, <code class="highlighter-rouge">read.delim()</code> is a wrapper of <code class="highlighter-rouge">read.table()</code> with defaults set specifically for tab delimited files.</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="c1"># reading in tab delimited text files
+</span><span class="n">read.delim</span><span class="p">(</span><span class="s2">"mydata.txt"</span><span class="p">)</span>
+<span class="c1">##   variable.1 variable.2 variable.3
+## 1         10       beer       TRUE
+## 2         25       wine       TRUE
+## 3          8     cheese      FALSE
+</span>
+<span class="c1"># provides same results as read.delim
+</span><span class="n">read.table</span><span class="p">(</span><span class="s2">"mydata.txt"</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">"\t"</span><span class="p">,</span> <span class="n">header</span> <span class="o">=</span> <span class="n">TRUE</span><span class="p">)</span>
+<span class="c1">##   variable.1 variable.2 variable.3
+## 1         10       beer       TRUE
+## 2         25       wine       TRUE
+</span><span class="err">##</span> <span class="m">3</span>          <span class="m">8</span>     <span class="n">cheese</span>      <span class="n">FALSE</span></code></pre></figure>
+
+<p><br /></p>
+
+<p><a name="readr_text_import"></a></p>
+
+<h3 id="readr-package">readr package</h3>
+<p>Compared to the equivalent base functions, <a href="https://cran.rstudio.com/web/packages/readr/"><code class="highlighter-rouge">readr</code></a> functions are around 10x faster. They bring consistency to importing functions, they produce data frames in a <code class="highlighter-rouge">data.table</code> format which are easier to view for large data sets, the default settings removes the “hassels” of <code class="highlighter-rouge">stringsAsFactors</code>, and they have a more flexible column specification.</p>
+
+<p>To illustrate, we can use <code class="highlighter-rouge">read_csv()</code> which is equivalent to base R’s <code class="highlighter-rouge">read.csv()</code> function.  However, note that <code class="highlighter-rouge">read_csv()</code> maintains the full variable name (whereas <code class="highlighter-rouge">read.csv</code> eliminates any spaces in variable names and fills it with ‘.’).  Also, <code class="highlighter-rouge">read_csv()</code> automatically sets <code class="highlighter-rouge">stringsAsFactors = FALSE</code>, which can be a <a href="http://simplystatistics.org/2015/07/24/stringsasfactors-an-unauthorized-biography/">controversial topic</a>.</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">library</span><span class="p">(</span><span class="n">readr</span><span class="p">)</span>
+<span class="n">mydata_3</span> <span class="o">=</span> <span class="n">read_csv</span><span class="p">(</span><span class="s2">"mydata.csv"</span><span class="p">)</span>
+<span class="n">mydata_3</span>
+<span class="c1">##   variable 1 variable 2 variable 3
+## 1         10       beer       TRUE
+## 2         25       wine       TRUE
+## 3          8     cheese      FALSE
+</span>
+<span class="n">str</span><span class="p">(</span><span class="n">mydata_3</span><span class="p">)</span>
+<span class="c1">## Classes 'tbl_df', 'tbl' and 'data.frame':	3 obs. of  3 variables:
+##  $ variable 1: int  10 25 8
+##  $ variable 2: chr  "beer" "wine" "cheese"
+</span><span class="err">##</span>  <span class="o">$</span> <span class="n">variable</span> <span class="m">3</span><span class="o">:</span> <span class="n">logi</span>  <span class="n">TRUE</span> <span class="n">TRUE</span> <span class="n">FALSE</span></code></pre></figure>
+
+<p><code class="highlighter-rouge">read_csv</code> also offers many additional arguments for making adjustments to your data as you read it in:</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="c1"># specify the column class using col_types
+</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"mydata.csv"</span><span class="p">,</span> <span class="n">col_types</span> <span class="o">=</span> <span class="n">list</span><span class="p">(</span><span class="n">col_double</span><span class="p">(),</span> 
+                                        <span class="n">col_character</span><span class="p">(),</span> 
+                                        <span class="n">col_character</span><span class="p">()))</span>
+<span class="c1">##   variable 1 variable 2 variable 3
+## 1         10       beer       TRUE
+## 2         25       wine       TRUE
+## 3          8     cheese      FALSE
+</span>
+<span class="c1"># we can also specify column classes with a string
+# in this example d = double, _ skips column, c = character
+</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"mydata.csv"</span><span class="p">,</span> <span class="n">col_types</span> <span class="o">=</span> <span class="s2">"d_c"</span><span class="p">)</span>
+<span class="c1">##   variable 1 variable 3
+## 1         10       TRUE
+## 2         25       TRUE
+## 3          8      FALSE
+</span>
+<span class="c1"># set column names
+</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"mydata.csv"</span><span class="p">,</span> <span class="n">col_names</span> <span class="o">=</span> <span class="n">c</span><span class="p">(</span><span class="s2">"Var 1"</span><span class="p">,</span> <span class="s2">"Var 2"</span><span class="p">,</span> <span class="s2">"Var 3"</span><span class="p">),</span> <span class="n">skip</span> <span class="o">=</span> <span class="m">1</span><span class="p">)</span>
+<span class="c1">##   Var 1  Var 2 Var 3
+## 1    10   beer  TRUE
+## 2    25   wine  TRUE
+## 3     8 cheese FALSE
+</span>
+<span class="c1"># set the maximum number of lines to read in
+</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"mydata.csv"</span><span class="p">,</span> <span class="n">n_max</span> <span class="o">=</span> <span class="m">2</span><span class="p">)</span>
+<span class="c1">##   variable 1 variable 2 variable 3
+## 1         10       beer       TRUE
+</span><span class="err">##</span> <span class="m">2</span>         <span class="m">25</span>       <span class="n">wine</span>       <span class="n">TRUE</span></code></pre></figure>
+
+<p>Similar to base R, <code class="highlighter-rouge">readr</code> also offers functions to import .txt files (<code class="highlighter-rouge">read_delim()</code>), fixed-width files (<code class="highlighter-rouge">read_fwf()</code>), general text files (<code class="highlighter-rouge">read_table()</code>), and more.</p>
+
+<p>These examples provide the basics for reading in text files. However, sometimes even text files can offer unanticipated difficulties with their formatting.  Both the base R and <code class="highlighter-rouge">readr</code> functions offer many arguments to deal with different formatting issues and I suggest you take time to look at the help files for these functions to learn more (i.e. <code class="highlighter-rouge">?read.table</code>).  Also, you will find more resources at the end of this chapter for importing files.<sup><a href="#fn1" id="ref1">1</a></sup></p>
+
+<p><br /></p>
+
+<p><a name="excel"></a></p>
+
+<h2 id="reading-data-from-excel-files">Reading data from Excel files</h2>
+<p>With Excel still being the spreadsheet software of choice its important to be able to efficiently import and export data from these files.  Often, R users will simply resort to exporting the Excel file as a CSV file and then import into R using <code class="highlighter-rouge">read.csv</code>; however, this is far from efficient.  This section will teach you how to eliminate the CSV step and to import data directly from Excel using two different packages:</p>
+
+<ul>
+  <li><a href="#xlsx_import"><code class="highlighter-rouge">xlsx</code> package</a></li>
+  <li><a href="#readxl_import"><code class="highlighter-rouge">readxl</code> package</a></li>
+</ul>
+
+<p>Note that there are several packages available to connect R with Excel (i.e. <code class="highlighter-rouge">gdata</code>, <code class="highlighter-rouge">RODBC</code>, <code class="highlighter-rouge">XLConnect</code>, <code class="highlighter-rouge">RExcel</code>, etc.); however, I am only going to cover the two main packages that I use which provide all the fundamental requirements I’ve needed for dealing with Excel.</p>
+
+<p><br /></p>
+
+<p><a name="xlsx_import"></a></p>
+
+<h3 id="xlsx-package">xlsx package</h3>
+<p>The <a href="https://cran.rstudio.com/web/packages/xlsx/"><code class="highlighter-rouge">xlsx</code></a> package provides tools neccessary to interact with Excel 2007 (and older) files from R. Many of the benefits of the <code class="highlighter-rouge">xlsx</code> come from being able to <em>export</em> and <em>format</em> Excel files from R.  Some of these capabilities will be covered in the <a href="exporting_data">Exporting Data</a> chapter; however, in this section we will simply cover <em>importing</em> data from Excel with the <code class="highlighter-rouge">xlsx</code> package.</p>
+
+<p>To illustrate, we’ll use similar data from the <a href="#base_text_import">previous section</a>; however, saved as an .xlsx file in our working director.  To import the Excel data we simply use the <code class="highlighter-rouge">read.xlsx()</code> function:</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">library</span><span class="p">(</span><span class="n">xlsx</span><span class="p">)</span>
+
+<span class="c1"># read in first worksheet using an sheet index or name
+</span><span class="n">read.xlsx</span><span class="p">(</span><span class="s2">"mydata.xlsx"</span><span class="p">,</span> <span class="n">sheetName</span> <span class="o">=</span> <span class="s2">"Sheet1"</span><span class="p">)</span>
+<span class="c1">##   variable.1 variable.2 variable.3
+## 1         10       beer       TRUE
+## 2         25       wine       TRUE
+## 3          8     cheese      FALSE
+</span>
+<span class="n">read.xlsx</span><span class="p">(</span><span class="s2">"mydata.xlsx"</span><span class="p">,</span> <span class="n">sheetIndex</span> <span class="o">=</span> <span class="m">1</span><span class="p">)</span>
+<span class="c1">##   variable.1 variable.2 variable.3
+## 1         10       beer       TRUE
+## 2         25       wine       TRUE
+## 3          8     cheese      FALSE
+</span>
+<span class="c1"># read in second worksheet
+</span><span class="n">read.xlsx</span><span class="p">(</span><span class="s2">"mydata.xlsx"</span><span class="p">,</span> <span class="n">sheetName</span> <span class="o">=</span> <span class="s2">"Sheet2"</span><span class="p">)</span>
+<span class="c1">##   variable.4 variable.5
+## 1     Dayton     johnny
+## 2   Columbus      amber
+## 3  Cleveland       tony
+</span><span class="err">##</span> <span class="m">4</span> <span class="n">Cincinnati</span>      <span class="n">alice</span></code></pre></figure>
+
+<p>Since Excel is such a flexible spreadsheet software, people often make notes, comments, headers, etc. at the beginning or end of the files which we may not want to include.  If we want to read in data that starts further down in the Excel worksheet we can include the <code class="highlighter-rouge">startRow</code> argument.  If we have a specific range of rows (or columns) to include we can use the <code class="highlighter-rouge">rowIndex</code> (or <code class="highlighter-rouge">colIndex</code>) argument.</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="c1"># a worksheet with comments in the first two lines
+</span><span class="n">read.xlsx</span><span class="p">(</span><span class="s2">"mydata.xlsx"</span><span class="p">,</span> <span class="n">sheetName</span> <span class="o">=</span> <span class="s2">"Sheet3"</span><span class="p">)</span>
+<span class="c1">##                                         HEADER..COMPANY.A        NA.
+## 1 What if we want to disregard header text in Excel file?       &lt;NA&gt;
+## 2                                              variable 6 variable 7
+## 3                                                     200       Male
+## 4                                                     225     Female
+## 5                                                     400     Female
+## 6                                                     310       Male
+</span>
+<span class="c1"># read in all data below the second line
+</span><span class="n">read.xlsx</span><span class="p">(</span><span class="s2">"mydata.xlsx"</span><span class="p">,</span> <span class="n">sheetName</span> <span class="o">=</span> <span class="s2">"Sheet3"</span><span class="p">,</span> <span class="n">startRow</span> <span class="o">=</span> <span class="m">3</span><span class="p">)</span>
+<span class="c1">##   variable.6 variable.7
+## 1        200       Male
+## 2        225     Female
+## 3        400     Female
+## 4        310       Male
+</span>
+<span class="c1"># read in a range of rows
+</span><span class="n">read.xlsx</span><span class="p">(</span><span class="s2">"mydata.xlsx"</span><span class="p">,</span> <span class="n">sheetName</span> <span class="o">=</span> <span class="s2">"Sheet3"</span><span class="p">,</span> <span class="n">rowIndex</span> <span class="o">=</span> <span class="m">3</span><span class="o">:</span><span class="m">5</span><span class="p">)</span>
+<span class="c1">##   variable.6 variable.7
+## 1        200       Male
+</span><span class="err">##</span> <span class="m">2</span>        <span class="m">225</span>     <span class="n">Female</span></code></pre></figure>
+
+<p>We can also change the class type of the columns when we read them in:</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="c1"># read in all data below the second line
+</span><span class="n">mydata_sheet1.1</span> <span class="o">&lt;-</span> <span class="n">read.xlsx</span><span class="p">(</span><span class="s2">"mydata.xlsx"</span><span class="p">,</span> <span class="n">sheetName</span> <span class="o">=</span> <span class="s2">"Sheet1"</span><span class="p">)</span>
+
+<span class="n">str</span><span class="p">(</span><span class="n">mydata_sheet1.1</span><span class="p">)</span>
+<span class="c1">## 'data.frame':	3 obs. of  3 variables:
+##  $ variable.1: num  10 25 8
+##  $ variable.2: Factor w/ 3 levels "beer","cheese",..: 1 3 2
+##  $ variable.3: logi  TRUE TRUE FALSE
+</span>
+<span class="n">mydata_sheet1.2</span> <span class="o">&lt;-</span> <span class="n">read.xlsx</span><span class="p">(</span><span class="s2">"mydata.xlsx"</span><span class="p">,</span> <span class="n">sheetName</span> <span class="o">=</span> <span class="s2">"Sheet1"</span><span class="p">,</span>
+                             <span class="n">stringsAsFactors</span> <span class="o">=</span> <span class="n">FALSE</span><span class="p">,</span>
+                             <span class="n">colClasses</span> <span class="o">=</span> <span class="n">c</span><span class="p">(</span><span class="s2">"double"</span><span class="p">,</span> <span class="s2">"character"</span><span class="p">,</span> <span class="s2">"logical"</span><span class="p">))</span>
+
+<span class="n">str</span><span class="p">(</span><span class="n">mydata_sheet1.2</span><span class="p">)</span>
+<span class="c1">## 'data.frame':	3 obs. of  3 variables:
+##  $ variable.1: num  10 25 8
+##  $ variable.2: chr  "beer" "wine" "cheese"
+</span><span class="err">##</span>  <span class="o">$</span> <span class="n">variable.3</span><span class="o">:</span> <span class="n">logi</span>  <span class="n">TRUE</span> <span class="n">TRUE</span> <span class="n">FALSE</span></code></pre></figure>
+
+<p>Another useful argument is <code class="highlighter-rouge">keepFormulas</code> which allows to see the text of any formulas in the Excel spreadsheet:</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="c1"># by default keepFormula is set to FALSE so only
+# the formula output will be read in
+</span><span class="n">read.xlsx</span><span class="p">(</span><span class="s2">"mydata.xlsx"</span><span class="p">,</span> <span class="n">sheetName</span> <span class="o">=</span> <span class="s2">"Sheet4"</span><span class="p">)</span>
+<span class="c1">##   Future.Value  Rate Periods Present.Value
+## 1          500 0.065      10      266.3630
+## 2          600 0.085       6      367.7671
+## 3          750 0.080      11      321.6621
+## 4         1000 0.070      16      338.7346
+</span>
+<span class="c1"># changing the keepFormula to TRUE will display the equations
+</span><span class="n">read.xlsx</span><span class="p">(</span><span class="s2">"mydata.xlsx"</span><span class="p">,</span> <span class="n">sheetName</span> <span class="o">=</span> <span class="s2">"Sheet4"</span><span class="p">,</span> <span class="n">keepFormulas</span> <span class="o">=</span> <span class="n">TRUE</span><span class="p">)</span>
+<span class="c1">##   Future.Value  Rate Periods Present.Value
+## 1          500 0.065      10  A2/(1+B2)^C2
+## 2          600 0.085       6  A3/(1+B3)^C3
+## 3          750 0.080      11  A4/(1+B4)^C4
+</span><span class="err">##</span> <span class="m">4</span>         <span class="m">1000</span> <span class="m">0.070</span>      <span class="m">16</span>  <span class="n">A5</span><span class="o">/</span><span class="p">(</span><span class="m">1</span><span class="o">+</span><span class="n">B5</span><span class="p">)</span><span class="o">^</span><span class="n">C5</span></code></pre></figure>
+
+<p><br /></p>
+
+<p><a name="readxl_import"></a></p>
+
+<h3 id="readxl-package">readxl package</h3>
+<p><a href="https://cran.rstudio.com/web/packages/readxl/"><code class="highlighter-rouge">readxl</code></a> is one of the newest packages for accessing Excel data with R and was developed by <a href="https://twitter.com/hadleywickham">Hadley Wickham</a> and the <a href="https://www.rstudio.com/">RStudio</a> team who also developed the <code class="highlighter-rouge">readr</code> package.  This package works with both legacy .xls formats and the modern xml-based .xlsx format.  Similar to <code class="highlighter-rouge">readr</code> the <code class="highlighter-rouge">readxl</code> functions are based on a C++ library so they are extremely fast. Unlike most other packages that deal with Excel, <code class="highlighter-rouge">readxl</code> has no external dependencies, so you can use it to read Excel data on just about any platform.  Additional benefits <code class="highlighter-rouge">readxl</code> provides includes the ability to load dates and times as POSIXct formatted dates, automatically drops blank columns, and returns outputs as data.table formatted which provides easier viewing for large data sets.</p>
+
+<p>To read in Excel data with <code class="highlighter-rouge">readxl</code> you use the <code class="highlighter-rouge">read_excel()</code> function which has very similar operations and arguments as <code class="highlighter-rouge">xlsx</code>.  A few important differences you will see below include: <code class="highlighter-rouge">readxl</code> will automatically convert date and date-time variables to POSIXct formatted variables, character variables will not be coerced to factors, and logical variables will be read in as integers.</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">library</span><span class="p">(</span><span class="n">readxl</span><span class="p">)</span>
+
+<span class="n">mydata</span> <span class="o">&lt;-</span> <span class="n">read_excel</span><span class="p">(</span><span class="s2">"mydata.xlsx"</span><span class="p">,</span> <span class="n">sheet</span> <span class="o">=</span> <span class="s2">"Sheet5"</span><span class="p">)</span>
+<span class="n">mydata</span>
+<span class="c1">##   variable 1 variable 2 variable 3 variable 4          variable 5
+## 1         10       beer          1 2015-11-20 2015-11-20 13:30:00
+## 2         25       wine          1       &lt;NA&gt; 2015-11-21 16:30:00
+## 3          8       &lt;NA&gt;          0 2015-11-22 2015-11-22 14:45:00
+</span>
+<span class="n">str</span><span class="p">(</span><span class="n">mydata</span><span class="p">)</span>
+<span class="c1">## Classes 'tbl_df', 'tbl' and 'data.frame':	3 obs. of  5 variables:
+##  $ variable 1: num  10 25 8
+##  $ variable 2: chr  "beer" "wine" NA
+##  $ variable 3: num  1 1 0
+##  $ variable 4: POSIXct, format: "2015-11-20" NA ...
+</span><span class="err">##</span>  <span class="o">$</span> <span class="n">variable</span> <span class="m">5</span><span class="o">:</span> <span class="n">POSIXct</span><span class="p">,</span> <span class="n">format</span><span class="o">:</span> <span class="s2">"2015-11-20 13:30:00"</span> <span class="s2">"2015-11-21 16:30:00"</span> <span class="k">...</span></code></pre></figure>
+
+<p>The available arguments allow you to change the data as you import it.  Some examples are provided:</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">library</span><span class="p">(</span><span class="n">readxl</span><span class="p">)</span>
+
+<span class="c1"># change variable names by skipping the first row
+# and using col_names to set the new names
+</span><span class="n">read_excel</span><span class="p">(</span><span class="s2">"mydata.xlsx"</span><span class="p">,</span> <span class="n">sheet</span> <span class="o">=</span> <span class="s2">"Sheet5"</span><span class="p">,</span> <span class="n">skip</span> <span class="o">=</span> <span class="m">1</span><span class="p">,</span> 
+           <span class="n">col_names</span> <span class="o">=</span> <span class="n">paste</span><span class="p">(</span><span class="s2">"Var"</span><span class="p">,</span> <span class="m">1</span><span class="o">:</span><span class="m">5</span><span class="p">))</span>
+<span class="c1">##   Var 1 Var 2 Var 3 Var 4               Var 5
+## 1    10  beer     1 42328 2015-11-20 13:30:00
+## 2    25  wine     1    NA 2015-11-21 16:30:00
+## 3     8  &lt;NA&gt;     0 42330 2015-11-22 14:45:00
+</span>
+<span class="c1"># sometimes missing values are set as a sentinel value
+# rather than just left blank - (i.e. "999")
+</span><span class="n">read_excel</span><span class="p">(</span><span class="s2">"mydata.xlsx"</span><span class="p">,</span> <span class="n">sheet</span> <span class="o">=</span> <span class="s2">"Sheet6"</span><span class="p">)</span>
+<span class="c1">##   variable 1 variable 2 variable 3 variable 4
+## 1         10       beer          1      42328
+## 2         25       wine          1        999
+## 3          8        999          0      42330
+</span>
+<span class="c1"># we can change these to missing values with na argument
+</span><span class="n">read_excel</span><span class="p">(</span><span class="s2">"mydata.xlsx"</span><span class="p">,</span> <span class="n">sheet</span> <span class="o">=</span> <span class="s2">"Sheet6"</span><span class="p">,</span> <span class="n">na</span> <span class="o">=</span> <span class="s2">"999"</span><span class="p">)</span>
+<span class="c1">##   variable 1 variable 2 variable 3 variable 4
+## 1         10       beer          1      42328
+## 2         25       wine          1         NA
+</span><span class="err">##</span> <span class="m">3</span>          <span class="m">8</span>       <span class="o">&lt;</span><span class="n">NA</span><span class="o">&gt;</span>          <span class="m">0</span>      <span class="m">42330</span></code></pre></figure>
+
+<p>One unique difference between <code class="highlighter-rouge">readxl</code> and <code class="highlighter-rouge">xlsx</code> is how to deal with column types.  Whereas <code class="highlighter-rouge">read.xlsx()</code> allows you to change the column types to integer, double, numeric, character, or logical; <code class="highlighter-rouge">read_excel()</code> restricts you to changing column types to blank, numeric, date, or text.  The “blank” option allows you to skip columns; however, to change variable 3 to a logical <code class="highlighter-rouge">TRUE</code>/<code class="highlighter-rouge">FALSE</code> variable requires a second step.</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">mydata_ex</span> <span class="o">&lt;-</span> <span class="n">read_excel</span><span class="p">(</span><span class="s2">"mydata.xlsx"</span><span class="p">,</span> <span class="n">sheet</span> <span class="o">=</span> <span class="s2">"Sheet5"</span><span class="p">,</span>
+                        <span class="n">col_types</span> <span class="o">=</span> <span class="n">c</span><span class="p">(</span><span class="s2">"numeric"</span><span class="p">,</span> <span class="s2">"blank"</span><span class="p">,</span> <span class="s2">"numeric"</span><span class="p">,</span> <span class="s2">"date"</span><span class="p">,</span> <span class="s2">"blank"</span><span class="p">))</span>
+<span class="n">mydata_ex</span>
+<span class="c1">##   variable 1 variable 3 variable 4
+## 1         10          1 2015-11-20
+## 2         25          1       &lt;NA&gt;
+## 3          8          0 2015-11-22
+</span>
+<span class="c1"># change variable 3 to a logical variable
+</span><span class="n">mydata_ex</span><span class="o">$</span><span class="sb">`variable 3`</span> <span class="o">&lt;-</span> <span class="n">as.logical</span><span class="p">(</span><span class="n">mydata_ex</span><span class="o">$</span><span class="sb">`variable 3`</span><span class="p">)</span>
+<span class="n">mydata_ex</span>
+<span class="c1">##   variable 1 variable 3 variable 4
+## 1         10       TRUE 2015-11-20
+## 2         25       TRUE       &lt;NA&gt;
+</span><span class="err">##</span> <span class="m">3</span>          <span class="m">8</span>      <span class="n">FALSE</span> <span class="m">2015-11-22</span></code></pre></figure>
+
+<p><br /></p>
+
+<p><a name="robject"></a></p>
+
+<h2 id="load-data-from-saved-r-object-files">Load data from saved R object files</h2>
+<p>Sometimes you may need to save data or other R objects outside of your workspace.  You may want to share R data/objects with co-workers, transfer between projects or computers, or simply archive them.  There are three primary ways that people tend to save R data/objects: as .RData, .rda, or as .rds files.  The differences behind when you use each will be covered in the <a href="exporting_data#Robject">Saving data as an R object file</a> section.  This section will simply shows how to load these data/object forms.</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">load</span><span class="p">(</span><span class="s2">"mydata.RData"</span><span class="p">)</span>
+
+<span class="n">load</span><span class="p">(</span><span class="n">file</span> <span class="o">=</span> <span class="s2">"mydata.rda"</span><span class="p">)</span>
+
+<span class="n">name</span> <span class="o">&lt;-</span> <span class="n">readRDS</span><span class="p">(</span><span class="s2">"mydata.rds"</span><span class="p">)</span></code></pre></figure>
+
+<p><br /></p>
+
+<p><a name="importing_resources"></a></p>
+
+<h2 id="additional-resources">Additional resources</h2>
+<p>In addition to text and Excel files, there are multiple other ways in which data is stored and exchanged.  Commercial statistical software such as SPSS, SAS, Stata, and Minitab often have the option to store data in a specific format for that software.  In addition, analysts commonly use databases to store large quantities of data.  R has good support to work with these additional options which we did not cover here.  The following provides a list of additional resources to learn about data importing for these specific cases:</p>
+
+<ul>
+  <li><a href="https://cran.r-project.org/doc/manuals/R-data.html">R data import/export manual</a></li>
+  <li><a href="https://cran.r-project.org/doc/manuals/R-data.html#Relational-databases">Working with databases</a>
+    <ul>
+      <li><a href="https://cran.r-project.org/web/packages/RMySQL/index.html">MySQL</a></li>
+      <li><a href="https://cran.r-project.org/web/packages/ROracle/index.html">Oracle</a></li>
+      <li><a href="https://cran.r-project.org/web/packages/RPostgreSQL/index.html">PostgreSQL</a></li>
+      <li><a href="https://cran.r-project.org/web/packages/RSQLite/index.html">SQLite</a></li>
+      <li><a href="https://cran.rstudio.com/web/packages/RODBC/">Open Database Connectivity databases</a></li>
+    </ul>
+  </li>
+  <li><a href="https://cran.r-project.org/doc/manuals/R-data.html#Importing-from-other-statistical-systems">Importing data from commercial software</a>
+    <ul>
+      <li>The <a href="http://www.rdocumentation.org/packages/foreign"><code class="highlighter-rouge">foreign</code></a> package provides functions that help you load data files from other programs such as <a href="http://www.r-bloggers.com/how-to-open-an-spss-file-into-r/">SPSS</a>, <a href="http://rconvert.com/sas-vs-r-code-compare/5-ways-to-convert-sas-data-to-r/">SAS</a>, <a href="http://www.r-bloggers.com/how-to-read-and-write-stata-data-dta-files-into-r/">Stata</a>, and others into R.</li>
+    </ul>
+  </li>
+</ul>
+
+<p><small><a href="#">Go to top</a></small></p>
+
+<p><br /></p>
+<p class="footnote" style="line-height:0.75">
+<sup id="fn1">1. These same arguments can be used in <code>read.table</code>, <code>read.csv</code>, and <code>read.delim</code><a href="#ref1" title="Jump back to footnote 1 in the text.">"&#8617;"</a><sup>
+
+</sup></sup></p>
+
+  </article>
+
+</div>
+
+      </div>
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col  footer-col-1">
+
+      </div>
+
+      <div class="footer-col  footer-col-2">
+        <ul class="social-media-list">
+        <center>
+          <li>
+            <a href="https://github.com/bradleyboehmke">
+              <span class="icon  icon--github">
+                <svg viewBox="0 0 16 16">
+                  <path fill="#828282" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761 c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32 c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472 c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037 C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65 c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261 c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082 c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129 c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/>
+                </svg>
+              </span>
+            </a>
+            &nbsp;
+            <a href="http://www.twitter.com/bradleyboehmke">
+              <span class="icon  icon--twitter">
+                <svg viewBox="0 0 16 16">
+                  <path fill="#828282" d="M15.969,3.058c-0.586,0.26-1.217,0.436-1.878,0.515c0.675-0.405,1.194-1.045,1.438-1.809
+                  c-0.632,0.375-1.332,0.647-2.076,0.793c-0.596-0.636-1.446-1.033-2.387-1.033c-1.806,0-3.27,1.464-3.27,3.27 c0,0.256,0.029,0.506,0.085,0.745C5.163,5.404,2.753,4.102,1.14,2.124C0.859,2.607,0.698,3.168,0.698,3.767 c0,1.134,0.577,2.135,1.455,2.722C1.616,6.472,1.112,6.325,0.671,6.08c0,0.014,0,0.027,0,0.041c0,1.584,1.127,2.906,2.623,3.206 C3.02,9.402,2.731,9.442,2.433,9.442c-0.211,0-0.416-0.021-0.615-0.059c0.416,1.299,1.624,2.245,3.055,2.271 c-1.119,0.877-2.529,1.4-4.061,1.4c-0.264,0-0.524-0.015-0.78-0.046c1.447,0.928,3.166,1.469,5.013,1.469 c6.015,0,9.304-4.983,9.304-9.304c0-0.142-0.003-0.283-0.009-0.423C14.976,4.29,15.531,3.714,15.969,3.058z"/>
+                </svg>
+              </span>
+            </a>
+            &nbsp;
+            <a href="https://www.linkedin.com/in/brad-boehmke-ph-d-9b0a257">
+              <span class="icon  icon--linkedin">
+                <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"  width="25" height="25" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.414"><path fill="#828282" d="M13.632 13.635h-2.37V9.922c0-.886-.018-2.025-1.234-2.025-1.235 0-1.424.964-1.424 1.96v3.778h-2.37V6H8.51V7.04h.03c.318-.6 1.092-1.233 2.247-1.233 2.4 0 2.845 1.58 2.845 3.637v4.188zM3.558 4.955c-.762 0-1.376-.617-1.376-1.377 0-.758.614-1.375 1.376-1.375.76 0 1.376.617 1.376 1.375 0 .76-.617 1.377-1.376 1.377zm1.188 8.68H2.37V6h2.376v7.635zM14.816 0H1.18C.528 0 0 .516 0 1.153v13.694C0 15.484.528 16 1.18 16h13.635c.652 0 1.185-.516 1.185-1.153V1.153C16 .516 15.467 0 14.815 0z" fill-rule="nonzero"/>
+                </svg>
+              </span>
+            </a>
+          </li>
+
+        </ul>
+        </center>
+      </div>
+
+      <div class="footer-col  footer-col-3">
+        <p class="text"></p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>

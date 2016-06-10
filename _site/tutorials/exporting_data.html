@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Bradley Boehmke</title>
+    <meta name="description" content="">
+
+    <link rel="stylesheet" href="http://bradleyboehmke.github.io//css/main.css">
+    <link rel="canonical" href="http://bradleyboehmke.github.io/http://bradleyboehmke.github.io//tutorials/exporting_data">
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="http://bradleyboehmke.github.io/">Bradley Boehmke</a>
+
+    <nav class="site-nav">
+      <a href="#" class="menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+
+      <div class="trigger">
+        
+          
+          <a class="page-link" href="http://bradleyboehmke.github.io//about/">About</a>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+          <a class="page-link" href="http://bradleyboehmke.github.io//categoryview/">Archive</a>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+          <a class="page-link" href="http://bradleyboehmke.github.io//cv/">CV</a>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+          <a class="page-link" href="http://bradleyboehmke.github.io//tutorials/">Tutorials</a>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+          <a class="page-link" href="http://bradleyboehmke.github.io//tutorials/scraping_with_apis_DSCOE.Rmd">Scraping Data with APIs</a>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <div class="post">
+
+  <article class="post-content">
+    <p><a href="index">R Vocab Topics</a> » <a href="data_inputs_outputs">Importing, Scraping, and exporting data</a> » Exporting data</p>
+
+<p><br /></p>
+
+<p>Although getting data into R is essential, getting data out of R can be just as important. Whether you need to export data or analytic results simply to store, share, or feed into another system it is generally a straight forward process. This section will cover how to export data to text files, Excel files (along with some additional formatting capabilities), and save to R data objects. In addition to the the commonly used base R functions to perform data importing, I will also cover functions from the popular <code class="highlighter-rouge">readr</code> and <code class="highlighter-rouge">xlsx</code> packages along with a lesser known but useful <code class="highlighter-rouge">r2excel</code> package for Excel formatting.</p>
+
+<ul>
+  <li><a href="#csv">Writing data to text files</a></li>
+  <li><a href="#excel">Writing data to Excel files</a></li>
+  <li><a href="#robject">Saving R object files</a></li>
+  <li><a href="#exporting_resources">Additional resources</a></li>
+</ul>
+
+<p><br /></p>
+
+<p><a name="csv"></a></p>
+
+<h2 id="writing-data-to-text-files">Writing data to text files</h2>
+<p>As mentioned in the importing data section, text files are a popular way to hold and exchange tabular data as almost any data application supports exporting data to the CSV (or other text file) formats.  Consequently, exporting data to a text file is a pretty standard operation. Plus, since you’ve already learned how to import text files you pretty much have the basics required to write to text files…we just use a slightly different naming convention.</p>
+
+<p>Similar to the examples provided in the importing text files section, the two main groups of functions that I will demonstrate to write to text files include base R functions and <code class="highlighter-rouge">readr</code> package functions.</p>
+
+<p><br /></p>
+
+<h3 id="base-r-functions">Base R functions</h3>
+<p><code class="highlighter-rouge">write.table()</code> is the multipurpose work-horse function in base R for exporting data.  The functions <code class="highlighter-rouge">write.csv()</code> and <code class="highlighter-rouge">write.delim()</code> are special cases of <code class="highlighter-rouge">write.table()</code> in which the defaults have been adjusted for efficiency.  To illustrate these functions let’s work with a data frame that we wish to export to a CSV file in our working directory.</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">df</span> <span class="o">&lt;-</span> <span class="n">data.frame</span><span class="p">(</span><span class="n">var1</span> <span class="o">=</span> <span class="n">c</span><span class="p">(</span><span class="m">10</span><span class="p">,</span> <span class="m">25</span><span class="p">,</span> <span class="m">8</span><span class="p">),</span> 
+                 <span class="n">var2</span> <span class="o">=</span> <span class="n">c</span><span class="p">(</span><span class="s2">"beer"</span><span class="p">,</span> <span class="s2">"wine"</span><span class="p">,</span> <span class="s2">"cheese"</span><span class="p">),</span> 
+                          <span class="n">var3</span> <span class="o">=</span> <span class="n">c</span><span class="p">(</span><span class="n">TRUE</span><span class="p">,</span> <span class="n">TRUE</span><span class="p">,</span> <span class="n">FALSE</span><span class="p">),</span>
+                 <span class="n">row.names</span> <span class="o">=</span> <span class="n">c</span><span class="p">(</span><span class="s2">"billy"</span><span class="p">,</span> <span class="s2">"bob"</span><span class="p">,</span> <span class="s2">"thornton"</span><span class="p">))</span>
+
+<span class="n">df</span>
+<span class="c1">##          var1   var2  var3
+## billy      10   beer  TRUE
+## bob        25   wine  TRUE
+</span><span class="err">##</span> <span class="n">thornton</span>    <span class="m">8</span> <span class="n">cheese</span> <span class="n">FALSE</span></code></pre></figure>
+
+<p>To export <code class="highlighter-rouge">df</code> to a CSV file we can use <code class="highlighter-rouge">write.csv()</code>. Additional arguments allow you to exclude row and column names, specify what to use for missing values, add or remove quotations around character strings, etc.</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="c1"># write to a csv file
+</span><span class="n">write.csv</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">file</span> <span class="o">=</span> <span class="s2">"export_csv"</span><span class="p">)</span>
+
+<span class="c1"># write to a csv and save in a different directory
+</span><span class="n">write.csv</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">file</span> <span class="o">=</span> <span class="s2">"/folder/subfolder/subsubfolder/export_csv"</span><span class="p">)</span>
+
+<span class="c1"># write to a csv file with added arguments
+</span><span class="n">write.csv</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">file</span> <span class="o">=</span> <span class="s2">"export_csv"</span><span class="p">,</span> <span class="n">row.names</span> <span class="o">=</span> <span class="n">FALSE</span><span class="p">,</span> <span class="n">na</span> <span class="o">=</span> <span class="s2">"MISSING!"</span><span class="p">)</span></code></pre></figure>
+
+<p>In addition to CSV files, we can also write to other text files using <code class="highlighter-rouge">write.table</code> and <code class="highlighter-rouge">write.delim()</code>.</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="c1"># write to a tab delimited text files
+</span><span class="n">write.delim</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">file</span> <span class="o">=</span> <span class="s2">"export_txt"</span><span class="p">)</span>
+
+<span class="c1"># provides same results as read.delim
+</span><span class="n">write.table</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">file</span> <span class="o">=</span> <span class="s2">"export_txt"</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">"\t"</span><span class="p">)</span></code></pre></figure>
+
+<p><br /></p>
+
+<h3 id="readr-package">readr package</h3>
+<p>The <code class="highlighter-rouge">readr</code> package uses write functions similar to base R. However, <code class="highlighter-rouge">readr</code> write functions are about twice as fast and they do not write row names. One thing to note, where base R write functions use the <code class="highlighter-rouge">file =</code> argument, <code class="highlighter-rouge">readr</code> write functions use <code class="highlighter-rouge">path =</code>.</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">library</span><span class="p">(</span><span class="n">readr</span><span class="p">)</span>
+
+<span class="c1"># write to a csv file
+</span><span class="n">write_csv</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">path</span> <span class="o">=</span> <span class="s2">"export_csv2"</span><span class="p">)</span>
+
+<span class="c1"># write to a csv and save in a different directory
+</span><span class="n">write_csv</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">path</span> <span class="o">=</span> <span class="s2">"/folder/subfolder/subsubfolder/export_csv2"</span><span class="p">)</span>
+
+<span class="c1"># write to a csv file without column names
+</span><span class="n">write_csv</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">path</span> <span class="o">=</span> <span class="s2">"export_csv2"</span><span class="p">,</span> <span class="n">col_names</span> <span class="o">=</span> <span class="n">FALSE</span><span class="p">)</span>
+
+<span class="c1"># write to a txt file without column names
+</span><span class="n">write_delim</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">path</span> <span class="o">=</span> <span class="s2">"export_txt2"</span><span class="p">,</span> <span class="n">col_names</span> <span class="o">=</span> <span class="n">FALSE</span><span class="p">)</span></code></pre></figure>
+
+<p><small><a href="#">Go to top</a></small></p>
+
+<p><br /></p>
+
+<p><a name="excel"></a></p>
+
+<h2 id="writing-data-to-excel-files">Writing data to Excel files</h2>
+<p>As previously mentioned, many organizations still rely on Excel to hold and share data so exporting to Excel is a useful bit of knowledge.  And rather than saving to a .csv file to send to a co-worker who wants to work in Excel, its more efficient to just save R outputs directly to an Excel workbook. Since I covered importing data with the <code class="highlighter-rouge">xlsx</code> package, I’ll also cover exporting data with this package.  However, the <code class="highlighter-rouge">readxl</code> package which I demonstrated in the importing data section does not have a function to export to Excel. But there is a lesser known package called <code class="highlighter-rouge">r2excel</code> that provides exporting and formatting functions for Excel which I will cover.</p>
+
+<p><br /></p>
+
+<h3 id="xlsx-package">xlsx package</h3>
+<p>Saving a data frame to a .xlsx file is as easy as saving to a .csv file:</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">library</span><span class="p">(</span><span class="n">xlsx</span><span class="p">)</span>
+
+<span class="c1"># write to a .xlsx file
+</span><span class="n">write.xlsx</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">file</span> <span class="o">=</span> <span class="s2">"output_example.xlsx"</span><span class="p">)</span>
+
+<span class="c1"># write to a .xlsx file without row names
+</span><span class="n">write.xlsx</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">file</span> <span class="o">=</span> <span class="s2">"output_example.xlsx"</span><span class="p">,</span> <span class="n">row.names</span> <span class="o">=</span> <span class="n">FALSE</span><span class="p">)</span></code></pre></figure>
+
+<p>In some cases you may wish to create a .xlsx file that contains multiple data frames.  In this you can just create an empty workbook and save the data frames on seperate worksheets within the same workbook:</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="c1"># create empty workbook
+</span><span class="n">multiple_df</span> <span class="o">&lt;-</span> <span class="n">createWorkbook</span><span class="p">()</span>
+
+<span class="c1"># create worksheets within workbook
+</span><span class="n">car_df</span> <span class="o">&lt;-</span> <span class="n">createSheet</span><span class="p">(</span><span class="n">wb</span> <span class="o">=</span> <span class="n">multiple_df</span><span class="p">,</span> <span class="n">sheetName</span> <span class="o">=</span> <span class="s2">"Cars"</span><span class="p">)</span>
+<span class="n">iris_df</span> <span class="o">&lt;-</span> <span class="n">createSheet</span><span class="p">(</span><span class="n">wb</span> <span class="o">=</span> <span class="n">multiple_df</span><span class="p">,</span> <span class="n">sheetName</span> <span class="o">=</span> <span class="s2">"Iris"</span><span class="p">)</span>
+
+<span class="c1"># add data frames to worksheets; for this example I use the
+# built in mtcars and iris data frames
+</span><span class="n">addDataFrame</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">mtcars</span><span class="p">,</span> <span class="n">sheet</span> <span class="o">=</span> <span class="n">car_df</span><span class="p">)</span>
+<span class="n">addDataFrame</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">iris</span><span class="p">,</span> <span class="n">sheet</span> <span class="o">=</span> <span class="n">iris_df</span><span class="p">)</span>
+
+<span class="c1"># save as a .xlsx file 
+</span><span class="n">saveWorkbook</span><span class="p">(</span><span class="n">multiple_df</span><span class="p">,</span> <span class="n">file</span> <span class="o">=</span> <span class="s2">"output_example_2.xlsx"</span><span class="p">)</span></code></pre></figure>
+
+<p>By default this saves the row and column names but this can be adjusted by adding <code class="highlighter-rouge">col.names = FALSE</code> and/or <code class="highlighter-rouge">row.names = FALSE</code> to the <code class="highlighter-rouge">addDataFrame()</code> function.  There is also the ability to do some formatting with the <code class="highlighter-rouge">xlsx</code> package.  The following provides several examples of how you can edit titles, subtitles, borders, column width, etc.<sup id="fnref:excel_format"><a href="#fn:excel_format" class="footnote">1</a></sup> Although at first glance this can appear tedious for simple Excel editing, the real benefits present themselves when you integrate this editing into automated analyses.</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="c1"># create new workbook
+</span><span class="n">wb</span> <span class="o">&lt;-</span> <span class="n">createWorkbook</span><span class="p">()</span>
+
+<span class="c1">#--------------------
+# DEFINE CELL STYLES 
+#--------------------
+# title and subtitle styles
+</span><span class="n">title_style</span> <span class="o">&lt;-</span> <span class="n">CellStyle</span><span class="p">(</span><span class="n">wb</span><span class="p">)</span> <span class="o">+</span> 
+               <span class="n">Font</span><span class="p">(</span><span class="n">wb</span><span class="p">,</span> <span class="n">heightInPoints</span> <span class="o">=</span> <span class="m">16</span><span class="p">,</span>
+                    <span class="n">color</span> <span class="o">=</span> <span class="s2">"blue"</span><span class="p">,</span> 
+                    <span class="n">isBold</span> <span class="o">=</span> <span class="n">TRUE</span><span class="p">,</span> 
+                    <span class="n">underline</span> <span class="o">=</span> <span class="m">1</span><span class="p">)</span>
+
+<span class="n">subtitle_style</span> <span class="o">&lt;-</span> <span class="n">CellStyle</span><span class="p">(</span><span class="n">wb</span><span class="p">)</span> <span class="o">+</span> 
+                  <span class="n">Font</span><span class="p">(</span><span class="n">wb</span><span class="p">,</span> <span class="n">heightInPoints</span> <span class="o">=</span> <span class="m">14</span><span class="p">,</span>
+                       <span class="n">isItalic</span> <span class="o">=</span> <span class="n">TRUE</span><span class="p">,</span>
+                       <span class="n">isBold</span> <span class="o">=</span> <span class="n">FALSE</span><span class="p">)</span>
+
+<span class="c1"># data table styles
+</span><span class="n">rowname_style</span> <span class="o">&lt;-</span> <span class="n">CellStyle</span><span class="p">(</span><span class="n">wb</span><span class="p">)</span> <span class="o">+</span>
+                 <span class="n">Font</span><span class="p">(</span><span class="n">wb</span><span class="p">,</span> <span class="n">isBold</span> <span class="o">=</span> <span class="n">TRUE</span><span class="p">)</span>
+
+<span class="n">colname_style</span> <span class="o">&lt;-</span> <span class="n">CellStyle</span><span class="p">(</span><span class="n">wb</span><span class="p">)</span> <span class="o">+</span>
+                 <span class="n">Font</span><span class="p">(</span><span class="n">wb</span><span class="p">,</span> <span class="n">isBold</span> <span class="o">=</span> <span class="n">TRUE</span><span class="p">)</span> <span class="o">+</span>
+                 <span class="n">Alignment</span><span class="p">(</span><span class="n">wrapText</span> <span class="o">=</span> <span class="n">TRUE</span><span class="p">,</span> <span class="n">horizontal</span> <span class="o">=</span> <span class="s2">"ALIGN_CENTER"</span><span class="p">)</span> <span class="o">+</span>
+                 <span class="n">Border</span><span class="p">(</span><span class="n">color</span> <span class="o">=</span> <span class="s2">"black"</span><span class="p">,</span>
+                        <span class="n">position</span> <span class="o">=</span> <span class="n">c</span><span class="p">(</span><span class="s2">"TOP"</span><span class="p">,</span> <span class="s2">"BOTTOM"</span><span class="p">),</span>
+                        <span class="n">pen</span> <span class="o">=</span> <span class="n">c</span><span class="p">(</span><span class="s2">"BORDER_THIN"</span><span class="p">,</span> <span class="s2">"BORDER_THICK"</span><span class="p">))</span>
+
+<span class="c1">#-------------------------
+# CREATE &amp; EDIT WORKSHEET 
+#-------------------------
+# create worksheet
+</span><span class="n">Cars</span> <span class="o">&lt;-</span> <span class="n">createSheet</span><span class="p">(</span><span class="n">wb</span><span class="p">,</span> <span class="n">sheetName</span> <span class="o">=</span> <span class="s2">"Cars"</span><span class="p">)</span>
+
+<span class="c1"># helper function to add titles
+</span><span class="n">xlsx.addTitle</span> <span class="o">&lt;-</span> <span class="k">function</span><span class="p">(</span><span class="n">sheet</span><span class="p">,</span> <span class="n">rowIndex</span><span class="p">,</span> <span class="n">title</span><span class="p">,</span> <span class="n">titleStyle</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">rows</span> <span class="o">&lt;-</span> <span class="n">createRow</span><span class="p">(</span><span class="n">sheet</span><span class="p">,</span> <span class="n">rowIndex</span> <span class="o">=</span> <span class="n">rowIndex</span><span class="p">)</span>
+        <span class="n">sheetTitle</span> <span class="o">&lt;-</span> <span class="n">createCell</span><span class="p">(</span><span class="n">rows</span><span class="p">,</span> <span class="n">colIndex</span> <span class="o">=</span> <span class="m">1</span><span class="p">)</span>
+        <span class="n">setCellValue</span><span class="p">(</span><span class="n">sheetTitle</span><span class="p">[[</span><span class="m">1</span><span class="p">,</span><span class="m">1</span><span class="p">]],</span> <span class="n">title</span><span class="p">)</span>
+        <span class="n">setCellStyle</span><span class="p">(</span><span class="n">sheetTitle</span><span class="p">[[</span><span class="m">1</span><span class="p">,</span><span class="m">1</span><span class="p">]],</span> <span class="n">titleStyle</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="c1"># add title and sub title to worksheet
+</span><span class="n">xlsx.addTitle</span><span class="p">(</span><span class="n">sheet</span> <span class="o">=</span> <span class="n">Cars</span><span class="p">,</span> <span class="n">rowIndex</span> <span class="o">=</span> <span class="m">1</span><span class="p">,</span> 
+              <span class="n">title</span> <span class="o">=</span> <span class="s2">"1974 Motor Trend Car Data"</span><span class="p">,</span>
+              <span class="n">titleStyle</span> <span class="o">=</span> <span class="n">title_style</span><span class="p">)</span>
+
+<span class="n">xlsx.addTitle</span><span class="p">(</span><span class="n">sheet</span> <span class="o">=</span> <span class="n">Cars</span><span class="p">,</span> <span class="n">rowIndex</span> <span class="o">=</span> <span class="m">2</span><span class="p">,</span> 
+              <span class="n">title</span> <span class="o">=</span> <span class="s2">"Performance and design attributes of 32 automobiles"</span><span class="p">,</span>
+              <span class="n">titleStyle</span> <span class="o">=</span> <span class="n">subtitle_style</span><span class="p">)</span>
+
+<span class="c1"># add data frame to worksheet
+</span><span class="n">addDataFrame</span><span class="p">(</span><span class="n">mtcars</span><span class="p">,</span> <span class="n">sheet</span> <span class="o">=</span> <span class="n">Cars</span><span class="p">,</span> <span class="n">startRow</span> <span class="o">=</span> <span class="m">3</span><span class="p">,</span> <span class="n">startColumn</span> <span class="o">=</span> <span class="m">1</span><span class="p">,</span>
+             <span class="n">colnamesStyle</span> <span class="o">=</span> <span class="n">colname_style</span><span class="p">,</span> 
+             <span class="n">rownamesStyle</span> <span class="o">=</span> <span class="n">rowname_style</span><span class="p">)</span>
+
+<span class="c1"># change row name column width
+</span><span class="n">setColumnWidth</span><span class="p">(</span><span class="n">sheet</span> <span class="o">=</span> <span class="n">Cars</span><span class="p">,</span> <span class="n">colIndex</span> <span class="o">=</span> <span class="m">1</span><span class="p">,</span> <span class="n">colWidth</span> <span class="o">=</span> <span class="m">18</span><span class="p">)</span>
+
+<span class="c1"># save workbook
+</span><span class="n">saveWorkbook</span><span class="p">(</span><span class="n">wb</span><span class="p">,</span> <span class="n">file</span> <span class="o">=</span> <span class="s2">"output_example_3.xlsx"</span><span class="p">)</span></code></pre></figure>
+
+<center>
+<img src="/public/images/exporting_data/output_example_3.png" alt="Formatted Excel Output" align="middle" vspace="25" />
+</center>
+
+<p><br /></p>
+
+<h3 id="r2excel-package">r2excel package</h3>
+<p>Although Formatting Excel files using the <code class="highlighter-rouge">xlsx</code> package is possible, the last section illustrated that it is a bit cumbersome. For this reason, <a href="https://github.com/kassambara">A. Kassambara</a> created the <code class="highlighter-rouge">r2excel</code> package which depends on the <code class="highlighter-rouge">xlsx</code> package but provides easy to use functions for Excel formatting.  The following provides a simple example but you can find many additional formatting functions <a href="http://www.sthda.com/english/wiki/r2excel-read-write-and-format-easily-excel-files-using-r-software">here</a></p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="c1"># install.packages("devtools")
+</span><span class="n">devtools</span><span class="o">::</span><span class="n">install_github</span><span class="p">(</span><span class="s2">"kassambara/r2excel"</span><span class="p">)</span>
+<span class="n">library</span><span class="p">(</span><span class="n">r2excel</span><span class="p">)</span>
+
+<span class="c1"># create new workbook
+</span><span class="n">wb</span> <span class="o">&lt;-</span> <span class="n">createWorkbook</span><span class="p">()</span>
+
+<span class="c1"># create worksheet
+</span><span class="n">Casualties</span> <span class="o">&lt;-</span> <span class="n">createSheet</span><span class="p">(</span><span class="n">wb</span><span class="p">,</span> <span class="n">sheetName</span> <span class="o">=</span> <span class="s2">"Casualties"</span><span class="p">)</span>
+
+<span class="c1"># add title
+</span><span class="n">xlsx.addHeader</span><span class="p">(</span><span class="n">wb</span><span class="p">,</span> <span class="n">sheet</span> <span class="o">=</span> <span class="n">Casualties</span><span class="p">,</span> 
+               <span class="n">value</span> <span class="o">=</span> <span class="s2">"Road Casualties"</span><span class="p">,</span>
+               <span class="n">level</span> <span class="o">=</span> <span class="m">1</span><span class="p">,</span> 
+               <span class="n">color</span> <span class="o">=</span> <span class="s2">"red"</span><span class="p">,</span> 
+               <span class="n">underline</span> <span class="o">=</span> <span class="m">1</span><span class="p">)</span>
+
+<span class="c1"># add subtitle
+</span><span class="n">xlsx.addHeader</span><span class="p">(</span><span class="n">wb</span><span class="p">,</span> <span class="n">sheet</span> <span class="o">=</span> <span class="n">Casualties</span><span class="p">,</span> 
+               <span class="n">value</span> <span class="o">=</span> <span class="s2">"Great Britain 1969-84"</span><span class="p">,</span>
+               <span class="n">level</span> <span class="o">=</span> <span class="m">2</span><span class="p">,</span> 
+               <span class="n">color</span> <span class="o">=</span> <span class="s2">"black"</span><span class="p">)</span>
+
+<span class="c1"># add author information
+</span><span class="n">author</span> <span class="o">=</span> <span class="n">paste</span><span class="p">(</span><span class="s2">"Author: Bradley C. Boehmke \n"</span><span class="p">,</span>
+             <span class="s2">"Date: January 15, 2016 \n"</span><span class="p">,</span>
+             <span class="s2">"Contact: xxxxx@gmail.com"</span><span class="p">,</span> <span class="n">sep</span> <span class="o">=</span> <span class="s2">""</span><span class="p">)</span>
+
+<span class="n">xlsx.addParagraph</span><span class="p">(</span><span class="n">wb</span><span class="p">,</span> <span class="n">sheet</span> <span class="o">=</span> <span class="n">Casualties</span><span class="p">,</span>
+                  <span class="n">value</span> <span class="o">=</span> <span class="n">author</span><span class="p">,</span> 
+                  <span class="n">isItalic</span> <span class="o">=</span> <span class="n">TRUE</span><span class="p">,</span> 
+                  <span class="n">colSpan</span> <span class="o">=</span> <span class="m">2</span><span class="p">,</span> 
+                  <span class="n">rowSpan</span> <span class="o">=</span> <span class="m">4</span><span class="p">,</span> 
+                  <span class="n">fontColor</span> <span class="o">=</span> <span class="s2">"darkgray"</span><span class="p">,</span> 
+                  <span class="n">fontSize</span> <span class="o">=</span> <span class="m">14</span><span class="p">)</span>
+
+<span class="c1"># add hyperlink
+</span><span class="n">xlsx.addHyperlink</span><span class="p">(</span><span class="n">wb</span><span class="p">,</span> <span class="n">sheet</span> <span class="o">=</span> <span class="n">Casualties</span><span class="p">,</span> 
+                  <span class="n">address</span> <span class="o">=</span> <span class="s2">"http://bradleyboehmke.github.io/"</span><span class="p">,</span> 
+                  <span class="n">friendlyName</span> <span class="o">=</span> <span class="s2">"Vist my website"</span><span class="p">,</span> <span class="n">fontSize</span> <span class="o">=</span> <span class="m">12</span><span class="p">)</span>
+
+<span class="n">xlsx.addLineBreak</span><span class="p">(</span><span class="n">sheet</span> <span class="o">=</span> <span class="n">Casualties</span><span class="p">,</span> <span class="m">1</span><span class="p">)</span>
+
+<span class="c1"># add data frame to worksheet, I'm using the built in
+# Seatbelt data which you can view at data(Seatbelt)
+</span><span class="n">xlsx.addTable</span><span class="p">(</span><span class="n">wb</span><span class="p">,</span> <span class="n">sheet</span> <span class="o">=</span> <span class="n">Casualties</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">Seatbelts</span><span class="p">,</span> <span class="n">startCol</span> <span class="o">=</span> <span class="m">2</span><span class="p">)</span>
+ 
+<span class="c1"># save the workbook to an Excel file
+</span><span class="n">saveWorkbook</span><span class="p">(</span><span class="n">wb</span><span class="p">,</span> <span class="n">file</span> <span class="o">=</span> <span class="s2">"output_example_4.xlsx"</span><span class="p">)</span></code></pre></figure>
+
+<center>
+<img src="/public/images/exporting_data/output_example_4.png" alt="Formatted Excel Output" align="middle" vspace="25" />
+</center>
+
+<p><small><a href="#">Go to top</a></small></p>
+
+<p><br /></p>
+
+<p><a name="robject"></a></p>
+
+<h2 id="saving-r-object-files">Saving R object files</h2>
+<p>Sometimes you may need to save data or other R objects outside of your workspace.  You may want to share R data/objects with co-workers, transfer between projects or computers, or simply archive them.  There are three primary ways that people tend to save R data/objects: as .RData, .rda, or as .rds files.</p>
+
+<p>.rda is just short for .RData, therefore, these file extensions represent the same underlying object type. You use the .rda or .RData file types when you want to save several, or all, objects and functions that exist in your global environment. On the other hand, if you only want to save a single R object such as a data frame, function, or statistical model results its best to use .rds file type. You can use .rda or .RData to save a single object but the benefit of .rds is it only saves a representation of the object and not the name whereas .rda and .RData save the both the object and its name. As a result, with .rds the saved object can be loaded into a named object within R that is different from the name it had when originally saved.  The following illustrates how you save R objects with each type.</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="c1"># save() can be used to save multiple objects in you global environment,
+# in this case I save two objects to a .RData file
+</span><span class="n">x</span> <span class="o">&lt;-</span> <span class="n">stats</span><span class="o">::</span><span class="n">runif</span><span class="p">(</span><span class="m">20</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">&lt;-</span> <span class="n">list</span><span class="p">(</span><span class="n">a</span> <span class="o">=</span> <span class="m">1</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">TRUE</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="s2">"oops"</span><span class="p">)</span>
+<span class="n">save</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">file</span> <span class="o">=</span> <span class="s2">"xy.RData"</span><span class="p">)</span>
+
+<span class="c1"># save.image() is just a short-cut for ‘save my current workspace’,
+# i.e. all objects in your global environment
+</span><span class="n">save.image</span><span class="p">()</span>
+
+<span class="c1"># save a single object to file
+</span><span class="n">saveRDS</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="s2">"x.rds"</span><span class="p">)</span>
+
+<span class="c1"># restore it under a different name
+</span><span class="n">x2</span> <span class="o">&lt;-</span> <span class="n">readRDS</span><span class="p">(</span><span class="s2">"x.rds"</span><span class="p">)</span>
+<span class="n">identical</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x2</span><span class="p">)</span>
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="n">TRUE</span></code></pre></figure>
+
+<p><small><a href="#">Go to top</a></small></p>
+
+<p><br /></p>
+
+<p><a name="exporting_resources"></a></p>
+
+<h2 id="additional-resources">Additional resources</h2>
+<p>The following provides additional resources for exporting data:</p>
+
+<ul>
+  <li><a href="https://cran.r-project.org/doc/manuals/R-data.html">R data import/export manual</a></li>
+  <li><a href="https://cran.r-project.org/web/packages/WriteXLS/WriteXLS.pdf"><code class="highlighter-rouge">WriteXLS</code> package</a></li>
+  <li><a href="https://cran.r-project.org/web/packages/XLConnect/vignettes/XLConnect.pdf"><code class="highlighter-rouge">XLConnect</code> package</a></li>
+</ul>
+
+<p><small><a href="#">Go to top</a></small></p>
+
+<div class="footnotes">
+  <ol>
+    <li id="fn:excel_format">
+      <p>This example was derived from <a href="http://www.sthda.com/english/">STHDA</a>. Additional options, such as adding plot outputs can be found at STHDA and also in the <em>XML and Web Technologies for Data Sciences with R</em> book. <a href="#fnref:excel_format" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+
+  </article>
+
+</div>
+
+      </div>
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col  footer-col-1">
+
+      </div>
+
+      <div class="footer-col  footer-col-2">
+        <ul class="social-media-list">
+        <center>
+          <li>
+            <a href="https://github.com/bradleyboehmke">
+              <span class="icon  icon--github">
+                <svg viewBox="0 0 16 16">
+                  <path fill="#828282" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761 c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32 c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472 c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037 C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65 c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261 c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082 c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129 c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/>
+                </svg>
+              </span>
+            </a>
+            &nbsp;
+            <a href="http://www.twitter.com/bradleyboehmke">
+              <span class="icon  icon--twitter">
+                <svg viewBox="0 0 16 16">
+                  <path fill="#828282" d="M15.969,3.058c-0.586,0.26-1.217,0.436-1.878,0.515c0.675-0.405,1.194-1.045,1.438-1.809
+                  c-0.632,0.375-1.332,0.647-2.076,0.793c-0.596-0.636-1.446-1.033-2.387-1.033c-1.806,0-3.27,1.464-3.27,3.27 c0,0.256,0.029,0.506,0.085,0.745C5.163,5.404,2.753,4.102,1.14,2.124C0.859,2.607,0.698,3.168,0.698,3.767 c0,1.134,0.577,2.135,1.455,2.722C1.616,6.472,1.112,6.325,0.671,6.08c0,0.014,0,0.027,0,0.041c0,1.584,1.127,2.906,2.623,3.206 C3.02,9.402,2.731,9.442,2.433,9.442c-0.211,0-0.416-0.021-0.615-0.059c0.416,1.299,1.624,2.245,3.055,2.271 c-1.119,0.877-2.529,1.4-4.061,1.4c-0.264,0-0.524-0.015-0.78-0.046c1.447,0.928,3.166,1.469,5.013,1.469 c6.015,0,9.304-4.983,9.304-9.304c0-0.142-0.003-0.283-0.009-0.423C14.976,4.29,15.531,3.714,15.969,3.058z"/>
+                </svg>
+              </span>
+            </a>
+            &nbsp;
+            <a href="https://www.linkedin.com/in/brad-boehmke-ph-d-9b0a257">
+              <span class="icon  icon--linkedin">
+                <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"  width="25" height="25" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.414"><path fill="#828282" d="M13.632 13.635h-2.37V9.922c0-.886-.018-2.025-1.234-2.025-1.235 0-1.424.964-1.424 1.96v3.778h-2.37V6H8.51V7.04h.03c.318-.6 1.092-1.233 2.247-1.233 2.4 0 2.845 1.58 2.845 3.637v4.188zM3.558 4.955c-.762 0-1.376-.617-1.376-1.377 0-.758.614-1.375 1.376-1.375.76 0 1.376.617 1.376 1.375 0 .76-.617 1.377-1.376 1.377zm1.188 8.68H2.37V6h2.376v7.635zM14.816 0H1.18C.528 0 0 .516 0 1.153v13.694C0 15.484.528 16 1.18 16h13.635c.652 0 1.185-.516 1.185-1.153V1.153C16 .516 15.467 0 14.815 0z" fill-rule="nonzero"/>
+                </svg>
+              </span>
+            </a>
+          </li>
+
+        </ul>
+        </center>
+      </div>
+
+      <div class="footer-col  footer-col-3">
+        <p class="text"></p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>
