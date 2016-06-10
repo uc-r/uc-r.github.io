@@ -1,7 +1,10 @@
 ---
-layout: page
+id: 1836
 title: R Basics
-permalink: /basics
+date: 2016-06-10
+author: Brad Boehmke
+layout: page
+guid: http://uc-r.github.io/?page_id=1836
 ---
 
 
