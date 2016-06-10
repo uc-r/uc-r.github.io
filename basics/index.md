@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Basics
+title: R Basics
 permalink: /basics
 ---
 
