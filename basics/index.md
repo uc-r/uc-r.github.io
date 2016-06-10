@@ -13,7 +13,7 @@ permalink: /section2_basics
 A computer language is described by its *syntax* and *semantics*; where syntax is about the the grammar of the language and semantics the meaning behind the sentence. And jumping into a new programming language correlates to visiting a foreign country with only that 9th grade Spanish 101 class under your belt; there is no better way to learn than to immerse yourself in the environment! Although it'll be painful early on and your nose will surely bleed, eventually you'll learn the dialect and the quircks that come along with it. 
 
 ## tl;dr
-Throughout this book you'll learn much of the fundamental syntax and semantics of the R programming language; and hopefully with minimal face kicking involved. However, this tutorial serves to introduce you to many of the basics of R to get you comfortable.  This includes: 
+Throughout these tutorials you'll learn much of the fundamental syntax and semantics of the R programming language; and hopefully with minimal face kicking involved. However, this tutorial serves to introduce you to many of the basics of R to get you comfortable.  This includes: 
 
 1. understanding how to [assign and evaluate expressions](#basics_assignment)
 2. the idea of [vectorization](#basics_vectorization)
@@ -26,7 +26,7 @@ Throughout this book you'll learn much of the fundamental syntax and semantics o
 ## Assignment & Evaluation {#basics_assignment}
 The first operator you'll run into is the assignment operator. The assignment operator is used to *assign* a value. For instance we can assign the value 3 to the variable `x` using the `<-` assignment operator.  We can then evaluate the variable by simply typing `x` at the command line which will return the value of `x`.  Note that prior to the value returned you'll see `## [1]` in the command line.  This simply implies that the output returned is the first output. Note that you can type any comments in your code by preceding the comment with the hashtag (`#`) symbol.  Any values, symbols, and texts following `#` will not be evaluated.
 
-{line-numbers=off}
+
 ```r
 # assignment
 x <- 3
@@ -38,7 +38,7 @@ x
 
 Interestingly, R actually allows for five assignment operators:
 
-{line-numbers=off}
+
 ```r
 # leftward assignment
 x <- value
