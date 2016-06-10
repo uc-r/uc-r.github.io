@@ -58,7 +58,7 @@ Overwhelmed yet?  Don't be.  This is just meant to show you that there are optio
 
 Lastly, note that R is a case sensitive programming language.  Meaning all variables, functions, and objects must be called by their exact spelling:
 
-{line-numbers=off}
+
 ```r
 x <- 1 
 y <- 3 
@@ -75,7 +75,7 @@ Let's move on.
 ## Vectorization {#basics_vectorization}
 A key difference between R and many other languages is a topic known as vectorization. What does this mean? It means that many functions that are to be applied individually to each element in a vector of numbers require a *loop* assessment to evaluate; however, in R many of these functions have been coded in C to perform much faster than a `for` loop would perform.  For example, let's say you want to add the elements of two seperate vectors of numbers (`x` and `y`). 
 
-{line-numbers=off}
+
 ```r
 x <- c(1, 3, 4)
 y <- c(1, 2, 4)
@@ -88,7 +88,7 @@ y
 
 In other languages you might have to run a loop to add two vectors together. In this `for` loop I print each iteration to show that the loop calculates the sum for the first elements in each vector, then performs the sum for the second elements, etc.
 
-{line-numbers=off}
+
 ```r
 # empty vector 
 z <- as.vector(NULL)
@@ -105,7 +105,7 @@ for (i in seq_along(x)) {
 
 Instead, in R, `+` is a vectorized function which can operate on entire vectors at once. So rather than creating `for` loops for many function, you can just use simple syntax:
 
-{line-numbers=off}
+
 ```r
 x + y
 ## [1] 2 5 8
@@ -117,7 +117,7 @@ x > y
 
 When performing vector operations in R, it is important to know about *recycling*. When performing an operation on two or more vectors of unequal length, R will recycle elements of the shorter vector(s) to match the longest vector. For example:
 
-{line-numbers=off}
+
 ```r
 long <- 1:10
 short <- 1:5
@@ -133,7 +133,7 @@ long + short
 
 The elements of `long` and `short` are added together starting from the first element of both vectors. When R reaches the end of the `short` vector, it starts again at the first element of `short` and contines until it reaches the last element of the `long` vector. This functionality is very useful when you want to perform the same operation on every element of a vector. For example, say we want to multiply every element of our vector long by 3:
 
-{line-numbers=off}
+
 ```r
 long <- 1:10
 c <- 3
@@ -146,7 +146,7 @@ Remember there are no scalars in R, so `c` is actually a vector of length 1; in 
 
 When the length of the longer object is a multiple of the shorter object length, the recycling occurs silently. When the longer object length is not a multiple of the shorter object length, a warning is given:
 
-{line-numbers=off}
+
 ```r
 even_length <- 1:10
 odd_length <- 1:3
@@ -161,7 +161,7 @@ even_length + odd_length
 ## Getting help {#basics_help}
 Learning any new language requires lots of help.  Luckily, the help documentation and support in R is comprehensive and easily accessible from the command line. To leverage general help resources you can use the following:  
 
-{line-numbers=off}
+
 ```r
 # provides general help links
 help.start()   
@@ -176,7 +176,7 @@ Note that the `help.search("some text here")` function requires a character stri
 
 For more direct help on functions that are installed on your computer:
 
-{line-numbers=off}
+
 ```r
 # provides details for specific function
 help(functionname)      
@@ -206,7 +206,7 @@ The workspace is your current R working environment and includes any user-define
 ### Working Directory
 The *working directory* is the default location for all file inputs and outputs.  
 
-{line-numbers=off}
+
 ```r
 # returns path for the current working directory
 getwd()                  
@@ -220,7 +220,7 @@ For example, if I call `getwd()` the file path "/Users/bradboehmke/Desktop/Perso
 ### Environment Objects
 To identify or remove the objects (i.e. vectors, data frames, user defined functions, etc.) in your current R environment:
 
-{line-numbers=off}
+
 ```r
 # list all objects
 ls()              
@@ -243,7 +243,7 @@ rm(list = ls())
 ### Command History
 You can view previous commands one at a time by simply pressing the up arrow on your keyboard or view a defined number of previous commands with:
 
-{line-numbers=off}
+
 ```r
 # default shows 25 most recent commands
 history()        
@@ -259,7 +259,7 @@ history(Inf)
 ### Saving & Loading 
 You can save and load your workspaces.  Saving your workspace will save all R files and objects within your workspace to a .RData file.
 
-{line-numbers=off}
+
 ```r
 # save all items in workspace to a .RData file
 save.image()                                  
@@ -277,7 +277,7 @@ Note that saving the workspace without specifying the working directory will def
 ### Workspace Options
 You can view and set options for the current R session:
 
-{line-numbers=off}
+
 ```r
 # learn about available options
 help(options)
@@ -300,7 +300,7 @@ In R, the fundamental unit of shareable code is the package.  A package bundles 
 ### Installing Packages
 To install packages: 
 
-{line-numbers=off}
+
 ```r
 # install packages from CRAN
 install.packages("packagename")   
@@ -308,7 +308,7 @@ install.packages("packagename")
 
 As previously stated, packages are also available through Bioconductor and GitHub.  To download Bioconductor packages:
 
-{line-numbers=off}
+
 ```r
 # link to Bioconductor URL
 source("http://bioconductor.org/biocLite.R")  
@@ -322,7 +322,7 @@ biocLite("packagename")
 
 And to download GitHub packages:
 
-{line-numbers=off}
+
 ```r
 # the devtools package provides a simply function to download GitHub packages
 install.packages("devtools")                      
@@ -334,7 +334,7 @@ devtools::install_github("username/packagename")
 ### Loading Packages
 Once the package is downloaded to your computer you can access the functions and resources provided by the package in two different ways:
 
-{line-numbers=off}
+
 ```r
 # load the package to use in the current R session
 library(packagename)         
@@ -348,7 +348,7 @@ For instance, if you want to have full access to the tidyr package you would use
 ### Getting Help on Packages
 For help on packages that are installed on your computer:
 
-{line-numbers=off}
+
 ```r
 # provides details regarding contents of a package
 help(package = "packagename")
@@ -385,7 +385,7 @@ As a medium of communication, its important to realize that the readability of c
 ### Notation and naming
 File names should be meaningful and end with a `.R` extension.
 
-{line-numbers=off}
+
 ```r
 # Good
 weather-analysis.R
@@ -398,7 +398,7 @@ detail.r
 
 If files need to be run in sequence, prefix them with numbers:
 
-{line-numbers=off}
+
 ```r
 0-download.R
 1-preprocessing.R
@@ -408,7 +408,7 @@ If files need to be run in sequence, prefix them with numbers:
 
 In R, naming conventions for variables and function are famously muddled. They include the following:
 
-{line-numbers=off}
+
 ```r
 namingconvention        # all lower case; no separator
 naming.convention       # period separator
@@ -427,7 +427,7 @@ Organization of your code is also important.  There's nothing like trying to dec
 
 I break up principal sections of my code that have a common purpose with:
 
-{line-numbers=off}
+
 ```r
 #################
 # Download Data #
@@ -447,7 +447,7 @@ lines of code here
 
 Then comments for specific lines of code can be done as follows:
 
-{line-numbers=off}
+
 ```r
 code_1  # short comments can be placed to the right of code 
 code_2  # blah
@@ -466,7 +466,7 @@ code_5
 
 The maximum number of characters on a single line of code should be 80 or less. If you are using RStudio you can have a margin displayed so you know when you need to break to a new line.[^character_length]  This allows your code to be printed on a normal 8.5 x 11 page with a reasonably sized font.  Also, when indenting your code use two spaces rather than using tabs.  The only exception is if a line break occurs inside parentheses. In this case align the wrapped line with the first character inside the parenthesis:
 
-{line-numbers=off}
+
 ```r
 super_long_name <- seq(ymd_hm("2015-1-1 0:00"), 
                        ymd_hm("2015-1-1 12:00"), 
@@ -475,7 +475,7 @@ super_long_name <- seq(ymd_hm("2015-1-1 0:00"),
 
 Proper spacing within your code also helps with readability.  The following pulls straight from [Hadley Wickham's suggestions](http://adv-r.had.co.nz/Style.html). Place spaces around all infix operators (`=`, `+`, `-`, `<-`, etc.). The same rule applies when using `=` in function calls. Always put a space after a comma, and never before.
 
-{line-numbers=off}
+
 ```r
 # Good
 average <- mean(feet / 12 + inches, na.rm = TRUE)
@@ -486,7 +486,7 @@ average<-mean(feet/12+inches,na.rm=TRUE)
 
 There's a small exception to this rule: `:`, `::` and `:::` don't need spaces around them.
 
-{line-numbers=off}
+
 ```r
 # Good
 x <- 1:10
