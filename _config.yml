@@ -10,7 +10,7 @@ permalink:           pretty
 
 # Setup
 title:               R Programming @ UC
-tagline:             'A statistics blog by <a href="https://twitter.com/rafalab">Rafa Irizarry<a>, <a href="https://twitter.com/rdpeng">Roger Peng<a>, and <a href="https://twitter.com/jtleek">Jeff Leek<a>'
+tagline:             ''
 description:         '<img src="https://raw.githubusercontent.com/simplystats/simplystats.github.io/master/public/sslogo.png" height=60 </img>  Follow us on twitter <a href="https://twitter.com/simplystats">@simplystats</a>'
 url:                 http://uc-r.github.io
 baseurl:             ''
