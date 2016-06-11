@@ -15,7 +15,7 @@ A computer language is described by its *syntax* and *semantics*; where syntax i
 ## tl;dr
 Throughout these tutorials you'll learn much of the fundamental syntax and semantics of the R programming language; and hopefully with minimal face kicking involved. However, this tutorial serves to introduce you to many of the basics of R to get you comfortable.  This includes: 
 
-- [Assign & Evaluation](#basics_assignment): understand how to assign and evaluate expressions
+- [Assignment & Evaluation](#basics_assignment): understand how to assign and evaluate expressions
 - [Vectorization](#basics_vectorization): a wonderful simplification of functionality
 - [Getting help](#basics_help): leverage R's comprehensive and easily accessible help resources
 - [Workspace](#basics_workspace): the basics for understanding, configuring and customizing your current R environment
