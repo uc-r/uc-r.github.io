@@ -35,6 +35,7 @@ The R community is fantastically diverse and engaged. On a daily basis, the R co
 
 So now that you know how awesome R is, it's time to learn how to use it.
 
+<a href="#">Go to top</a>
 
 
 <hr>
