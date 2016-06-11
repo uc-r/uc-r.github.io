@@ -15,12 +15,12 @@ A computer language is described by its *syntax* and *semantics*; where syntax i
 ## tl;dr
 Throughout these tutorials you'll learn much of the fundamental syntax and semantics of the R programming language; and hopefully with minimal face kicking involved. However, this tutorial serves to introduce you to many of the basics of R to get you comfortable.  This includes: 
 
-- understanding how to [assign and evaluate expressions](#basics_assignment)
-- the idea of [vectorization](#basics_vectorization)
-- how to [get help](#basics_help)
-- managing your [workspace](#basics_workspace)
-- how to work with [packages](#packages)
-- and some basic [styling guidelines](#style_guide) to help you write code that is easier to digest by others.  
+- [Assign & Evaluation](#basics_assignment): understand how to assign and evaluate expressions
+- [Vectorization](#basics_vectorization): a wonderful simplification of functionality
+- [Getting help](#basics_help): leverage R's comprehensive and easily accessible help resources
+- [Workspace](#basics_workspace): the basics for understanding, configuring and customizing your current R environment
+- [Working with packages](#packages): the fundamental unit of sharing code
+- [Styling guide](#style_guide): use these generally accepted guidelines to start writing code that is easy to read, extend, and debug  
 
 <br>
 
