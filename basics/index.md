@@ -22,6 +22,7 @@ Throughout these tutorials you'll learn much of the fundamental syntax and seman
 - how to work with [packages](#packages)
 - and some basic [styling guidelines](#style_guide) to help you write code that is easier to digest by others.  
 
+<br>
 
 ## Assignment & Evaluation {#basics_assignment}
 The first operator you'll run into is the assignment operator. The assignment operator is used to *assign* a value. For instance we can assign the value 3 to the variable `x` using the `<-` assignment operator.  We can then evaluate the variable by simply typing `x` at the command line which will return the value of `x`.  Note that prior to the value returned you'll see `## [1]` in the command line.  This simply implies that the output returned is the first output. Note that you can type any comments in your code by preceding the comment with the hashtag (`#`) symbol.  Any values, symbols, and texts following `#` will not be evaluated.
