@@ -15,12 +15,12 @@ A computer language is described by its *syntax* and *semantics*; where syntax i
 ## tl;dr
 Throughout these tutorials you'll learn much of the fundamental syntax and semantics of the R programming language; and hopefully with minimal face kicking involved. However, this tutorial serves to introduce you to many of the basics of R to get you comfortable.  This includes: 
 
-1. understanding how to [assign and evaluate expressions](#basics_assignment)
-2. the idea of [vectorization](#basics_vectorization)
-3. how to [get help](#basics_help)
-4. managing your [workspace](#basics_workspace)
-5. how to work with [packages](#packages)
-6. and some basic [styling guidelines](#style_guide) to help you write code that is easier to digest by others.  
+- understanding how to [assign and evaluate expressions](#basics_assignment)
+- the idea of [vectorization](#basics_vectorization)
+- how to [get help](#basics_help)
+- managing your [workspace](#basics_workspace)
+- how to work with [packages](#packages)
+- and some basic [styling guidelines](#style_guide) to help you write code that is easier to digest by others.  
 
 
 ## Assignment & Evaluation {#basics_assignment}
@@ -71,6 +71,10 @@ x * Y * z
 ```
 
 Let's move on.
+
+<a href="#">Go to top</a>
+
+<br>
 
 ## Vectorization {#basics_vectorization}
 A key difference between R and many other languages is a topic known as vectorization. What does this mean? It means that many functions that are to be applied individually to each element in a vector of numbers require a *loop* assessment to evaluate; however, in R many of these functions have been coded in C to perform much faster than a `for` loop would perform.  For example, let's say you want to add the elements of two seperate vectors of numbers (`x` and `y`). 
@@ -157,6 +161,9 @@ even_length + odd_length
 ##  [1]  2  4  6  5  7  9  8 10 12 11
 ```
 
+<a href="#">Go to top</a>
+
+<br>
 
 ## Getting help {#basics_help}
 Learning any new language requires lots of help.  Luckily, the help documentation and support in R is comprehensive and easily accessible from the command line. To leverage general help resources you can use the following:  
@@ -199,6 +206,9 @@ Typically, a problem you may be encountering is not new and others have faced, s
 * [R-seek](http://rseek.org): a Google custom search that is focused on R-specific websites
 * [R-bloggers](http://www.r-bloggers.com/): a central hub of content collected from over 500 bloggers who provide news and tutorials about R.
 
+<a href="#">Go to top</a>
+
+<br>
 
 ## Workspace {#basics_workspace}
 The workspace is your current R working environment and includes any user-defined objects (vectors, matrices, data frames, lists, functions).  The following code provides the basics for understanding, configuring and customizing your current R environment.
@@ -293,6 +303,9 @@ options(digits=3)
 ### Shortcuts
 To access a menu displaying all the shortcuts in RStudio you can use option + shift + k.  Within RStudio you can also access them in the Help menu &#187; Keyboard Shortcuts.
 
+<a href="#">Go to top</a>
+
+<br>
 
 ## Working with packages {#packages}
 In R, the fundamental unit of shareable code is the package.  A package bundles together code, data, documentation, and tests and provides an easy method to share with others[^hadley_R_Packages].  As of September 2015 there were over 7000 packages available on [CRAN](https://cran.r-project.org), 1000 on [Bioconductor](https://www.bioconductor.org), and countless more available through [GitHub](https://github.com).  This huge variety of packages is one of the reasons that R is so successful: chances are that someone has already solved a problem that you're working on, and you can benefit from their work by downloading their package.
@@ -375,6 +388,9 @@ Note that some packages will have multiple vignettes.  For instance `vignette(pa
 ### Useful packages
 There are thousands of helpful R packages for you to use, but navigating them all can be a challenge.  To help you out, RStudio compiled a [guide](https://support.rstudio.com/hc/en-us/articles/201057987-Quick-list-of-useful-R-packages) to some of the best packages for loading, manipulating, visualizing, analyzing, and reporting data.  In addition, their list captures packages that specialize in spatial data, time series and financial data, increasing spead and performance, and developing your own R packages. 
 
+<a href="#">Go to top</a>
+
+<br>
 
 ## Style guide {#style_guide}
 > *"Good coding style is like using correct punctuation. You can manage without it, but it sure makes things easier to read."* - Hadley Wickham 
@@ -498,6 +514,10 @@ base :: get
 ```
 
 It is important to think about style when communicating any form of language. Writing code is no exception and is especially important if your code will be read by others. Following these basic style guides will get you on the right track for writing code that can be easily communicated to others. 
+
+<a href="#">Go to top</a>
+
+<br>
 
 <hr>
 
