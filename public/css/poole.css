@@ -169,8 +169,7 @@ pre {
   white-space: pre;
   white-space: pre-wrap;
   background-color: #f9f9f9;
-  overflow: auto;
-  word-wrap: normal;
+  overflow-x: auto;
 }
 pre code {
   padding: 0;
