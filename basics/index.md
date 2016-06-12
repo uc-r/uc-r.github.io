@@ -520,9 +520,6 @@ It is important to think about style when communicating any form of language. Wr
 
 <br>
 
-<hr>
-
-<br>
 
 [^hadley_R_Packages]: [Wickham, H. (2015). *R packages.* "O'Reilly Media, Inc.".](http://r-pkgs.had.co.nz/)
 
