@@ -53,8 +53,8 @@ h1, h2, h3, h4, h5, h6 {
 
 .footnotes {
     border-top: darkgray 1px solid;
-    padding-top: .25em;
-    font-size: 10px;
+    padding-top: 1em;
+    font-size: 12px;
 }
 
 /*
