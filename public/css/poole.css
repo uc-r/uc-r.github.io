@@ -168,10 +168,9 @@ pre {
   line-height: 1.4;
   white-space: pre;
   white-space: pre-wrap;
-  word-break: break-all;
-  word-wrap: break-word;
   background-color: #f9f9f9;
-  overflow-x: auto;
+  overflow: auto;
+  word-wrap: normal;
 }
 pre code {
   padding: 0;
@@ -187,6 +186,7 @@ pre code {
 }
 .highlight pre {
   margin-bottom: 0;
+  overflow-x: auto;
 }
 
 /* Gist via GitHub Pages */
