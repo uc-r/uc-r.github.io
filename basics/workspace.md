@@ -104,10 +104,8 @@ options(digits=3)
 ## Shortcuts
 To access a menu displaying all the shortcuts in RStudio you can use option + shift + k.  Within RStudio you can also access them in the Help menu &#187; Keyboard Shortcuts.
 
-<a href="#">Go to top</a>
 
 <br>
-
 
 
 [^character_length]: Go to *RStudio* on the menu bar then *Preferences* > *Code* > *Display* and you can select the "show margin" option and set the margin to 80.
