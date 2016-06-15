@@ -4,7 +4,7 @@ title: NULL
 permalink: /basics/getting_help/
 ---
 
-[Basics](http://uc-r.github.io/basics/) &#187; Getting help
+[Basics](http://uc-r.github.io/section2_basics) &#187; Getting help
 
 <br>
 
