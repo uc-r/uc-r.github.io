@@ -7,13 +7,15 @@ layout: page
 permalink: /section2_basics
 ---
 
-> *"Programming is like kicking yourself in the face, sooner or later your nose will bleed."* - Kyle Woodbury
+* [Installing R & RStudio]()
+* [Getting help](getting_help)
+* [Workspace](workspace)
+* [Working with packages](packages)
+* [Useful packages](https://support.rstudio.com/hc/en-us/articles/201057987-Quick-list-of-useful-R-packages)
+* [Assignment & Evaluation](#basics_assignment): understand how to assign and evaluate expressions
+* [Vectorization](#basics_vectorization): a wonderful simplification of functionality
+* [Styling guide](#style_guide): use these generally accepted guidelines to start writing code that is easy to read, extend, and debug
 
-
-A computer language is described by its *syntax* and *semantics*; where syntax is about the the grammar of the language and semantics the meaning behind the sentence. And jumping into a new programming language correlates to visiting a foreign country with only that 9th grade Spanish 101 class under your belt; there is no better way to learn than to immerse yourself in the environment! Although it'll be painful early on and your nose will surely bleed, eventually you'll learn the dialect and the quircks that come along with it. 
-
-## tl;dr
-Throughout these tutorials you'll learn much of the fundamental syntax and semantics of the R programming language; and hopefully with minimal face kicking involved. However, this tutorial serves to introduce you to many of the basics of R to get you comfortable.  This includes: 
 
 - [Assignment & Evaluation](#basics_assignment): understand how to assign and evaluate expressions
 - [Vectorization](#basics_vectorization): a wonderful simplification of functionality
