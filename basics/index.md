@@ -7,12 +7,12 @@ layout: page
 permalink: /section2_basics
 ---
 
-* [Installing R & RStudio]()
+* [Installing R & RStudio](installation)
 * [Getting help](getting_help)
 * [Workspace](workspace)
 * [Working with packages](packages)
 * [Useful packages](https://support.rstudio.com/hc/en-us/articles/201057987-Quick-list-of-useful-R-packages)
-* [Assignment & Evaluation](#basics_assignment): understand how to assign and evaluate expressions
+* [Assignment & Evaluation](assignment): understand how to assign and evaluate expressions
 * [Vectorization](#basics_vectorization): a wonderful simplification of functionality
 * [Styling guide](#style_guide): use these generally accepted guidelines to start writing code that is easy to read, extend, and debug
 
