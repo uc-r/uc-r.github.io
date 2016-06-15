@@ -1,7 +1,7 @@
 ---
 layout: tutorial
 title: Generating Sequence of Non-random Numbers
-permalink: /integer_double/
+permalink: /sequence_nonrandom/
 ---
 
 There are a few R operators and functions that are especially useful for creating vectors of non-random numbers.  These functions provide multiple ways for generating sequences of numbers.
