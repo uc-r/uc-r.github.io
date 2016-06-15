@@ -4,9 +4,18 @@ title: NULL
 permalink: /style/
 ---
 
-[Basics](http://uc-r.github.io/section2_basics) &#187; Style guide
+<head>
+<script>
+function goBack() {
+    window.history.back()
+}
+</script>
+</head>
 
-<br>
+<button onclick="goBack()">Go Back</button>
+
+# Style guide
+
 
 > *"Good coding style is like using correct punctuation. You can manage without it, but it sure makes things easier to read."* - Hadley Wickham 
 
