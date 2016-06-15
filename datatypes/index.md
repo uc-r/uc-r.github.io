@@ -4,13 +4,13 @@ title: Data Types
 permalink: /section3_datatypes/
 ---
 
-- Dealing with Numbers
-  - Integer vs. Double
-  - Generating sequence of non-random numbers
-  - Generating sequence of random numbers
-  - Setting the seed for reproducible random numbers
-  - Comparing numeric values
-  - Rounding numbers
+- [Dealing with Numbers](http://uc-r.github.io/section3_numbers)
+  - [Integer vs. Double](http://uc-r.github.io/integer_double/)
+  - [Generating sequence of non-random numbers](http://uc-r.github.io/generating_sequence_numbers/)
+  - [Generating sequence of random numbers](http://uc-r.github.io/generating_random_numbers/)
+  - [Setting the seed for reproducible random numbers](http://uc-r.github.io/setting_seed/)
+  - [Comparing numeric values](http://uc-r.github.io/comparing_numeric_values/)
+  - [Rounding numbers](http://uc-r.github.io/rounding/)
 
 - Dealing with Characters
   - Character string basics
