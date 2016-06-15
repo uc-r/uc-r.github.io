@@ -17,7 +17,8 @@ permalink: /section2_basics
 
 <br>
 
-## Key Takeways
+## Key functions you'll find in this section
+
 <table class="w3-table-all" style="width:100%">
 <tr>
 	<th>Operator/Function</th>
