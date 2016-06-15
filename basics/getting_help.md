@@ -8,6 +8,8 @@ permalink: /getting_help/
 
 The help documentation and support in R is comprehensive and easily accessible from the command line.  
 
+<br>
+
 ## General Help
 To leverage general help resources you can use:  
 
