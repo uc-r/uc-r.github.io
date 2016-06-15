@@ -25,6 +25,10 @@ permalink: /section2_basics
 	<th>Description</th>
 </tr>
 <tr>
+	<td><a href="http://uc-r.github.io/getting_help/#general_help"><code>help.start()</code></a></td>
+	<td>provides general help links</td>
+</tr>
+<tr>
 	<td><code>help()</code></td>
 	<td>get help</td>
 </tr>
