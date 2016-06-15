@@ -7,11 +7,11 @@ permalink: /generating_random_numbers/
 Simulation is a common practice in data analysis. Sometimes your analysis requires the implementation of a statistical procedure that requires random number generation or sampling (i.e. Monte Carlo simulation, bootstrap sampling, etc).  R comes with a set of pseudo-random number generators that allow you to simulate the most common probability distributions such as:
 
 - [Uniform](#uniform)
-- Normal
-- Binomial
-- Poisson
-- Exponential
-- Gamma
+- [Normal](#normal)
+- [Binomial](#binomial)
+- [Poisson](#poisson)
+- [Exponential](#exponential)
+- [Gamma](#gamma)
 
 <br>
 
@@ -53,7 +53,7 @@ For each non-uniform probability distribution there are four primary functions a
 
 <br>
 
-## Normal Distribution Numbers 
+## Normal Distribution Numbers {#normal}
 The normal (or Gaussian) distribution is the most common and well know distribution.  Within R, the normal distribution functions are written as <prefix>`norm()`.
 
 
@@ -102,7 +102,7 @@ pnorm(x, mean = 100, sd = 15)
 
 <br>
 
-## Binomial Distribution Numbers 
+## Binomial Distribution Numbers {#binomial}
 This is conventionally interpreted as the number of successes in `size = x` trials and with `prob = p` probability of success:
 
 
@@ -123,7 +123,7 @@ dbinom(x, size = 100, prob = 0.5)
 
 <br>
 
-## Poisson Distribution Numbers 
+## Poisson Distribution Numbers {#poisson}
 The Poisson distribution is a discrete probability distribution that expresses the probability of a given number of events occuring in a fixed interval of time and/or space if these events occur with a known average rate and independently of the time since the last event.
 
 
@@ -147,7 +147,7 @@ dpois(x, lambda = 4)
 
 <br>
 
-## Exponential Distribution Numbers 
+## Exponential Distribution Numbers {#exponential}
 The Exponential probability distribution describes the time between events in a Poisson process.
 
 
@@ -167,7 +167,7 @@ dexp(x, rate = 1)
 
 <br>
 
-## Gamma Distribution Numbers 
+## Gamma Distribution Numbers {#gamma}
 The Gamma probability distribution is related to the Beta distribution and arises naturally in processes for which the waiting times between Poisson distributed events are relevant.
 
 
