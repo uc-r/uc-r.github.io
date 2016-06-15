@@ -1,9 +1,7 @@
 ---
-layout: page
-title: NULL
+layout: tutorial
+title: Installing R & RStudio
 permalink: /installation/
 ---
 
-[Basics](http://uc-r.github.io/section2_basics) &#187; Installing R & RStudio
 
-<br>
