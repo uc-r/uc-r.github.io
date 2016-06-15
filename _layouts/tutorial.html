@@ -1,0 +1,21 @@
+---
+layout: default
+---
+
+<head>
+<script>
+function goBack() {
+    window.history.back()
+}
+</script>
+</head>
+
+
+<div class="page">
+  <button onclick="goBack()">Go Back</button>
+  <h1 class="page-title">{{ page.title }}</h1>
+  
+  {{ content }}
+  
+
+</div>
