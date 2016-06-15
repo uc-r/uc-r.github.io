@@ -12,8 +12,8 @@ permalink: /section2_basics
 * [Workspace](workspace)
 * [Working with packages](packages)
 * [Assignment & Evaluation](assignment)
-* [Vectorization](#basics_vectorization): a wonderful simplification of functionality
-* [Styling guide](style): use these generally accepted guidelines to start writing code that is easy to read, extend, and debug
+* [Vectorization](vectorization)
+* [Styling guide](style)
 
 
 
