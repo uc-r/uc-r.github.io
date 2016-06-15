@@ -11,7 +11,7 @@ The two most common numeric classes used in R are integer and double (for double
 ## Creating Integer and Double Vectors
 By default, when you create a numeric vector using the `c()` function it will produce a vector of double precision numeric values.  To create a vector of integers using `c()` you must specify explicity by placing an `L` directly after each number.
 
-{linenos=off}
+
 ```r
 # create a string of double-precision values
 dbl_var <- c(1, 2.5, 4.5)  
@@ -29,7 +29,7 @@ int_var
 ## Converting Between Integer and Double Values
 By default, if you read in data that has no decimal points or you [create numeric values](#generating_sequence_numbers) using the `x <- 1:10` method the numeric values will be coded as integer.  If you want to change a double to an integer or vice versa you can specify one of the following: 
 
-{linenos=off}
+
 ```r
 # converts integers to double-precision values
 as.double(int_var)     
