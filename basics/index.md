@@ -26,18 +26,15 @@ permalink: /section2_basics
 	<td>1</td>
 	<td>Eve</td>
 	<td>Jackson</td>		
-	<td>94</td>
 </tr>
 <tr>
 	<td>2</td>
 	<td>John</td>
 	<td>Doe</td>		
-	<td>80</td>
 </tr>
 <tr>
 	<td>3</td>
 	<td>Adam</td>
 	<td>Johnson</td>		
-	<td>67</td>
 </tr>
 </table>
