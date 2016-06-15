@@ -10,7 +10,7 @@ The help documentation and support in R is comprehensive and easily accessible f
 
 <br>
 
-## General Help
+## General Help {#general_help}
 To leverage general help resources you can use:  
 
 
