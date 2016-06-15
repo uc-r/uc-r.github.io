@@ -8,7 +8,7 @@ permalink: /getting_help/
 
 The help documentation and support in R is comprehensive and easily accessible from the command line.  
 
-# General Help
+## General Help
 To leverage general help resources you can use:  
 
 
@@ -21,7 +21,7 @@ Note that the `help.search("some text here")` function requires a character stri
 
 <br>
 
-# Getting Help on Packages
+## Getting Help on Packages
 
 For more direct help on packages that are installed on your computer:
 
@@ -37,7 +37,7 @@ Note that some packages will have multiple vignettes.  For instance `vignette(pa
 
 <br>
 
-# Getting Help on Functions
+## Getting Help on Functions
 
 For more direct help on functions that are installed on your computer:
 
@@ -52,7 +52,7 @@ Note that the `help()` and `?` function calls only work for functions within loa
 
 <br>
 
-# Getting Help from the Web
+## Getting Help from the Web
 Typically, a problem you may be encountering is not new and others have faced, solved, and documented the same issue online.  The following resources can be used to search for online help.  Although, I typically just google the problem and find answers relatively quickly.
 
 * `RSiteSearch("key phrase")`:  searches for the key phrase in help manuals and archived mailing lists on the [R Project website]("http://search.r-project.org/").
