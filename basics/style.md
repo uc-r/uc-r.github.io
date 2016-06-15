@@ -131,10 +131,6 @@ base :: get
 
 It is important to think about style when communicating any form of language. Writing code is no exception and is especially important if your code will be read by others. Following these basic style guides will get you on the right track for writing code that can be easily communicated to others. 
 
-<a href="#">Go to top</a>
-
-<br>
-
 
 [^hadley_R_Packages]: [Wickham, H. (2015). *R packages.* "O'Reilly Media, Inc.".](http://r-pkgs.had.co.nz/)
 
