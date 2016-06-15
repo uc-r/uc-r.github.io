@@ -1,9 +1,7 @@
 ---
-layout: page
-title: NULL
+layout: tutorial
+title: Workspace
 permalink: /workspace/
 ---
 
-[Basics](http://uc-r.github.io/section2_basics) &#187; Workspace
 
-<br>
