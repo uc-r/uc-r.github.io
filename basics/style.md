@@ -9,8 +9,9 @@ permalink: /style/
 
 As a medium of communication, its important to realize that the readability of code does in fact make a difference. Well styled code has many benefits to include making it easy to *i*) read, *ii*) extend, and *iii*) debug. Unfortunately, R does not come with official guidelines for code styling but such is an inconvenient truth of most open source software. However, this should not lead you to believe there is no style to be followed and over time implicit guidelines for proper code styling have been documented. What follows are guidelines that have been widely accepted as good practice in the R community and are based on [Google's](https://google.github.io/styleguide/Rguide.xml) and [Hadley Wickham's](http://adv-r.had.co.nz/Style.html) R style guides. 
 
+<br>
 
-### Notation and naming
+## Notation and naming
 File names should be meaningful and end with a `.R` extension.
 
 
@@ -49,8 +50,9 @@ Historically, there has been no clearly preferred approach with multiple naming 
 
 My personal preference is to use all lowercase with an underscore (_) to separate words within a name. This follows Hadley Wickham's suggestions in his style guide. Furthermore, variable names should be nouns and function names should be verbs to help distinguish their purpose. Also, refrain from using existing names of functions (i.e. mean, sum, true).
 
+<br>
 
-### Organization
+## Organization
 Organization of your code is also important.  There's nothing like trying to decipher 2,000 lines of code that has no organization. The easiest way to achieve organization is to comment your code.  The general commenting scheme I use is the following.
 
 I break up principal sections of my code that have a common purpose with:
@@ -90,7 +92,9 @@ code_4
 code_5
 ```
 
-### Syntax
+<br>
+
+## Syntax
 
 The maximum number of characters on a single line of code should be 80 or less. If you are using RStudio you can have a margin displayed so you know when you need to break to a new line.[^character_length]  This allows your code to be printed on a normal 8.5 x 11 page with a reasonably sized font.  Also, when indenting your code use two spaces rather than using tabs.  The only exception is if a line break occurs inside parentheses. In this case align the wrapped line with the first character inside the parenthesis:
 
