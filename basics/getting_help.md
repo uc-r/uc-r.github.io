@@ -63,4 +63,4 @@ Typically, a problem you may be encountering is not new and others have faced, s
 * [R-seek](http://rseek.org): a Google custom search that is focused on R-specific websites
 * [R-bloggers](http://www.r-bloggers.com/): a central hub of content collected from over 500 bloggers who provide news and tutorials about R.
 
-<small><a href="#">Go to top</a></small>
+
