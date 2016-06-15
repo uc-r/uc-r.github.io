@@ -24,19 +24,19 @@ permalink: /section2_basics
 	<th>Description</th>
 </tr>
 <tr>
-	<td>`help()`</td>
+	<td><code>help()</code></td>
 	<td>get help</td>
 </tr>
 <tr>
-	<td>`?`</td>
+	<td><code>?</code></td>
 	<td>get help</td>
 </tr>
 <tr>
-	<td>`getwd()`</td>
+	<td><code>getwd()</code></td>
 	<td>get working directory</td>
 </tr>
 <tr>
-	<td>`setwd()`</td>
+	<td><code>setwd()</code></td>
 	<td>set working directory</td>
 </tr>
 </table>
