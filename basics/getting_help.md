@@ -1,12 +1,10 @@
 ---
-layout: page
-title: NULL
+layout: tutorial
+title: Getting Help
 permalink: /getting_help/
 ---
 
-[Basics](http://uc-r.github.io/section2_basics) &#187; Getting help
 
-<br>
 
 The help documentation and support in R is comprehensive and easily accessible from the command line.  
 
