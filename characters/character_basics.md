@@ -5,7 +5,7 @@ permalink: /character_basics/
 ---
 
 
-Dealing with character strings is often under-emphasized in data analysis training.  The focus typically remains on numeric values; however, the growth in data collection is also resulting in greater bits of information embedded in character strings.  Consequently, handling, cleaning and processing character strings is becoming a prerequisite in daily data analysis.  In this section you'll learn the basics of [creating](#create), [converting](#convert) and [printing](#print) character strings followed by how to [count the number of elements and [characters](#count) in a string.
+Dealing with character strings is often under-emphasized in data analysis training.  The focus typically remains on numeric values; however, the growth in data collection is also resulting in greater bits of information embedded in character strings.  Consequently, handling, cleaning and processing character strings is becoming a prerequisite in daily data analysis.  In this section you'll learn the basics of [creating](#create), [converting](#convert) and [printing](#print) character strings followed by how to [count the number of elements and characters](#count) in a string.
 
 <br>
 
