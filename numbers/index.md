@@ -14,3 +14,25 @@ permalink: /section3_numbers/
 * [Comparing numeric values](http://uc-r.github.io/comparing_numeric_values)
 * [Rounding numbers](http://uc-r.github.io/rounding/)
 
+<br>
+
+## Key functions you'll find in this section
+
+<table class="w3-table-all" style="width:100%">
+<tr>
+	<th>Operator/Function</th>
+	<th>Description</th>
+</tr>
+<tr>
+	<td><a href="http://uc-r.github.io/integer_double/"><code>typeof()</code></a></td>
+	<td>identify if numbers are integer or double</td>
+</tr>
+<tr>
+	<td><a href="http://uc-r.github.io/integer_double/"><code>L</code></a></td>
+	<td>explicitly states number should be an integer</td>
+</tr>
+<tr>
+	<td><a href="http://uc-r.github.io/integer_double/"><code>as.numeric()</code></a></td>
+	<td>change value(s) to numeric (specifically double precision floating point numbers)</td>
+</tr>
+</table>
