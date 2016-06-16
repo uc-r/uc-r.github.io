@@ -14,7 +14,7 @@ install.packages("stringr")
 # load package
 library(stringr)
 ```
-For more information on getting help with packages visit the [working with packages section](http://uc-r.github.io/packages/).
+&#9755; *For more information on getting help with packages visit the [working with packages section](http://uc-r.github.io/packages/).*
 
 <br>
 
