@@ -61,19 +61,19 @@ permalink: /section3_numbers/
 </tr>
 <tr>
 	<td><a href="http://uc-r.github.io/generating_random_numbers/#normal"><code>rnorm()</code></a></td>
-	<td>generate random numbers from a normal distribution - prefix options: `d`, `p`, or `q` for density function, cumulative function, or quantiles respectively</td>
+	<td>generate random numbers from a normal distribution - prefix options: <code>d</code>, <code>p</code>, or <code>q</code> for density function, cumulative function, or quantiles respectively</td>
 </tr>
 <tr>
 	<td><a href="http://uc-r.github.io/generating_random_numbers/#poisson"><code>rpois()</code></a></td>
-	<td>generate random numbers from a poisson distribution - prefix options: `d`, `p`, or `q`</td>
+	<td>generate random numbers from a poisson distribution - prefix options: <code>d</code>, <code>p</code>, or <code>q</code></td>
 </tr>
 <tr>
 	<td><a href="http://uc-r.github.io/generating_random_numbers/#exponential"><code>rexp()</code></a></td>
-	<td>generate random numbers from an exponential distribution - prefix options: `d`, `p`, or `q`</td>
+	<td>generate random numbers from an exponential distribution - prefix options: <code>d</code>, <code>p</code>, or <code>q</code></td>
 </tr>
 <tr>
 	<td><a href="http://uc-r.github.io/generating_random_numbers/#gamma"><code>rgamma()</code></a></td>
-	<td>generate random numbers from a gamma distribution - prefix options: `d`, `p`, or `q`</td>
+	<td>generate random numbers from a gamma distribution - prefix options: <code>d</code>, <code>p</code>, or <code>q</code></td>
 </tr>
 <tr>
 	<td><a href="http://uc-r.github.io/setting_seed/"><code>set.seed()</code></a></td>
