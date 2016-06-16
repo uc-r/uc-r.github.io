@@ -24,7 +24,7 @@ permalink: /section3_numbers/
 	<th>Description</th>
 </tr>
 <tr>
-	<td><a href="http://uc-r.github.io/integer_double/"><code>typeof()</code></a></td>
+	<td><a href="http://uc-r.github.io/integer_double/#type"><code>typeof()</code></a></td>
 	<td>identify if numbers are integer or double</td>
 </tr>
 <tr>
