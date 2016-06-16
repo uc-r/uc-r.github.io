@@ -51,4 +51,32 @@ permalink: /section3_numbers/
 	<td><a href="http://uc-r.github.io/generating_sequence_numbers/#seq3"><code>rep()</code></a></td>
 	<td>create collated and non-collated repetitions of numbers</td>
 </tr>
+<tr>
+	<td><a href="http://uc-r.github.io/generating_random_numbers/#uniform"><code>sample()</code></a></td>
+	<td>take random sample with or without replacement</td>
+</tr>
+<tr>
+	<td><a href="http://uc-r.github.io/generating_random_numbers/#uniform"><code>runif()</code></a></td>
+	<td>generate random numbers from a uniform distribution</td>
+</tr>
+<tr>
+	<td><a href="http://uc-r.github.io/generating_random_numbers/#normal"><code>rnorm()</code></a></td>
+	<td>generate random numbers from a normal distribution - prefix options: `d`, `p`, or `q` for density function, cumulative function, or quantiles respectively</td>
+</tr>
+<tr>
+	<td><a href="http://uc-r.github.io/generating_random_numbers/#poisson"><code>rpois()</code></a></td>
+	<td>generate random numbers from a poisson distribution - prefix options: `d`, `p`, or `q`</td>
+</tr>
+<tr>
+	<td><a href="http://uc-r.github.io/generating_random_numbers/#exponential"><code>rexp()</code></a></td>
+	<td>generate random numbers from an exponential distribution - prefix options: `d`, `p`, or `q`</td>
+</tr>
+<tr>
+	<td><a href="http://uc-r.github.io/generating_random_numbers/#gamma"><code>rgamma()</code></a></td>
+	<td>generate random numbers from a gamma distribution - prefix options: `d`, `p`, or `q`</td>
+</tr>
+<tr>
+	<td><a href="http://uc-r.github.io/setting_seed/"><code>set.seed()</code></a></td>
+	<td>sets the seed number for reproducible random number generation</td>
+</tr>
 </table>
