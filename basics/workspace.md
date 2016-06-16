@@ -9,7 +9,7 @@ The workspace is your current R working environment and includes any user-define
 
 <br>
 
-## Working Directory
+## Working Directory {#directory}
 The *working directory* is the default location for all file inputs and outputs.  
 
 
@@ -25,7 +25,7 @@ For example, if I call `getwd()` the file path "/Users/bradboehmke/Desktop/Perso
 
 <br>
 
-## Environment Objects
+## Environment Objects {#environment}
 To identify or remove the objects (i.e. vectors, data frames, user defined functions, etc.) in your current R environment:
 
 
@@ -48,7 +48,7 @@ rm(list = ls())
 
 <br>
 
-## Command History
+## Command History {#history}
 You can view previous commands one at a time by simply pressing the up arrow on your keyboard or view a defined number of previous commands with:
 
 
@@ -84,7 +84,7 @@ Note that saving the workspace without specifying the working directory will def
 
 <br>
 
-## Workspace Options
+## Workspace Options {#options}
 You can view and set options for the current R session:
 
 
