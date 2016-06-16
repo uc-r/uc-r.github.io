@@ -4,7 +4,7 @@ title: Dealing with Numbers
 date: 2016-06-10
 author: Brad Boehmke
 layout: page
-permalink: /numbers/
+permalink: /section3_numbers/
 ---
 
 * [Integer vs. Double](integer_double)
