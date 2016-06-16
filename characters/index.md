@@ -8,7 +8,7 @@ permalink: /characters
 ---
 
 - [Character string basics](character_basics)
-- String manipulation with base R
+- [String manipulation with base R](string_manipulation_baseR)
 - String manipulation with stringr
 - Set operatons for character strings
 
