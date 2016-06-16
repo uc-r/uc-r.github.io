@@ -7,7 +7,7 @@ layout: page
 permalink: /characters
 ---
 
-- Character string basics
+- [Character string basics](character_basics)
 - String manipulation with base R
 - String manipulation with stringr
 - Set operatons for character strings
