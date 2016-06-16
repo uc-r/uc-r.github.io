@@ -51,11 +51,11 @@ The `rep()` function allows us to conveniently repeat specified constants into l
 
 
 ```r
-# replicates the values in x a specified number of times
+# replicates the values in x a specified number of times in a collated fashion
 rep(1:4, times = 2)   
 ## [1] 1 2 3 4 1 2 3 4
 
-# replicates the values in x in a collated fashion
+# replicates the values in x in an uncollated fashion
 rep(1:4, each = 2)    
 ## [1] 1 1 2 2 3 3 4 4
 ```
