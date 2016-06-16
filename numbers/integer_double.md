@@ -53,6 +53,6 @@ as.numeric(int_var)
 ## [1]  1  6 10
 
 # converts doubles to integers
-as.integer()           
-## integer(0)
+as.integer(dbl_var)         
+## [1] 1 2 4
 ```
