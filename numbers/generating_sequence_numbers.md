@@ -47,6 +47,8 @@ seq(0, 21, length.out = 15)
 ## [15] 21.0
 ```
 
+<br>
+
 ## Generating Repeated Sequences {#seq3}
 
 The `rep()` function allows us to conveniently repeat specified constants into long vectors. This function allows for collated and non-collated repetitions.
