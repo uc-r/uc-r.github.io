@@ -60,4 +60,16 @@ permalink: /section2_basics
 	<td><a href="http://uc-r.github.io/workspace/#options"><code>options()</code></a></td>
 	<td>view/set current session options</td>
 </tr>
+<tr>
+	<td><a href="http://uc-r.github.io/packages/#install"><code>install.packages()</code></a></td>
+	<td>install packages from CRAN</td>
+</tr>
+<tr>
+	<td><a href="http://uc-r.github.io/packages/#load"><code>library()</code></a></td>
+	<td>load package to use in current session</td>
+</tr>
+<tr>
+	<td><a href="http://uc-r.github.io/packages/#help"><code>vignette()</code></a></td>
+	<td>view vignettes to understand packages</td>
+</tr>
 </table>
