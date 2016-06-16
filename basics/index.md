@@ -37,27 +37,27 @@ permalink: /section2_basics
 	<td>get help</td>
 </tr>
 <tr>
-	<td><a href="http://uc-r.github.io/getting_help/#directory"><code>getwd()</code></a></td>
+	<td><a href="http://uc-r.github.io/workspace/#directory"><code>getwd()</code></a></td>
 	<td>get working directory</td>
 </tr>
 <tr>
-	<td><a href="http://uc-r.github.io/getting_help/#directory"><code>setwd()</code></a></td>
+	<td><a href="http://uc-r.github.io/workspace/#directory"><code>setwd()</code></a></td>
 	<td>set working directory</td>
 </tr>
 <tr>
-	<td><a href="http://uc-r.github.io/getting_help/#environment"><code>ls()</code></a></td>
+	<td><a href="http://uc-r.github.io/workspace/#environment"><code>ls()</code></a></td>
 	<td>list objects in working environment</td>
 </tr>
 <tr>
-	<td><a href="http://uc-r.github.io/getting_help/#environment"><code>rm()</code></a></td>
+	<td><a href="http://uc-r.github.io/workspace/#environment"><code>rm()</code></a></td>
 	<td>remove objects in working environment</td>
 </tr>
 <tr>
-	<td><a href="http://uc-r.github.io/getting_help/#history"><code>history()</code></a></td>
+	<td><a href="http://uc-r.github.io/workspace/#history"><code>history()</code></a></td>
 	<td>view command history</td>
 </tr>
 <tr>
-	<td><a href="http://uc-r.github.io/getting_help/#options"><code>options()</code></a></td>
+	<td><a href="http://uc-r.github.io/workspace/#options"><code>options()</code></a></td>
 	<td>view/set current session options</td>
 </tr>
 </table>
