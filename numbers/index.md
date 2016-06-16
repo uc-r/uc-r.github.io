@@ -3,8 +3,8 @@ id: 1836
 title: Dealing with Numbers
 date: 2016-06-10
 author: Brad Boehmke
-layout: tutorial
-permalink: /section3_numbers
+layout: page
+permalink: /numbers/
 ---
 
 * [Integer vs. Double](integer_double)
