@@ -8,7 +8,7 @@ There are a few R operators and functions that are especially useful for creatin
 
 <br>
 
-## Specifing Numbers within a Sequence
+## Specifing Numbers within a Sequence {#seq1}
 To explicitly specify numbers in a sequence you can use the colon `:` operator to specify all integers between two specified numbers or the combine `c()` function to explicity specify all numbers in the sequence.
 
 
@@ -29,7 +29,7 @@ x
 
 <br>
 
-## Generating Regular Sequences {#seq}
+## Generating Regular Sequences {#seq2}
 A generalization of `:` is the `seq()` function, which generates a sequence of numbers with a specified arithmetic progression.
 
 
@@ -44,6 +44,8 @@ seq(0, 21, length.out = 15)
 ##  [1]  0.0  1.5  3.0  4.5  6.0  7.5  9.0 10.5 12.0 13.5 15.0 16.5 18.0 19.5
 ## [15] 21.0
 ```
+
+## Generating Repeated Sequences {#seq3}
 
 The `rep()` function allows us to conveniently repeat specified constants into long vectors. This function allows for collated and non-collated repetitions.
 
