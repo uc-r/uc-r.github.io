@@ -65,7 +65,7 @@ history(Inf)
 
 <br>
 
-## Saving & Loading 
+## Saving & Loading {#save}
 You can save and load your workspaces.  Saving your workspace will save all R files and objects within your workspace to a .RData file.
 
 
