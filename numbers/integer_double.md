@@ -4,7 +4,7 @@ title: Integer vs. Double
 permalink: /integer_double/
 ---
 
-The two most common numeric classes used in R are integer and double (for double precision floating point numbers). R automatically converts between these two classes when needed for mathematical purposes. As a result, it's feasible to use R and perform analyses for years without specifying these differences. To check whether a pre-existing vector is made up of integer or double values you can use `typeof(x)` which will tell you if the vector is a double, integer, logical, or character type.
+The two most common numeric classes used in R are integer and double (for double precision floating point numbers). R automatically converts between these two classes when needed for mathematical purposes. As a result, it's feasible to use R and perform analyses for years without specifying these differences. 
 
 <br>
 
@@ -22,6 +22,19 @@ dbl_var
 int_var <- c(1L, 6L, 10L)
 int_var
 ## [1]  1  6 10
+```
+<br>
+
+## Checking for Numeric Type {#type}
+To check whether a vector is made up of integer or double values:
+
+```r
+# identifies the vector type (double, integer, logical, or character)
+typeof(dbl_var)
+## [1] "double"
+
+typeof(int_var)
+## [1] "integer"
 ```
 
 <br>
