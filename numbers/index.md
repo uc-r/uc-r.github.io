@@ -35,4 +35,20 @@ permalink: /section3_numbers/
 	<td><a href="http://uc-r.github.io/integer_double/#convert"><code>as.numeric()</code></a></td>
 	<td>change value(s) to numeric (specifically double precision floating point numbers)</td>
 </tr>
+<tr>
+	<td><a href="http://uc-r.github.io/generating_sequence_numbers/#seq1"><code>:</code></a></td>
+	<td>create sequence of numbers from m to n (increments of 1)</td>
+</tr>
+<tr>
+	<td><a href="http://uc-r.github.io/generating_sequence_numbers/#seq1"><code>c()</code></a></td>
+	<td>combine numeric values into a sequence</td>
+</tr>
+<tr>
+	<td><a href="http://uc-r.github.io/generating_sequence_numbers/#seq2"><code>seq()</code></a></td>
+	<td>create sequence of numbers with specific arithmetic progression</td>
+</tr>
+<tr>
+	<td><a href="http://uc-r.github.io/generating_sequence_numbers/#seq3"><code>rep()</code></a></td>
+	<td>create collated and non-collated repetitions of numbers</td>
+</tr>
 </table>
