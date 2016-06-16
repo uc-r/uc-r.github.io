@@ -4,11 +4,11 @@ title: String Manipulation with Base R
 permalink: /string_manipulation_baseR/
 ---
 
-Basic string manipulation typically inludes case conversion, simple character and substring replacement, adding/removing whitespace, and performing set operations to compare similarities and differences between two character vectors.  These operations can all be performed with base R functions; however, some operations (or at least their syntax) are simplified with the `stringr` package which we will discuss in the next section.  This section illustrates the base R string manipulation capabilities.
+Basic string manipulation typically inludes case conversion, simple character, abbreviating, substring replacement, adding/removing whitespace, and performing set operations to compare similarities and differences between two character vectors.  These operations can all be performed with base R functions; however, some operations (or at least their syntax) are greatly simplified with the `stringr` package.  This section illustrates base R string manipulation for [case conversion](#h1), [simple character](#h2), [abbreviating](#h3), and [substring replacement](#h4). Many of the other fundamental string manipulation tasks will be covered in the [String manipulation with stringr]() and [Set operatons for character strings]() tutorials.
 
 <br>
 
-## Case conversion
+## Case conversion {#h1}
 To convert all upper case characters to lower case use `tolower()`:
 
 ```r
@@ -27,7 +27,7 @@ toupper(x)
 ```
 <br>
 
-## Simple Character Replacement
+## Simple Character Replacement {#h2}
 To replace a character (or multiple characters) in a string you can use `chartr()`:
 
 
@@ -48,7 +48,7 @@ Note that `chartr()` replaces every identified letter for replacement so the onl
 
 <br>
 
-## String Abbreviations
+## String Abbreviations {#h3}
 To abbreviate strings you can use `abbreviate()`:
 
 
@@ -70,7 +70,7 @@ Note that if you are working with U.S. states, R already has a pre-built vector 
 
 <br>
 
-## Extract/Replace Substrings
+## Extract/Replace Substrings {#h4}
 To extract or replace substrings in a character vector there are three primary base R functions to use: `substr()`, `substring()`, and `strsplit()`.  The purpose of `substr()` is to extract and replace substrings with specified starting and stopping characters:
 
 
