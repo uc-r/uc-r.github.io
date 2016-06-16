@@ -28,11 +28,11 @@ permalink: /section3_numbers/
 	<td>identify if numbers are integer or double</td>
 </tr>
 <tr>
-	<td><a href="http://uc-r.github.io/integer_double/"><code>L</code></a></td>
+	<td><a href="http://uc-r.github.io/integer_double/#integer"><code>L</code></a></td>
 	<td>explicitly states number should be an integer</td>
 </tr>
 <tr>
-	<td><a href="http://uc-r.github.io/integer_double/"><code>as.numeric()</code></a></td>
+	<td><a href="http://uc-r.github.io/integer_double/#convert"><code>as.numeric()</code></a></td>
 	<td>change value(s) to numeric (specifically double precision floating point numbers)</td>
 </tr>
 </table>
