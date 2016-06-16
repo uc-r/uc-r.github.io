@@ -72,4 +72,12 @@ permalink: /section2_basics
 	<td><a href="http://uc-r.github.io/packages/#help"><code>vignette()</code></a></td>
 	<td>view vignettes to understand packages</td>
 </tr>
+<tr>
+	<td><a href="http://uc-r.github.io/assignment"><code><-</code></a></td>
+	<td>assign a value to an object (variable)</td>
+</tr>
+<tr>
+	<td><a href="http://uc-r.github.io/vectorization"><code>+, -, *, /, etc.</code></a></td>
+	<td>vectorized arithmetic functions</td>
+</tr>
 </table>
