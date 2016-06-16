@@ -92,7 +92,7 @@ permalink: /section3_numbers/
 	<td>test for ‘near equality’ values in two objects</td>
 </tr>
 <tr>
-	<td><a href="http://uc-r.github.io/round"><code>round()</code></a></td>
+	<td><a href="http://uc-r.github.io/rounding"><code>round()</code></a></td>
 	<td>round values to the nearest integer</td>
 </tr>
 </table>
