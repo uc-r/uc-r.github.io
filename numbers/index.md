@@ -79,4 +79,20 @@ permalink: /section3_numbers/
 	<td><a href="http://uc-r.github.io/setting_seed/"><code>set.seed()</code></a></td>
 	<td>sets the seed number for reproducible random number generation</td>
 </tr>
+<tr>
+	<td><a href="http://uc-r.github.io/comparing_numeric_values/#numeric_comparison"><code><, >, <=, >=, ==, !=</code></a></td>
+	<td>logic operators to compare values of each element</td>
+</tr>
+<tr>
+	<td><a href="http://uc-r.github.io/comparing_numeric_values/#numeric_exact"><code>identical()</code></a></td>
+	<td>test if all values in two objects are exactly equal</td>
+</tr>
+<tr>
+	<td><a href="http://uc-r.github.io/comparing_numeric_values/#numeric_near"><code>all.equal()</code></a></td>
+	<td>test for ‘near equality’ values in two objects</td>
+</tr>
+<tr>
+	<td><a href="http://uc-r.github.io/round"><code>round()</code></a></td>
+	<td>round values to the nearest integer</td>
+</tr>
 </table>
