@@ -9,6 +9,7 @@ In R, the fundamental unit of shareable code is the package.  A package bundles 
 <br>
 
 ## Installing Packages {#install}
+
 To install packages: 
 
 
@@ -44,6 +45,7 @@ devtools::install_github("username/packagename")
 <br>
 
 ## Loading Packages {#load}
+
 Once the package is downloaded to your computer you can access the functions and resources provided by the package in two different ways:
 
 
@@ -59,6 +61,7 @@ For instance, if you want to have full access to the tidyr package you would use
 <br>
 
 ## Getting Help on Packages {#help}
+
 For help on packages that are installed on your computer:
 
 
