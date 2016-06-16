@@ -30,7 +30,7 @@ There are three string functions that are closely related to their base R equiva
 
 `str_c()` is equivalent to the `paste()` functions: 
 
-{linenos=off}
+
 ```r
 # same as paste0()
 str_c("Learning", "to", "use", "the", "stringr", "package")
