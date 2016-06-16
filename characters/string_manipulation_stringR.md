@@ -1,6 +1,6 @@
 ---
 layout: tutorial
-title: String Manipulation with `stringr`
+title: String Manipulation with <code>stringr</code>
 permalink: /string_manipulation_stringR/
 ---
 
