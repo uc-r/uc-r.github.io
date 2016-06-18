@@ -10,5 +10,5 @@ permalink: /characters
 - [Character string basics](character_basics)
 - [String manipulation with base R](string_manipulation_baseR)
 - [String manipulation with stringr](string_manipulation_stringR)
-- Set operatons for character strings
+- [Set operatons for character strings](set_operations)
 
