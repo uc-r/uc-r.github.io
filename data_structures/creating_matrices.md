@@ -10,6 +10,7 @@ Matrices are constructed column-wise, so entries can be thought of starting in t
 ```r
 # numeric matrix
 m1 <- matrix(1:6, nrow = 2, ncol = 3)
+
 m1
 ##      [,1] [,2] [,3]
 ## [1,]    1    3    5
@@ -22,6 +23,7 @@ The underlying structure of this matrix is simply an integer vector with an adde
 ```r
 str(m1)
 ##  int [1:2, 1:3] 1 2 3 4 5 6
+
 attributes(m1)
 ## $dim
 ## [1] 2 3
@@ -33,6 +35,7 @@ Matrices can also contain character values. Whether a matrix contains data that 
 ```r
 # a character matrix
 m2 <- matrix(letters[1:6], nrow = 2, ncol = 3)
+
 m2
 ##      [,1] [,2] [,3]
 ## [1,] "a"  "c"  "e" 
@@ -41,6 +44,7 @@ m2
 # structure of m2 is simply character vector with 2x3 dimension
 str(m2)
 ##  chr [1:2, 1:3] "a" "b" "c" "d" "e" "f"
+
 attributes(m2)
 ## $dim
 ## [1] 2 3
