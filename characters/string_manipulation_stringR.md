@@ -22,9 +22,9 @@ library(stringr)
 
 There are three string functions that are closely related to their base R equivalents, but with a few enhancements:
 
-* Concatenate with [`str_c()`](#str_c)
-* Number of characters with [`str_length()`](#str_length)
-* Substring with [`str_sub()`](#str_sub)
+* Concatenate with `str_c()`
+* Number of characters with `str_length()`
+* Substring with `str_sub()`
 
 
 `str_c()` is equivalent to the `paste()` functions: 
