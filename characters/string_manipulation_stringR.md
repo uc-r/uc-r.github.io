@@ -27,7 +27,7 @@ There are three string functions that are closely related to their base R equiva
 * Substring with `str_sub()`
 
 
-`str_c()` is equivalent to the [`paste()`](#create) functions: 
+`str_c()` is equivalent to the [`paste()`](http://uc-r.github.io/character_basics/#create) functions: 
 
 
 ```r
@@ -50,7 +50,7 @@ str_c(letters, " is for", "...")
 ```
 
 
-`str_length()` is similiar to the [`nchar()`](#count) function; however, `str_length()` behaves more appropriately with missing ('NA') values: 
+`str_length()` is similiar to the [`nchar()`](http://uc-r.github.io/character_basics/#count) function; however, `str_length()` behaves more appropriately with missing ('NA') values: 
 
 
 ```r
@@ -66,7 +66,7 @@ str_length(text)
 ```
 
 
-`str_sub()` is similar to `substr()`; however, it returns a zero length vector if any of its inputs are zero length, and otherwise expands each argument to match the longest. It also accepts negative positions, which are calculated from the left of the last character.
+`str_sub()` is similar to [`substr()`](http://uc-r.github.io/string_manipulation_baseR/#h4); however, it returns a zero length vector if any of its inputs are zero length, and otherwise expands each argument to match the longest. It also accepts negative positions, which are calculated from the left of the last character.
 
 
 ```r
