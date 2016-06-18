@@ -23,7 +23,8 @@ permalink: /characters
 	<th>Description</th>
 </tr>
 <tr>
-	<td><a href="http://uc-r.github.io/character_basics/#create"><code>paste(), paste0()</code></a></td>
+	<td><a href="http://uc-r.github.io/character_basics/#create"><code>paste(), paste0(),</code></a>
+	<a href="http://uc-r.github.io/string_manipulation_stringR/#h1"><code>str_c()</code></a></td>
 	<td>paste character strings together</td>
 </tr>
 <tr>
