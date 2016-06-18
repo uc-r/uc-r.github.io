@@ -23,7 +23,7 @@ To match metacharacters in R you need to escape them with a double backslash "\\
 <img src="/public/images/r_vocab/metacharacter_escape.png" alt="Escaping Metacharacters" vspace="25">
 </center>   
 
-The following provides examples to show how to use the escape syntax to find and replace metacharacters.  For information on the `sub` and `gsub` functions used in this example visit the [main regex functions page](#regex_functions_base). 
+The following provides examples to show how to use the escape syntax to find and replace metacharacters.  For information on the `sub` and `gsub` functions used in this example visit the [main regex functions page](regex_functions_base). 
 
 
 ```r
@@ -49,7 +49,7 @@ To match a sequence of characters we can apply short-hand notation which capture
 <img src="/public/images/r_vocab/anchor_sequence.png" alt="Anchor Sequences" vspace="25">
 </center>    
     
-The following provides examples to show how to use the anchor syntax to find and replace sequences.  For information on the `gsub` function used in this example visit the [main regex functions page](#regex_functions_base).
+The following provides examples to show how to use the anchor syntax to find and replace sequences.  For information on the `gsub` function used in this example visit the [main regex functions page](regex_functions_base).
 
 
 ```r
