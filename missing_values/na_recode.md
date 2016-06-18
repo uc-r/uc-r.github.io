@@ -9,6 +9,11 @@ To recode missing values; or recode specific indicators that represent missing v
 
 ```r
 # recode missing values with the mean
+# vector with missing data
+x <- c(1:4, NA, 6:7, NA)
+x
+## [1]  1  2  3  4 NA  6  7 NA
+
 x[is.na(x)] <- mean(x, na.rm = TRUE)
 
 round(x, 2)
