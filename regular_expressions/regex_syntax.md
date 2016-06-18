@@ -19,7 +19,9 @@ Metacharacters consist of non-alphanumeric symbols such as:
 
 To match metacharacters in R you need to escape them with a double backslash "\\\\".  The following displays the general escape syntax for the most common metacharacters:
 
-![Escape syntax for common metacharacters](images/metacharacter_escape.png)
+<center>
+<img src="/public/images/r_vocab/metacharacter_escape.png" alt="Escaping Metacharacters" vspace="25">
+</center>   
 
 The following provides examples to show how to use the escape syntax to find and replace metacharacters.  For information on the `sub` and `gsub` functions used in this example visit the [main regex functions page](#main_regex_functions). 
 
@@ -43,7 +45,9 @@ gsub(pattern = "\\\\", " ", "I\\need\\space")
 ### Sequences
 To match a sequence of characters we can apply short-hand notation which captures the fundamental types of sequences.  The following displays the general syntax for these common sequences:
 
-![Anchors for common sequences](images/anchor_sequence.png)
+<center>
+<img src="/public/images/r_vocab/anchor_sequence.png" alt="Anchor Sequences" vspace="25">
+</center>    
     
 The following provides examples to show how to use the anchor syntax to find and replace sequences.  For information on the `gsub` function used in this example visit the [main regex functions page](#main_regex_functions).
 
@@ -72,7 +76,9 @@ gsub(pattern = "\\w", "_", "I'm working in RStudio v.0.99.484")
 ### Character classes
 To match one of several characters in a specified set we can enclose the characters of concern with square brackets [ ].  In addition, to match any characters **not** in a specified character set we can include the caret ^ at the beginning of the set within the brackets.  The following displays the general syntax for common character classes but these can be altered easily as shown in the examples that follow:
 
-![Anchors for common character classes](images/character_class.png)
+<center>
+<img src="/public/images/r_vocab/character_class.png" alt="Character Classes" vspace="25">
+</center>
 
 The following provides examples to show how to use the anchor syntax to match character classes.  For information on the `grep` function used in this example visit the [main regex functions page](#main_regex_functions).
 
@@ -102,7 +108,9 @@ grep(pattern = "[^0-9a-zA-Z]", x, value = TRUE)
 ## POSIX character classes
 Closely related to regex [character classes](#character_class) are POSIX character classes which are expressed in double brackets [[ ]].
 
-![Anchors for POSIX character classes](images/posix.png)   
+<center>
+<img src="/public/images/r_vocab/posix.png" alt="POSIX Character Classes" vspace="25">
+</center>      
 
 The following provides examples to show how to use the anchor syntax to match POSIX character classes. For information on the `grep` function used in this example visit the [main regex functions page](#main_regex_functions).
 
@@ -128,7 +136,9 @@ gsub(pattern = "[[:alnum:]]", replacement = "", x)
 ## Quantifiers
 When we want to match a **certain number** of characters that meet a certain criteria we can apply quantifiers to our pattern searches.  The quantifiers we can use are:
 
-![Quantifiers](images/quantifier.png)    
+<center>
+<img src="/public/images/r_vocab/quantifier.png" alt="Quantifiers in R" vspace="25">
+</center>     
 
 The following provides examples to show how to use the quantifier syntax to match a **certain number** of characters patterns. For information on the `grep` function used in this example visit the [main regex functions page](#main_regex_functions).  Note that `state.name` is a built in dataset within R that contains all the U.S. state names.
 
