@@ -1,10 +1,10 @@
 ---
 layout: tutorial
-title: Regular Expression Functions in `stringr`
+title: Regular Expression Functions in <code>stringr</code>
 permalink: /regex_functions_stringr
 ---
 
-Similar to basic string manipulation, the `stringr` package also offers regex functionality.  In some cases the `stringr` performs the same functions as certain base R functions but with more consistent syntax.  In other cases `stringr` offers additional functionality that is not available in base R functions.
+Similar to basic string manipulation, the `stringr` package also offers regex functionality.  In some cases the `stringr` performs the same functions as certain base R functions but with more consistent syntax.  In other cases `stringr` offers additional functionality that is not available in the base R functions.  The `stringr` functions we'll cover focus on [detecting](#h1), [locating](#h2), [extracting](#h3), and [replacing patterns](#h4) along with string [splitting](#h5).
 
 ```r
 # install stringr package
@@ -16,7 +16,7 @@ library(stringr)
 
 <br>
 
-## Detecting Patterns
+## Detecting Patterns {#h1}
 To *detect* whether a pattern is present (or absent) in a string vector use the `str_detect()`. This function is a wrapper for `grepl()`.
 
 
@@ -40,7 +40,7 @@ sum(str_detect(state.name, pattern = "New"))
 
 <br>
 
-## Locating Patterns
+## Locating Patterns {#h2}
 To *locate* the occurrences of patterns `stringr` offers two options: *i*) locate the first matching occurrence or *ii*) locate all occurrences.  To locate the position of the first occurrence of a pattern in a string vector use `str_locate()`. The output provides the starting and ending position of the first match found within each element.
 
 
@@ -84,7 +84,7 @@ str_locate_all(x, "[0-9]+")
 
 <br>
 
-## Extracting Patterns
+## Extracting Patterns {#h3}
 For extracting a string containing a pattern, `stringr` offers two primary options: *i*) extract the first matching occurrence or *ii*) extract all occurrences.  To extract the first occurrence of a pattern in a character vector use `str_extract()`. The output will be the same length as the string and if no match is found the output will be `NA` for that element.
 
 
@@ -112,7 +112,7 @@ str_extract_all(y, pattern = "[[:punct:]]*[a-zA-Z0-9]*R[a-zA-Z0-9]*")
 
 <br>
 
-## Replacing Patterns
+## Replacing Patterns {#h4}
 For extracting a string containing a pattern, `stringr` offers two options: *i*) replace the first matching occurrence or *ii*) replace all occurrences.  To replace the first occurrence of a pattern in a character vector use `str_replace()`. This function is a wrapper for `sub()`.
 
 
@@ -140,7 +140,7 @@ str_replace_all(cities, pattern = "[N]*[n]*ew", replacement = "Old")
 
 <br>
 
-## String Splitting
+## String Splitting {#h5}
 To split the elements of a character string use `str_split()`. This function is a wrapper for `strsplit()`.
 
 
