@@ -4,7 +4,7 @@ title: String Manipulation with Base R
 permalink: /string_manipulation_baseR/
 ---
 
-Basic string manipulation typically inludes case conversion, simple character, abbreviating, substring replacement, adding/removing whitespace, and performing set operations to compare similarities and differences between two character vectors.  These operations can all be performed with base R functions; however, some operations (or at least their syntax) are greatly simplified with the `stringr` package.  This section illustrates base R string manipulation for [case conversion](#h1), [simple character](#h2), [abbreviating](#h3), and [substring replacement](#h4). Many of the other fundamental string manipulation tasks will be covered in the [String manipulation with stringr](string_manipulation_stringR) and [Set operatons for character strings]() tutorials.
+Basic string manipulation typically inludes case conversion, simple character, abbreviating, substring replacement, adding/removing whitespace, and performing set operations to compare similarities and differences between two character vectors.  These operations can all be performed with base R functions; however, some operations (or at least their syntax) are greatly simplified with the `stringr` package.  This section illustrates base R string manipulation for [case conversion](#h1), [simple character replacement](#h2), [abbreviating](#h3), and [substring replacement](#h4). Many of the other fundamental string manipulation tasks will be covered in the [String manipulation with stringr](http://uc-r.github.io/string_manipulation_stringR/) and [Set operatons for character strings](http://uc-r.github.io/set_operations/) tutorials.
 
 <br>
 
