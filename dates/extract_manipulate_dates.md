@@ -6,11 +6,15 @@ permalink: /extract_manipulate_dates/
 
 To extract and manipulate individual elements of a date I typically use the `lubridate` package due to its simplistic function syntax.  The functions provided by `lubridate` to perform extraction and manipulation of dates include:
 
-![](images/lubridate_accessors.png)
+<p>
+<center>
+<img src="/public/images/r_vocab/lubridate_accessors.png" alt="lubridate Accessor Functions" vspace="25">
+</center> 
+</p>
 
 To extract an individual element of the date variable you simply use the accessor function desired.  Note that the accessor variables have additional arguments that can be used to show the name of the date element in full or abbreviated form.
 
-{linenos=off}
+
 ```r
 library(lubridate)
 
@@ -41,7 +45,7 @@ wday(x, label = TRUE, abbr = FALSE)
 
 To manipulate or change the values of date elements we simply use the accessor function to extract the element of choice and then use the assignment function to assign a new value.
 
-{linenos=off}
+
 ```r
 # convert to date format
 x <- ymd(x)
