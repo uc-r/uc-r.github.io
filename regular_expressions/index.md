@@ -4,7 +4,7 @@ title: Dealing with Regular Expressions
 date: 2016-06-10
 author: Brad Boehmke
 layout: page
-permalink: /section5_regex
+permalink: /regex
 ---
 
 A regular expression (aka regex) is a sequence of characters that define a search pattern, mainly for use in pattern matching with text strings.  Typically, regex patterns consist of a combination of alphanumeric characters as well as special characters.  The pattern can also be as simple as a single character or it can be more complex and include several characters.  
