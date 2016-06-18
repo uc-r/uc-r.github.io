@@ -4,7 +4,7 @@ title: Regex Syntax
 permalink: /regex_syntax
 ---
 
-At first glance (and second, third,...) the regex syntax can appear quite confusing.  This section will provide you with the basic foundation of regex syntax; however, realize that there is a plethora of [resources available](#regex_resources) that will give you far more detailed, and advanced, knowledge of regex syntax.  To read more about the specifications and technicalities of regex in R you can find help at `help(regex)` or `help(regexp)`.
+At first glance (and second, third,...) the regex syntax can appear quite confusing.  This section will provide you with the basic foundation of regex syntax; however, realize that there is a plethora of [resources available](regex_resources) that will give you far more detailed, and advanced, knowledge of regex syntax.  To read more about the specifications and technicalities of regex in R you can find help at `help(regex)` or `help(regexp)`.
 
 <br>
 
