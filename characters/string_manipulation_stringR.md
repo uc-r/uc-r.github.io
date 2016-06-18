@@ -14,7 +14,7 @@ install.packages("stringr")
 # load package
 library(stringr)
 ```
-<i class="fa fa-link" style="font-size:1em"></i> *For more information on getting help with packages visit the [working with packages section](http://uc-r.github.io/packages/).*
+<i class="fa fa-external-link" style="font-size:1em"></i> *For more information on getting help with packages visit the [working with packages section](http://uc-r.github.io/packages/).*
 
 <br>
 
