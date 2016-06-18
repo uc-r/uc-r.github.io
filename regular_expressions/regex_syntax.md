@@ -42,7 +42,7 @@ gsub(pattern = "\\\\", " ", "I\\need\\space")
 
 <br>
 
-### Sequences
+## Sequences
 To match a sequence of characters we can apply short-hand notation which captures the fundamental types of sequences.  The following displays the general syntax for these common sequences:
 
 <center>
@@ -73,7 +73,7 @@ gsub(pattern = "\\w", "_", "I'm working in RStudio v.0.99.484")
 
 <br>
 
-### Character classes
+## Character classes
 To match one of several characters in a specified set we can enclose the characters of concern with square brackets [ ].  In addition, to match any characters **not** in a specified character set we can include the caret ^ at the beginning of the set within the brackets.  The following displays the general syntax for common character classes but these can be altered easily as shown in the examples that follow:
 
 <center>
