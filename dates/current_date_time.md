@@ -1,7 +1,7 @@
 ---
 layout: tutorial
 title: Getting Current Date & Time
-permalink: /current_date_time
+permalink: /current_date_time/
 ---
 
 
