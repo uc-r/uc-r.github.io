@@ -50,7 +50,7 @@ str_c(letters, " is for", "...")
 ```
 
 
-`str_length()` is similiar to the `nchar()` function; however, `str_length()` behaves more appropriately with missing ('NA') values: 
+`str_length()` is similiar to the [`nchar()`](#count) function; however, `str_length()` behaves more appropriately with missing ('NA') values: 
 
 
 ```r
