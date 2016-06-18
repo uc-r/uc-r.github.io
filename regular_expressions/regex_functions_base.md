@@ -17,14 +17,14 @@ There are five functions that provide pattern matching capabilities.  The three 
 
 <a name="grep"></a>
 
-### grep()
+### `grep()`
 To find a pattern in a character vector and to have the element values or indices as the output use `grep()`:
 
 ```r
 # use the built in data set `state.division`
 head(as.character(state.division))
-## [1] "East South Central" "Pacific"            "Mountain"          
-## [4] "West South Central" "Pacific"            "Mountain"
+## [1] "East South Central" "Pacific" "Mountain"          
+## [4] "West South Central" "Pacific" "Mountain"
 
 
 # find the elements which match the patter
