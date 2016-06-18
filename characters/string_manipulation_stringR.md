@@ -26,7 +26,6 @@ There are three string functions that are closely related to their base R equiva
 * Number of characters with [`str_length()`](#str_length)
 * Substring with [`str_sub()`](#str_sub)
 
-{#str_c}
 
 `str_c()` is equivalent to the `paste()` functions: 
 
@@ -50,7 +49,6 @@ str_c(letters, " is for", "...")
 ## [26] "z is for..."
 ```
 
-{#str_length}
 
 `str_length()` is similiar to the `nchar()` function; however, `str_length()` behaves more appropriately with missing ('NA') values: 
 
@@ -67,7 +65,6 @@ str_length(text)
 ## [1]  8  2 NA  3  3 NA  7  7
 ```
 
-{#str_sub}
 
 `str_sub()` is similar to `substr()`; however, it returns a zero length vector if any of its inputs are zero length, and otherwise expands each argument to match the longest. It also accepts negative positions, which are calculated from the left of the last character.
 
