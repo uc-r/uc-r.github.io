@@ -141,7 +141,7 @@ str_replace_all(cities, pattern = "[N]*[n]*ew", replacement = "Old")
 <br>
 
 ## String Splitting {#h5}
-To split the elements of a character string use `str_split()`. This function is a wrapper for [`strsplit()`](regex_functions_base#split).
+To split the elements of a character string use `str_split()`. This function is a wrapper for [`strsplit()`](regex_functions_base#splitting).
 
 
 ```r
