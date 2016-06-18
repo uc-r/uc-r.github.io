@@ -23,7 +23,7 @@ To match metacharacters in R you need to escape them with a double backslash "\\
 <img src="/public/images/r_vocab/metacharacter_escape.png" alt="Escaping Metacharacters" vspace="25">
 </center>   
 
-The following provides examples to show how to use the escape syntax to find and replace metacharacters.  For information on the `sub` and `gsub` functions used in this example visit the [main regex functions page](#main_regex_functions). 
+The following provides examples to show how to use the escape syntax to find and replace metacharacters.  For information on the `sub` and `gsub` functions used in this example visit the [main regex functions page](#regex_functions_base). 
 
 
 ```r
@@ -49,7 +49,7 @@ To match a sequence of characters we can apply short-hand notation which capture
 <img src="/public/images/r_vocab/anchor_sequence.png" alt="Anchor Sequences" vspace="25">
 </center>    
     
-The following provides examples to show how to use the anchor syntax to find and replace sequences.  For information on the `gsub` function used in this example visit the [main regex functions page](#main_regex_functions).
+The following provides examples to show how to use the anchor syntax to find and replace sequences.  For information on the `gsub` function used in this example visit the [main regex functions page](#regex_functions_base).
 
 
 ```r
@@ -80,7 +80,7 @@ To match one of several characters in a specified set we can enclose the charact
 <img src="/public/images/r_vocab/character_class.png" alt="Character Classes" vspace="25">
 </center>
 
-The following provides examples to show how to use the anchor syntax to match character classes.  For information on the `grep` function used in this example visit the [main regex functions page](#main_regex_functions).
+The following provides examples to show how to use the anchor syntax to match character classes.  For information on the `grep` function used in this example visit the [main regex functions page](#regex_functions_base).
 
 
 ```r
@@ -112,7 +112,7 @@ Closely related to regex [character classes](#character_class) are POSIX charact
 <img src="/public/images/r_vocab/posix.png" alt="POSIX Character Classes" vspace="25">
 </center>      
 
-The following provides examples to show how to use the anchor syntax to match POSIX character classes. For information on the `grep` function used in this example visit the [main regex functions page](#main_regex_functions).
+The following provides examples to show how to use the anchor syntax to match POSIX character classes. For information on the `grep` function used in this example visit the [main regex functions page](#regex_functions_base).
 
 
 ```r
@@ -140,7 +140,7 @@ When we want to match a **certain number** of characters that meet a certain cri
 <img src="/public/images/r_vocab/quantifier.png" alt="Quantifiers in R" vspace="25">
 </center>     
 
-The following provides examples to show how to use the quantifier syntax to match a **certain number** of characters patterns. For information on the `grep` function used in this example visit the [main regex functions page](#main_regex_functions).  Note that `state.name` is a built in dataset within R that contains all the U.S. state names.
+The following provides examples to show how to use the quantifier syntax to match a **certain number** of characters patterns. For information on the `grep` function used in this example visit the [main regex functions page](#regex_functions_base).  Note that `state.name` is a built in dataset within R that contains all the U.S. state names.
 
 
 ```r
