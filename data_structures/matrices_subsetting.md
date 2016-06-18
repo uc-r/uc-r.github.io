@@ -55,7 +55,7 @@ m2[c("row_1", "row_3"), ]
 ## row_3     3     7    11
 ```
 
-Note that subsetting matrices with the `[` operator will simplify the results to the lowest possible dimension.  To avoid this you can introduce the `drop = FALSE` argument:
+Note that subsetting matrices with the `[` operator will simplify[^preserve_simplify] the results to the lowest possible dimension.  To avoid this you can introduce the `drop = FALSE` argument:
 
 
 ```r
@@ -72,3 +72,5 @@ m2[, 2, drop = FALSE]
 ## row_3     7
 ## row_4     8
 ```
+
+[^preserve_simplify]: Its important to understand the difference between simplifying and preserving subsetting.  **Simplifying** subsets returns the simplest possible data structure that can represent the output. **Preserving** subsets keeps the structure of the output the same as the input.  See Hadley Wickham's section on [Simplifying vs. Preserving Subsetting](http://adv-r.had.co.nz/Subsetting.html#subsetting-operators) to learn more.
