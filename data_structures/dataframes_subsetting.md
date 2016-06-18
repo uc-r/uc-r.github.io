@@ -55,7 +55,7 @@ df[ , v]
 ## row3     3  text 3.141593
 ```
 
-Note that subsetting data frames with the `[` operator will simplify the results to the lowest possible dimension.  To avoid this you can introduce the `drop = FALSE` argument:
+Note that subsetting data frames with the `[` operator will simplify[^preserve_simplify] the results to the lowest possible dimension.  To avoid this you can introduce the `drop = FALSE` argument:
 
 
 ```r
@@ -70,3 +70,5 @@ df[, 2, drop = FALSE]
 ## row2    is
 ## row3  text
 ```
+
+[^preserve_simplify]: Its important to understand the difference between simplifying and preserving subsetting.  **Simplifying** subsets returns the simplest possible data structure that can represent the output. **Preserving** subsets keeps the structure of the output the same as the input.  See Hadley Wickham's section on [Simplifying vs. Preserving Subsetting](http://adv-r.had.co.nz/Subsetting.html#subsetting-operators) to learn more.
