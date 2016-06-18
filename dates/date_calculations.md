@@ -7,7 +7,7 @@ permalink: /date_calculations/
 Since R stores date and time objects as numbers, this allows you to perform various calculations such as logical comparisons, addition, subtraction, and working with durations.
 
 
-{linenos=off}
+
 ```r
 x <- Sys.Date()
 x
@@ -24,7 +24,7 @@ x - y
 
 The nice thing about the date/time classes is that they keep track of leap years, leap seconds, daylight savings, and time zones.  Use `OlsonNames()` for a full list of acceptable time zone specifications.
 
-{linenos=off}
+
 ```r
 # last leap year
 x <- as.Date("2012-03-1")
@@ -47,7 +47,7 @@ y - x
 
 Similarly, the same functionality exists with the `lubridate` package with the only difference being the accessor function(s) used.
 
-{linenos=off}
+
 ```r
 library(lubridate)
 
@@ -72,7 +72,7 @@ x - hours(4)
 
 We can also deal with time spans by using the duration functions in `lubridate`.  Durations simply measure the time span between start and end dates. Using base R date functions for duration calculations is tedious and often results in wrong measurements.  `lubridate` provides simplistic syntax to calculate durations with the desired measurement (seconds, minutes, hours, etc.).
 
-{linenos=off}
+
 ```r
 # create new duration (represented in seconds)
 new_duration(60)
