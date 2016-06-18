@@ -17,7 +17,7 @@ library(stringr)
 <br>
 
 ## Detecting Patterns {#h1}
-To *detect* whether a pattern is present (or absent) in a string vector use the `str_detect()`. This function is a wrapper for `grepl()`.
+To *detect* whether a pattern is present (or absent) in a string vector use the `str_detect()`. This function is a wrapper for [`grepl()`](regex_functions_base#grepl).
 
 
 ```r
