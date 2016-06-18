@@ -69,7 +69,7 @@ l2$item1
 ## [1] 1 2 3
 ```
 
-One thing that differentiates the [[ operator from the $ is that the [[ operator can be used with computed indices. The $ operator can only be used with literal names.
+One thing that differentiates the `[[` operator from the `$` is that the `[[` operator can be used with computed indices. The `$` operator can only be used with literal names.
 
 
 <br>
