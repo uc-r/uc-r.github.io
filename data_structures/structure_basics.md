@@ -18,7 +18,7 @@ The basic data structures in R can be organized by their dimensionality (1D, 2D,
 
 In the data structure tutorials that follow I will cover the basics of these data structures.  But prior to jumping into the data structures, it's beneficial to understand two components of data structures - the structure and attributes.  
 
-- [Identifying the structure]()
+- [Identifying the structure](http://uc-r.github.io/data_structure_id)
 - [Understanding attributes](http://uc-r.github.io/understanding_attributes)
 
 
