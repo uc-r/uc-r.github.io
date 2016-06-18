@@ -27,7 +27,7 @@ There are three string functions that are closely related to their base R equiva
 * Substring with `str_sub()`
 
 
-`str_c()` is equivalent to the `paste()` functions: 
+`str_c()` is equivalent to the [`paste()`](#create) functions: 
 
 
 ```r
