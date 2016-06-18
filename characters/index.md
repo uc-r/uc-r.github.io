@@ -46,5 +46,21 @@ permalink: /characters
 	<td><a href="http://uc-r.github.io/character_basics/#count"><code>nchar()</code></a></td>
 	<td>count the number of characters in each character element</td>
 </tr>
+<tr>
+	<td><a href="http://uc-r.github.io/string_manipulation_baseR/#h1"><code>toupper(), tolower()</code></a></td>
+	<td>case conversion</td>
+</tr>
+<tr>
+	<td><a href="http://uc-r.github.io/string_manipulation_baseR/#h2"><code>chartr(), tolower()</code></a></td>
+	<td>simple character replacement</td>
+</tr>
+<tr>
+	<td><a href="http://uc-r.github.io/string_manipulation_baseR/#h3"><code>abbreviate()</code></a></td>
+	<td>character abbreviations</td>
+</tr>
+<tr>
+	<td><a href="http://uc-r.github.io/string_manipulation_baseR/#h4"><code>substr(), substring(), strsplit()</code></a></td>
+	<td>extract or replace substrings</td>
+</tr>
 
 </table>
