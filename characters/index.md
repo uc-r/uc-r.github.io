@@ -23,7 +23,7 @@ permalink: /characters
 	<th>Description</th>
 </tr>
 <tr>
-	<td><a href="http://uc-r.github.io/character_basics/#create"><code>paste(), paste0</code></a></td>
+	<td><a href="http://uc-r.github.io/character_basics/#create"><code>paste(), paste0()</code></a></td>
 	<td>paste character strings together</td>
 </tr>
 <tr>
@@ -35,63 +35,16 @@ permalink: /characters
 	<td>change string values to character format</td>
 </tr>
 <tr>
-	<td><a href="http://uc-r.github.io/character_basics/#print"><code>print()</code></a></td>
+	<td><a href="http://uc-r.github.io/character_basics/#print"><code>print(), noquote(), cat()</code></a></td>
 	<td>print character strings</td>
 </tr>
 <tr>
-	<td><a href="http://uc-r.github.io/generating_sequence_numbers/#seq1"><code>c()</code></a></td>
-	<td>combine numeric values into a sequence</td>
+	<td><a href="http://uc-r.github.io/character_basics/#count"><code>length()</code></a></td>
+	<td>count the number of elements in a character string</td>
 </tr>
 <tr>
-	<td><a href="http://uc-r.github.io/generating_sequence_numbers/#seq2"><code>seq()</code></a></td>
-	<td>create sequence of numbers with specific arithmetic progression</td>
+	<td><a href="http://uc-r.github.io/character_basics/#count"><code>nchar()</code></a></td>
+	<td>count the number of characters in each character element</td>
 </tr>
-<tr>
-	<td><a href="http://uc-r.github.io/generating_sequence_numbers/#seq3"><code>rep()</code></a></td>
-	<td>create collated and non-collated repetitions of numbers</td>
-</tr>
-<tr>
-	<td><a href="http://uc-r.github.io/generating_random_numbers/#uniform"><code>sample()</code></a></td>
-	<td>take random sample with or without replacement</td>
-</tr>
-<tr>
-	<td><a href="http://uc-r.github.io/generating_random_numbers/#uniform"><code>runif()</code></a></td>
-	<td>generate random numbers from a uniform distribution</td>
-</tr>
-<tr>
-	<td><a href="http://uc-r.github.io/generating_random_numbers/#normal"><code>rnorm()</code></a></td>
-	<td>generate random numbers from a normal distribution - prefix options: <code>d</code>, <code>p</code>, or <code>q</code> for density function, cumulative function, or quantiles respectively</td>
-</tr>
-<tr>
-	<td><a href="http://uc-r.github.io/generating_random_numbers/#poisson"><code>rpois()</code></a></td>
-	<td>generate random numbers from a poisson distribution - prefix options: <code>d</code>, <code>p</code>, or <code>q</code></td>
-</tr>
-<tr>
-	<td><a href="http://uc-r.github.io/generating_random_numbers/#exponential"><code>rexp()</code></a></td>
-	<td>generate random numbers from an exponential distribution - prefix options: <code>d</code>, <code>p</code>, or <code>q</code></td>
-</tr>
-<tr>
-	<td><a href="http://uc-r.github.io/generating_random_numbers/#gamma"><code>rgamma()</code></a></td>
-	<td>generate random numbers from a gamma distribution - prefix options: <code>d</code>, <code>p</code>, or <code>q</code></td>
-</tr>
-<tr>
-	<td><a href="http://uc-r.github.io/setting_seed/"><code>set.seed()</code></a></td>
-	<td>sets the seed number for reproducible random number generation</td>
-</tr>
-<tr>
-	<td><a href="http://uc-r.github.io/comparing_numeric_values/#numeric_comparison"><code><, >, <=, >=, ==, !=</code></a></td>
-	<td>logic operators to compare values of each element</td>
-</tr>
-<tr>
-	<td><a href="http://uc-r.github.io/comparing_numeric_values/#numeric_exact"><code>identical()</code></a></td>
-	<td>test if all values in two objects are exactly equal</td>
-</tr>
-<tr>
-	<td><a href="http://uc-r.github.io/comparing_numeric_values/#numeric_near"><code>all.equal()</code></a></td>
-	<td>test for ‘near equality’ values in two objects</td>
-</tr>
-<tr>
-	<td><a href="http://uc-r.github.io/rounding"><code>round()</code></a></td>
-	<td>round values to the nearest integer</td>
-</tr>
+
 </table>
