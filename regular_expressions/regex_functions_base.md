@@ -6,6 +6,8 @@ permalink: /regex_functions_base
 
 Now that I've illustrated how R handles some of the most common regular expression elements, it's time to present the functions you can use for working with regular expression.  R contains a set of functions in the base package that we can use to find pattern matches.  Alternatively, the R package stringr also provides [several functions](#regex_functions_stringr) for regex operations.  This section covers the base R functions.
 
+<br>
+
 ## Pattern Finding Functions
 There are five functions that provide pattern matching capabilities.  The three functions that I provide examples for are ones that are most common.  The two other functions which I do not illustrate are `gregexpr()` and `regexec()` which provide similar capabilities as `regexpr()` but with the output in list form.
 
