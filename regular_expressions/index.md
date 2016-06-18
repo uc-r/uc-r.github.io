@@ -13,6 +13,6 @@ To understand how to work with regular expressions in R, we need to consider two
 
 - [Regex Syntax](regex_syntax)
 - [Regex Functions in Base R](regex_functions_base)
-- Regex Functions with `stringr`
+- [Regex Functions with `stringr`](regex_functions_stringr)
 - Additional Resources
 
