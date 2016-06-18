@@ -17,7 +17,7 @@ There are five functions that provide pattern matching capabilities.  The three 
 
 <a name="grep"></a>
 
-### `grep()`
+### grep( )
 To find a pattern in a character vector and to have the element values or indices as the output use `grep()`:
 
 ```r
@@ -70,7 +70,7 @@ sum(grepl("North | South", state.division))
 
 <a name="regexpr"></a>
 
-### regexpr()
+### regexpr( )
 To find exactly where the pattern exists in a string use `regexpr()`:
 
 ```r
@@ -99,7 +99,7 @@ In addition to finding patterns in character vectors, its also common to want to
 
 <a name="sub"></a>
 
-### sub()
+### sub( )
 To replace the **first** matching occurrence of a pattern use `sub()`:
 
 ```r
@@ -120,7 +120,7 @@ sub("New", replacement = "Old", new, ignore.case = TRUE)
 
 <a name="gsub"></a>
 
-### gsub()
+### gsub( )
 To replace **all** matching occurrences of a pattern use `gsub()`:
 
 
