@@ -50,7 +50,7 @@ grep("North | South", state.division, invert = TRUE)
 
 <a name="grepl"></a>
 
-### grepl()
+### grepl( )
 To find a pattern in a character vector and to have logical (TRUE/FALSE) outputs use `grep()`:
 
 ```r
