@@ -29,6 +29,7 @@ y <- c("07/01/2015", "07/01/2015", "07/01/2015")
 as.Date(y, format = "%m/%d/%Y")
 ## [1] "2015-07-01" "2015-07-01" "2015-07-01"
 ```
+&#9755; *For a complete list of formatting codes: `?strftime`*
 
 
 If using the `lubridate` package:
@@ -46,7 +47,9 @@ mdy(y)
 One of the many benefits of the `lubricate` package is that it automatically recognizes the common separators used when recording dates ("-", "/", ".", and "").  As a result, you only need to focus on specifying the order of the date elements to determine the parsing function applied:
 
 
-![](images/lubridate_parsing.png)
+<center>
+<img src="/public/images/r_vocab/lubridate_parsing.png" alt="lubridate Parsing Functions">
+</center>  
 
 
 <br>
