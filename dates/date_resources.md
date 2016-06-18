@@ -1,7 +1,7 @@
 ---
 layout: tutorial
 title: Additional Resources for Dealing with Dates
-permalink: /date_resouces/
+permalink: /date_resources/
 ---
 
 For additional resources on learning and dealing with dates I recommend the following:
