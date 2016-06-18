@@ -92,7 +92,7 @@ v1[c(TRUE, FALSE)]
 ## Subsetting with names {#vector_names}
 Subsetting with names will return the elements with the matching names specified:
 
-{linenos=off}
+
 ```r
 v1["b"]
 ## b 
@@ -110,7 +110,7 @@ Its also important to understand the difference between simplifying and preservi
 
 For vectors, subsetting with single brackets `[ ]` preserves while subsetting with double brackets `[[ ]]` simplifies.  The change you will notice when simplifying vectors is the removal of names.
 
-{linenos=off}
+
 ```r
 v1[1]
 ## a 
