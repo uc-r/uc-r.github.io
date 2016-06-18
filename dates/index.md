@@ -1,10 +1,7 @@
 ---
-id: 1836
 title: Dealing with Dates
-date: 2016-06-10
-author: Brad Boehmke
 layout: page
-permalink: /dates
+permalink: /dates/
 ---
 
 Real world data are often associated with dates and time; however, dealing with dates accurately can appear to be a complicated task due to the variety in formats and accounting for time-zone differences and leap years.  R has a range of functions that allow you to work with dates and times.  Furthermore, packages such as [`lubridate`](https://cran.r-project.org/web/packages/lubridate/index.html) make it easier to work with dates and times.
