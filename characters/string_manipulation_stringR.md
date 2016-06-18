@@ -14,7 +14,7 @@ install.packages("stringr")
 # load package
 library(stringr)
 ```
-&#9755; *For more information on getting help with packages visit the [working with packages section](http://uc-r.github.io/packages/).*
+<i class="fa fa-link" aria-hidden="true"></i> &nbsp; *For more information on getting help with packages visit the [working with packages section](http://uc-r.github.io/packages/).*
 
 <br>
 
