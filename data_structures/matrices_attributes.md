@@ -10,6 +10,7 @@ As previously mentioned, matrices by default will have a dimension attribute as 
 ```r
 # basic matrix
 m2 <- matrix(1:12, nrow = 4, ncol = 3)
+
 m2
 ##      [,1] [,2] [,3]
 ## [1,]    1    5    9
@@ -29,6 +30,7 @@ However, matrices can also have additional attributes such as row names, column 
 ```r
 # add row names as an attribute
 rownames(m2) <- c("row1", "row2", "row3", "row4")
+
 m2
 ##      [,1] [,2] [,3]
 ## row1    1    5    9
@@ -57,6 +59,7 @@ m2
 ## row2    2    6   10
 ## row3    3    7   11
 ## row4    4    8   12
+
 attributes(m2)
 ## $dim
 ## [1] 4 3
@@ -97,6 +100,7 @@ Lastly, similar to lists and vectors you can add a comment attribute to a list.
 
 ```r
 comment(m2) <- "adding a comment to a matrix"
+
 attributes(m2)
 ## $dim
 ## [1] 4 3
