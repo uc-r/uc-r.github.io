@@ -12,5 +12,7 @@ A regular expression (aka regex) is a sequence of characters that define a searc
 To understand how to work with regular expressions in R, we need to consider two primary features of regular expressions.  One has to do with the *syntax*, or the way regex patterns are expressed in R.  The other has to do with the *functions* used for regex matching in R.  In this section, we will cover both of these aspects.  First, I cover the [syntax](#regex_syntax) that allow you to perform pattern matching functions with meta characters, character and POSIX classes, and quantifiers.  This will provide you with the basic understanding of the syntax required to establish the pattern to find.  Then I cover the  [functions](#regex_functions) you can apply to identify, extract, replace, and split parts of character strings based on the regex pattern specified. 
 
 - [Regex Syntax](regex_syntax)
-- Regex Functions
+- Regex Functions in Base R
+- Regex Functions with `stringr`
+- Additional Resources
 
