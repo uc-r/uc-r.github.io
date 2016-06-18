@@ -9,4 +9,4 @@ The basic structure in R is the vector.  A vector is a sequence of data elements
 * [Creating vectors](http://uc-r.github.io/creating_vectors)
 * [Adding on to vectors](http://uc-r.github.io/vectors_adding)
 * [Adding attributes to vectors](http://uc-r.github.io/vectors_attributes)
-* Subsetting vectors
+* [Subsetting vectors](http://uc-r.github.io/vectors_subsetting)
