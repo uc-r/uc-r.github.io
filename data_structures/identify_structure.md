@@ -1,7 +1,7 @@
 ---
 layout: tutorial
 title: Identifying the Structure
-permalink: /data_structure_id.md
+permalink: /identify_structure
 ---
 
 
