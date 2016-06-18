@@ -113,7 +113,7 @@ str_extract_all(y, pattern = "[[:punct:]]*[a-zA-Z0-9]*R[a-zA-Z0-9]*")
 <br>
 
 ## Replacing Patterns {#h4}
-For extracting a string containing a pattern, `stringr` offers two options: *i*) replace the first matching occurrence or *ii*) replace all occurrences.  To replace the first occurrence of a pattern in a character vector use `str_replace()`. This function is a wrapper for `sub()`.
+For extracting a string containing a pattern, `stringr` offers two options: *i*) replace the first matching occurrence or *ii*) replace all occurrences.  To replace the first occurrence of a pattern in a character vector use `str_replace()`. This function is a wrapper for [`sub()`](regex_functions_base#sub).
 
 
 ```r
@@ -130,7 +130,7 @@ str_replace(cities, pattern = "[N]*[n]*ew", replacement = "Old")
 ## [1] "Old York"         "Old new York"     "Old New New York"
 ```
 
-To extract all occurrences of a pattern in a character vector use `str_replace_all()`.  This function is a wrapper for `gsub()`.
+To extract all occurrences of a pattern in a character vector use `str_replace_all()`.  This function is a wrapper for [`gsub()`](regex_functions_base#gsub).
 
 
 ```r
@@ -141,7 +141,7 @@ str_replace_all(cities, pattern = "[N]*[n]*ew", replacement = "Old")
 <br>
 
 ## String Splitting {#h5}
-To split the elements of a character string use `str_split()`. This function is a wrapper for `strsplit()`.
+To split the elements of a character string use `str_split()`. This function is a wrapper for [`strsplit()`](regex_functions_base#split).
 
 
 ```r
