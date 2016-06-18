@@ -1,7 +1,8 @@
 ---
 layout: tutorial
 title: Ordering, Revaluing, & Dropping Factor Levels
-
+permalink: /factor_levels/
+---
 
 <br>
 
