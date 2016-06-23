@@ -7,5 +7,5 @@ layout: page
 permalink: /bana_datawrangling
 ---
 
-This course...
+More info coming soon!
 
