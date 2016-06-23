@@ -7,5 +7,5 @@ layout: page
 permalink: /a_bootcamp
 ---
 
-
+More info coming soon!
 
