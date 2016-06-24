@@ -9,10 +9,10 @@ R is a functional programming language, meaning that everything you do is basica
 Unfortunately, due to their abstractness, grasping the idea of writing functions (let alone writing them well) can take some time.  However, in this section I will provide you with the basic knowledge of how functions operate in R to get you started on the right path.  To do this, I cover the general: 
 
 - [components of functions](#function_components)
-- [specifying function [arguments](#function_arguments)
+- [specifying function arguments](#function_arguments)
 - [scoping](#function_scoping)
 - [evaluation](#function_lazy) rules
 - [managing function outputs](#function_outputs)
-- handling [invalid parameters](#function_invalid)
+- [handling invalid parameters](#function_invalid)
 - [saving & sourcing functions](#function_saving) 
 - [additional resources](#functions_add_resource)
