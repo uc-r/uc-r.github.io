@@ -38,7 +38,7 @@ formals(PV)
 environment(PV)
 ## <environment: R_GlobalEnv>
 ```
-<small><a href="#">Go to top</a></small>
+
 
 <br>
 
@@ -88,7 +88,7 @@ PV(1000, .08)
 PV(1000, .08, 3)
 ## [1] 793.83
 ```
-<small><a href="#">Go to top</a></small>
+
 
 <br>
 
@@ -170,7 +170,7 @@ PV5 <- function(FV) {
 PV5(1000)
 ## [1] 680.5832
 ```
-<small><a href="#">Go to top</a></small>
+
 
 <br>
 
@@ -196,7 +196,7 @@ lazy2 <- function(x, y){
 lazy2(4)
 ## Error in lazy2(4): argument "y" is missing, with no default
 ```
-<small><a href="#">Go to top</a></small>
+
 
 <br>
 
@@ -250,7 +250,7 @@ good_list(1, 2)
 ## $Output4
 ## [1] 0.5
 ```
-<small><a href="#">Go to top</a></small>
+
 
 <br>
 
