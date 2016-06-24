@@ -8,6 +8,6 @@ R is a functional programming language, meaning that everything you do is basica
 
 Unfortunately, due to their abstractness, grasping the idea of writing functions (let alone writing them well) can take some time. However, in this section I provide you with the basic knowledge of how functions operate in R to get you started on the right path. To do this, I cover the general components of functions, specifying function arguments, scoping and evaluation rules, managing function outputs, and handling invalid parameters in the understanding functions section. I then illustrate how you can save & source your own functions for reuse. Lastly, I offer some additional resources that will help you learn more about functions in R.
 
-- [understanding functions](http://uc-r.github.io/understanding_functions)
-- [saving & sourcing functions](#function_saving) 
-- [additional resources](#functions_add_resource)
+- [Understanding functions](http://uc-r.github.io/understanding_functions)
+- [Saving & sourcing functions](http://uc-r.github.io/sourcing) 
+- [Additional resources](http://uc-r.github.io/function_resources)
