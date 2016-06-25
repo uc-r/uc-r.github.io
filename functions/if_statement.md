@@ -1,6 +1,6 @@
 ---
 layout: tutorial
-title: <code>if</code> Statement for Conditional Programming
+title: <code>if</code> Statement
 permalink: /if_statement
 ---
 
