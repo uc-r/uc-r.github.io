@@ -24,7 +24,7 @@ df$c <- (df$c - min(df$c, na.rm = TRUE)) /
   (max(df$c, na.rm = TRUE) - min(df$c, na.rm = TRUE))
 df$d <- (df$d - min(df$d, na.rm = TRUE)) / 
   (max(df$d, na.rm = TRUE) - min(df$d, na.rm = TRUE))
-  ```
+```
   
   You might be able to puzzle out that this rescales each column to have a range from 0 to 1. But did you spot the mistake? I made an error when copying-and-pasting the code for `df$b`: I forgot to change an `a` to a `b`. Extracting repeated code out into a function is a good idea because it prevents you from making this type of mistake.
 
