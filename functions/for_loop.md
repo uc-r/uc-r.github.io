@@ -1,7 +1,8 @@
 ---
 layout: tutorial
 title: <code>for</code> Loop
-
+permalink: /for_loop
+---
 
 The `for` loop is used to execute repetitive code statements for a particular number of times.  The general syntax is provided below where `i` is the counter and as `i` assumes each sequential value defined (1 through 100 in this example) the code in the body will be performed for that ith value.
 
