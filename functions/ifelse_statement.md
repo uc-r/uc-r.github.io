@@ -16,7 +16,7 @@ if (test_expression) {
 }
 ```
 
-The following extends the previous example illustrated for the `if` statement in which the `if` statement tests if any values in a vector are negative; if `TRUE` it produces one output and if `FALSE` it produces the `else` output.  
+The following extends the [previous example](http://uc-r.github.io/if_statement) illustrated for the `if` statement in which the `if` statement tests if any values in a vector are negative; if `TRUE` it produces one output and if `FALSE` it produces the `else` output.  
 
 
 ```r
