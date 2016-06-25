@@ -6,7 +6,7 @@ permalink: /if_statement
 
 The conditional `if` statement is used to test an expression.  If the `test_expression` is `TRUE`, the `statement` gets executed. But if it's `FALSE`, nothing happens. 
 
-{linenos=off}
+
 ```r
 # syntax of if statement
 if (test_expression) {
