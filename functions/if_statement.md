@@ -1,7 +1,7 @@
 ---
 layout: tutorial
 title: `if` Statement for Conditional Programming
-permalink: /if
+permalink: /if_statement
 ---
 
 The conditional `if` statement is used to test an expression.  If the `test_expression` is `TRUE`, the `statement` gets executed. But if it's `FALSE`, nothing happens. 
