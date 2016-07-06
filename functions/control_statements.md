@@ -11,5 +11,4 @@ Looping is similiar to creating functions in that they are merely a means to aut
 - [`for` loop](http://uc-r.github.io/for_loop) to iterate over a fixed number of iterations
 - [`while` loop](http://uc-r.github.io/while_loop) to iterate until a logical statement returns FALSE
 - [`repeat` loop](http://uc-r.github.io/repeat_loop) to execute until told to break
-- `break`/`next` arguments to exit and skip interations in a loop
-
+- [`break`/`next`](http://uc-r.github.io/break_skip) arguments to exit and skip interations in a loop
