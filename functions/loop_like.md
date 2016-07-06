@@ -77,10 +77,10 @@ In addition, the following functions are provided through the specified packages
   
 In addition, the `summary()` function will provide relevant summary statistics over each column of data frames and matrices.  Note in the the example that follows that for the first four columns of the `iris` data set the summary statistics include min, med, mean, max, and 1st & 3rd quantiles.  Whereas the last column (`Species`) only provides the total count since this is a factor variable.
 
-{linenos=off}
+
 ```r
 summary(iris)
-##   Sepal.Length    Sepal.Width     Petal.Length    Petal.Width   
+##   Sepal.Length    Sepal.Width     Petal.Length    Petal.Width  
 ##  Min.   :4.300   Min.   :2.000   Min.   :1.000   Min.   :0.100  
 ##  1st Qu.:5.100   1st Qu.:2.800   1st Qu.:1.600   1st Qu.:0.300  
 ##  Median :5.800   Median :3.000   Median :4.350   Median :1.300  
