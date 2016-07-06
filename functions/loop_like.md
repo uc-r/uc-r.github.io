@@ -1,6 +1,6 @@
 ---
 layout: tutorial
-title: Other Useful "Loop-like" Functions
+title: Other Useful "Apply-like" Functions
 permalink: /loop_like
 ---
 
