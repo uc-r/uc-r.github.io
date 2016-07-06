@@ -10,4 +10,5 @@ The apply family consists of vectorized functions which minimize your need to ex
 - [`lapply()`](http://uc-r.github.io/lapply_function) for lists…output as list
 - [`sapply()`](http://uc-r.github.io/sapply_function) for lists…output simplified
 - [`tapply()`](http://uc-r.github.io/tapply_function) for vectors
-- Other useful ["loop-like" functions](http://uc-r.github.io/loop_like)
+- Other useful ["apply-like" functions](http://uc-r.github.io/loop_like)
+
