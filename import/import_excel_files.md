@@ -1,7 +1,7 @@
 ---
 layout: tutorial
 title: Importing Excel Files
-permalink: /importing_excel_files
+permalink: /import_excel_files
 ---
 
 With Excel still being the spreadsheet software of choice its important to be able to efficiently import and export data from these files.  Often, R users will simply resort to exporting the Excel file as a CSV file and then import into R using `read.csv`; however, this is far from efficient.  This section will teach you how to eliminate the CSV step and to import data directly from Excel using two different packages:
