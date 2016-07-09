@@ -6,7 +6,10 @@ permalink: /export_text_files
 
 As mentioned in the [importing data section](http://uc-r.github.io/import), text files are a popular way to hold and exchange tabular data as almost any data application supports exporting data to the CSV (or other text file) formats.  Consequently, exporting data to a text file is a pretty standard operation. Plus, since you've already learned how to import text files you pretty much have the basics required to write to text files...we just use a slightly different naming convention. 
 
-Similar to the examples provided in the importing text files section, the two main groups of functions that I will demonstrate to write to text files include [base R functions](#base) and `readr` package functions.
+Similar to the examples provided in the importing text files section, the two main groups of functions that I will demonstrate to write to text files include [base R functions](#base) and [`readr` package functions](#readr).
+
+- [Base R functions](#base)
+- [`readr` package functions](#readr)
 
 ### Base R functions {#base}
 `write.table()` is the multipurpose work-horse function in base R for exporting data.  The functions `write.csv()` and `write.delim()` are special cases of `write.table()` in which the defaults have been adjusted for efficiency.  To illustrate these functions let's work with a data frame that we wish to export to a CSV file in our working directory.
@@ -50,7 +53,7 @@ write.delim(df, file = "export_txt")
 write.table(df, file = "export_txt", sep="\t")
 ```
 
-### readr package
+### readr package {#readr}
 The `readr` package uses write functions similar to base R. However, `readr` write functions are about twice as fast and they do not write row names. One thing to note, where base R write functions use the `file =` argument, `readr` write functions use `path =`.
 
 
