@@ -175,3 +175,5 @@ saveWorkbook(wb, file = "output_example_4.xlsx")
 <center>
 <img src="/public/images/exporting_data/output_example_4.png" alt="Formatted Excel Output Example 2" vspace="25">
 </center> 
+
+[^excel_format]: This example was derived from [STHDA](http://www.sthda.com/english/). Additional options, such as adding plot outputs can be found at STHDA and also in the [*XML and Web Technologies for Data Sciences with R*](https://smile.amazon.com/XML-Web-Technologies-Data-Sciences/dp/1461478995/ref=sr_1_1?ie=UTF8&qid=1468089905&sr=8-1&keywords=XML+and+Web+Technologies+for+Data+Sciences+with+R) book.
