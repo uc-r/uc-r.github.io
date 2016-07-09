@@ -4,9 +4,12 @@ title: Exporting to Excel Files
 permalink: /export_excel_files
 ---
 
-As previously mentioned, many organizations still rely on Excel to hold and share data so exporting to Excel is a useful bit of knowledge.  And rather than saving to a .csv file to send to a co-worker who wants to work in Excel, its more efficient to just save R outputs directly to an Excel workbook. Since I covered importing data with the `xlsx` package, I'll also cover exporting data with this package.  However, the `readxl` package which I demonstrated in the importing data section does not have a function to export to Excel. But there is a lesser known package called `r2excel` that provides exporting and formatting functions for Excel which I will cover.
+As previously mentioned, many organizations still rely on Excel to hold and share data so exporting to Excel is a useful bit of knowledge.  And rather than saving to a .csv file to send to a co-worker who wants to work in Excel, its more efficient to just save R outputs directly to an Excel workbook. Since I covered importing data with the [`xlsx` package](#xlsx), I'll also cover exporting data with this package.  However, the `readxl` package which I demonstrated in the importing data section does not have a function to export to Excel. But there is a lesser known package called [`r2excel`](#r2excel) that provides exporting and formatting functions for Excel which I will cover.
 
-### xlsx package
+- [`xlsx` package](#xlsx)
+- [`r2excel`](#r2excel)
+
+### xlsx package {#xlsx}
 Saving a data frame to a .xlsx file is as easy as saving to a .csv file:
 
 
@@ -107,12 +110,13 @@ setColumnWidth(sheet = Cars, colIndex = 1, colWidth = 18)
 # save workbook
 saveWorkbook(wb, file = "output_example_3.xlsx")
 ```
+
 <center>
 <img src="/public/images/exporting_data/output_example_3.png" alt="Formatted Excel Output Example 1" vspace="25">
 </center> 
  
  
-### r2excel package
+### r2excel package {#r2excel}
 Although Formatting Excel files using the `xlsx` package is possible, the last section illustrated that it is a bit cumbersome. For this reason, [A. Kassambara](https://github.com/kassambara) created the `r2excel` package which depends on the `xlsx` package but provides easy to use functions for Excel formatting.  The following provides a simple example but you can find many additional formatting functions [here](http://www.sthda.com/english/wiki/r2excel-read-write-and-format-easily-excel-files-using-r-software)
 
 
@@ -168,4 +172,6 @@ xlsx.addTable(wb, sheet = Casualties, data = Seatbelts, startCol = 2)
 saveWorkbook(wb, file = "output_example_4.xlsx")
 ```
 
-![Formatted Excel Output Example 2](images/output_example_4.png) 
+<center>
+<img src="/public/images/exporting_data/output_example_4.png" alt="Formatted Excel Output Example 2" vspace="25">
+</center> 
