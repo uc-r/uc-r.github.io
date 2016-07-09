@@ -9,3 +9,4 @@ The first step to any data analysis process is to *get* the data.  Data can come
 - [Importing text files](http://uc-r.github.io/import_text_files)
 - [Importing Excel files](http://uc-r.github.io/import_excel_files)
 - [Importing R object files](http://uc-r.github.io/import_r_objects)
+- [Additional Resources](http://uc-r.github.io/importing_addtl_resources)
