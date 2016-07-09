@@ -107,8 +107,9 @@ setColumnWidth(sheet = Cars, colIndex = 1, colWidth = 18)
 # save workbook
 saveWorkbook(wb, file = "output_example_3.xlsx")
 ```
-
-![Formatted Excel Output Example 1](public/images/exporting_data/output_example_3.png)
+<center>
+<img src="/public/images/exporting_data/output_example_3.png" alt="Formatted Excel Output Example 1" vspace="25">
+</center> 
  
  
 ### r2excel package
