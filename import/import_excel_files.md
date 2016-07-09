@@ -12,9 +12,9 @@ With Excel still being the spreadsheet software of choice its important to be ab
 Note that there are several packages available to connect R with Excel (i.e. `gdata`, `RODBC`, `XLConnect`, `RExcel`, etc.); however, I am only going to cover the two main packages that I use which provide all the fundamental requirements I've needed for dealing with Excel.
 
 ### xlsx package {#xlsx_import}
-The [`xlsx`](https://cran.rstudio.com/web/packages/xlsx/) package provides tools neccessary to interact with Excel 2007 (and older) files from R. Many of the benefits of the `xlsx` come from being able to *export* and *format* Excel files from R.  Some of these capabilities will be covered in the [Exporting Data](#export) chapter; however, in this section we will simply cover *importing* data from Excel with the `xlsx` package.
+The [`xlsx`](https://cran.rstudio.com/web/packages/xlsx/) package provides tools neccessary to interact with Excel 2007 (and older) files from R. Many of the benefits of the `xlsx` come from being able to *export* and *format* Excel files from R.  Some of these capabilities will be covered in the [Exporting Excel Data](http://uc-r.github.io/export_excel_files) section; however, in this section we will simply cover *importing* data from Excel with the `xlsx` package.
 
-To illustrate, we'll use similar data from the [previous section](#base_text_import); however, saved as an .xlsx file in our working director.  To import the Excel data we simply use the `read.xlsx()` function:
+To illustrate, we'll use similar data from the [previous section](http://uc-r.github.io/import_text_files); however, saved as an .xlsx file in our working director.  To import the Excel data we simply use the `read.xlsx()` function:
 
 
 ```r
