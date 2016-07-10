@@ -387,7 +387,7 @@ names(ndsu_data$results[[1]]$`2013`$cost$avg_net_price)
 ## [4] "public"              "private"
 ```
 
-So if I'm interested in comparing the rise in cost versus the rise in student debt I can simply subset for this data once I've identified its location and naming structure.  Note that for this subsetting we use the [`magrittr`](pipe) package and the [`sapply](apply_family) function; both are covered in more detail in their relevant sections. This is just meant to illustrate the types of data available through this API.
+So if I'm interested in comparing the rise in cost versus the rise in student debt I can simply subset for this data once I've identified its location and naming structure.  Note that for this subsetting we use the [`magrittr`](pipe) package and the [`sapply`](apply_family) function; both are covered in more detail in their relevant sections. This is just meant to illustrate the types of data available through this API.
 
 
 ```r
