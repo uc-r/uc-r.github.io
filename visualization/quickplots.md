@@ -8,7 +8,6 @@ For quick data exploration, base R plotting functions can provide an expeditious
 
 In addition, I'll show how to make similar graphics with the `qplot()` function in `ggplot2`, which has a syntax similar to the base graphics functions. For each `qplot()` graph, there is also an equivalent using the more powerful `ggplot()` function which I illustrate in later visualization tutorials. This will, hopefully, help you transition to using `ggplot2` when you want to make more sophisticated graphics. 
 
-<br>
 
 <center>
 <img src="/public/images/visual/quickplots/quickplots.png" style="display: block; margin: auto;" />
