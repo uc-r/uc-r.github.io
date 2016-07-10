@@ -160,7 +160,7 @@ length(tbls_xml)
 
 You can see that `tbls_xml` captures the same 15 `<table>` nodes that `html_nodes` captured. To capture the same tables of interest we previously discussed (*Table 2. Nonfarm employment...* and *Table 3. Net birth/death...*) we can use a couple approaches. First, we can assess `str(tbls_xml)` to identify the tables of interest and perform normal [list subsetting](http://uc-r.github.io/lists_subsetting). In our example list items 3 and 4 correspond with our tables of interest.
 
-{linenos=off}
+
 ```r
 head(tbls_xml[[3]])
 ##          V1                        V2      V3      V4  V5   V6
