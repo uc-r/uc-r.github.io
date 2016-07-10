@@ -40,11 +40,11 @@ In addition, for all of my examples I will illustrate with data that was used fo
 ```r
 # read in PEW data
 income <- read.xlsx("Middle-Class-U.S.-Metro-Areas-5-12-16-Supplementary-Tables.xlsx",
-          sheetIndex = "3. Median HH income, metro",
-          startRow = 8, colIndex = c(1:5, 7:10)) %>%
-        set_colnames(c("Metro", "All_99", "Lower_99", "Middle_99", "Upper_99",
-                       "All_14", "Lower_14", "Middle_14", "Upper_14")) %>%
-        filter(Metro != "NA")
+                    sheetIndex = "3. Median HH income, metro",
+                    startRow = 8, colIndex = c(1:5, 7:10)) %>%
+          set_colnames(c("Metro", "All_99", "Lower_99", "Middle_99", "Upper_99",
+                         "All_14", "Lower_14", "Middle_14", "Upper_14")) %>%
+          filter(Metro != "NA")
 
 head(income)
 ##                               Metro    All_99  Lower_99  Middle_99  Upper_99  All_14    Lower_14  Middle_14  Upper_14
