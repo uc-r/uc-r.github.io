@@ -579,8 +579,7 @@ anti_join(x,y)
 
 
 ```r
-Function:       
-                mutate(data, ...)
+Function:       mutate(data, ...)
 Same as:        data %>% mutate(...)                
 
 Arguments:
