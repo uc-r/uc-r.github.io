@@ -10,7 +10,7 @@ Collecting data from the web is not an easy process as there are many technologi
 
 My purpose in the following sections is to discuss these topics at a level meant to get you started in web scraping; however, this area is vast and complex and this chapter will far from provide you expertise level insight.  To advance your knowledge I highly recommend getting copies of [*XML and Web Technologies for Data Sciences with R*](http://www.amazon.com/XML-Web-Technologies-Data-Sciences/dp/1461478995) and [*Automated Data Collection with R*](http://www.amazon.com/Automated-Data-Collection-Practical-Scraping/dp/111883481X/ref=pd_sim_14_1?ie=UTF8&dpID=51Tm7FHxWBL&dpSrc=sims&preST=_AC_UL160_SR108%2C160_&refRID=1VJ1GQEY0VCPZW7VKANX).
 
-- [importing spreadsheet data files stored online](#importing_spreadsheet_data)
-- [scraping HTML text]()
-- [scraping HTML table data]()
-- [leveraging APIs to scrape data]()
+- [Importing spreadsheet data files stored online](importing_spreadsheet_data)
+- [Scraping HTML text]()
+- [Scraping HTML table data]()
+- [Leveraging APIs to scrape data]()
