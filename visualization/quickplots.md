@@ -1,5 +1,5 @@
 ---
-layout: tutorial
+layout: page
 title: Getting Started with Charts in R
 permalink: /quickplots
 ---
@@ -44,7 +44,7 @@ faithful
 library(ggplot2)
 ```
 
-&#9755; *See [Working with packages](http://bradleyboehmke.github.io/tutorials/basics/packages/) for more information on installing, loading, and getting help with packages.*
+&#9755; *See [Working with packages](http://uc-r.github.io/packages/) for more information on installing, loading, and getting help with packages.*
 
 
 <br>
