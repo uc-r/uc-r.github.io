@@ -40,11 +40,11 @@ library(psych)          # provide summary statistics
 library(pastecs)        # provide summary statistics
 {% endhighlight %}
 
-&#9755; *See [Working with packages](http://bradleyboehmke.github.io/tutorials/basics/packages/) for more information on installing, loading, and getting help with packages.*
+&#9755; *See [Working with packages](packages) for more information on installing, loading, and getting help with packages.*
 
 First, let's read in the data.  The data frame consists of 18 variables, which I illustrate the first 10 below:
 
-{% highlight r %}
+```r
 library(readxl)
 
 golf <- read_excel("Golf Stats.xlsx", sheet = "2011")
@@ -57,16 +57,15 @@ head(golf[, 1:10])
 ## 4    4      K.J. Choi  41     22     75        18       8    1  4434690       285.6
 ## 5    5 Dustin Johnson  27     21     71        17       6    1  4309962       314.2
 ## 6    6    Matt Kuchar  33     24     88        22       9    0  4233920       286.2
-
-{% endhighlight %}
+```
 
 <br>
 
 ## Visualizing Normality {#visualization}
-[Frequency distributions](http://bradleyboehmke.github.io/tutorials/histograms) are a useful way to look at the shape of a distribution and are, typically, our first step in assessing normality. Not only can we assess the distribution of the data we are analyzing, we can also add a reference normal distribution onto our plot to compare. We can illustrate with some [golf data](https://github.com/bradleyboehmke/bradleyboehmke.github.io/blob/master/public/data/Golf%20Stats.xlsx) provided by [ESPN](http://espn.go.com/golf/statistics). Here we are assessing the distribution of Driving Accuracy across 200 players and when we add the reference normal distribution with the `stat_function()` argument we see that the data does in fact appear to be normally distributed.
+[Frequency distributions](histograms) are a useful way to look at the shape of a distribution and are, typically, our first step in assessing normality. Not only can we assess the distribution of the data we are analyzing, we can also add a reference normal distribution onto our plot to compare. We can illustrate with some [golf data](https://github.com/bradleyboehmke/bradleyboehmke.github.io/blob/master/public/data/Golf%20Stats.xlsx) provided by [ESPN](http://espn.go.com/golf/statistics). Here we are assessing the distribution of Driving Accuracy across 200 players and when we add the reference normal distribution with the `stat_function()` argument we see that the data does in fact appear to be normally distributed.
 
 
-{% highlight r %}
+```r
 library(readxl)
 library(ggplot2)
 
@@ -77,20 +76,20 @@ ggplot(golf, aes(`Driving Accuracy`)) +
         stat_function(fun = dnorm, args = list(mean = mean(golf$`Driving Accuracy`, na.rm = T), 
                                                sd = sd(golf$`Driving Accuracy`, na.rm = T))) +
         xlab("Driving Accuracy (%)")
-{% endhighlight %}
+```
 
 <img src="/public/images/analytics/normality/unnamed-chunk-2-1 2.png" style="display: block; margin: auto;" />
 
 If we compare this to the `Earnings` variable we'll see a larger discrepency between the actual distribution and the reference normal distribution had earnings followed a normal distribution. This does not necessarily answer the question of whether the values are normally distributed but it helps provide indication of one way or the other.
 
 
-{% highlight r %}
+```r
 ggplot(golf, aes(Earnings)) +
         geom_histogram(aes(y = ..density..), colour = "black", fill = "white") +
         stat_function(fun = dnorm, args = list(mean = mean(golf$Earnings, na.rm = T), 
                                                sd = sd(golf$Earnings, na.rm = T))) +
         scale_x_continuous(label = scales::dollar)
-{% endhighlight %}
+```
 
 <img src="/public/images/analytics/normality/unnamed-chunk-3-1 2.png" style="display: block; margin: auto;" />
 
@@ -99,15 +98,15 @@ Another useful graph that we can inspect to see if a distribution is normal is t
 We can illustrate with the same two variables we looked at above. You can see how the Q-Q plot for the driving accuracy displays a nice straight line whereas the Q-Q plot for earnings is heavily skewed.
 
 
-{% highlight r %}
+```r
 qqnorm(golf$`Driving Accuracy`, main = "Normal Q-Q Plot for Driving Accuracy")
-{% endhighlight %}
+```
 
 <img src="/public/images/analytics/normality/unnamed-chunk-4-1.png" style="display: block; margin: auto;" />
 
-{% highlight r %}
+```r
 qqnorm(golf$Earnings, main = "Normal Q-Q Plot for Earnings")
-{% endhighlight %}
+```
 
 <img src="/public/images/analytics/normality/unnamed-chunk-4-2.png" style="display: block; margin: auto;" />
 
@@ -121,7 +120,7 @@ Visualization helps provide indications, however, their interpretations are subj
 The `describe()` function provides several summary statistics. The two we are primarily concerned about for normality are the *skew* and *kurtosis* results. Skew describes the symmetry of a distribution and kurtosis the peakedness.  Values close to zero, as seen in driving accuracy, suggest an approximately normal distribution. Values that deviate from zero on one or both of these statistics, as is the case with Earnings, suggest a possible deviation from normality. The actual cutoff values for these statistics are debatable; however, keep in mind these statistics, like the visualizations, are still giving you indications of normality.
 
 
-{% highlight r %}
+```r
 library(psych)
 
 # assess one variable
@@ -137,14 +136,14 @@ describe(golf[, c("Driving Accuracy", "Earnings")])
 ##                        mad    min     max   range skew kurtosis       se
 ## Driving Accuracy      5.78     47      77      30 0.09    -0.04     0.39
 ## Earnings         761431.93 250333 6683214 6432882 1.85     3.88 81682.00
-{% endhighlight %}
+```
 
 We can also use `stat.desc()` to get similar results. To reduce the amount of statistics we get back we can set the argument `basic = FALSE` and to get statistics back relating to the distribution we set the argument `norm = TRUE`. The first two parameters of interest are the *skew.2se* and *kurt.2se* results, which are the skew and kurtosis value divided by 2 standard errors. If the absolute value of these parameters are *> 1* then they are significant (at *p < .05*) suggesting strong potential for non-normality. 
 
 The output of `stat.desc()` also gives us the Shapiro-Wilk test of normality, which provides a more formal statistic test for normality deviations, which we will discuss [next](#shapiro).
 
 
-{% highlight r %}
+```r
 library(pastecs)
 
 # assess one variable
@@ -172,7 +171,7 @@ stat.desc(golf[, c("Driving Accuracy", "Earnings")], basic = FALSE, norm = TRUE)
 ## kurt.2SE          -0.05275937 5.664051e+00
 ## normtest.W         0.99626396 8.004944e-01
 ## normtest.p         0.91530114 2.918239e-15
-{% endhighlight %}
+```
 
 <a href="#top">Go to top</a>
 
@@ -184,7 +183,7 @@ The Shapiro-Wilk test is a statistical test of the hypothesis that the distribut
 The results below indicate that the driving accuracy data does not deviate from a normal distribution, however, the earnings data is statistically significant suggesting it does. Also, not that the value for *W* below corresponds to the *normtest.W* from the `stat.desc()` outputs above and the *p*-value below corresponds to the *normtest.p* from `stat.desc()`.
 
 
-{% highlight r %}
+```r
 shapiro.test(golf$`Driving Accuracy`)
 ## 
 ## 	Shapiro-Wilk normality test
@@ -198,7 +197,7 @@ shapiro.test(golf$Earnings)
 ## 
 ## data:  golf$Earnings
 ## W = 0.80049, p-value = 2.918e-15
-{% endhighlight %}
+```
 
 Its important to note that there are limitations to the Shapiro-Wilk test. As the dataset being evaluated gets larger, the Shapiro-Wilk test becomes more sensitive to small deviations which leads to a greater probability of rejecting the null hypothesis (null hypothesis being the values come from a normal distribution). 
 
