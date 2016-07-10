@@ -25,6 +25,7 @@ In addition to these key components you will also, typically, need to provide a 
 5. [OAuth](http://oauth.net/). OAuth is an authorization framework that provides credentials as proof for access to certain information. Multiple forms of credentials exist and OAuth can actually be a fairly confusing topic; however, the `httr` package has simplified this greatly which we demonstrate at the end of this section.
 
 Rather than dwell on these components, they'll likely become clearer as we progress through examples. So, let's move on to the fun stuff. 
+
 ### Existing API Packages
 Like everything else you do in R, when looking to work with an API your first question should be "Is there a package for that?" R has an extensive list of packages in which API data feeds have been hooked into R. You can find a slew of them scattered throughout the [CRAN Task View: Web Technologies and Services](https://cran.r-project.org/web/views/WebTechnologies.html) web page, on the [rOpenSci](https://ropensci.org/packages/) web page, and some more [here](http://stats.stackexchange.com/questions/12670/data-apis-feeds-available-as-packages-in-r). 
 
