@@ -333,7 +333,7 @@ head(wide_DF, 24)
 
 ## Additional Resources
 
-- Data wrangling [presentation](Data_Wrangling_MU) I gave at Miami University
+- Data wrangling [presentation](http://bradleyboehmke.github.io/2015/10/data-wrangling-presentation.html) I gave at Miami University
 - R Studio's [Data wrangling with R and RStudio webinar](http://www.rstudio.com/resources/webinars/)
 - R Studio's [Data wrangling GitHub repository](https://github.com/rstudio/webinars/blob/master/2015-01/wrangling-webinar.pdf)
 - R Studio's [Data wrangling cheat sheet](http://www.rstudio.com/resources/cheatsheets/)
