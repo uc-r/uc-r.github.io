@@ -244,7 +244,7 @@ scraping_wiki %>%
 ```
 
 ### Cleaning up
-With any webscraping activity, especially involving text, there is likely to be some clean up involved. For example, in the previous example we saw that we can specifically pull the list of [**Notable Tools**](https://en.wikipedia.org/wiki/Web_scraping#Notable_tools); however, you can see that in between each list item rather than a space there contains one or more `\n` which is used in HTML to specify a new line. We can clean this up quickly with a little [character string manipulation](#string_manipulation).
+With any webscraping activity, especially involving text, there is likely to be some clean up involved. For example, in the previous example we saw that we can specifically pull the list of [**Notable Tools**](https://en.wikipedia.org/wiki/Web_scraping#Notable_tools); however, you can see that in between each list item rather than a space there contains one or more `\n` which is used in HTML to specify a new line. We can clean this up quickly with a little [character string manipulation](http://uc-r.github.io/characters).
 
 
 ```r
@@ -278,7 +278,7 @@ scraping_wiki %>%
 ```
 
 
-Similarly, as we saw in our example above with scraping the main body content (`body_text`), there are extra characters (i.e. `\n`, `\`, `^`) in the text that we may not want.  Using a [little regex](#regex) we can clean this up so that our character string consists of only text that we see on the screen and no additional HTML code embedded throughout the text.
+Similarly, as we saw in our example above with scraping the main body content (`body_text`), there are extra characters (i.e. `\n`, `\`, `^`) in the text that we may not want.  Using a [little regex](http://uc-r.github.io/regex) we can clean this up so that our character string consists of only text that we see on the screen and no additional HTML code embedded throughout the text.
 
 
 ```r
