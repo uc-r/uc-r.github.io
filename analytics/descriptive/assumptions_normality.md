@@ -33,12 +33,12 @@ The assumption of normality claims that the sampling distribution of the mean is
 ## Replication Requirements {#replication}
 To illustrate ways to assess normality, I’ll demonstrate with some [golf data](https://github.com/bradleyboehmke/bradleyboehmke.github.io/blob/master/public/data/Golf%20Stats.xlsx) provided by [ESPN](http://espn.go.com/golf/statistics). In addition, the packages we will leverage include the following:
 
-{% highlight r %}
+```r
 library(readxl)         # read in Excel data
 library(ggplot2)        # create visualizations
 library(psych)          # provide summary statistics
 library(pastecs)        # provide summary statistics
-{% endhighlight %}
+```
 
 &#9755; *See [Working with packages](packages) for more information on installing, loading, and getting help with packages.*
 
