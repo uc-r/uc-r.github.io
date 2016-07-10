@@ -9,6 +9,6 @@ Although getting data into R is essential, getting data out of R can be just as 
 - [Exporting to text files](http://uc-r.github.io/export_text_files)
 - [Exporting to Excel files](http://uc-r.github.io/export_excel_files)
 - [Exporting R object files](http://uc-r.github.io/export_r_objects)
-- [Additional Resources](http://uc-r.github.io/exporting_addtl_resources)
+- [Additional Resources](http://uc-r.github.io/export_addtl_resources)
 
 
