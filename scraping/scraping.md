@@ -12,5 +12,5 @@ My purpose in the following sections is to discuss these topics at a level meant
 
 - [Importing spreadsheet data files stored online](importing_spreadsheet_data)
 - [Scraping HTML text](scraping_HTML_text)
-- [Scraping HTML table data]()
+- [Scraping HTML table data](scraping_HTML_table)
 - [Leveraging APIs to scrape data]()
