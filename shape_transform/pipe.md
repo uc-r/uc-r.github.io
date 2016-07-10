@@ -53,7 +53,7 @@ arrange(
 ## 3     8   15.10
 ```
 
-This first option is considered a "nested" option such that functions are nested within one another. Historically, this has been the traditional way of integrating code; however, it becomes extremely difficult to read what exactly the code is doing and it also becomes easier to make mistakes when making updates to your code. Although not in violation of the DRY principle, it definitely violates the basic principle of readability and clarity, which makes communication of your analysis more difficult.  To make things more readable, people often move to the following approach...
+This first option is considered a "nested" option such that functions are nested within one another. Historically, this has been the traditional way of integrating code; however, it becomes extremely difficult to read what exactly the code is doing and it also becomes easier to make mistakes when making updates to your code. Although not in violation of the DRY principle[^dry], it definitely violates the basic principle of readability and clarity, which makes communication of your analysis more difficult.  To make things more readable, people often move to the following approach...
 
 <u>Multiple Object Option</u>:
 
@@ -290,3 +290,5 @@ Some additional resources regarding `magrittr` and the pipe operators you may fi
 - A [blog post](http://www.r-bloggers.com/simpler-r-coding-with-pipes-the-present-and-future-of-the-magrittr-package/) by Stefan Milton Bache regarding the past, present and future of `magrittr`
 - [`magrittr` questions](http://stackoverflow.com/questions/tagged/magrittr) on Stack Overflow
 - The [`ensurer`](https://cran.r-project.org/web/packages/ensurer/vignettes/ensurer.html) package, also written by [Stefan Milton Bache](https://twitter.com/stefanbache), provides a useful way of verifying and validating data outputs in a sequence of pipe operators.
+
+[^dry]: Don't repeat yourself (DRY) is a software development principle aimed at reducing repetition. Formulated by Andy Hunt and Dave Thomas in their book [The Pragmatic Programmer](http://www.amazon.com/Pragmatic-Programmer-Journeyman-Master/dp/020161622X/ref=sr_1_1?s=books&ie=UTF8&qid=1456066112&sr=1-1&keywords=the+pragmatic+programmer), the DRY principle states that "every piece of knowledge must have a single, unambiguous, authoritative representation within a system." This principle has been widely adopted to imply that you should not duplicate code.  Although the principle was meant to be [far grander](http://www.artima.com/intv/dry.html) than that, there's plenty of merit behind this slight misinterpretation.
