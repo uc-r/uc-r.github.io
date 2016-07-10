@@ -20,7 +20,7 @@ This tutorial will cover how to go from a basic histogram to a more refined, pub
 <br>
 
 ## Replication Requirements {#replication}
-To reproduce the code throughout this tutorial you will need to load the following packages. The primary package of interest is [`ggplot2`](http://ggplot2.org/), which is a plotting system for R. You can build histograms with [base R graphics](http://bradleyboehmke.github.io/tutorials/quickplots#histogram), but when I'm building more refined graphics I lean towards `ggplot2`.
+To reproduce the code throughout this tutorial you will need to load the following packages. The primary package of interest is [`ggplot2`](http://ggplot2.org/), which is a plotting system for R. You can build histograms with [base R graphics](quickplots#histogram), but when I'm building more refined graphics I lean towards `ggplot2`.
 
 
 ```r
@@ -32,7 +32,7 @@ library(gridExtra)      # for generating the bin width comparison plot
 library(ggplot2)        # for generating the visualization
 ```
 
-&#9755; *See [Working with packages](http://bradleyboehmke.github.io/tutorials/basics/packages/) for more information on installing, loading, and getting help with packages.*
+&#9755; *See [Working with packages](packages) for more information on installing, loading, and getting help with packages.*
 
 In addition, for all of my examples I will illustrate with data that was used for Pew Research on [America's shrinking middle class](http://www.pewsocialtrends.org/2016/05/11/americas-shrinking-middle-class-a-close-look-at-changes-within-metropolitan-areas/). You can obtain the data from [here]( http://www.pewsocialtrends.org/files/2016/05/Middle-Class-U.S.-Metro-Areas-5-12-16-Supplementary-Tables.xlsx).  After importing and cleaning up the worksheet a bit the data looks as follows, which includes median income stats for 1999 and 2014 across 229 metro locations across the U.S.
 
