@@ -42,7 +42,7 @@ The key information you will be concerned about is contained in the series ident
 
 I simply call the series identifier in the `blsAPI()` function which pulls the JSON data object.  We can then use the `fromJSON()` function from the `rjson` package to convert to an R data object (a list in this case). You can see that the raw data pull provides a list of 4 items.  The first three provide some metadata info (status, response time, and message if applicable). The data we are concerned about is in the 4th (Results$series$data) list item which contains 31 observations.
 
-{linenos=off}
+
 ```r
 library(rjson)
 library(blsAPI)
@@ -69,10 +69,10 @@ List of 4
   .. .. .. .. ..$ value     : chr "1383"
 ```
 
-One of the inconveniences of an API is we do not get to specify how the data we receive is formatted. This is a minor price to pay considering all the other benefits APIs provide. Once we understand the received data format we can typically re-format using a little [list subsetting](#lists_subset) which we previously covered and looping which we'll cover in a [future chapter](#loop_functions).
+One of the inconveniences of an API is we do not get to specify how the data we receive is formatted. This is a minor price to pay considering all the other benefits APIs provide. Once we understand the received data format we can typically re-format using a little [list subsetting](http://uc-r.github.io/lists_subsetting) and [`for` looping](http://uc-r.github.io/for_loop).
 
 
-{linenos=off}
+
 ```r
 # create empty data frame to fill  
 layoff_df <- data.frame(NULL)
@@ -98,14 +98,14 @@ head(layoff_df)
 #### rnoaa {#rnoaa}
 The [`rnoaa`](https://ropensci.org/tutorials/rnoaa_tutorial.html) package allows users to request climate data from multiple data sets through the [National Climatic Data Center API](http://www.ncdc.noaa.gov/cdo-web/webservices/v2). Unlike `blsAPI`, the `rnoaa` app requires you to have an API key.  To request a key go [here](http://www.ncdc.noaa.gov/cdo-web/token) and provide your email; a key will immediately be emailed to you. 
 
-{linenos=off}
+
 ```r
 key <- "vXTdwNoAVx..." # truncated 
 ```
 
 With the key in hand, we can begin pulling data.  The NOAA provides a comprehensive [metadata library](http://www.ncdc.noaa.gov/homr/reports) to familiarize yourself with the data available. Let's start by pulling all the available NOAA climate stations near my residence. I live in Montgomery county Ohio so we can find all the stations in this county by inserting the [FIPS code](http://www.census.gov/geo/reference/codes/cou.html). Furthermore, I'm interested in stations that provide data for the [`GHCND` data set](https://www.ncdc.noaa.gov/oa/climate/ghcn-daily/) which contains records on numerous daily variables such as "maximum and minimum temperature, total daily precipitation, snowfall, and snow depth; however, about two thirds of the stations report precipitation only." See `?ncdc_stations` for other data sets available via `rnoaa`.
 
-{linenos=off}
+
 ```r
 library(rnoaa)
 
@@ -133,9 +133,9 @@ stations$data
 ##   elevationUnit (chr), longitude (dbl)
 ```
 
-So we see that several stations are available from which to pull data. To actually pull data from one of these stations we need the station ID.  The station I want to pull data from is the Dayton International Airport station.  We can see that this station provides data from 1948-present and I can get the station ID as illustrated. Note that I use some `dplyr` for data manipulation here; we will cover `dplyr` in a later [chapter](#dplyr) but this just illustrates the fact that we received the data via the API.
+So we see that several stations are available from which to pull data. To actually pull data from one of these stations we need the station ID.  The station I want to pull data from is the Dayton International Airport station.  We can see that this station provides data from 1948-present and I can get the station ID as illustrated. Note that I use some `dplyr` for data manipulation here you will learn about in a later [section](dplyr) but this just illustrates the fact that we received the data via the API.
 
-{linenos=off}
+
 ```r
 library(dplyr)
 
@@ -151,7 +151,7 @@ stations$data %>%
 
 To pull all available GHCND data from this station we'll use `ncdc()`.  We simply supply the data to pull, the start and end dates (`ncdc` restricts you to a one year limit), station ID, and your key. We can see that this station provides a full range of data types.
 
-{linenos=off}
+
 ```r
 climate <- ncdc(datasetid='GHCND', 
             startdate = '2015-01-01', 
@@ -180,7 +180,7 @@ climate$data
 
 Since we recently had some snow here let's pull data on snow fall for 2015. We adjust the limit argument (by default `ncdc` limits results to 25) and identify the data type we want.  By sorting we see what days experienced the greatest snowfall (don't worry, the results are reported in mm!).
 
-{linenos=off}
+
 ```r
 snow <- ncdc(datasetid='GHCND', 
             startdate = '2015-01-01', 
@@ -215,7 +215,7 @@ This is just an intro to `rnoaa` as the package offers a slew of data sets to pu
 #### rtimes {#rtimes}
 The [`rtimes`](https://cran.r-project.org/web/packages/rtimes/index.html) package provides an interface to Congress, Campaign Finance, Article Search, and Geographic APIs offered by the New York Times. The data libraries and documentation for the several APIs available can be found [here](http://developer.nytimes.com/docs/). To use the Times' API you'll need to get an API key [here](http://developer.nytimes.com/apps/register).
 
-{linenos=off}
+
 ```r
 article_key <- "4f23572d8..."     # truncated
 cfinance_key <- "ee0b7cef..."     # truncated
@@ -224,7 +224,7 @@ congress_key <- "57b3e8a3..."     # truncated
 
 Lets start by searching NY Times articles. With the presendential elections upon us, we can illustrate by searching the least controversial candidate...Donald Trump. We can see that there are 4,566 article hits for the term "Trump". We can get more information on a particular article by subsetting.
 
-{linenos=off}
+
 ```r
 library(rtimes)
 
@@ -251,7 +251,7 @@ articles$data[3]
 ```
 We can use the campaign finance API and functions to gain some insight into Trumps compaign income and expenditures. The only special data you need is the [FEC ID](http://www.fec.gov/finance/disclosure/candcmte_info.shtml?tabIndex=2) for the candidate of interest.
 
-{linenos=off}
+
 ```r
 trump <- cf_candidate_details(campaign_cycle = 2016, 
                      fec_id = 'P80001571',
@@ -279,7 +279,7 @@ trump$meta
 
 `rtimes` also allows us to gain some insight into what our locally elected officials are up to with the Congress API. First, I can get some informaton on my Senator and then use that information to see if he's supporting my interest. For instance, I can pull the most recent bills that he is co-sponsoring.
 
-{linenos=off}
+
 ```r
 # pull info on OH senator
 senator <- cg_memberbystatedistrict(chamber = "senate", 
@@ -331,14 +331,14 @@ To give you a taste for how the `httr` package works, I'll quickly cover how to 
 #### Key-only API {#key_only}
 To demonstrate how to use the `httr` package for accessing a key-only API, I'll illustrate with the [College Scorecard API](https://api.data.gov/docs/ed/) provided by the Department of Education. First, you'll need to [request your API key](https://api.data.gov/signup/). 
 
-{linenos=off}
+
 ```r
 edu_key <- "fd783wmS3Z..."     # truncated
 ```
 
 We can now proceed to use `httr` to request data from the API with the `GET()` function.  I went to North Dakota State University (NDSU) for my undergrad so I'm interested in pulling some data for this school. I can use the provided [data library](https://collegescorecard.ed.gov/data/documentation/) and [query explanation](https://github.com/18F/open-data-maker/blob/api-docs/API.md) to determine the parameters required.  In this example, the `URL` includes the primary path ("https://api.data.gov/ed/collegescorecard/"), the API version ("v1"), and the endpoint ("schools"). The question mark ("?") at the end of the URL is included to begin the list of query parameters, which only includes my API key and the school of interest.
 
-{linenos=off}
+
 ```r
 library(httr)
 
@@ -353,7 +353,7 @@ This request provides me with every piece of information collected by the U.S. D
 
 The results branch of this list provides information on lat-long location, school identifier codes, some basic info on the school (city, number of branches, school website, accreditor, etc.), and then student data for the years 1997-2013. 
 
-{linenos=off}
+
 ```r
 ndsu_data <- content(ndsu_req)
 
@@ -369,7 +369,7 @@ names(ndsu_data$results[[1]])
 
 To see what kind of student data categories are offered we can assess a single year. You can see that available data includes earnings, academics, student info/demographics, admissions, costs, etc. With such a large data set, which includes many embedded lists, sometimes the easiest way to learn the data structure is to peruse names at different levels. 
 
-{linenos=off}
+
 ```r
 # student data categories available by year
 names(ndsu_data$results[[1]]$`2013`)
@@ -387,9 +387,9 @@ names(ndsu_data$results[[1]]$`2013`$cost$avg_net_price)
 ## [4] "public"              "private"
 ```
 
-So if I'm interested in comparing the rise in cost versus the rise in student debt I can simply subset for this data once I've identified its location and naming structure.  Note that for this subsetting we use the [`magrittr`](#pipe) package and the [`sapply](#apply_family) function; both we cover in later chapters but this is just meant to illustrate the types of data available through this API.
+So if I'm interested in comparing the rise in cost versus the rise in student debt I can simply subset for this data once I've identified its location and naming structure.  Note that for this subsetting we use the [`magrittr`](pipe) package and the [`sapply](apply_family) function; both are covered in more detail in their relevant sections. This is just meant to illustrate the types of data available through this API.
 
-{linenos=off}
+
 ```r
 library(magrittr)
 
@@ -422,7 +422,7 @@ At the outset I mentioned how OAuth is an authorization framework that provides 
 
 I'll demonstrate by accessing the Twitter API using my Twitter account. The first thing we need to do is identify the OAuth endpoints used to request access and authorization. To do this we can use `oauth_endpoint()` which typically requires a *request* URL, *authorization* URL, and *access* URL. `httr` also included some baked-in endpoints to include LinkedIn, Twitter, Vimeo, Google, Facebook, and GitHub. We can see the Twitter endpoints using the following:
 
-{linenos=off}
+
 ```r
 twitter_endpts <- oauth_endpoints("twitter")
 twitter_endpts
@@ -434,7 +434,7 @@ twitter_endpts
 
 Next, I register my application at [https://apps.twitter.com/](https://apps.twitter.com/).  One thing to note is during the registration process, it will ask you for the *callback url*; be sure to use "http://127.0.0.1:1410". Once registered, Twitter will provide you with keys and access tokens. The two we are concerned about are the API key and API Secret.
 
-{linenos=off}
+
 ```r
 twitter_key <- "BZgukbCol..."   # truncated
 twitter_secret <- "YpB8Xy..."   # truncated
@@ -444,7 +444,7 @@ We can then bundle the consumer key and secret into one object with `oauth_app()
 
 We are now ready to ask for access credentials. Since Twitter uses OAuth 1.0 we use `oauth1.0_token()` function and incorporate the endpoints identified and the `oauth_app` object we previously named `twitter_app`.
 
-{linenos=off}
+
 ```r
 twitter_token <- oauth1.0_token(endpoint = twitter_endpts, twitter_app)
 
@@ -458,7 +458,7 @@ Once authentication is complete we can now use the API. I can pull all the tweet
 In this case each tweet is saved as an individual list item and a full range of data are provided for each tweet (i.e. id, text, user, geo location, favorite count, etc). For instance, we can see that the first tweet was by [FiveThirtyEight](http://fivethirtyeight.com/) concerning American politics and, at the time of this analysis, has been favorited by 3 people.
 
 
-{linenos=off}
+
 ```r
 # request Twitter data
 req <- GET("https://api.twitter.com/1.1/statuses/home_timeline.json",
