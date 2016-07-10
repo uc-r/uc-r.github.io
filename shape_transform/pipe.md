@@ -34,9 +34,6 @@ Both functions complete the same task and the benefit of using `%>%` may not be 
 
 
 ```r
-library(magrittr)
-library(dplyr)
-
 arrange(
    summarize(
        group_by(
@@ -82,6 +79,9 @@ This second option helps in making the data wrangling steps more explicit and ob
 
 
 ```r
+library(magrittr)
+library(dplyr)
+
 mtcars %>%
         filter(carb > 1) %>%
         group_by(cyl) %>%
