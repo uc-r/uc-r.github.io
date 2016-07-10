@@ -68,9 +68,9 @@ str(tbls_ls)
 ##   ..$ CumulativeTotal   : int [1:11] 12 108 17 129 15 55 230 107 266 29 ...
 ```
 
-An alternative approach, which is more explicit, is to use the [element selector process described in the previous section](#scraping_specific_nodes) to call the table ID name. 
+An alternative approach, which is more explicit, is to use the [element selector process described in the previous section](http://uc-r.github.io/scraping_HTML_text#scraping_specific_nodes) to call the table ID name. 
 
-{linenos=off}
+
 ```r
 # empty list to add table data to
 tbls2_ls <- list()
@@ -113,7 +113,7 @@ str(tbls2_ls)
 
 One issue to note is when using `rvest`'s `html_table()` to read a table with split column headings as in *Table 2. Nonfarm employment...*.  `html_table` will cause split headings to be included and can cause the first row to include parts of the headings.  We can see this with Table 2.  This requires a little clean up.
 
-{linenos=off}
+
 ```r
 
 head(tbls2_ls[[1]], 4)
@@ -142,7 +142,7 @@ head(tbls2_ls[[1]], 4)
 ### Scraping HTML tables with XML {#scraping_tables_xml}
 An alternative to `rvest` for table scraping is to use the [`XML`](https://cran.r-project.org/web/packages/XML/index.html) package. The XML package provides a convenient `readHTMLTable()` function to extract data from HTML tables in HTML documents.  By passing the URL to `readHTMLTable()`, the data in each table is read and stored as a data frame.  In a situation like our running example where multiple tables exists, the data frames will be stored in a list similar to `rvest`'s `html_table`.
 
-{linenos=off}
+
 ```r
 library(XML)
 
@@ -158,7 +158,7 @@ length(tbls_xml)
 ## [1] 15
 ```
 
-You can see that `tbls_xml` captures the same 15 `<table>` nodes that `html_nodes` captured. To capture the same tables of interest we previously discussed (*Table 2. Nonfarm employment...* and *Table 3. Net birth/death...*) we can use a couple approaches. First, we can assess `str(tbls_xml)` to identify the tables of interest and perform normal [list subsetting](#lists_subset). In our example list items 3 and 4 correspond with our tables of interest.
+You can see that `tbls_xml` captures the same 15 `<table>` nodes that `html_nodes` captured. To capture the same tables of interest we previously discussed (*Table 2. Nonfarm employment...* and *Table 3. Net birth/death...*) we can use a couple approaches. First, we can assess `str(tbls_xml)` to identify the tables of interest and perform normal [list subsetting](http://uc-r.github.io/lists_subsetting). In our example list items 3 and 4 correspond with our tables of interest.
 
 {linenos=off}
 ```r
@@ -184,7 +184,7 @@ head(tbls_xml[[4]], 3)
 
 Second, we can use the `which` argument in `readHTMLTable()` which restricts the data importing to only those tables specified numerically.
 
-{linenos=off}
+
 ```r
 # only parse the 3rd and 4th tables
 emp_ls <- readHTMLTable(url, which = c(3, 4))
@@ -213,9 +213,9 @@ str(emp_ls)
 ##   ..$ CumulativeTotal   : Factor w/ 10 levels "107","108","12",..: 3 2 6 4 ...
 ```
 
-The third option involves explicitly naming the tables to parse.  This process uses the [element selector process described in the previous section](#scraping_specific_nodes) to call the table by name. We use `getNodeSet()` to select the specified tables of interest. However, a key difference here is rather than copying the table ID names you want to copy the XPath.  You can do this with the following: After you've highlighted the table element of interest with the element selector, right click the highlighted element in the developer tools window and select Copy XPath. From here we just use `readHTMLTable()` to convert to data frames and we have our desired tables.
+The third option involves explicitly naming the tables to parse.  This process uses the [element selector process described in the previous section](http://uc-r.github.io/scraping_HTML_text#scraping_specific_nodes) to call the table by name. We use `getNodeSet()` to select the specified tables of interest. However, a key difference here is rather than copying the table ID names you want to copy the XPath.  You can do this with the following: After you've highlighted the table element of interest with the element selector, right click the highlighted element in the developer tools window and select Copy XPath. From here we just use `readHTMLTable()` to convert to data frames and we have our desired tables.
 
-{linenos=off}
+
 ```r
 library(RCurl)
 
@@ -257,7 +257,7 @@ A few benefits of `XML`'s `readHTMLTable` that are routinely handy include:
 
 For instance, if you look at `bls_table2` above notice that because of the split column headings on *Table 2. Nonfarm employment...* `readHTMLTable` stripped and replaced the headings with generic names because R does not know which variable names should align with each column. We can correct for this with the following:
 
-{linenos=off}
+
 ```r
 bls_table2 <- readHTMLTable(tableNodes[[1]], 
                             header = c("CES_Code", "Ind_Title", "Benchmark",
@@ -275,7 +275,7 @@ head(bls_table2)
 
 Also, for `bls_table3` note that the net birth/death values parsed have been converted to factor levels.  We can use the `colClasses` argument to correct this.  
 
-{linenos=off}
+
 ```r
 str(bls_table3)
 ## 'data.frame':	11 obs. of  12 variables:
@@ -312,4 +312,4 @@ str(bls_table3)
 ##  $ CumulativeTotal   : int  12 108 17 129 15 55 230 107 266 29 ...
 ```
 
-Between `rvest` and `XML`, scraping HTML tables is relatively easy once you get fluent with the syntax and the available options.  This section covers just the basics of both these packages to get you moving forward with scraping tables. In the next section we move on to working with application program interfaces (APIs) to get data from the web.
+Between `rvest` and `XML`, scraping HTML tables is relatively easy once you get fluent with the syntax and the available options.  This section covers just the basics of both these packages to get you moving forward with scraping tables. In the [next section](scraping_api) we move on to working with application program interfaces (APIs) to get data from the web.
