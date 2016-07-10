@@ -27,7 +27,7 @@ library(readxl)         # for reading in excel data
 library(ggplot2)        # for generating visualizations
 ```
 
-&#9755; *See [packages) for more information on installing, loading, and getting help with packages.*
+&#9755; *See [Working with packages](packages) for more information on installing, loading, and getting help with packages.*
 
 First, let's read in the data.  The data frame consists of 16 variables, which I illustrate a select few below:
 
