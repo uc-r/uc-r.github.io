@@ -121,17 +121,16 @@ head(long_DF, 24)  # note, for brevity, I only show the data for the first two y
 ## ..   ...  ...     ...     ...
 ```
 
+These all produce the same results:
 
 ```r
-These all produce the same results:
-        DF %>% gather(Quarter, Revenue, Qtr.1:Qtr.4)
-        DF %>% gather(Quarter, Revenue, -Group, -Year)
-        DF %>% gather(Quarter, Revenue, 3:6)
-        DF %>% gather(Quarter, Revenue, Qtr.1, Qtr.2, Qtr.3, Qtr.4)
-
-Also note that if you do not supply arguments for na.rm or convert values then the defaults are used
+DF %>% gather(Quarter, Revenue, Qtr.1:Qtr.4)
+DF %>% gather(Quarter, Revenue, -Group, -Year)
+DF %>% gather(Quarter, Revenue, 3:6)
+DF %>% gather(Quarter, Revenue, Qtr.1, Qtr.2, Qtr.3, Qtr.4)
 ```
 
+Also note that if you do not supply arguments for na.rm or convert values then the defaults are used.
 
 
 <br>
@@ -210,11 +209,11 @@ head(separate_DF, 10)
 ## 10     3 2007           Qtr           1      13
 ```
 
+These produce the same results:
 
 ```r
-These produce the same results:
-        long_DF %>% separate(Quarter, c("Time_Interval", "Interval_ID"))
-        long_DF %>% separate(Quarter, c("Time_Interval", "Interval_ID"), sep = "\\.")
+long_DF %>% separate(Quarter, c("Time_Interval", "Interval_ID"))
+long_DF %>% separate(Quarter, c("Time_Interval", "Interval_ID"), sep = "\\.")
 ```
 
 
@@ -265,13 +264,13 @@ head(unite_DF, 10)
 ## 10     3 2007   Qtr.1      13
 ```
 
+These produce the same results:
 
 ```r
-# These produce the same results:
-        separate_DF %>% unite(Quarter, Time_Interval, Interval_ID, sep = "_")
-        separate_DF %>% unite(Quarter, Time_Interval, Interval_ID)
+separate_DF %>% unite(Quarter, Time_Interval, Interval_ID, sep = "_")
+separate_DF %>% unite(Quarter, Time_Interval, Interval_ID)
 
-If no spearator is identified, "_" will automatically be used
+# If no spearator is identified, "_" will automatically be used
 ```
 
 
