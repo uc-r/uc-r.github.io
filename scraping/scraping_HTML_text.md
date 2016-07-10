@@ -187,13 +187,15 @@ However, if we are concerned only with specific content on the webpage then we n
 
 Once the developer's tools are opened your primary concern is with the element selector. This is located in the top lefthand corner of the developers tools window. 
 
-![Developer Tools: Element Selector](images/element_selector.jpg)
-
+<center>
+<img src="/public/images/scraping_data/element_selector.jpg" alt="Developer Tools: Element Selector" vspace="25">
+</center> 
 
 Once you've selected the element selector you can now scroll over the elements of the webpage which will cause each element you scroll over to be highlighted.  Once you've identified the element you want to focus on, select it. This will cause the element to be identified in the developer tools window. For example, if I am only interested in the main body of the Web Scraping content on the Wikipedia page then I would select the element that highlights the entire center component of the webpage.  This highlights the corresponding element `<div id="bodyContent" class="mw-body-content">` in the developer tools window as the following illustrates.
 
-![Selecting Content of Interest](images/body_content_selected.png)
-
+<center>
+<img src="/public/images/scraping_data/body_content_selected.png" alt="Selecting Content of Interest" vspace="25">
+</center> 
 
 I can now use this information to select and scrape all the text from this specific `<div>` node by calling the ID name ("#mw-content-text") in `html_nodes()`[^selector2].  As you can see below, the text that is scraped begins with the first line in the main body of the Web Scraping content and ends with the text in the [See Also](https://en.wikipedia.org/wiki/Web_scraping#See_also_2) section which is the last bit of text directly pertaining to Web Scraping on the webpage. Explicitly, we have pulled the specific text associated with the web content we desire.
 
@@ -299,3 +301,7 @@ body_text %>%
 
 
 So there we have it, text scraping in a nutshell.  Although not all encompassing, this section covered the basics of scraping text from HTML documents. Whether you want to scrape text from all common text-containing nodes such as `<div>`, `<p>`, `<ul>` and the like or you want to scrape from a specific node using the specific ID, this section provides you the basic fundamentals of using `rvest` to scrape the text you need. In the next section we move on to scraping data from HTML tables.
+
+[^fn_scrap1]: In [Automated Data Collection with R](http://www.amazon.com/Automated-Data-Collection-Practical-Scraping/dp/111883481X/ref=pd_sim_14_1?ie=UTF8&dpID=51Tm7FHxWBL&dpSrc=sims&preST=_AC_UL160_SR108%2C160_&refRID=1VJ1GQEY0VCPZW7VKANX") Munzert et al. state that "[t]he first way to get data from the web is almost too banal to be considered here and actually not a case of web scraping in the narrower sense."
+
+[^fn_scrap2]: An example is provided in [Automated Data Collection with R](http://www.amazon.com/Automated-Data-Collection-Practical-Scraping/dp/111883481X/ref=pd_sim_14_1?ie=UTF8&dpID=51Tm7FHxWBL&dpSrc=sims&preST=_AC_UL160_SR108%2C160_&refRID=1VJ1GQEY0VCPZW7VKANX") in which they use a similar approach to extract desired CSV files scattered throughout the [Maryland State Board of Elections websiteMaryland State Board of Elections website](http://www.elections.state.md.us/elections/2012/election_data/index.html).
