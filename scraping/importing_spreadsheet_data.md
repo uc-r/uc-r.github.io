@@ -47,7 +47,7 @@ rents[1:6, 1:10]
 ## 6 101199999 101199999  599  481  505  791 1061     11     1  99999
 ```
 
-Note that many of the arguments covered in the [Importing Data chapter](#excel) (i.e. specifying sheets to read from, skipping lines) also apply to `read.xls()`. In addition, `gdata` provides some useful functions (`sheetCount()` and `sheetNames()`) for identifying if multiple sheets exist prior to downloading.
+Note that many of the arguments covered in the [Importing Data chapter](http://uc-r.github.io/import_excel_files) (i.e. specifying sheets to read from, skipping lines) also apply to `read.xls()`. In addition, `gdata` provides some useful functions (`sheetCount()` and `sheetNames()`) for identifying if multiple sheets exist prior to downloading.
 
 Another common form of file storage is using zip files.  For instance, the [Bureau of Labor Statistics](http://www.bls.gov/home.htm) (BLS) stores their [public-use microdata](http://www.bls.gov/cex/pumdhome.htm) for the [Consumer Expenditure Survey](http://www.bls.gov/cex/home.htm) in .zip files.  We can use `download.file()` to download the file to your working directory and then work with this data as desired.
 
@@ -209,3 +209,5 @@ These examples provide the basics required for downloading most tabular and Exce
 <hr>
 
 [^fn_scrap1]: In [Automated Data Collection with R](http://www.amazon.com/Automated-Data-Collection-Practical-Scraping/dp/111883481X/ref=pd_sim_14_1?ie=UTF8&dpID=51Tm7FHxWBL&dpSrc=sims&preST=_AC_UL160_SR108%2C160_&refRID=1VJ1GQEY0VCPZW7VKANX") Munzert et al. state that "[t]he first way to get data from the web is almost too banal to be considered here and actually not a case of web scraping in the narrower sense."
+
+[^fn_scrap2]: An example is provided in [Automated Data Collection with R](http://www.amazon.com/Automated-Data-Collection-Practical-Scraping/dp/111883481X/ref=pd_sim_14_1?ie=UTF8&dpID=51Tm7FHxWBL&dpSrc=sims&preST=_AC_UL160_SR108%2C160_&refRID=1VJ1GQEY0VCPZW7VKANX") in which they use a similar approach to extract desired CSV files scattered throughout the [Maryland State Board of Elections websiteMaryland State Board of Elections website](http://www.elections.state.md.us/elections/2012/election_data/index.html).
