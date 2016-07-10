@@ -510,7 +510,6 @@ Dataframe "y":
 ## 5  Brian FALSE
 ```
 
-<br>
 
 `inner_join()`: Include only rows in both x and y that have a matching value
 
@@ -524,7 +523,7 @@ inner_join(x,y)
 ## 4  Ringo      drums TRUE
 ```
 
-<br>
+
 
 `left_join()`: Include all of x, and matching rows of y
 
@@ -540,7 +539,7 @@ left_join(x,y)
 ## 6   Pete      drums <NA>
 ```
 
-<br>
+
 
 `semi_join()`: Include rows of x that match y but only keep the columns from x
 
@@ -554,7 +553,7 @@ semi_join(x,y)
 ## 4  Ringo      drums
 ```
 
-<br>
+
 
 `anti_join()`: Opposite of semi_join
 
@@ -605,7 +604,7 @@ If we go back to our previous **join.exp** dataframe, remember that we joined in
 ## 6        8   Colorado 2007     6579053 207.342 0.9030811
 ```
 
-If we wanted to adjust our annual expenditures for inflation we can use `mutate()` to create a new inflation adjusted cost variable which we'll name *Adj_Exp*:
+If we wanted to adjust our annual expenditures for inflation we can use `mutate()` to create a new inflation adjusted cost variable which we'll name *inflation_adj*:
 
 ```r
 inflation_adj <- join.exp %>% mutate(Adj_Exp = Expenditure/Inflation)
