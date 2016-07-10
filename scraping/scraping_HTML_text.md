@@ -188,13 +188,13 @@ However, if we are concerned only with specific content on the webpage then we n
 Once the developer's tools are opened your primary concern is with the element selector. This is located in the top lefthand corner of the developers tools window. 
 
 <center>
-<img src="/public/images/scraping_data/element_selector.jpg" alt="Developer Tools: Element Selector" vspace="25">
+<img src="/public/images/scraping_html_text/element_selector.jpg" alt="Developer Tools: Element Selector" vspace="25">
 </center> 
 
 Once you've selected the element selector you can now scroll over the elements of the webpage which will cause each element you scroll over to be highlighted.  Once you've identified the element you want to focus on, select it. This will cause the element to be identified in the developer tools window. For example, if I am only interested in the main body of the Web Scraping content on the Wikipedia page then I would select the element that highlights the entire center component of the webpage.  This highlights the corresponding element `<div id="bodyContent" class="mw-body-content">` in the developer tools window as the following illustrates.
 
 <center>
-<img src="/public/images/scraping_data/body_content_selected.png" alt="Selecting Content of Interest" vspace="25">
+<img src="/public/images/scraping_html_text/body_content_selected.png" alt="Selecting Content of Interest" vspace="25">
 </center> 
 
 I can now use this information to select and scrape all the text from this specific `<div>` node by calling the ID name ("#mw-content-text") in `html_nodes()`[^selector2].  As you can see below, the text that is scraped begins with the first line in the main body of the Web Scraping content and ends with the text in the [See Also](https://en.wikipedia.org/wiki/Web_scraping#See_also_2) section which is the last bit of text directly pertaining to Web Scraping on the webpage. Explicitly, we have pulled the specific text associated with the web content we desire.
