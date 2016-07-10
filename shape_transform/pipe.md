@@ -96,7 +96,7 @@ mtcars %>%
 ## 3     8   15.10
 ```
 
-This final option which integrates `%>%` operators makes for more efficient *and* legible code. Its efficient in that it doesn't save unncessary objects (as in option 2) and performs as effectively (as both option 1 & 2) but makes your code more readable in the process. Its legible in that you can read this as you would read normal prose (we read the `%>%` as *"and then"*)- "take `mtcars` *and then* `filter` *and then* `group by` *and then* `summarize` *and then* `arrange`."
+This final option which integrates `%>%` operators makes for more efficient *and* legible code. Its efficient in that it doesn't save unncessary objects (as in option 2) and performs as effectively (as both option 1 & 2) but makes your code more readable in the process. Its legible in that you can read this as you would read normal prose (we read the `%>%` as *"and then"*): "take `mtcars` *and then* `filter` *and then* `group by` *and then* `summarize` *and then* `arrange`."
 
 And since R is a functional programming language, meaning that everything you do is basically built on functions, you can use the pipe operator to feed into just about any argument call. For example, we can pipe into a linear regression function and then get the summary of the regression parameters. Note in this case I insert "`data = .`" into the `lm()` function. When using the `%>%` operator the default is the argument that you are forwarding will go in as the **first** argument of the function that follows the `%>%`.  However, in some functions the argument you are forwarding does not go into the default first position. In these cases, you place "." to signal which argument you want the forwarded expression to go to.
 
@@ -140,7 +140,7 @@ mtcars %>%
 <img src="/public/images/dataWrangling/unnamed-chunk-5-1.png" alt="Pipe into a plot" align="middle" vspace="25">
 
 
-You will also find that the `%>%` operator is now being built into packages to make programming much easier.  For instance, in the tutorials where I illustrate how to [reshape](http://bradleyboehmke.github.io/tutorials/tidyr) and [transform](http://bradleyboehmke.github.io/tutorials/dplyr) your data with the `dplyr` and `tidyr` packages, you will see that the `%>%` operator is already built into these packages. It is also built into the `ggvis` and `dygraphs` packages (visualization packages), the `httr` package (which I covered in the [data scraping tutorials](http://bradleyboehmke.github.io/tutorials/scraping_data)), and a growing number of newer packages.
+You will also find that the `%>%` operator is now being built into packages to make programming much easier.  For instance, in the tutorials where I illustrate how to [reshape](tidyr) and [transform](dplyr) your data with the `dplyr` and `tidyr` packages, you will see that the `%>%` operator is already built into these packages. It is also built into the `ggvis` and `dygraphs` packages (visualization packages), the `httr` package (which I covered in the [data scraping tutorials](http://uc-r.github.io/scraping)), and a growing number of newer packages.
 
 <br>
 
