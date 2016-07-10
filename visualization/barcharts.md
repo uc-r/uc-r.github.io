@@ -261,7 +261,7 @@ p2 <- ggplot(avg_mpg, aes(factor(cyl), mpg, fill = factor(am))) +
 grid.arrange(p1, p2, ncol = 2)
 ```
 
-&#9755; *See [Tidy & transform your data](http://bradleyboehmke.github.io/tutorials/data_wrangling) for more information on data transformation with the dplyr package.*
+&#9755; *See the [`dplyr` tutorial](dplyr) for more information on data transformation with the dplyr package.*
 
 <img src="/public/images/visual/barcharts/unnamed-chunk-12-1.png" style="display: block; margin-top:20px; margin-bottom: 20px;" />
 
@@ -304,7 +304,7 @@ ggplot(avg_mpg, aes(factor(cyl), mpg, fill = factor(am))) +
 <img src="/public/images/visual/barcharts/unnamed-chunk-14-1.png" style="display: block; margin-top:20px; margin-bottom: 20px;" />
 </center>
 
-Unfortunately, the way ggplot color codes the bars is opposite to how the colors are displayed in the legend. We can resolve this two different ways; either reverse the legend with the arguments displayed in the `guides()` function in Fig A. or [specify the direction of the levels](http://bradleyboehmke.github.io/tutorials/factors#order) when transforming the transmission (`am`) variable into a factor as displayed in the first line of code in Fig B. Both will align the legend color coding layout to the color coding of the stacked bars but each option also helps determine which color is top versus on the bottom.
+Unfortunately, the way ggplot color codes the bars is opposite to how the colors are displayed in the legend. We can resolve this two different ways; either reverse the legend with the arguments displayed in the `guides()` function in Fig A. or [specify the direction of the levels](http://uc-r.github.io/factor_levels/) when transforming the transmission (`am`) variable into a factor as displayed in the first line of code in Fig B. Both will align the legend color coding layout to the color coding of the stacked bars but each option also helps determine which color is top versus on the bottom.
 
 
 ```r
@@ -372,7 +372,7 @@ ggplot(proportion, aes(factor(cyl), pct, fill = factor(am, levels = c(1, 0)))) +
         labs(fill = "AM")
 ```
 
-&#9755; *See [Tidy & transform your data](http://bradleyboehmke.github.io/tutorials/data_wrangling) for more information on data transformation with the dplyr package.*
+&#9755; *See the [`dplyr` tutorial](dplyr) for more information on data transformation with the dplyr package.*
 
 <center>
 <img src="/public/images/visual/barcharts/unnamed-chunk-17-1.png" style="display: block; margin-top:20px; margin-bottom: 20px;" />
@@ -419,7 +419,7 @@ ggplot(cars, aes(reorder(Make, mpg), mpg, fill = ID)) +
         theme(legend.position = "none")
 ```
 
-&#9755; *See [Tidy & transform your data](http://bradleyboehmke.github.io/tutorials/data_wrangling) for more information on data transformation with the dplyr package.*
+&#9755; *See the [`dplyr` tutorial](dplyr) for more information on data transformation with the dplyr package.*
 
 <center>
 <img src="/public/images/visual/barcharts/unnamed-chunk-19-1.png" style="display: block; margin-top:20px; margin-bottom: 20px;" />
@@ -461,7 +461,7 @@ ggplot(proportion, aes(factor(cyl), pct, fill = factor(am, levels = c(1, 0)))) +
         labs(fill = "AM")
 ```
 
-&#9755; *See [Tidy & transform your data](http://bradleyboehmke.github.io/tutorials/data_wrangling) for more information on data transformation with the dplyr package.*
+&#9755; *See the [`dplyr` tutorial](dplyr) for more information on data transformation with the dplyr package.*
 
 <center>
 <img src="/public/images/visual/barcharts/unnamed-chunk-21-1.png" style="display: block; margin-top:20px; margin-bottom: 20px;" />
@@ -493,7 +493,7 @@ dayton
 ## 6 Dayton, OH  Upper 2014 0.2035
 ```
 
-&#9755; *See [Tidy & transform your data](http://bradleyboehmke.github.io/tutorials/data_wrangling) for more information on data transformation and reshaping with the dplyr and tidyr packages.*
+&#9755; *See the [`dplyr` tutorial](dplyr) for more information on data transformation with the dplyr package.*
 
 We can now create our basic bar chart that is a side-by-side comparison.
 
