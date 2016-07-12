@@ -9,3 +9,5 @@ permalink: /a_bootcamp
 
 More info coming soon!
 
+
+[uc-r.github.io/bootcamp/get-data.html](uc-r.github.io/bootcamp/get-data.html)
