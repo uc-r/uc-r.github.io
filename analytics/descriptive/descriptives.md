@@ -10,4 +10,4 @@ Descriptive methodologies focus on analyzing historic data for the purpose of id
 - [Categorical data descriptive statistics](descriptives_categorical)
 - [Assumption of normality](assumptions_normality)
 - [Assumption of homogeneity](assumptions_homogeneity)
-- Assessing correlations
+- [Assessing correlations](correlations)
