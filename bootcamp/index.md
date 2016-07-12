@@ -21,7 +21,7 @@ permalink: /r_bootcamp
 
 * Time: TBD
 * Location: TBD
-* Webpage: [http://uc-r.github.io/bootcamp](http://uc-r.github.io/bootcamp)
+* Webpage: [http://uc-r.github.io/r_bootcamp](http://uc-r.github.io/r_bootcamp)
 * Additional Resources: [http://uc-r.github.io/](http://uc-r.github.io/)
 
 ### Course Description 
