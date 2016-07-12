@@ -15,12 +15,12 @@ This short course provides an intensive, hands-on introduction to the R programm
 Upon successfully completing this course, students will:
 
 - Be up and running with R
-- Understand the different types of data
-- Understand the different data structures
-- Be able Import data
-- Perform basic data wrangling activities
-- Compute basic descriptive statistics
-- Visualize their data
+- Understand the different types of data R can work with
+- Understand the different structures in which R holds data
+- Be able Import data into R
+- Perform basic data wrangling activities with R
+- Compute basic descriptive statistics with R
+- Visualize their data with base R and ggplot graphics
 
 
 ### Structure of Class Time 
@@ -35,7 +35,7 @@ The two in-class sessions will consist of both lectures, live coding by the inst
 | Session  | Description  |  Resources  | 
 |:---:|---|:---:|
 | #1  | Introduction & Getting started with R  | [slides](), [code script](code/day_1.R) |
-| #2  | Getting data into R | [<i class="fa fa-file-powerpoint-o" aria-hidden="true"></i>](bootcamp/gettingdata) &nbsp; [<i class="fa fa-file-code-o" aria-hidden="true"></i>]() |
+| #2  | Getting data into R | <a href="bootcamp/gettingdata" style="color:black;"><i class="fa fa-file-powerpoint-o" aria-hidden="true"></i></a> &nbsp; [<i class="fa fa-file-code-o" aria-hidden="true"></i>]() |
 
 
 
