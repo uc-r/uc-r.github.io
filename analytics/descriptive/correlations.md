@@ -28,7 +28,7 @@ This tutorial serves as an introduction to assessing correlation between variabl
 This tutorial leverages the following packages:
 
 
-{% highlight r %}
+```r
 library(readxl)         # reading in data
 library(ggplot2)        # visualizing data
 library(gridExtra)      # combining multiple plots
@@ -36,7 +36,7 @@ library(corrgram)       # visualizing data
 library(corrplot)       # visualizing data       
 library(Hmisc)          # produces correlation matrices with p-values
 library(ppcor)          # assesses partial correlations
-{% endhighlight %}
+```
 
 To illustrate ways to visualize correlation and compute the statistics, I will demonstrate with some [golf data](https://www.dropbox.com/s/t8uxau3sanra2f0/Golf%20Stats.xlsx?dl=0) provided by [ESPN](http://espn.go.com/golf/statistics) and also with some artifical [survey data](https://www.dropbox.com/s/2ahf1ixgm97la5s/Survey_Results.xlsx?dl=0). The golf data has 18 variables, which you can see the first 9 below; and the survey data has 11.
 
