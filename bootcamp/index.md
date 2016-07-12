@@ -37,7 +37,6 @@ The two in-class sessions will consist of both lectures, live coding by the inst
 | #1  | Introduction & Getting started with R  | [slides]()  [code script](code/day_1.R) |
 | #2 | Getting data into R | [slides](bootcamp/gettingdata) [code script]() |
 
-|---|---|---|
 
 
 
