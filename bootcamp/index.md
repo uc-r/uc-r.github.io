@@ -10,4 +10,4 @@ permalink: /a_bootcamp
 More info coming soon!
 
 
-[Test](https://github.com/uc-r/bootcamp/getting_data/#1)
+[Test](bootcamp/gettingdata)
