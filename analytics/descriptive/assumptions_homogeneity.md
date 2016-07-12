@@ -76,7 +76,7 @@ In figure 2, however, the variance appears to increase as the number of events p
 ggplot(golf, aes(x = Events, y = Birdies)) +
         geom_point() +
         geom_smooth(method = "lm", se = FALSE) +
-         ggtitle("Figure 2: Birdies versus Number of Events Played")
+        ggtitle("Figure 2: Birdies versus Number of Events Played")
 ```
 
 <img src="/public/images/analytics/homogeneity/unnamed-chunk-5-1.png" style="display: block; margin: auto;" />
@@ -87,7 +87,7 @@ An alternative vizualization is the boxplot. This is commonly used to compare gr
 ```r
 ggplot(golf, aes(x = factor(Wins), y = Birdies)) +
         geom_boxplot() +
-         ggtitle("Number of Birdies by Number of Tournaments Won")
+        ggtitle("Number of Birdies by Number of Tournaments Won")
 ```
 
 <img src="/public/images/analytics/homogeneity/unnamed-chunk-6-1.png" style="display: block; margin: auto;" />
@@ -129,7 +129,7 @@ bartlett.test(golf$Birdies, golf$Wins)
 <br>
 
 ## Levene's Test {#levene}
-The Levene's test is slightly more robust to departures from normality than the Bartlett's test. Levene's performs a one-way ANOVA conducted on the deviation scores; that is, the absolute difference between each score and the mean of the group from which it came.[^glass]  To test, we use `leveneTest()` from the `car` package. By default `leveneTest()` will test variance around the median but you can override this by using the `center = mean` argument. In the tests below, we see that both tests have $p < 0.1$ and the first test (testing variance around the median) has a $p < 0.05$. This differs from the results from the Bartlett test above, likely because of non-normality in our data.
+The Levene's test is slightly more robust to departures from normality than the Bartlett's test. Levene's performs a one-way ANOVA conducted on the deviation scores; that is, the absolute difference between each score and the mean of the group from which it came.[^glass]  To test, we use `leveneTest()` from the `car` package. By default `leveneTest()` will test variance around the median but you can override this by using the `center = mean` argument. In the tests below, we see that both tests have *p < 0.1* and the first test (testing variance around the median) has a *p < 0.05*. This differs from the results from the Bartlett test above, likely because of non-normality in our data.
 
 
 ```r
