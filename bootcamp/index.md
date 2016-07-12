@@ -7,6 +7,23 @@ layout: page
 permalink: /a_bootcamp
 ---
 
+### Instructors
+
+  * [Brad Boehmke](http://bradleyboehmke.github.io/)
+
+
+### TAs
+
+  * TBD
+  * TBD
+
+### Class Information
+
+* Time: TBD
+* Location: TBD
+* Webpage: [http://uc-r.github.io/bootcamp](http://uc-r.github.io/bootcamp)
+* Additional Resources: [http://uc-r.github.io/](http://uc-r.github.io/)
+
 ### Course Description 
 
 This short course provides an intensive, hands-on introduction to the R programming language to provide students with the fundamental programming skills required to start their journey to becoming a modern day data analyst.
