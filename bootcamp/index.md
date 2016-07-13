@@ -51,7 +51,7 @@ The two in-class sessions will consist of both lectures, live coding by the inst
 
 | Session  | Description  |  Resources  | 
 |:---:|---|:---:|
-| 1 | Introduction & Getting started with R  | <a href="" style="color:black;"><i class="fa fa-file-powerpoint-o" aria-hidden="true"></i></a> &nbsp; <a href="code/day_1.R" style="color:black;"><i class="fa fa-file-code-o" aria-hidden="true"></i></a> |
+| 1 | Introduction & Getting started with R  | <a href="bootcamp/introduction" style="color:black;"><i class="fa fa-file-powerpoint-o" aria-hidden="true"></i></a> &nbsp; <a href="code/day_1.R" style="color:black;"><i class="fa fa-file-code-o" aria-hidden="true"></i></a> |
 | 2  | Importing text and Excel data into R | <a href="bootcamp/gettingdata" style="color:black;"><i class="fa fa-file-powerpoint-o" aria-hidden="true"></i></a> &nbsp; <a href="code/day_1.R" style="color:black;"><i class="fa fa-file-code-o" aria-hidden="true"></i></a> |
 | 3  | Understanding the primary data structures that R uses to hold your data | <a href="" style="color:black;"><i class="fa fa-file-powerpoint-o" aria-hidden="true"></i></a> &nbsp; <a href="" style="color:black;"><i class="fa fa-file-code-o" aria-hidden="true"></i></a> |
 | 4  | Understanding the basics of working with different types of data | <a href="" style="color:black;"><i class="fa fa-file-powerpoint-o" aria-hidden="true"></i></a> &nbsp; <a href="" style="color:black;"><i class="fa fa-file-code-o" aria-hidden="true"></i></a> |
