@@ -106,7 +106,6 @@
       <h1 data-config-title><!-- populated from slide_config.json --></h1>
       <h2 data-config-subtitle><!-- populated from slide_config.json --></h2>
       <p data-config-presenter><!-- populated from slide_config.json --></p>
-            <p style="margin-top: 6px; margin-left: -2px;">August 6, 2016</p>
           </hgroup>
   </slide>
 
@@ -203,22 +202,6 @@ state.region</pre>
 
 <p><code>2.</code> What is this data measuring? </font></p>
 
-</article></slide><slide class=''><hgroup><h2>Solution</h2></hgroup><article  id="solution" class="smaller ">
-
-<p><br> <br></p>
-
-<p><code>1.</code> Load the <code>iris</code> data set</p>
-
-<pre class = 'prettyprint lang-r'>data(iris)</pre>
-
-<p><br></p>
-
-<p><code>2.</code> What is this data measuring?</p>
-
-<pre class = 'prettyprint lang-r'>?iris</pre>
-
-<p>Description from the help screen: &quot;This famous (Fisher&#39;s or Anderson&#39;s) iris data set gives the measurements in centimeters of the variables sepal length and width and petal length and width, respectively, for 50 flowers from each of 3 species of iris. The species are Iris setosa, versicolor, and virginica.&quot;</p>
-
 </article></slide><slide class='segue dark nobackground'><hgroup class = 'auto-fadein'><h2>Importing Text Files</h2></hgroup><article  id="importing-text-files" class="smaller ">
 
 </article></slide><slide class=''><hgroup><h2>Importing Text Files </h2><h3> .csv .txt .tsv</h3></hgroup><article  id="importing-text-files-.csv-.txt-.tsv" class="smaller ">
@@ -300,20 +283,6 @@ mydata
 
 <p><font size="10"> <code>3.</code> Take a peek at what this data looks like </font></p>
 
-</article></slide><slide class=''><hgroup><h2>Solution</h2></hgroup><article  id="solution-1" class="smaller ">
-
-<p><br> <br></p>
-
-<p><code>1</code> &amp; <code>2</code>: Read in the <code>facebook.tsv</code> file and save as <code>facebook</code></p>
-
-<pre class = 'prettyprint lang-r'>facebook &lt;- read.delim(&quot;data/facebook.tsv&quot;)</pre>
-
-<p><br></p>
-
-<p><code>3.</code>: Take a peek at what this data looks like</p>
-
-<pre class = 'prettyprint lang-r'>View(facebook)</pre>
-
 </article></slide><slide class='segue dark nobackground'><hgroup class = 'auto-fadein'><h2>Importing Excel Files</h2></hgroup><article  id="importing-excel-files" class="smaller ">
 
 </article></slide><slide class=''><hgroup><h2>Importing Excel Files</h2></hgroup><article  id="importing-excel-files-1" class="smaller ">
@@ -356,20 +325,6 @@ read_excel(&quot;data/mydata.xlsx&quot;, sheet = &quot;Sheet5&quot;)
 
 <p><strong>Hint:</strong> You will need to skip 5 lines ☛ check out the help file on <code>read_excel</code> to do this</p>
 
-</article></slide><slide class=''><hgroup><h2>Solution</h2></hgroup><article  id="solution-2" class="smaller ">
-
-<p><br> <br></p>
-
-<p><code>1</code> &amp; <code>2</code>: Read in the <code>.xlsx</code> file and save as <code>pew</code></p>
-
-<pre class = 'prettyprint lang-r'>pew &lt;- read_excel(&quot;data/PEW Middle Class Data.xlsx&quot;, sheet = &quot;3. Median HH income, metro&quot;, skip = 5)</pre>
-
-<p><br></p>
-
-<p><code>3</code>: Take a peek at what this data looks like</p>
-
-<pre class = 'prettyprint lang-r'>View(pew)</pre>
-
 </article></slide><slide class='segue dark nobackground'><hgroup class = 'auto-fadein'><h2>Scraping Online Files</h2></hgroup><article  id="scraping-online-files" class="smaller ">
 
 </article></slide><slide class=''><hgroup><h2>Scraping Online Files </h2><h3> Tabular files</h3></hgroup><article  id="scraping-online-files-tabular-files" class="smaller ">
@@ -377,7 +332,7 @@ read_excel(&quot;data/mydata.xlsx&quot;, sheet = &quot;Sheet5&quot;)
 <ul>
 <li>Dense subject with <em>LOTS</em> to learn</li>
 <li>We&#39;ll only focus on reading in tabular and Excel files stored online</li>
-<li>For more info regarding &quot;real web scraping&quot; see the tutorial at: UC-R.github.io/&#8230;</li>
+<li>For more info regarding &quot;real web scraping&quot; see the tutorial at: <a href='uc-r.github.io/scraping' title=''>uc-r.github.io/scraping</a></li>
 </ul>
 
 <p><br></p>
@@ -427,24 +382,6 @@ View(data_gov)</pre>
 <p><br></p>
 
 <p><font size="7"> <code>3.</code> Take a peek at what this data looks like </font></p>
-
-</article></slide><slide class=''><hgroup><h2>Solution</h2></hgroup><article  id="solution-3" class="smaller ">
-
-<p><br> <br></p>
-
-<p><code>1.</code> Download the file stored at: bradleyboehmke.github.io/public/data/reddit.csv</p>
-
-<p><code>2.</code> Save it as an object titled <code>reddit</code></p>
-
-<pre class = 'prettyprint lang-r'>url &lt;- &quot;https://bradleyboehmke.github.io/public/data/reddit.csv&quot;
-
-reddit &lt;- read.csv(url)</pre>
-
-<p><br></p>
-
-<p><code>3.</code> Take a peek at what this data looks like</p>
-
-<pre class = 'prettyprint lang-r'>View(reddit)</pre>
 
 </article></slide><slide class='segue dark nobackground'><hgroup class = 'auto-fadein'><h2>Key Things to Remember</h2></hgroup><article  id="key-things-to-remember" class="smaller ">
 
