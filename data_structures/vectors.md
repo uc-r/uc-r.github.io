@@ -259,7 +259,7 @@ v1[c("a", "c", "h")]
 ```
 
 ### Simplifying vs. Preserving {#vector_simplify}
-Its also important to understand the difference between simplifying and preserving when subsetting.  **Simplifying** subsets returns the simplest possible data structure that can represent the output. **Preserving** subsets keeps the structure of the output the same as the input[^preserve_simplify].
+Its also important to understand the difference between simplifying and preserving when subsetting.  **Simplifying** subsets returns the simplest possible data structure that can represent the output. **Preserving** subsets keeps the structure of the output the same as the input.[^preserve_simplify]
 
 For vectors, subsetting with single brackets `[ ]` preserves while subsetting with double brackets `[[ ]]` simplifies.  The change you will notice when simplifying vectors is the removal of names.
 
