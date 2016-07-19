@@ -1,5 +1,5 @@
 ---
-layout: tutorial
+layout: page
 title: Simplify Your Code with %>%
 permalink: /pipe
 ---
