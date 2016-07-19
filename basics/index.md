@@ -27,7 +27,7 @@ Throughout this website you'll learn much of the fundamental syntax and semantic
 ## Installing R & RStudio {#installation}
 
 
-### Installing <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/R_logo.svg/724px-R_logo.svg.png" style="width:50px;height:50px;">
+### <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/R_logo.svg/724px-R_logo.svg.png" style="width:50px;height:50px;">
 Download and install R, [a free software environment for statistical computing and graphics](https://www.r-project.org/) from [CRAN](https://cran.rstudio.com/), the Comprehensive R Archive Network. It is highly recommended to install a precompiled binary distribution for your operating system; follow these instructions:
 
 1. Go to [https://cran.r-project.org/](https://cran.r-project.org/)
@@ -37,7 +37,7 @@ Download and install R, [a free software environment for statistical computing a
     - Mac users select the file R-3.X.X.pkg that aligns with your OS version
 4. Follow the instructions of the installer.
 
-### Installing <img src="https://upload.wikimedia.org/wikipedia/en/f/f0/RStudio_logo.png" style="width:15%;height:15%;">
+### <img src="https://upload.wikimedia.org/wikipedia/en/f/f0/RStudio_logo.png" style="width:15%;height:15%;">
 Install RStudio's IDE (stands for integrated development environment), a powerful user interface for R. RStudio includes a text editor, so you do not have to install another stand-alone editor. Follow these instructions:
 
 1. Go to RStudio for desktop [https://www.rstudio.com/products/rstudio/download/](https://www.rstudio.com/products/rstudio/download/)
@@ -47,7 +47,7 @@ Install RStudio's IDE (stands for integrated development environment), a powerfu
 There are other R IDE's available: [Emacs](https://www.gnu.org/software/emacs/), [Microsoft R Open](http://revolutionanalytics.com/microsoft-r-open), [Notepad++](https://notepad-plus-plus.org/), etc; however, I have found RStudio to be my preferred route. When you are done installing RStudio click on the icon that looks like:
 
 <center>
-<img src="https://www.rstudio.com/wp-content/uploads/2014/06/RStudio-Ball.png" style="width:100px;height:100px;">
+<img src="https://www.rstudio.com/wp-content/uploads/2014/06/RStudio-Ball.png" style="width:150px;height:150px;">
 </center>
 
 and you should get a window that looks like the following:
