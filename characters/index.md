@@ -607,7 +607,7 @@ identical(set_6, set_8)
 ## [1] TRUE
 ```
 
-### Identifying if Elements are Contained in a String {#hset6}
+### Identifying if Elements are Contained in a String {#seth6}
 To test if an element is contained within a character vector use `is.element()` or `%in%`:
 
 
