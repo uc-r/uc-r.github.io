@@ -15,8 +15,8 @@ A computer language is described by its *syntax* and *semantics*; where syntax i
 Throughout this website you'll learn much of the fundamental syntax and semantics of the R programming language; and hopefully with minimal face kicking involved. However, this section serves to introduce you to many of the basics of R to get you comfortable.  This includes
 
 * [Installing R & RStudio](#installation)
+* [Understanding the Console](#workspace)
 * [Getting help](#getting_help)
-* [Workspace](#workspace)
 * [Working with packages](#packages)
 * [Assignment & Evaluation](#assignment)
 * [Vectorization](#vectorization)
@@ -57,6 +57,103 @@ and you should get a window that looks like the following:
 </center>
 
 You are now ready to start programming!
+
+<br>
+
+## Understanding the Console {#workspace}
+The RStudio console is where all the action happens. There are four fundamental windows in the console, each with their own purpose.
+
+<center>
+<img src="/public/images/RStudio_console.png">
+</center>
+
+### Script Editor
+The top left window is where your script files will display. There are multiple forms of script files but the basic one to start with is the .R file. To create a new file you use the **File -> New File** menu. To open an existing file you use either the **File -> Open File...** menu or the **Recent Files** menu to select from recently opened files. RStudio's source editor includes a variety of productivity enhancing features including syntax highlighting, code completion, multiple-file editing, and find/replace. A good introduction to the script editor can be found [here](https://support.rstudio.com/hc/en-us/articles/200484448-Editing-and-Executing-Code).
+
+### Workspace Environment
+The top right window is the workspace environment which captures much of your your current R working environment and includes any user-defined objects (vectors, matrices, data frames, lists, functions).  When saving your R working session, these are the components along with the script files that will be saved in your working directory, which is the default location for all file inputs and outputs.  To get or set your working directory so you can direct where your files are saved:
+
+```r
+# returns path for the current working directory
+getwd()                  
+
+# set the working directory to a specified directory
+setwd(directory_name)    
+```
+
+For example, if I call `getwd()` the file path "/Users/bradboehmke/Desktop/Personal/Data Wrangling" is returned.  If I want to set the working directory to the "Workspace" folder within the "Data Wrangling" directory I would use `setwd("Workspace")`.  Now if I call `getwd()` again it returns "/Users/bradboehmke/Desktop/Personal/Data Wrangling/Workspace".
+
+The workspace environment will also list your user defined objects such as vectors, matrices, data frames, lists, and functions. To identify or remove the objects (i.e. vectors, data frames, user defined functions, etc.) in your current R environment:
+
+```r
+# list all objects
+ls()              
+
+# identify if an R object with a given name is present
+exists("object_name")        
+
+# remove defined object from the environment
+rm("object_name")            
+
+# you can remove multiple objects by using the `c()` function
+rm(c("object1", "object2"))  
+
+# basically removes everything in the working environment -- use with caution!
+rm(list = ls())              
+```
+
+You can also view previous commands in the workspace environment by clicking the **History** tab, by simply pressing the up arrow on your keyboard, or by typing into the console:
+
+
+```r
+# default shows 25 most recent commands
+history()        
+
+# show 100 most recent commands
+history(100)     
+
+# show entire saved history
+history(Inf)     
+```
+
+You can also save and load your workspaces.  Saving your workspace will save all R files and objects within your workspace to a .RData file in your working directory and loading your workspace will load any .RData files in your working directory.
+
+
+```r
+# save all items in workspace to a .RData file
+save.image()                                  
+
+# save specified objects to a .RData file
+save(object1, object2, file = "myfile.RData")    
+
+# load workspace into current session
+load("myfile.RData")                             
+```
+
+Note that saving the workspace without specifying the working directory will default to saving in the current directory.  You can further specify where to save the .RData by including the path: `save(object1, object2, file = "/users/name/folder/myfile.RData")`
+
+### Console
+The bottom left window contains the console. You can code directly in this window but it will not save your code. It is best to use this window when you are simply wanting to perform calculator type functions.  This is also where your outputs will be presented when you run code in your script.
+
+### Misc. Displays
+The bottom right window contains multiple tabs. The **Files** tab allows you to see which files are available in your working directory. The **Plots** tab will display any plots/graphics that are produced by your code. The **Packages** tab will list all packages downloaded to your computer and also the ones that are loaded (more on this later). And the **Help** tab allows you to search for topics you need help on and will also display any help responses (more on this later as well).
+
+### Workspace Options & Shortcuts {#options}
+There are multiple options available for you to set and customize your console. You can view and set options for the current R session:
+
+```r
+# learn about available options
+help(options)
+
+# view current option settings
+options()            
+
+# change a specific option (i.e. number of digits to print on output)
+options(digits=3)    
+```
+
+For a thorough tutorial regarding the RStudio console and how to customize different components check out [this tutorial](http://dss.princeton.edu/training/RStudio101.pdf). As with most computer programs, there are numerous keyboard shortcuts for working with the console. To access a menu displaying all the shortcuts in RStudio you can use option + shift + k.  Within RStudio you can also access them in the Help menu &#187; Keyboard Shortcuts.
+
 
 <br>
 
@@ -115,98 +212,6 @@ Typically, a problem you may be encountering is not new and others have faced, s
 
 <br>
 
-## Workspace {#workspace}
-The workspace is your current R working environment and includes any user-defined objects (vectors, matrices, data frames, lists, functions).  The following code provides the basics for understanding, configuring and customizing your current R environment.
-
-
-### Working Directory {#directory}
-The *working directory* is the default location for all file inputs and outputs.  
-
-
-```r
-# returns path for the current working directory
-getwd()                  
-
-# set the working directory to a specified directory
-setwd(directory_name)    
-```
-
-For example, if I call `getwd()` the file path "/Users/bradboehmke/Desktop/Personal/Data Wrangling" is returned.  If I want to set the working directory to the "Workspace" folder within the "Data Wrangling" directory I would use `setwd("Workspace")`.  Now if I call `getwd()` again it returns "/Users/bradboehmke/Desktop/Personal/Data Wrangling/Workspace".
-
-
-### Environment Objects {#environment}
-To identify or remove the objects (i.e. vectors, data frames, user defined functions, etc.) in your current R environment:
-
-
-```r
-# list all objects
-ls()              
-
-# identify if an R object with a given name is present
-exists("object_name")        
-
-# remove defined object from the environment
-rm("object_name")            
-
-# you can remove multiple objects by using the `c()` function
-rm(c("object1", "object2"))  
-
-# basically removes everything in the working environment -- use with caution!
-rm(list = ls())              
-```
-
-### Command History {#history}
-You can view previous commands one at a time by simply pressing the up arrow on your keyboard or view a defined number of previous commands with:
-
-
-```r
-# default shows 25 most recent commands
-history()        
-
-# show 100 most recent commands
-history(100)     
-
-# show entire saved history
-history(Inf)     
-```
-
-### Saving & Loading {#save}
-You can save and load your workspaces.  Saving your workspace will save all R files and objects within your workspace to a .RData file.
-
-
-```r
-# save all items in workspace to a .RData file
-save.image()                                  
-
-# save specified objects to a .RData file
-save(object1, object2, file = "myfile.RData")    
-
-# load workspace into current session
-load("myfile.RData")                             
-```
-
-Note that saving the workspace without specifying the working directory will default to saving in the current directory.  You can further specify where to save the .RData by including the path: `save(object1, object2, file = "/users/name/folder/myfile.RData")`
-
-### Workspace Options {#options}
-You can view and set options for the current R session:
-
-
-```r
-# learn about available options
-help(options)
-
-# view current option settings
-options()            
-
-# change a specific option (i.e. number of digits to print on output)
-options(digits=3)    
-```
-
-### Shortcuts
-To access a menu displaying all the shortcuts in RStudio you can use option + shift + k.  Within RStudio you can also access them in the Help menu &#187; Keyboard Shortcuts.
-
-
-<br>
 
 ## Working with packages {#packages}
 
