@@ -1,5 +1,5 @@
 ---
-layout: tutorial
+layout: page
 title: Apply Family
 permalink: /apply_family
 ---
