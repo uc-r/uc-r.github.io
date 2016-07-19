@@ -7,77 +7,19 @@ layout: page
 permalink: /section2_basics
 ---
 
-* [Installing R & RStudio](installation)
-* [Getting help](getting_help)
-* [Workspace](workspace)
-* [Working with packages](packages)
-* [Assignment & Evaluation](assignment)
-* [Vectorization](vectorization)
-* [Styling guide](style)
+> *"Programming is like kicking yourself in the face, sooner or later your nose will bleed."* - Kyle Woodbury
 
-<br>
 
-## Key functions you'll find in this section
+A computer language is described by its *syntax* and *semantics*; where syntax is about the the grammar of the language and semantics the meaning behind the sentence. And jumping into a new programming language correlates to visiting a foreign country with only that 9th grade Spanish 101 class under your belt; there is no better way to learn than to immerse yourself in the environment! Although it'll be painful early on and your nose will surely bleed, eventually you'll learn the dialect and the quircks that come along with it. 
 
-<table class="w3-table-all" style="width:100%">
-<tr>
-	<th>Operator/Function</th>
-	<th>Description</th>
-</tr>
-<tr>
-	<td><a href="http://uc-r.github.io/getting_help/#general_help"><code>help.start()</code></a></td>
-	<td>provides general help links</td>
-</tr>
-<tr>
-	<td><a href="http://uc-r.github.io/getting_help/#general_help"><code>help()</code></a></td>
-	<td>get help</td>
-</tr>
-<tr>
-	<td><a href="http://uc-r.github.io/getting_help/#general_help"><code>?</code></a></td>
-	<td>get help</td>
-</tr>
-<tr>
-	<td><a href="http://uc-r.github.io/workspace/#directory"><code>getwd()</code></a></td>
-	<td>get working directory</td>
-</tr>
-<tr>
-	<td><a href="http://uc-r.github.io/workspace/#directory"><code>setwd()</code></a></td>
-	<td>set working directory</td>
-</tr>
-<tr>
-	<td><a href="http://uc-r.github.io/workspace/#environment"><code>ls()</code></a></td>
-	<td>list objects in working environment</td>
-</tr>
-<tr>
-	<td><a href="http://uc-r.github.io/workspace/#environment"><code>rm()</code></a></td>
-	<td>remove objects in working environment</td>
-</tr>
-<tr>
-	<td><a href="http://uc-r.github.io/workspace/#history"><code>history()</code></a></td>
-	<td>view command history</td>
-</tr>
-<tr>
-	<td><a href="http://uc-r.github.io/workspace/#options"><code>options()</code></a></td>
-	<td>view/set current session options</td>
-</tr>
-<tr>
-	<td><a href="http://uc-r.github.io/packages/#install"><code>install.packages()</code></a></td>
-	<td>install packages from CRAN</td>
-</tr>
-<tr>
-	<td><a href="http://uc-r.github.io/packages/#load"><code>library()</code></a></td>
-	<td>load package to use in current session</td>
-</tr>
-<tr>
-	<td><a href="http://uc-r.github.io/packages/#help"><code>vignette()</code></a></td>
-	<td>view vignettes to understand packages</td>
-</tr>
-<tr>
-	<td><a href="http://uc-r.github.io/assignment"><code><-</code></a></td>
-	<td>assign a value to an object (variable)</td>
-</tr>
-<tr>
-	<td><a href="http://uc-r.github.io/vectorization"><code>+, -, *, /, etc.</code></a></td>
-	<td>vectorized arithmetic functions</td>
-</tr>
-</table>
+Throughout this book you'll learn much of the fundamental syntax and semantics of the R programming language; and hopefully with minimal face kicking involved. However, this chapter serves to introduce you to many of the basics of R to get you comfortable.  This includes
+
+* [Installing R & RStudio](#installation)
+* [Getting help](#getting_help)
+* [Workspace](#workspace)
+* [Working with packages](#packages)
+* [Assignment & Evaluation](#assignment)
+* [Vectorization](#vectorization)
+* [Styling guide](#style)
+
+
