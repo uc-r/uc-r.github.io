@@ -60,7 +60,7 @@ sum(is.na(df))
 
 <br>
 
-## Recode missing values {#na_recode)
+## Recode missing values {#na_recode}
 To recode missing values; or recode specific indicators that represent missing values, we can use normal subsetting and assignment operations. For example, we can recode missing values in vector `x` with the mean values in `x` by first subsetting the vector to identify `NA`s and then assign these elements a value. Similarly, if missing values are represented by another value (i.e. `99`) we can simply subset the data for the elements that contain that value and then assign a desired value to those elements.
 
 
@@ -91,7 +91,7 @@ df
 
 <br>
 
-## Exclude missing values {#na_exclude)
+## Exclude missing values {#na_exclude}
 We can exclude missing values in a couple different ways. First, if we want to exclude missing values from mathematical operations use the `na.rm = TRUE` argument. If you do not exclude these values most functions will return an `NA`.
 
 
