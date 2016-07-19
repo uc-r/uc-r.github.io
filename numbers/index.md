@@ -306,7 +306,8 @@ dgamma(x, shape = 1)
 <br>
 
 
-## Setting Seed Values {#setting_seed)
+## Setting Seed Values {#setting_seed}
+
 If you want to generate a sequence of random numbers and then be able to reproduce that same sequence of random numbers later you can set the random number seed generator with `set.seed()`.  This is a critical aspect of [reproducible research](https://en.wikipedia.org/wiki/Reproducibility).
 
 For example, we can reproduce a random generation of 10 values from a normal distribution:
@@ -329,6 +330,7 @@ rnorm(n = 10, mean = 0, sd = 1)
 
 
 ## Comparing Numeric Values {#compare_numeric_values}
+
 There are multiple ways to compare numeric values and vectors.  This includes [logical operators](#numeric_comparison) along with testing for [exact equality](#numeric_exact) and also [near equality](#numeric_near).
 
 ### Comparison Operators {#numeric_comparison}
@@ -432,6 +434,7 @@ all.equal(x, y)
 
 
 ## Rounding numeric Values {#round_numbers}
+
 There are many ways of rounding to the nearest integer, up, down, or toward a specified decimal place.  Assuming we have the following vector `x`:
 
 ```r
