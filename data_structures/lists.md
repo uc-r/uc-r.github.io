@@ -91,7 +91,7 @@ str(l3)
 ##  $ item4: chr "new list item"
 ```
 
-To add individual elements to a specific list component we need to introduce some subsetting which is further discussed in the [subsetting lists section](http://uc-r.github.io/lists_subsetting).  We'll continue with our original `l1` list:
+To add individual elements to a specific list component we need to introduce some subsetting which is further discussed in the [subsetting lists section](#lists_subsetting).  We'll continue with our original `l1` list:
 
 
 ```r
