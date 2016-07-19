@@ -386,7 +386,6 @@ If you want to save a function to be used at other times and within other script
 <img src="/public/images/r_vocab/shot1.png" alt="Save PV Function as a Script">
 </center> 
 
-<br>
 
 Now, if we are working in a fresh script you'll see that we have no objects and functions in our working environment:
 
@@ -394,7 +393,6 @@ Now, if we are working in a fresh script you'll see that we have no objects and 
 <img src="/public/images/r_vocab/shot2.png" alt="Fresh Script">
 </center>
 
-<br>
 
 If we want to use the PV function in this new script we can simply read in the function by sourcing the script using `source("PV.R")`.  Now, you'll notice that we have the `PV()` function in our global environment and can use it as normal.  Note that if you are working in a different directory then where the `PV.R` file is located you'll need to include the proper command to access the relevant directory. 
 
