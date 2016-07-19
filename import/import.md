@@ -1,5 +1,5 @@
 ---
-layout: tutorial
+layout: page
 title: Importing Data
 permalink: /import
 ---
