@@ -61,7 +61,7 @@ You are now ready to start programming!
 <br>
 
 ## Understanding the Console {#workspace}
-The RStudio console is where all the action happens. There are four fundamental windows in the console, each with their own purpose.
+The RStudio console is where all the action happens. There are four fundamental windows in the console, each with their own purpose. I discuss each briefly below but I highly suggest [this tutorial](http://dss.princeton.edu/training/RStudio101.pdf) for a thorough understanding of the console. 
 
 <center>
 <img src="/public/images/RStudio_console.png">
