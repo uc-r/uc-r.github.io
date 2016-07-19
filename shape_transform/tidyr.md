@@ -1,5 +1,5 @@
 ---
-layout: tutorial
+layout: page
 title: Reshaping Your Data with tidyr
 permalink: /tidyr
 ---
