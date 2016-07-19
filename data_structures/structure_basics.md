@@ -20,7 +20,8 @@ In the data structure tutorials that follow I will cover the basics of these dat
 
 - [Identifying the structure](#identify_structure)
 - [Understanding attributes](#understanding_attributes)
-- 
+
+
 <br>
 
 ## Identifying the Data Structure {#identify_structure}
