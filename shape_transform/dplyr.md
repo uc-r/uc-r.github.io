@@ -1,5 +1,5 @@
 ---
-layout: tutorial
+layout: page
 title: Transforming Your Data with dplyr
 permalink: /dplyr
 ---
