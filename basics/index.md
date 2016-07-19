@@ -27,6 +27,25 @@ Throughout this website you'll learn much of the fundamental syntax and semantic
 ## Installing R & RStudio {#installation}
 
 
+### <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/R_logo.svg/724px-R_logo.svg.png" style="width:50px;height:50px;">
+Download and install R, [a free software environment for statistical computing and graphics](https://www.r-project.org/) from [CRAN](https://cran.rstudio.com/), the Comprehensive R Archive Network. It is highly recommended to install a precompiled binary distribution for your operating system; follow these instructions:
+
+1. Go to [https://cran.r-project.org/](https://cran.r-project.org/)
+2. Click "Download R for Mac/Windows"
+3. Download the appropriate file:
+    - Windows users click Base, and download the installer for the latest R version
+    - Mac users select the file R-3.X.X.pkg that aligns with your OS version
+4. Follow the instructions of the installer.
+
+### <img src="https://upload.wikimedia.org/wikipedia/en/f/f0/RStudio_logo.png" style="width:15%;height:15%;">
+Install RStudio's IDE (stands for integrated development environment), a powerful user interface for R. RStudio includes a text editor, so you do not have to install another stand-alone editor. Follow these instructions:
+
+1. Go to RStudio for desktop [https://www.rstudio.com/products/rstudio/download/](https://www.rstudio.com/products/rstudio/download/)
+2. Select the install file for your OS
+3. Follow the instructions of the installer.
+
+**Note:** There are other R IDE's available: [Emacs](https://www.gnu.org/software/emacs/), [Microsoft R Open](http://revolutionanalytics.com/microsoft-r-open), [Notepad++](https://notepad-plus-plus.org/), etc.
+
 <br>
 
 ## Getting Help {#getting_help}
