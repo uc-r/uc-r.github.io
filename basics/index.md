@@ -44,7 +44,11 @@ Install RStudio's IDE (stands for integrated development environment), a powerfu
 2. Select the install file for your OS
 3. Follow the instructions of the installer.
 
-**Note:** There are other R IDE's available: [Emacs](https://www.gnu.org/software/emacs/), [Microsoft R Open](http://revolutionanalytics.com/microsoft-r-open), [Notepad++](https://notepad-plus-plus.org/), etc.
+There are other R IDE's available: [Emacs](https://www.gnu.org/software/emacs/), [Microsoft R Open](http://revolutionanalytics.com/microsoft-r-open), [Notepad++](https://notepad-plus-plus.org/), etc; however, I have found RStudio to be my preferred route. When you are done installing RStudio click on the <img src="https://www.rstudio.com/wp-content/uploads/2014/06/RStudio-Ball.png" style="width:50px;height:50px;"> icon and you should get a window that looks like the following:
+
+<img src="https://www.safaribooksonline.com/library/view/getting-started-with/9781449314798/httpatomoreillycomsourceoreillyimages1135858.png" style="width:50px;height:50px;">
+
+You are now ready to start programming!
 
 <br>
 
