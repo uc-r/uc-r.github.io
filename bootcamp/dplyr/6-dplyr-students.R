@@ -1,14 +1,13 @@
 # Session 6: Transforming & manipulating data sets with dplyr
 
 
-
 ################
 # Requirements #
 ################
 # install.packages("dplyr")
-library(dplyr)
+# devtools::install_github("rstudio/EDAWR")
 
-install.packages("EDAWR")
+library(dplyr)
 library(EDAWR)
 
 # data used (from the EDAWR package)
@@ -31,6 +30,19 @@ select(storms, storm, pressure)
 storms %>% select(storm, pressure)
 
 
+
+##############
+# YOUR TURN! #
+##############
+# Import the facebook.tsv file in the data folder
+
+
+# Create a new data frame that includes: userid, age, gender, friend_count
+
+
+
+
+
 ############
 # filter() #
 ############
@@ -46,6 +58,19 @@ storms %>% filter(wind >= 50,
                   storm %in% c("Alberto", "Alex", "Allison"))
 
 
+
+##############
+# YOUR TURN! #
+##############
+# 1. Filter the facebook data for just males
+
+
+# 2. Select the userid, age, gender, friend_count variables and then 
+#    filter for males
+
+
+
+
 ##############
 # group_by() #
 ##############
@@ -58,6 +83,16 @@ tb %>% group_by(country)
 
 # group by multiple categorical variables
 tb %>% group_by(country, year)
+
+
+
+##############
+# YOUR TURN! #
+##############
+# 1. Select the userid, age, gender, friend_count variables variables and 
+# then group by gender
+
+
 
 
 
@@ -99,6 +134,19 @@ iris %>%
 
 
 
+##############
+# YOUR TURN! #
+##############
+# Continuing with our facebook data...
+# 1. Calculate the mean and median for tenure and friend_count
+
+
+# 2. Select the gender, age, and friend_count variables, group by gender, 
+# and calculate mean and median
+
+
+
+
 #############
 # arrange() #
 #############
@@ -107,6 +155,18 @@ iris %>%
 
 iris %>% arrange(Sepal.Length)
 iris %>% arrange(desc(Sepal.Length))
+
+
+
+##############
+# YOUR TURN! #
+##############
+# Continuing with our facebook data...
+# 1. Group the data by age
+# 2. Calculate the median friend_count for each age
+# 3. Arrange the median calculated friend_count variable in descending order 
+# to find the ages with the greatest median friend count
+
 
 
 
@@ -126,6 +186,16 @@ iris %>% transmute(Sepal.Area = Sepal.Length * Sepal.Width)
 # apply function to each column - in this case get the ranking of each
 # value for each variable
 iris %>% mutate_each(funs(min_rank))
+
+
+
+##############
+# YOUR TURN! #
+##############
+# Continuing with our facebook data...
+# 1. Create a new variable `friend_ratio` that equals friendships_initiated / friend_count
+# 2. Find the median `friend_ratio` for males and females
+
 
 
 
@@ -162,6 +232,17 @@ a %>% semi_join(b, by = "x1")
 # anti_join
 anti_join(a, b, by = "x1")
 a %>% anti_join(b, by = "x1")
+
+
+
+##############
+# YOUR TURN! #
+##############
+# 1. Import the reddit.csv and regions.csv files in the data folder
+
+
+
+# 2. Join the regions data to the reddit data
 
 
 
