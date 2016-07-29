@@ -24,6 +24,24 @@ x <- c(1, 1.35, 1.7, 2.05, 2.4, 2.75)
 
 
 ##############
+# YOUR TURN! #
+##############
+# Import the numbers-your-turn.csv file in the data folder
+
+# 1. Are the vectors x & y equal? Exactly or approximately equal?
+
+
+# 2. Are the vectors y & z equal? Exactly or approximately equal?
+
+
+# 3. Round x & y numbers to the 4th digit
+
+
+# 4. Are these vectors equal now?
+
+
+
+##############
 # Characters #
 ##############
 # Notes: 
@@ -58,6 +76,22 @@ levels <- c("Under 18", "18-24", "25-34", "35-44", "45-54", "55-64", "65 or Abov
 
 
 # summarizing factors
+facebook <- read.delim("data/facebook.tsv")
+
+
+
+##############
+# YOUR TURN! #
+##############
+# Import the reddit.csv file in the data folder
+
+# 1. What are the levels for the income.range variable?
+
+
+# 2. Properly order the levels for income.range.
+
+
+# 3. What are the counts for each level?
 
 
 
@@ -89,6 +123,21 @@ full_date <- as.Date(ISOdate(year = c("2012", "2013", "2014", "2015"),
 
 # summarizing dates
 dates <- ymd(lakers$date)
+
+
+
+##############
+# YOUR TURN! #
+##############
+# Import the facebook.tsv file in the data folder
+
+# 1. Create a new date variable that combines the dob_day, dob_month, & 
+#    dob_year variables. 
+
+
+# 2. What is the min, max, mean, and median date of births in this data frame?
+
+
 
 
 
