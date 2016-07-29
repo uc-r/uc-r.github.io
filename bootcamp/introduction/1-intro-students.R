@@ -1,5 +1,11 @@
 # Session 1: An introduction to statistical programming
 
+# Place a hashtag ("#") at the beginning of any line that is just a note; this
+# will keep R from running these lines as code. Any lines without a hashtag
+# will be assessed when sourced
+
+2 + 2
+
 ################
 # Getting Help #
 ################
@@ -31,6 +37,14 @@
 
 
 
+##############
+# YOUR TURN! #
+##############
+# Calculate Q in the in the economic order quantity model presented
+
+
+
+
 
 #########################
 # Workspace Environment #
@@ -56,6 +70,14 @@
 
 
 
+##############
+# YOUR TURN! #
+##############
+# Calculate Q in the in the economic order quantity model presented
+
+
+
+
 #########################
 # Working with Packages #
 #########################
@@ -64,10 +86,19 @@
 
 
 
+##############
+# YOUR TURN! #
+##############
+# Download the packages listed on the slide
+
+
+
+
 ##################
 # Using Packages #
 ##################
 # Notes:
+
 
 
 
