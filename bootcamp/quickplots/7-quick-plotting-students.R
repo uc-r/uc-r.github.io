@@ -15,10 +15,13 @@ title("Regression of MPG on Weight")
 #############
 # Data Used #
 #############
-# Notes: import the facebook.tsv, reddit.csv, race-comparison.csv, and
-# Supermarket Transactions.xlsx files (use the readxl package for the .xlsx file)
-library(readxl)
+# Notes: 
 
+library(readxl)
+facebook <- read.delim("data/facebook.tsv")
+reddit <- read.csv("data/reddit.csv")
+race <- read.csv("data/race-comparison.csv")
+supermarket <- read_excel("data/Supermarket Transactions.xlsx", sheet = "Data")
 
 
 ###############
@@ -161,7 +164,8 @@ dotchart()
 #############
 # Using the Reddit data... 
 
-# 1) assess the frequency of education levels
+# 1) assess the frequency of education levels (note: preceed your plot function 
+# with par(mar = c(5,15,1,1), las = 2))
 
 
 
@@ -237,7 +241,7 @@ boxplot()
 #############
 # Your Turn #
 #############
-# Using the supermarket data analyze revenue by date, homeownership, city, product 
+# Using the supermarket data, analyze revenue by date, homeownership, city, product 
 # family, etc.  Don't forget you can summarize the data using dplyr like you
 # learned about earlier...example:
 
@@ -286,7 +290,6 @@ barplot()
 
 
 # 4) etc.
-
 
 
 
