@@ -7,20 +7,15 @@ layout: page
 permalink: /r_bootcamp
 ---
 
-### Instructors
+### Instructor
 
   * [Brad Boehmke](http://bradleyboehmke.github.io/)
 
 
-### TAs
-
-  * TBD
-  * TBD
-
 ### Class Information
 
-* Time: TBD
-* Location: TBD
+* Time: August 6 & 7, 1:15-4:15
+* Location: Lindner 608
 * Webpage: [http://uc-r.github.io/r_bootcamp](http://uc-r.github.io/r_bootcamp)
 * Additional Resources: [http://uc-r.github.io/](http://uc-r.github.io/)
 
