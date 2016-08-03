@@ -12,7 +12,7 @@ we make most accurately. They then designed a graph to take advantage of the kno
 gained from their experimentation. The result was the *dot plot*. 
 
 
-<img src="icon.png" style="display: block; margin: auto;" />
+<img src="/public/images/visual/cleveland-dotplots/icon.png" style="display: block; margin: auto;" />
 
 
 
@@ -87,7 +87,7 @@ ggplot(city_rev, aes(City, Revenue)) +
         coord_flip()
 ```
 
-<img src="Cleveland-Dotplot_files/figure-html/unnamed-chunk-5-1.png" style="display: block; margin: auto;" />
+<img src="/public/images/visual/cleveland-dotplots/unnamed-chunk-5-1.png" style="display: block; margin: auto;" />
 
 or a dot plot. 
 
@@ -97,7 +97,7 @@ ggplot(city_rev, aes(Revenue, City)) +
         geom_point()
 ```
 
-<img src="Cleveland-Dotplot_files/figure-html/unnamed-chunk-6-1.png" style="display: block; margin: auto;" />
+<img src="/public/images/visual/cleveland-dotplots/unnamed-chunk-6-1.png" style="display: block; margin: auto;" />
         
         
 <a href="#top">Go to top</a>
@@ -145,7 +145,7 @@ ggplot(city_gender_rev, aes(City, Revenue, fill = Gender)) +
         facet_wrap(~ Gender)
 ```
 
-<img src="Cleveland-Dotplot_files/figure-html/unnamed-chunk-9-1.png" style="display: block; margin: auto;" />
+<img src="/public/images/visual/cleveland-dotplots/unnamed-chunk-9-1.png" style="display: block; margin: auto;" />
 
 With a dot plot we can reduce the clutter and draw more focus to the single values that represent total revenues for males and females.
 
@@ -155,7 +155,7 @@ ggplot(city_gender_rev, aes(Revenue, City)) +
         geom_point(aes(color = Gender))
 ```
 
-<img src="Cleveland-Dotplot_files/figure-html/unnamed-chunk-10-1.png" style="display: block; margin: auto;" />
+<img src="/public/images/visual/cleveland-dotplots/unnamed-chunk-10-1.png" style="display: block; margin: auto;" />
 
 Although this clears the up the chart, we can still make the difference between the males and females stand out further by connecting the genders for each city. This causes the viewer to focus on the difference between genders within each city and then the ordered revenues by city brings secondary attention to the total revenues by city.
 
@@ -166,7 +166,7 @@ ggplot(city_gender_rev, aes(Revenue, City)) +
         geom_point(aes(color = Gender))
 ```
 
-<img src="Cleveland-Dotplot_files/figure-html/unnamed-chunk-11-1.png" style="display: block; margin: auto;" />
+<img src="/public/images/visual/cleveland-dotplots/unnamed-chunk-11-1.png" style="display: block; margin: auto;" />
 
 
 
@@ -186,7 +186,7 @@ ggplot(city_gender_rev, aes(Revenue, City, label = round(Revenue, 0))) +
         geom_text(aes(color = Gender), size = 3)
 ```
 
-<img src="Cleveland-Dotplot_files/figure-html/unnamed-chunk-12-1.png" style="display: block; margin: auto;" />
+<img src="/public/images/visual/cleveland-dotplots/unnamed-chunk-12-1.png" style="display: block; margin: auto;" />
 
 
 We can refine this a bit by creating specific label data frames and formatting the labels to display just ouside of their respective data point.
@@ -214,7 +214,7 @@ ggplot(city_gender_rev, aes(Revenue, City)) +
         scale_x_continuous(limits = c(-500, 10500))
 ```
 
-<img src="Cleveland-Dotplot_files/figure-html/unnamed-chunk-13-1.png" style="display: block; margin: auto;" />
+<img src="/public/images/visual/cleveland-dotplots/unnamed-chunk-13-1.png" style="display: block; margin: auto;" />
 
 
 That's not too bad but that introduces a new form of "busy-ness". In this case, it may make sense to highlight just those locations where the revenue difference between males and females exceeds a certain magnitude. For instance, we can identify those locations where the difference between genders exceeds 20%.  We can layer the plotting so that the first layer has some transparency and kind of sits in the background. The second layer of data, which are those cities where the revenue differences exceed 20% are not transparent and therefore gets highlighted.
@@ -252,7 +252,7 @@ ggplot(city_gender_rev, aes(Revenue, City)) +
         scale_x_continuous(limits = c(-500, 10500))
 ```
 
-<img src="Cleveland-Dotplot_files/figure-html/unnamed-chunk-14-1.png" style="display: block; margin: auto;" />
+<img src="/public/images/visual/cleveland-dotplots/unnamed-chunk-14-1.png" style="display: block; margin: auto;" />
 
 <a href="#top">Go to top</a>
 
@@ -280,7 +280,7 @@ p <- ggplot(city_gender_rev, aes(Revenue, City)) +
 p
 ```
 
-<img src="Cleveland-Dotplot_files/figure-html/unnamed-chunk-15-1.png" style="display: block; margin: auto;" />
+<img src="/public/images/visual/cleveland-dotplots/unnamed-chunk-15-1.png" style="display: block; margin: auto;" />
 
 Now lets adjust the theme, legend and add some final titles.
 
@@ -308,7 +308,7 @@ p + scale_color_discrete(labels = c("Female", "Male")) +
               plot.caption = element_text(size = 8, margin = margin(t = 10), color = "grey70", hjust = 0))
 ```
 
-<img src="Cleveland-Dotplot_files/figure-html/unnamed-chunk-16-1.png" style="display: block; margin: auto;" />
+<img src="/public/images/visual/cleveland-dotplots/unnamed-chunk-16-1.png" style="display: block; margin: auto;" />
 
 <a href="#top">Go to top</a>
 
