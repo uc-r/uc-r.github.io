@@ -137,25 +137,53 @@ for(i in 1:100) {
 }
 ```
 
-An important lesson to learn is that R is not efficient at *growing* data objects.  As a result, it is more efficient to create an empty data object and *fill* it with the `for` loop outputs.  For example, if you want to create a vector in which 5 values are randomly drawn from a poisson distribution with mean 5, it is less efficient to perform the first example in the following code chunk than to perform the second example.  Although this inefficiency is not noticed in this small example, when you perform larger repetitions it will become noticable so you might as well get in the habit of *filling* rather than *growing*. 
+For example, the following `for` loop iterates through each value (2010, 2011, ..., 2016) and performs the `paste` and `print` functions inside the curly brackets. 
+
+```r
+for (i in 2010:2016){
+        output <- paste("The year is", i)
+        print(output)
+}
+## [1] "The year is 2010"
+## [1] "The year is 2011"
+## [1] "The year is 2012"
+## [1] "The year is 2013"
+## [1] "The year is 2014"
+## [1] "The year is 2015"
+## [1] "The year is 2016"
+```
+
+If you want to perform the `for` loop but have the outputs combined into a vector or other data structure than you can initiate the output data structure prior to the for loop. For instance, if we want to have the previous outputs combined into a single vector `x` we can initiate `x` first and then append the `for` loop output to `x`.
+
+```r
+x <- NULL
+
+for (i in 2010:2016){
+        output <- paste("The year is", i)
+        x <- append(x, output)
+}
+
+x
+## [1] "The year is 2010" "The year is 2011" "The year is 2012" "The year is 2013"
+## [5] "The year is 2014" "The year is 2015" "The year is 2016"
+```
+
+However, an important lesson to learn is that R is not efficient at *growing* data objects.  As a result, it is more efficient to create an empty data object and *fill* it with the `for` loop outputs.  In the previous example we *grew* `x` by appending new values to it. A more efficient practice is to initiate a vector (or other data structure) of the right size and fill the elements. In the example that follows, we create the vector `x` of the right size and then fill in each element within the `for` loop. Although this inefficiency is not noticed in this small example, when you perform larger repetitions it will become noticable so you might as well get in the habit of *filling* rather than *growing*. 
 
 
 ```r
-# not advised
-for(i in 5){
-        x <- rpois(5, lambda = 5)
-        print(x)
-}
-## [1] 11  5  8  8  7
+x <- vector(mode = "numeric", length = 7)
+counter <- 1
 
-# advised
-x <- vector(mode = "numeric", length = 5)
-
-for(i in 5){
-        x <- rpois(5, lambda = 5)
-        print(x)
+for (i in 2010:2016){
+        output <- paste("The year is", i)
+        x[counter] <- output
+        counter <- counter + 1
 }
-## [1] 5 8 9 5 4
+
+x
+## [1] "The year is 2010" "The year is 2011" "The year is 2012" "The year is 2013"
+## [5] "The year is 2014" "The year is 2015" "The year is 2016"
 ```
 
 Another example in which we create an empty matrix with 5 rows and 5 columns.  The `for` loop then iterates over each column (note how *i* takes on the values 1 through the number of columns in the `my.mat` matrix) and takes a random draw of 5 values from a poisson distribution with mean *i* in column *i*:
