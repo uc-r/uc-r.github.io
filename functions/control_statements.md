@@ -153,7 +153,7 @@ for (i in 2010:2016){
 ## [1] "The year is 2016"
 ```
 
-If you want to perform the `for` loop but have the outputs combined into a vector or other data structure than you can initiate the output data structure prior to the for loop. For instance, if we want to have the previous outputs combined into a single vector `x` we can initiate `x` first and then append the `for` loop output to `x`.
+If you want to perform the `for` loop but have the outputs combined into a vector or other data structure than you can initiate the output data structure prior to the `for` loop. For instance, if we want to have the previous outputs combined into a single vector `x` we can initiate `x` first and then append the `for` loop output to `x`.
 
 ```r
 x <- NULL
