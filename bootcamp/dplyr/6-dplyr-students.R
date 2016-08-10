@@ -22,8 +22,6 @@ b
 ############
 # select() #
 ############
-# Notes: 
-
 
 # these two options are the same
 select(storms, storm, pressure)
@@ -35,10 +33,12 @@ storms %>% select(storm, pressure)
 # YOUR TURN! #
 ##############
 # Import the facebook.tsv file in the data folder
-
+facebook <- read.delim("data/facebook.tsv")
 
 # Create a new data frame that includes: userid, age, gender, friend_count
+facebook2 <- facebook %>% select(userid, age, gender, friend_count)
 
+head(facebook2)
 
 
 
@@ -63,10 +63,22 @@ storms %>% filter(wind >= 50,
 # YOUR TURN! #
 ##############
 # 1. Filter the facebook data for just males
+fb_males <- facebook %>% filter(gender == "male")
 
 
 # 2. Select the userid, age, gender, friend_count variables and then 
 #    filter for males
+
+# Option 1
+facebook2 <- facebook %>% select(userid, age, gender, friend_count)
+fb2_males <- facebook %>% filter(gender == "male")
+
+# Option 2
+fb2_males <- facebook %>%
+        select(userid, age, gender, friend_count) %>%
+        filter(gender == "male")
+
+fb2_males
 
 
 
@@ -90,8 +102,10 @@ tb %>% group_by(country, year)
 # YOUR TURN! #
 ##############
 # 1. Select the userid, age, gender, friend_count variables variables and 
-# then group by gender
-
+#    then group by gender
+facebook %>%
+        select(userid, age, gender, friend_count) %>%
+        group_by(gender)
 
 
 
@@ -139,11 +153,17 @@ iris %>%
 ##############
 # Continuing with our facebook data...
 # 1. Calculate the mean and median for tenure and friend_count
-
+facebook %>% summarise(tenure_avg = mean(tenure, na.rm = TRUE),
+                       tenure_med = median(tenure, na.rm = TRUE),
+                       fc_avg = mean(friend_count, na.rm = TRUE),
+                       fc_med = median(friend_count, na.rm = TRUE))
 
 # 2. Select the gender, age, and friend_count variables, group by gender, 
 # and calculate mean and median
-
+facebook %>%
+        select(gender, age, friend_count) %>%
+        group_by(gender) %>%
+        summarise_each(funs(mean, median))
 
 
 
@@ -166,7 +186,10 @@ iris %>% arrange(desc(Sepal.Length))
 # 2. Calculate the median friend_count for each age
 # 3. Arrange the median calculated friend_count variable in descending order 
 # to find the ages with the greatest median friend count
-
+facebook %>% 
+        group_by(age) %>% 
+        summarise(friend_count = median(friend_count, na.rm = TRUE)) %>% 
+        arrange(desc(friend_count))
 
 
 
@@ -195,7 +218,10 @@ iris %>% mutate_each(funs(min_rank))
 # Continuing with our facebook data...
 # 1. Create a new variable `friend_ratio` that equals friendships_initiated / friend_count
 # 2. Find the median `friend_ratio` for males and females
-
+facebook %>% 
+        mutate(friend_ratio = friendships_initiated / friend_count) %>%
+        group_by(gender) %>%
+        summarise(fr_median = median(friend_ratio, na.rm = TRUE))
 
 
 
@@ -239,10 +265,12 @@ a %>% anti_join(b, by = "x1")
 # YOUR TURN! #
 ##############
 # 1. Import the reddit.csv and regions.csv files in the data folder
-
+reddit <- read.csv("data/reddit.csv", stringsAsFactors = FALSE)
+regions <- read.csv("data/regions.csv", stringsAsFactors = FALSE)
 
 
 # 2. Join the regions data to the reddit data
+reddit <- reddit %>% left_join(regions)
 
 
 
