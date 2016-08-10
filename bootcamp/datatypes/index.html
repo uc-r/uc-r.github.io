@@ -124,11 +124,11 @@
 <th align="left">Description</th>
 </tr>
 <tr class="odd">
-<td align="left">- <a href='#4' title=''>Numbers</a></td>
+<td align="left">- Numbers</td>
 <td align="left">integer (i.e. 1,2,3&#8230;), double (i.e. 1.5, 3.66)</td>
 </tr>
 <tr class="even">
-<td align="left">- <a href='#9' title=''>Character Strings</a></td>
+<td align="left">- Character Strings</td>
 <td align="left">&quot;r&quot;, &quot;I attend UC&quot;, etc.</td>
 </tr>
 <tr class="odd">
@@ -136,15 +136,15 @@
 <td align="left">patterns within text strings</td>
 </tr>
 <tr class="even">
-<td align="left">- <a href='#14' title=''>Factors</a></td>
+<td align="left">- Factors</td>
 <td align="left">nominal (male, female), ordinal (freshman, sophmore, junior), interval ($0-25, $26-50, $51-75)</td>
 </tr>
 <tr class="odd">
-<td align="left">- <a href='#20' title=''>Dates</a></td>
+<td align="left">- Dates</td>
 <td align="left">calendar dates (i.e. 2016-08-06, 08/06/2016), weekdays, hours, etc.</td>
 </tr>
 <tr class="even">
-<td align="left">- <a href='#28' title=''>Logical</a></td>
+<td align="left">- Logical</td>
 <td align="left"><code>TRUE</code>, <code>FALSE</code>, <code>any</code>, <code>all</code></td>
 </tr>
 </table>
@@ -229,6 +229,36 @@ round(x, digits = 1)
 <p><br><br><br><br><br></p>
 
 <p><font size="6">1. Are the vectors <code>x</code> &amp; <code>y</code> equal? Exactly or approximately equal?</font><br><br> <font size="6">2. Are the vectors <code>y</code> &amp; <code>z</code> equal? Exactly or approximately equal?</font><br><br> <font size="6">3. Round <code>x</code> &amp; <code>y</code> numbers to the 4th digit</font><br><br> <font size="6">4. Are these vectors equal now?</font></p>
+
+</article></slide><slide class=''><hgroup><h2>Solution</h2></hgroup><article  id="solution" class="smaller ">
+
+<pre class = 'prettyprint lang-r'># import the numbers-your-turn.csv file in the data folder
+df &lt;- read.csv(&quot;data/numbers-your-turn.csv&quot;)
+
+# 1. Are the vectors x &amp; y equal? Exactly or approximately equal?
+identical(df$x, df$y)
+## [1] FALSE
+
+all.equal(df$x, df$y)
+## [1] &quot;Mean relative difference: 1.041407e-07&quot;
+
+# 2. Are the vectors x &amp; z equal? Exactly or approximately equal?
+identical(df$y, df$z)
+## [1] FALSE
+
+all.equal(df$y, df$z)
+## [1] TRUE
+
+# 3. Round x &amp; y numbers to the 4th digit
+x &lt;- round(df$x, digits = 4)
+y &lt;- round(df$y, digits = 4)
+
+# 4. Are these vectors equal now?
+identical(x, y)
+## [1] TRUE
+
+all.equal(x, y)
+## [1] TRUE</pre>
 
 </article></slide><slide class='segue dark nobackground'><hgroup class = 'auto-fadein'><h2>Characters </h2><h3> &quot;Hello world!&quot;</h3></hgroup><article  id="characters-hello-world" class="smaller ">
 
@@ -437,6 +467,33 @@ levels(facebook$gender)
 
 <p><font size="6">1. What are the levels for the <code>income.range</code> variable?</font><br><br><br> <font size="6">2. Properly order the levels for <code>income.range</code>.</font><br><br><br> <font size="6">3. What are the counts for each level?</font></p>
 
+</article></slide><slide class=''><hgroup><h2>Solution</h2></hgroup><article  id="solution-1" class="smaller ">
+
+<pre class = 'prettyprint lang-r'># import the reddit.csv file in the data folder
+reddit &lt;- read.csv(&quot;data/reddit.csv&quot;)
+
+# 1. What are the levels for the `income.range` variable?
+levels(reddit$income.range)
+## [1] &quot;$100,000 - $149,999&quot; &quot;$150,000 or more&quot;    &quot;$20,000 - $29,999&quot;  
+## [4] &quot;$30,000 - $39,999&quot;   &quot;$40,000 - $49,999&quot;   &quot;$50,000 - $69,999&quot;  
+## [7] &quot;$70,000 - $99,999&quot;   &quot;Under $20,000&quot;
+
+# 2. Properly order the levels for income.range.
+reddit$income.range &lt;- ordered(reddit$income.range, 
+                               levels = c(&quot;Under $20,000&quot;, &quot;$20,000 - $29,999&quot;, &quot;$30,000 - $39,999&quot;,
+                                          &quot;$40,000 - $49,999&quot;, &quot;$50,000 - $69,999&quot;, &quot;$70,000 - $99,999&quot;,
+                                          &quot;$100,000 - $149,999&quot;, &quot;$150,000 or more&quot;))
+
+# 3. What are the counts for each level?
+table(reddit$income.range)
+## 
+##       Under $20,000   $20,000 - $29,999   $30,000 - $39,999 
+##                7892                3206                2904 
+##   $40,000 - $49,999   $50,000 - $69,999   $70,000 - $99,999 
+##                2686                4133                4101 
+## $100,000 - $149,999    $150,000 or more 
+##                3522                2695</pre>
+
 </article></slide><slide class='segue dark nobackground'><hgroup class = 'auto-fadein'><h2>Dates </h2><h3> The neglected variable</h3></hgroup><article  id="dates-the-neglected-variable" class="smaller ">
 
 </article></slide><slide class=''><hgroup><h2>Dates: creating</h2></hgroup><article  id="dates-creating" class="smaller ">
@@ -643,6 +700,23 @@ summary(dates)
 <p><font size="6"> 1. Create a new date variable that combines the <code>dob_day</code>,<br>     <code>dob_month</code>, &amp; <code>dob_year</code> variables. </font><br><br><br> <font size="6"> 2. What is the <code>min</code>, <code>max</code>, <code>mean</code>, and <code>median</code> date of births in<br>     this data frame? </font><br><br><br><br><br></p>
 
 <p><strong>NOTE:</strong> If you save the new variable as <code>facebook$dob &lt;- _____________</code> it will add this new variable to the facebook data frame</p>
+
+</article></slide><slide class=''><hgroup><h2>Solution</h2></hgroup><article  id="solution-2" class="smaller ">
+
+<pre class = 'prettyprint lang-r'># Import the `facebook.tsv` file in the data folder
+facebook &lt;- read.delim(&quot;data/facebook.tsv&quot;)
+
+# 1. Create a new date variable that combines the dob_day, dob_month, &amp; dob_year variables.
+facebook$dob &lt;- as.Date(ISOdate(year = facebook$dob_year, 
+                                month = facebook$dob_month, 
+                                day = facebook$dob_day))
+
+# 2. What is the min, max, mean, and median date of births in this data frame?
+summary(facebook$dob)
+##         Min.      1st Qu.       Median         Mean      3rd Qu. 
+## &quot;1900-01-01&quot; &quot;1963-08-14&quot; &quot;1985-01-20&quot; &quot;1976-03-12&quot; &quot;1993-01-01&quot; 
+##         Max. 
+## &quot;2000-10-27&quot;</pre>
 
 </article></slide><slide class='segue dark nobackground'><hgroup class = 'auto-fadein'><h2>Logical </h2><h3> Boolean as in George Boole</h3></hgroup><article  id="logical-boolean-as-in-george-boole" class="smaller ">
 
