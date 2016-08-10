@@ -3,27 +3,35 @@
 ######################
 # Built-in Data Sets #
 ######################
-# Notes: 
 
+# R built-in data sets
+data()
 
+mtcars
+iris
+USArrests
 
+# package built-in data sets
+data(package = "ggplot2")       
+economics
 
-##############
-# YOUR TURN! #
-##############
-# 1. Load the iris data set
-
-
-# 2. What is this data measuring?
-
-
+# understand more behind the data
+?economics
 
 
 ########################
 # Importing Text Files #
 ########################
-# Notes: 
 
+# importing text files
+read.csv("data/mydata.csv")
+read.delim("data/mydata.txt")
+
+# assign data to new object
+mydata <- read.delim("data/mydata.tsv")
+mydata
+
+View(mydata)
 
 
 
@@ -31,21 +39,27 @@
 # YOUR TURN! #
 ##############
 # 1. Read in the facebook.tsv file in the data folder
-
+read.delim("data/facebook.tsv")
 
 # 2. Read in and save the facebook.tsv file as an object titled facebook
-
+facebook <- read.delim("data/facebook.tsv")
 
 # 3. Take a peek at what this data looks like
-
+View(facebook)
 
 
 
 #########################
 # Importing Excel Files #
 #########################
-# Notes: you need to install the readxl package to read in Excel files
+# install.packages("readxl")
+library(readxl)
 
+read_excel("data/mydata.xlsx", sheet = "Sheet5")
+
+# people love to make notes at the top of Excel files
+read_excel("data/mydata.xlsx", sheet = "Sheet3")
+read_excel("data/mydata.xlsx", sheet = "Sheet3", skip = 2)
 
 
 
@@ -54,32 +68,37 @@
 ##############
 # 1. Read in the spreadsheet titled "3. Median HH income, metro" in the 
 # "PEW Middle Class Data.xlsx" file
-
+read_excel("data/PEW Middle Class Data.xlsx", 
+           sheet = "3. Median HH income, metro", 
+           skip = 5)
 
 # 2. Save it as an object titled pew
-
+pew <- read_excel("data/PEW Middle Class Data.xlsx", 
+                  sheet = "3. Median HH income, metro", 
+                  skip = 5)
 
 # 3. Take a peek at what this data looks like
-
+View(pew)
 
 
 
 #########################
 # Scraping Online Files #
 #########################
-# Notes: 
 
-# scrape this url .csv file
-url <- "https://www.data.gov/media/federal-agency-participation.csv"
+# scraping text files
+url <- "https://www.data.gov/media/federal-agency-participation.csv" 
+data_gov <- read.csv(url)
 
+View(data_gov)
 
-
-# scrape this url .xls file
-# you'll need to install the gdata package if you have not already done so
-install.packages("gdata")
+# scraping Excel files
 library(gdata)
 
 url <- "http://www.huduser.org/portal/datasets/fmr/fmr2015f/FY2015F_4050_Final.xls"
+rents <- read.xls(url)
+
+View(rents)
 
 
 
@@ -89,11 +108,12 @@ url <- "http://www.huduser.org/portal/datasets/fmr/fmr2015f/FY2015F_4050_Final.x
 ##############
 # 1. Download the file stored at: https://bradleyboehmke.github.io/public/data/reddit.csv
 
+url <- "https://bradleyboehmke.github.io/public/data/reddit.csv"
+read.csv(url)
 
 # 2. Save it as an object titled reddit
-
+reddit <- read.csv(url)
 
 # 3. Take a peek at what this data looks like
-
-
+View(reddit)
 
