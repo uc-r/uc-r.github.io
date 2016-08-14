@@ -15,7 +15,7 @@ gained from their experimentation. The result was the *dot plot*.
 <img src="/public/images/visual/cleveland-dotplots/icon.png" style="display: block; margin: auto;" />
 
 
-
+## tl;dr
 This tutorial introduces the dot plot and compares them to bar charts for graphical presentations. I also show how to go from a basic Cleveland dot plot to a more refined, publication worthy graphic. If you're short on time jump to the sections of interest:
 
 - [Replication requirements](#replication)
