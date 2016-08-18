@@ -102,7 +102,7 @@ or as a lollipop chart. In the lollipop chart we use `geom_segment` to plot the 
 ```r
 # lollipop chart
 ggplot(ohio_top25, aes(percollege, county)) +
-         geom_segment(aes(x = 0, y = county, xend = percollege, yend = county), color = "grey50") +
+        geom_segment(aes(x = 0, y = county, xend = percollege, yend = county), color = "grey50") +
         geom_point()
 ```
 
