@@ -7,7 +7,7 @@ permalink: /lollipop
 A hybrid between a [bar chart](http://uc-r.github.io/barcharts) and a [Cleveland dot plot](http://uc-r.github.io/cleveland-dot-plots) is the lollipop chart. A lollipop chart typically contains categorical variables on the y-axis measured against a second (continuous) variable on the x-axis.  Similar to the Cleveland dot plot, the emphasis is on the dot to draw the readers attention to the specific x-axis value achieved by each category. The line is meant to be a minimalistic approach to easily tie each category to its relative point without drawing too much attention to the line itself. A lollipop chart is great for comparing multiple categories as it aids the reader in aligning categories to points but minimizes the amount of ink on the graphic. 
 
 
-<img src="lollipop-icon.png" style="display: block; margin: auto;" />
+<img src="/public/images/visual/lollipop/lollipop-icon.png" style="display: block; margin: auto;" />
 
 
 ## tl;dr
@@ -85,7 +85,7 @@ ggplot(ohio_top25, aes(county, percollege)) +
         coord_flip()
 ```
 
-<img src="Lollipop_files/figure-html/unnamed-chunk-5-1.png" style="display: block; margin: auto;" />
+<img src="/public/images/visual/lollipop/unnamed-chunk-5-1.png" style="display: block; margin: auto;" />
 
 as a dot plot...
 
@@ -95,7 +95,7 @@ ggplot(ohio_top25, aes(percollege, county)) +
         geom_point()
 ```
 
-<img src="Lollipop_files/figure-html/unnamed-chunk-6-1.png" style="display: block; margin: auto;" />
+<img src="/public/images/visual/lollipop/unnamed-chunk-6-1.png" style="display: block; margin: auto;" />
 
 or as a lollipop chart. In the lollipop chart we use `geom_segment` to plot the lines and we explicitly state that we want the lines to start at `x = 0` and extend to the `percollege` value with `xend = percollege`.  We simply need to include `y = county` and `yend = county` to tell R the lines are horizontally attached to each county. 
 
@@ -106,7 +106,7 @@ ggplot(ohio_top25, aes(percollege, county)) +
         geom_point()
 ```
 
-<img src="Lollipop_files/figure-html/unnamed-chunk-7-1.png" style="display: block; margin: auto;" />
+<img src="/public/images/visual/lollipop/unnamed-chunk-7-1.png" style="display: block; margin: auto;" />
 
 
 
@@ -147,7 +147,7 @@ ggplot(ohio, aes(percollege, county, color = Above)) +
         geom_point()
 ```
 
-<img src="Lollipop_files/figure-html/unnamed-chunk-9-1.png" style="display: block; margin: auto;" />
+<img src="/public/images/visual/lollipop/unnamed-chunk-9-1.png" style="display: block; margin: auto;" />
 
 Another comparison approach is if we wanted to compare the top 10 counties for each of the midwest states in our data set. In this case we have to do additional manipulation as each state has a couple county names that are common.
 
@@ -188,7 +188,7 @@ ggplot(top10, aes(percollege, county_st)) +
         facet_wrap(~ state, scales = "free_y")
 ```
 
-<img src="Lollipop_files/figure-html/unnamed-chunk-11-1.png" style="display: block; margin: auto;" />
+<img src="/public/images/visual/lollipop/unnamed-chunk-11-1.png" style="display: block; margin: auto;" />
 
 
 <a href="#top">Go to top</a>
@@ -214,7 +214,7 @@ ggplot(OH_top10, aes(percollege, county, label = round(percollege, 1))) +
         geom_text(nudge_x = 1.5)
 ```
 
-<img src="Lollipop_files/figure-html/unnamed-chunk-12-1.png" style="display: block; margin: auto;" />
+<img src="/public/images/visual/lollipop/unnamed-chunk-12-1.png" style="display: block; margin: auto;" />
 
 Alternatively you can enlarge the dots to include the labelling inside of them.
 
@@ -226,7 +226,7 @@ ggplot(OH_top10, aes(percollege, county, label = paste0(round(percollege, 0), "%
         geom_text(color = "white", size = 2)
 ```
 
-<img src="Lollipop_files/figure-html/unnamed-chunk-13-1.png" style="display: block; margin: auto;" />
+<img src="/public/images/visual/lollipop/unnamed-chunk-13-1.png" style="display: block; margin: auto;" />
 
 
 <a href="#top">Go to top</a>
@@ -263,7 +263,7 @@ ggplot(ohio, aes(percollege/100, county, color = Above)) +
               plot.caption = element_text(size = 8, margin = margin(t = 10), color = "grey70", hjust = 0))
 ```
 
-<img src="Lollipop_files/figure-html/unnamed-chunk-14-1.png" style="display: block; margin: auto;" />
+<img src="/public/images/visual/lollipop/unnamed-chunk-14-1.png" style="display: block; margin: auto;" />
 
 <a href="#top">Go to top</a>
 
