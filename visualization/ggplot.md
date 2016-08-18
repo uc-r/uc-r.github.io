@@ -9,7 +9,7 @@ The [ggplot2](https://cran.r-project.org/web/packages/ggplot2/index.html) packag
 - [Histograms](histograms)
 - [Bar charts](barcharts)
 - [Cleveland dot plot](cleveland-dot-plots)
-- Lollipop chart
+- [Lollipop chart](lollipop)
 - Line chart
 - Scatter plot
 - Box plots
