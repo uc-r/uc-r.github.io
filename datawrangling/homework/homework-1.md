@@ -30,8 +30,8 @@ Follow instructions on [How to submit homework](how-to-submit-homework)
 
 Consult the [general homework rubric](homework-guidelines) to understand how markings will be applied, although much does not apply to this simple assignment. For this first assignment, no peer review will be performed.
 
-Check minus: `xxx.nb.html` provides sufficient information regarding the three areas listed in [Report to Create](#report) but does not include any other aspects of using Markdown syntax such as section headers, links, bold, italics, bullet points, etc.
+**Check minus:** `xxx.nb.html` provides sufficient information regarding the three areas listed in [Report to Create](#report) but does not include any other aspects of using Markdown syntax such as section headers, links, bold, italics, bullet points, etc.
 
-Check: something in between
+**Check:** something in between
 
-Check plus: `xxx.nb.html` provides sufficient information regarding the three areas listed in [Report to Create](#report). It also demonstrates experimentation with 4 or more aspects of the Markdown syntax. Examples may include: section headers, links, bold, italic, bullet points, image embed, etc.
+**Check plus:** `xxx.nb.html` provides sufficient information regarding the three areas listed in [Report to Create](#report). It also demonstrates experimentation with 4 or more aspects of the Markdown syntax. Examples may include: section headers, links, bold, italic, bullet points, image embed, etc.
