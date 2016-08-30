@@ -15,7 +15,7 @@ This homework is due before class Saturday, October 22, 2016. There will be no f
 I want you to create an R Notebook (.nb.html) document that contains the following information:
 
 - Your name & UIC
-- Where you are from
+- Where you are from along with some background information (i.e. education, employment, family, etc.)
 - Your previous experience with R
 
 I want you to name this file `xxx.nb.html` where xxx is your UIC number.
