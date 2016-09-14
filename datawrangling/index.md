@@ -60,7 +60,7 @@ All required classroom material will be provided in class or online. Any recomme
 
 | Session       | Description  |
 |:--------------|--------------|
-| **1**         | **Introduction to R**  |
+| **1**         | **Introduction**  |
 | &nbsp;&nbsp;1a            | &nbsp;&nbsp;Intro to data wrangling, R, and course outline  |
 | &nbsp;&nbsp;1b            | &nbsp;&nbsp;Managing your workflow with RStudio Projects, R Markdown, and R Notebook |
 | **2**         | **Getting Your Data**  |
