@@ -57,25 +57,25 @@ All required classroom material will be provided in class or online. Any recomme
 ## Schedule
 
 
+
 | Session       | Description  |
 |:--------------|--------------|
 | **1**         | **Introduction to R**  |
 | 1a            | Intro to data wrangling, R, and course outline  |
-| 1b            | Managing your workflow with RStudio Projects, R Notebook, and R Markdown |
-| **2**         | **Getting and Understanding Your Data Frames**  |
+| 1b            | Managing your workflow with RStudio Projects, R Markdown, and R Notebook |
+| **2**         | **Getting Your Data**  |
 | 2a            | Importing and exporting data  |
-| 2b            | Managing your data frames and quick visualizations |
-| **3**         | **Visualizing and Controlling Your Data**  |
-| 3a            | Advancing your visualizations with `ggplot2`  |
-| 3b            | Mastering numbers, factors, dates, and missing values |
-| **4**         | **Wrangling Text**  |
-| 4a            | Dealing with character strings  |
-| 4b            | Dealing with regular expressions |
-| **5**         | **Be the Boss of Your Objects**  |
-| 5a            | Vectors, matrices, lists & data frames  |
-| **6**         | **Web Scraping**  |
-| 6a            | Scraping tables  |
-| 6b            | Scraping texts |
-| **7**         | **Putting it all together**  |
-| 7a            | Loop control statements (if, for, while, apply family)  |
-| 7b            | Creating your own functions |
+| 2b            | Scraping text & tables |
+| **3**         | **First Date Guidelines for Data**  |
+| 3a            | Clean & organize your data
+| 3b            | Initial visualizations |
+| **4**         | **Exploratory Data Analysis**  |
+| 4a            | Advancing your visualizations with `ggplot2`  |
+| 4b            | Transforming your data |
+| **5**         | **Wrangling Text**  |
+| 5a            | Dealing with character strings  |
+| 5b            | Dealing with regular expressions |
+| **6**         | **Putting it all together**  |
+| 6a            | Loop control statements (if, for, while, apply family)  |
+| 6b            | Creating your own functions |
+| **7**         | **Final Projects** |
