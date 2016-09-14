@@ -61,21 +61,21 @@ All required classroom material will be provided in class or online. Any recomme
 | Session       | Description  |
 |:--------------|--------------|
 | **1**         | **Introduction**  |
-|               | &nbsp;&nbsp;Intro to data wrangling, R, and course outline  |
-|               | &nbsp;&nbsp;Managing your workflow with RStudio Projects, R Markdown, and R Notebook |
+|               | Intro to data wrangling, R, and course outline  |
+|               | Managing your workflow with RStudio Projects, R Markdown, and R Notebook |
 | **2**         | **Getting Your Data**  |
-| &nbsp;&nbsp;2a            | &nbsp;&nbsp;Importing and exporting data  |
-| &nbsp;&nbsp;2b            | &nbsp;&nbsp;Scraping text & tables |
+|               | Importing and exporting data  |
+|               | Scraping text & tables |
 | **3**         | **First Date Guidelines for Data**  |
-| &nbsp;&nbsp;3a            | &nbsp;&nbsp;Clean & organize your data
-| &nbsp;&nbsp;3b            | &nbsp;&nbsp;Initial visualizations |
+|               | Clean & organize your data
+|               | Initial visualizations |
 | **4**         | **Exploratory Data Analysis**  |
-| &nbsp;&nbsp;4a            | &nbsp;&nbsp;Advancing your visualizations with `ggplot2`  |
-| &nbsp;&nbsp;4b            | &nbsp;&nbsp;Transforming your data |
+|               | Advancing your visualizations with `ggplot2`  |
+|               | Transforming your data |
 | **5**         | **Wrangling Text**  |
-| &nbsp;&nbsp;5a            | &nbsp;&nbsp;Dealing with character strings  |
-| &nbsp;&nbsp;5b            | &nbsp;&nbsp;Dealing with regular expressions |
+|               | Dealing with character strings  |
+|               | Dealing with regular expressions |
 | **6**         | **Putting it all together**  |
-| &nbsp;&nbsp;6a            | &nbsp;&nbsp;Loop control statements (if, for, while, apply family)  |
-| &nbsp;&nbsp;6b            | &nbsp;&nbsp;Creating your own functions |
+|               | Loop control statements (if, for, while, apply family)  |
+|               | Creating your own functions |
 | **7**         | **Final Projects** |
