@@ -15,7 +15,7 @@ permalink: /data_wrangling
 * Day(s): Saturdays
 * Time: 2:00-3:50
 * Location: Lindner 110
-* Webpage: [http://uc-r.github.io/r_bootcamp](http://uc-r.github.io/bana_datawrangling)
+* Webpage: [http://uc-r.github.io/data_wrangling](http://uc-r.github.io/data_wrangling)
 * Additional Resources: [http://uc-r.github.io/](http://uc-r.github.io/)
 
 
@@ -38,3 +38,12 @@ Upon successfully completing this course, you will be able to:
 - Write your own functions
 
 ...all with R!
+
+## Structure of Class Time 
+
+The in-class sessions will consist of both lectures, live coding by the instructor and hands-on programming by the students. The hands-on practice will be sequential in which students will practice applying code as it is learned. 
+
+
+## Material
+All required classroom material will be provided in class or online. Any recommended yet optional material will also be provided in the classroom notes.
+
