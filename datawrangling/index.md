@@ -39,7 +39,9 @@ Upon successfully completing this course, you will be able to:
 
 ...all with R!
 
-## Structure of Class Time 
+## Class Structure 
+
+Each week I plan to have you read through selected tutorials on specific data wrangling activities in R.  I will assign problems/activities that you will need to perform prior to each Saturday session...
 
 The in-class sessions will consist of both lectures, live coding by the instructor and hands-on programming by the students. The hands-on practice will be sequential in which students will practice applying code as it is learned. 
 
@@ -47,3 +49,28 @@ The in-class sessions will consist of both lectures, live coding by the instruct
 ## Material
 All required classroom material will be provided in class or online. Any recommended yet optional material will also be provided in the classroom notes.
 
+## Schedule
+
+
+| Session       | Description  |
+|:--------------|--------------|
+| **1**         | **Introduction to R**  |
+| 1a            | Intro to data wrangling, R, and course outline  |
+| 1b            | Managing your workflow with RStudio Projects, R Notebook, and R Markdown |
+| **2**         | **Getting and Understanding Your Data Frames**  |
+| 2a            | Importing and exporting data  |
+| 2b            | Managing your data frames and quick visualizations |
+| **3**         | **Visualizing and Controlling Your Data**  |
+| 3a            | Advancing your visualizations with `ggplot2`  |
+| 3b            | Mastering numbers, factors, dates, and missing values |
+| **4**         | **Wrangling Text**  |
+| 4a            | Dealing with character strings  |
+| 4b            | Dealing with regular expressions |
+| **5**         | **Be the Boss of Your Objects**  |
+| 5a            | Vectors, matrices, lists & data frames  |
+| **6**         | **Web Scraping**  |
+| 6a            | Scraping tables  |
+| 6b            | Scraping texts |
+| **7**         | **Putting it all together**  |
+| 7a            | Loop control statements (if, for, while, apply family)  |
+| 7b            | Creating your own functions |
