@@ -41,9 +41,14 @@ Upon successfully completing this course, you will be able to:
 
 ## Class Structure 
 
-Each week I plan to have you read through selected tutorials on specific data wrangling activities in R.  I will assign problems/activities that you will need to perform prior to each Saturday session.  Then in each Saturday class I'll spend about 30 minutes reviewing the data wrangling activity and answer any burning questions. Then you will break up into defined small groups and review each others code and approaches to solving the assigned problems. 
+Each week I plan to have you read through selected tutorials on specific data wrangling activities in R. I will assign problems/activities that you will need to perform prior to each Saturday session. Then in each Saturday class I'll spend about 30 minutes reviewing the data wrangling activity and answer any burning questions. Then you will break up into defined small groups and review each others code and approaches to solving the assigned problems. And finally, for the last hour of class you and your small group will work together to complete another problem within this same data wrangling domain.
 
-The in-class sessions will consist of both lectures, live coding by the instructor and hands-on programming by the students. The hands-on practice will be sequential in which students will practice applying code as it is learned. 
+The purpose for this course structure is multi-dimensional:
+
+1. It will teach you to read and learn R programming tutorials and techniques on your own
+2. The out-of-class assignments will force you to come to each class prepared and these assignments will also prepare you for your final project
+3. The in-class peer review will help you get feedback on your code and also teach you to review other people's code
+4. The in-class small group work will teach you to work on a coding task collaboratively and within a constrained time limit
 
 
 ## Material
