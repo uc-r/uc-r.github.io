@@ -21,7 +21,7 @@ RStudio projects are associated with R working directories. You can create an RS
 by selecting **File**  &raquo; **New Project**
 
 <center>
-<img src="/Users/bradleyboehmke/Dropbox/Academia/University of Cincinnati/Data Wrangling with R/images/new_project.png" width="100%" height="100%"/>
+<img src="/public/images/workflow/new_project.png" width="100%" height="100%"/>
 </center>
 
 ## So What's Different?
@@ -33,7 +33,7 @@ When a new project is created RStudio:
 3. Loads the project into RStudio and display its name in the Projects toolbar (which is located on the far right side of the main toolbar)
 
 <center>
-<img src="/Users/bradleyboehmke/Dropbox/Academia/University of Cincinnati/Data Wrangling with R/videos/create RProject.gif" width="100%" height="100%"/>
+<img src="/public/images/workflow/create RProject.gif" width="100%" height="100%"/>
 </center>
 
 When a project is is opened (**File**  &raquo; **Open Project** or by clicking on the .Rproj file directly for the project):
@@ -51,5 +51,5 @@ As you write and execute code in the project all updates and outputs created wil
 There are additional project options you can choose from to customize the project at **Tools**  &raquo; **Project Options**. These project options are overrides for existing global optoins. To inherit the default global behavior for a project you can specify (Default) as the option value.
 
 <center>
-<img src="/Users/bradleyboehmke/Dropbox/Academia/University of Cincinnati/Data Wrangling with R/images/project_options.png"/>
+<img src="/public/images/workflow/project_options.png"/>
 </center>
