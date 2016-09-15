@@ -4,7 +4,7 @@ title: General Homework Guidelines
 permalink: /data_wrangling/homework
 ---
 
-Each week you will be assigned homework that you will need to complete prior to the Saturday session. 
+Each week you will be assigned homework that you will need to be completed prior to the Saturday session. 
 
 Students submit homework once a week. The end result may still resemble a “final project” or portfolio, but one that has been built up gradually over the term.
 
