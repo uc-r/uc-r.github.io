@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: tutorial
 title: General Homework Guidelines
 permalink: /data_wrangling/homework
 ---
