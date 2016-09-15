@@ -92,7 +92,7 @@ Students submit homework once a week. The end result may still resemble a “fin
 
 - [General guidelines for homework submission]()
 
-Each homework will be evaluated by 2 peer reviewers. The performance of thoughtful peer review will count as 15% of the overall course mark.
+Each homework will be evaluated by 3 peer reviewers. The performance of thoughtful peer review will count as 15% of the overall course mark.
 
 - [General homework rubric to apply in peer review](homework-guidelines)
 - [Evaluation of peer review]()
@@ -101,7 +101,7 @@ There will be no final exam.
 
 ## Course Policies
 
-<text>1.</text>&nbsp;<b><i>Academic Integrity</i>:</b> As with all Lindner College of Business efforts, this course will uphold the highest ethical standards, which are critical to building character. LCB instructors are required to report ANY incident of academic misconduct (e.g., cheating, plagiarism) to the college review process, which could result in severe consequences, including potential dismissal from the college. For further information on Academic Misconduct or related university policies and procedures, please see the [UC Code of Conduct](http://www.uc.edu/conduct/Code_of_Conduct.html)
+1. Academic Integrity: As with all Lindner College of Business efforts, this course will uphold the highest ethical standards, which are critical to building character. LCB instructors are required to report ANY incident of academic misconduct (e.g., cheating, plagiarism) to the college review process, which could result in severe consequences, including potential dismissal from the college. For further information on Academic Misconduct or related university policies and procedures, please see the [UC Code of Conduct](http://www.uc.edu/conduct/Code_of_Conduct.html)
 
 All academic programs at the Lindner College of Business apply a “Two Strikes Policy” regarding Academic Integrity. Any student who has been found responsible for two cases of academic misconduct may be dismissed from the College. The “Two Strikes Policy” supplements the UC Student Code of Conduct.
 
@@ -109,8 +109,8 @@ All cases of academic misconduct (e.g., cheating, plagiarism, falsification) wil
 
 The “Two Strikes Policy” is now in effect.
 
-<text>2.</text>&nbsp;<i><b>Attendance</i>:</b> Attendance and participation in class is critical to understanding the material. I will be covering material not in the book and class notes are important for these topics. Please arrive on time and be prepared to participate in the in-class programming practice.
+2. Attendance: Attendance and participation in class is critical to understanding the material. I will be covering material not in the book and class notes are important for these topics. Please arrive on time and be prepared to participate in the in-class programming practice.
 
-<text>3.</text>&nbsp;<i><b>Disability</i>:</b> Students with disabilities who need academic accommodations or other specialized services while attending the University of Cincinnati will receive reasonable accommodations to meet their individual needs as well as advocacy assistance on disability-related issues. Students requiring special accommodation must register with the [Disability Services Office](http://www.uc.edu/sas/disability).
+3. Disability: Students with disabilities who need academic accommodations or other specialized services while attending the University of Cincinnati will receive reasonable accommodations to meet their individual needs as well as advocacy assistance on disability-related issues. Students requiring special accommodation must register with the [Disability Services Office](http://www.uc.edu/sas/disability).
 
-<text>5.</text>&nbsp;<i><b>Grade appeals</i>:</b> If you think the grade of your work (homework, peer reviews, participation) is miscalculated, you have the right to appeal. The appeal must be done (through email) within 7 calendar days since the grade is released/posted. After that, your grade is final and will not be changed.
+5. Grade appeals: If you think the grade of your work (homework, peer reviews, participation) is miscalculated, you have the right to appeal. The appeal must be done (through email) within 7 calendar days since the grade is released/posted. After that, your grade is final and will not be changed.
