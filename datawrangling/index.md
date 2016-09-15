@@ -1,4 +1,9 @@
-
+---
+title: Course&#58; Data Wrangling with R
+author: Brad Boehmke
+layout: page
+permalink: /data_wrangling
+---
 
 ## Instructor
 
