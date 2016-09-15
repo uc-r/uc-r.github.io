@@ -25,6 +25,7 @@ Welcome to Data Wrangling with R! This course provides an intensive, hands-on in
 
 
 ## Course Objectives
+
 Upon successfully completing this course, you will be able to:
 
 - Perform your data analysis in a literate programming environment
@@ -52,6 +53,7 @@ The purpose for this course structure is multi-dimensional:
 
 
 ## Material
+
 All required classroom material will be provided in class or online. Any recommended yet optional material will also be provided in the classroom notes.
 
 ## Schedule
@@ -80,6 +82,7 @@ All required classroom material will be provided in class or online. Any recomme
 |               | Creating your own functions |
 | **7**         | **Final Projects** |
 
+
 ## Grading Policies
 
 Course grades will consist of: 
@@ -90,18 +93,4 @@ Course grades will consist of:
 
 There will be no final exam.
 
-## Course Policies
 
-1. Academic Integrity: As with all Lindner College of Business efforts, this course will uphold the highest ethical standards, which are critical to building character. LCB instructors are required to report ANY incident of academic misconduct (e.g., cheating, plagiarism) to the college review process, which could result in severe consequences, including potential dismissal from the college. For further information on Academic Misconduct or related university policies and procedures, please see the [UC Code of Conduct](http://www.uc.edu/conduct/Code_of_Conduct.html)
-
-All academic programs at the Lindner College of Business apply a “Two Strikes Policy” regarding Academic Integrity. Any student who has been found responsible for two cases of academic misconduct may be dismissed from the College. The “Two Strikes Policy” supplements the UC Student Code of Conduct.
-
-All cases of academic misconduct (e.g., cheating, plagiarism, falsification) will be formally reported by faculty. Students will be afforded due process for allegations, as outlined in the policy. If a student is found guilty of academic misconduct in two instances, the student may be dismissed from the Lindner College of Business.
-
-The “Two Strikes Policy” is now in effect.
-
-2. Attendance: Attendance and participation in class is critical to understanding the material. I will be covering material not in the book and class notes are important for these topics. Please arrive on time and be prepared to participate in the in-class programming practice.
-
-3. Disability: Students with disabilities who need academic accommodations or other specialized services while attending the University of Cincinnati will receive reasonable accommodations to meet their individual needs as well as advocacy assistance on disability-related issues. Students requiring special accommodation must register with the [Disability Services Office](http://www.uc.edu/sas/disability).
-
-5. Grade appeals: If you think the grade of your work (homework, peer reviews, participation) is miscalculated, you have the right to appeal. The appeal must be done (through email) within 7 calendar days since the grade is released/posted. After that, your grade is final and will not be changed.
