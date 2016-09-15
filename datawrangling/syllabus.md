@@ -91,6 +91,14 @@ Course grades will consist of:
 
 There will be no final exam.
 
+## Software
+
+We will use this software during the course. Plan on bringing a computer to each class meeting.
+
+* [R](https://cran.r-project.org/) and [RStudio](https://www.rstudio.com/) will be used to perform all programming activities, assignments, and the final project.  You can find details on how to download these [here](http://uc-r.github.io/section2_basics#installation).
+* [Slack](https://slack.com/) will replace e-mail and Blackboard for our course. You will receive an invitation to the [UC Data Wrangling slack team](https://uc-data-wrangling.slack.com/). You may wish to install one of the [apps](https://slack.com/downloads/osx). Here is an [introduction to Slack](https://vimeo.com/133692325) from one of Kris Shaffer’s courses (although this is a completely different course and slack team it provides a nice introduction that you might find useful).
+
+
 
 ## Fine Print
 
@@ -102,4 +110,14 @@ All cases of academic misconduct (e.g., cheating, plagiarism, falsification) wil
 
 <u>Disability</u>: Students with disabilities who need academic accommodations or other specialized services while attending the University of Cincinnati will receive reasonable accommodations to meet their individual needs as well as advocacy assistance on disability-related issues. Students requiring special accommodation must register with the [Disability Services Office](http://www.uc.edu/aess/disability.html).
 
+<u>Attendance</u>: Your attendance is expected at every meeting. If you must be absent, I request that you notify me in advance of the class meeting.
+
 <u>Grade appeals</u>: If you think the grade of your work (homework, peer reviews, participation) is miscalculated, you have the right to appeal. The appeal must be done (through email) within 7 calendar days since the grade is released/posted. After that, your grade is final and will not be changed.
+
+<u>Acknowledgments</u>: I have drawn ideas or readings from the following syllabi:
+
+* Jenny Bryan, [STAT 545: Data wrangling, exploration, and analysis with R](http://stat545.com/)
+* Lincoln Mullen, [HIST 688: Data and visualization in digital history](http://lincolnmullen.com/courses/data-dh.2016/)
+* Kieran Healy, [Soc 880: Data Visualization](http://socviz.github.io/soc880/)
+
+
