@@ -86,7 +86,7 @@ All required classroom material will be provided in class or online. Any recomme
 Course grades will consist of: 
 
 - 40% final project
-- 30% [homework](homework)
+- 30% [homework](homework-guidelines)
 - 30% engagement (i.e. attendance, peer review, group work)
 
 There will be no final exam.
