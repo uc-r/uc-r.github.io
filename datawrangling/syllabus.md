@@ -5,6 +5,7 @@ layout: page
 permalink: /data_wrangling/syllabus
 ---
 
+Welcome to Data Wrangling with R! This course provides an intensive, hands-on introduction to Data Wrangling with the R programming language. You will learn the fundamental skills required to acquire, munge, transform, manipulate, and visualize data in a computing environment that fosters reproducibility.
 
 ## Instructor
 
@@ -32,11 +33,6 @@ permalink: /data_wrangling/syllabus
 * Location: Lindner 110
 * Webpage: [http://uc-r.github.io/data_wrangling](http://uc-r.github.io/data_wrangling/syllabus)
 * Additional Resources: [http://uc-r.github.io/](http://uc-r.github.io/)
-
-
-## Course Description 
-
-Welcome to Data Wrangling with R! This course provides an intensive, hands-on introduction to Data Wrangling with the R programming language. You will learn the fundamental skills required to acquire, munge, transform, manipulate, and visualize data in a computing environment that fosters reproducibility.
 
 
 ## Course Objectives
