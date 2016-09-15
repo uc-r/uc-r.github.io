@@ -87,7 +87,7 @@ Course grades will consist of:
 
 - 40% final project
 - 30% [homework](homework-guidelines)
-- 30% engagement (i.e. attendance, peer review, group work)
+- 30% [engagement](engagement)
 
 There will be no final exam.
 
