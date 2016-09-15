@@ -4,7 +4,7 @@ title: General Homework Guidelines
 permalink: /data_wrangling/homework
 ---
 
-Each week you will be assigned homework that will need to be completed prior to each Saturday session. These homeworks will be crucial in helping you complete a high-quality final project.  Each Saturday session your homework will be graded according to the following:
+Each week you will be assigned homework that will need to be completed prior to each Saturday session. These homework assignments will be crucial in helping you complete a high-quality final project.  Each Saturday session your homework will be graded according to the following:
 
 - Present + homework complete (3 points)
 - Present + homework partially complete (2 points)
