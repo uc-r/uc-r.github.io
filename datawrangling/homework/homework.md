@@ -4,12 +4,12 @@ title: General Homework Guidelines
 permalink: /data_wrangling/homework
 ---
 
-Each week you will be assigned homework that you will need to be completed prior to the Saturday session. 
+Each week you will be assigned homework that will need to be completed prior to each Saturday session. These homeworks will be crucial in helping you complete a high-quality final project.  Each Saturday session your homework will be graded according to the following:
 
-Students submit homework once a week. The end result may still resemble a “final project” or portfolio, but one that has been built up gradually over the term.
+- Present + homework complete (3 points)
+- Present + homework partially complete (2 points)
+- Present + no homework (1 point)
+- Absent (0 points)
 
-- [General guidelines for homework submission]()
+Each Saturday your small group peers will review your homework code to provide feedback.  This feedback is meant to improve your code, help you with issues or concerns, and also improve your ability to review other's code.  This [peer review grading rubric](data_wrangling/homework-guidelines) will be used to assess your code; however, additional comments and inputs can be freely given.  The feedback provided by your peers will not influence your grade; however, at the end of the term every student will assess the engagement of each small group member.  Consequently, your contributions to your small group peers by providing high-quality feedback and working well to improve one another will be measured and will influence the engagement portion of your grade.
 
-Each homework will be evaluated by 3 peer reviewers. The performance of thoughtful peer review will count as 15% of the overall course mark.
-
-- [General homework rubric to apply in peer review](homework-guidelines)
