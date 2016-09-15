@@ -7,19 +7,6 @@ permalink: /data_wrangling/syllabus
 
 Welcome to Data Wrangling with R! This course provides an intensive, hands-on introduction to Data Wrangling with the R programming language. You will learn the fundamental skills required to acquire, munge, transform, manipulate, and visualize data in a computing environment that fosters reproducibility.
 
-## Instructor
-
-  * [Brad Boehmke](http://bradleyboehmke.github.io/) 
-
-<div class="contact-buttons" style="line-height:160%;margin-left:40px;margin-top:0px">
-<p>
-<a href="mailto:bradleyboehmke@gmail.com" target="_blank" style="color:#515151;"><i class="fa fa-envelope" style="font-size:1em"></i> &nbsp; Email<br></a>
-<a href="https://twitter.com/bradleyboehmke" target="_blank" style="color:#515151;"><i class="fa fa-twitter"></i> &nbsp; Twitter<br></a> 
-<a href="https://github.com/bradleyboehmke" target="_blank" style="color:#515151;"><i class="fa fa-github" style="font-size:1em"></i> &nbsp; GitHub<br></a> 
-<a href="https://www.linkedin.com/in/brad-boehmke-ph-d-9b0a257" target="_blank" style="color:#515151;"><i class="fa fa-linkedin" style="font-size:1em"></i> &nbsp; LinkedIn<br></a>
-</p>
-</div>
-
 
 ## Class Information
 
