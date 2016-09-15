@@ -59,7 +59,7 @@ All required classroom material will be provided in class or online. Any recomme
 
 
 | Session       | Description  |
-|:--------------|--------------|
+|---------------|--------------|
 | **1**         | **Introduction**  |
 |               | Intro to data wrangling, R, and course outline  |
 |               | Managing your workflow with RStudio Projects, R Markdown, and R Notebook |
@@ -101,7 +101,7 @@ There will be no final exam.
 
 ## Course Policies
 
-<text>1.</text>&nbsp;<i><b>Academic Integrity</i>:</b> As with all Lindner College of Business efforts, this course will uphold the highest ethical standards, which are critical to building character. LCB instructors are required to report ANY incident of academic misconduct (e.g., cheating, plagiarism) to the college review process, which could result in severe consequences, including potential dismissal from the college. For further information on Academic Misconduct or related university policies and procedures, please see the [UC Code of Conduct](http://www.uc.edu/conduct/Code_of_Conduct.html)
+<text>1.</text>&nbsp;<b><i>Academic Integrity</i>:</b> As with all Lindner College of Business efforts, this course will uphold the highest ethical standards, which are critical to building character. LCB instructors are required to report ANY incident of academic misconduct (e.g., cheating, plagiarism) to the college review process, which could result in severe consequences, including potential dismissal from the college. For further information on Academic Misconduct or related university policies and procedures, please see the [UC Code of Conduct](http://www.uc.edu/conduct/Code_of_Conduct.html)
 
 All academic programs at the Lindner College of Business apply a “Two Strikes Policy” regarding Academic Integrity. Any student who has been found responsible for two cases of academic misconduct may be dismissed from the College. The “Two Strikes Policy” supplements the UC Student Code of Conduct.
 
