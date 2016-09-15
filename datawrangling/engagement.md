@@ -1,7 +1,7 @@
 ---
 title: General Engagement Guidelines
 author: Brad Boehmke
-layout: page
+layout: tutorial
 permalink: /data_wrangling/engagement
 ---
 
