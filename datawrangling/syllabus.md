@@ -5,9 +5,11 @@ layout: page
 permalink: /data_wrangling/syllabus
 ---
 
+[Course Description](#syllabus) | [Schedule](#schedule) | Assignments | Final Project | [Fine Print]()
+
 ## Instructor
 
-  * [Brad Boehmke](http://bradleyboehmke.github.io/)
+  * [Brad Boehmke](http://bradleyboehmke.github.io/) 
 
 
 ## Class Information
