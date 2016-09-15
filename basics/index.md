@@ -153,10 +153,10 @@ options()
 options(digits=3)    
 ```
 
-For a thorough tutorial regarding the RStudio console and how to customize different components check out [this tutorial](http://dss.princeton.edu/training/RStudio101.pdf). You can also find the RStudio console cheatsheet shown below [here](https://www.rstudio.com/wp-content/uploads/2016/01/rstudio-IDE-cheatsheet.pdf).  As with most computer programs, there are numerous keyboard shortcuts for working with the console. To access a menu displaying all the shortcuts in RStudio you can use option + shift + k.  Within RStudio you can also access them in the Help menu &#187; Keyboard Shortcuts.
+For a thorough tutorial regarding the RStudio console and how to customize different components check out [this tutorial](http://dss.princeton.edu/training/RStudio101.pdf). You can also find the RStudio console cheatsheet shown below [here](https://www.rstudio.com/wp-content/uploads/2016/01/rstudio-IDE-cheatsheet.pdf) or by going to Help menu &#187; Cheatsheets.  As with most computer programs, there are numerous keyboard shortcuts for working with the console. To access a menu displaying all the shortcuts in RStudio you can use option + shift + k.  Within RStudio you can also access them in the Help menu &#187; Keyboard Shortcuts.
 
 <center>
-<img src="https://www.rstudio.com/wp-content/uploads/2016/01/rstudio-IDE-cheatsheet.pdf">
+<img src="/public/images/RStudio Cheatsheet.png">
 </center>
 
 
