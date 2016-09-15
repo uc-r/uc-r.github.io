@@ -15,7 +15,7 @@ permalink: /data_wrangling/syllabus
 * Day(s): Saturdays
 * Time: 2:00-3:50
 * Location: Lindner 110
-* Webpage: [http://uc-r.github.io/data_wrangling](http://uc-r.github.io/data_wrangling)
+* Webpage: [http://uc-r.github.io/data_wrangling](http://uc-r.github.io/data_wrangling/syllabus)
 * Additional Resources: [http://uc-r.github.io/](http://uc-r.github.io/)
 
 
