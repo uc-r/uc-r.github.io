@@ -48,7 +48,7 @@ When a project is is opened (**File**  &raquo; **Open Project** or by clicking o
 
 As you write and execute code in the project all updates and outputs created will be saved to the project directory. And when you close out of the project the .RData and .Rhistory files will be saved (if these options are selected in the global options) and the list of open source documents are saved so that they can be restored the next time you open the project.
 
-There are additional project options you can choose from to customize the project at **Tools**  &raquo; **Project Options**. These project options are overrides for existing global optoins. To inherit the default global behavior for a project you can specify (Default) as the option value.
+There are additional project options you can choose from to customize the project at **Tools**  &raquo; **Project Options**. These project options are overrides for existing global options. To inherit the default global behavior for a project you can specify (Default) as the option value.
 
 <center>
 <img src="/public/images/workflow/project_options.png"/>
