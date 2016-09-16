@@ -36,7 +36,7 @@ When a new project is created RStudio:
 <img src="/public/images/workflow/create RProject.gif" width="100%" height="100%"/>
 </center>
 
-When a project is is opened (**File**  &raquo; **Open Project** or by clicking on the .Rproj file directly for the project):
+When a project is opened (**File**  &raquo; **Open Project** or by clicking on the .Rproj file directly for the project):
 
 * A new R session is started
 * The .Rprofile file in the project's main directory is sourced by R
