@@ -18,7 +18,7 @@ RStudio projects are associated with R working directories. You can create an RS
 * In an existing directory where you already have R code and data
 * By cloning a version control (Git or Subversion) repository
 
-by selecting **File**  &raquo; **New Project**
+by selecting **File**  &raquo; **New Project** and then completing the following set-up tasks:
 
 <center>
 <img src="/public/images/workflow/new_project.png" width="100%" height="100%"/>
