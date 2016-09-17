@@ -306,6 +306,7 @@ R Markdown is an incredible tool for reproducible research and there are a lot o
 - [Karl Browman's tutorial](http://kbroman.org/knitr_knutshell/pages/Rmarkdown.html)
 - [Daring Fireball](http://daringfireball.net/projects/markdown/)
 - [Reproducible Research course on Coursera](https://www.coursera.org/learn/reproducible-research/)
+- [Chester Ismay's book](https://ismayc.github.io/rbasics-book/)
 
 Also, you can find the R Markdown cheatsheet [here](https://www.rstudio.com/wp-content/uploads/2016/03/rmarkdown-cheatsheet-2.0.pdf) or within the RStudio console at Help menu &raquo; Cheatsheets.
 
