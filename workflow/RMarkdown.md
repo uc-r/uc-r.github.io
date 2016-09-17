@@ -122,7 +122,7 @@ Here is a simple R code chunk that will result in both the code and it’s outpu
 ```
 ```{r}
 summary(cars)
-!```!
+\```
 ```
 
 <center>
