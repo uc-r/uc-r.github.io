@@ -116,7 +116,7 @@ The beauty of R Markdown is the ability to easily combine prose (text) and code.
 <img src="/public/images/workflow/markdown_text.png" width="85%" height="85%"/>
 </center>
 
-There are many additional formatting options which can be viewed [here](http://rmarkdown.rstudio.com/authoring_pandoc_markdown.html); however, this should get you well on your way.
+There are many additional formatting options which can be viewed [here](http://rmarkdown.rstudio.com/authoring_pandoc_markdown.html) and [here](http://daringfireball.net/projects/markdown/basics); however, this should get you well on your way.
 
 ### Code Chunks {#chunk}
 R code chunks can be used as a means to render R output into documents or to simply display code for illustration. Code chunks start with the following line: <code>```{r chunk_name}</code> and end with <code>```</code>. You can quickly insert chunks into your R Markdown file with the keyboard shortcut **Cmd + Option + I** (Windows **Ctrl + Alt + I**).
@@ -126,7 +126,7 @@ Here is a simple R code chunk that will result in both the code and it’s outpu
 
 <pre><code>
 ```{r}
-summary(cars)
+head(iris)
 ```
 </code></pre>
 
@@ -225,29 +225,29 @@ Now if the underlying data changes you do not need to remember all the inline va
 
 By default, the table outputs produced in R Markdown will look like the output you would see in your console. However, if you prefer that data be displayed with additional formatting you can use the knitr::kable function. For example:
 
-<code> 
+<pre><code>
 ```{r, results='asis'}
 knitr::kable(iris)
 ```
-</code>
+</pre></code>
 
 To include captions:
 
-<code> 
+<pre><code>
 ```{r}
 knitr::kable(head(iris), caption = 'Example caption for the iris data frame')
 ```
-</code>
+</pre></code>
 
 The simplest approach to print nice looking tables is to use the [`printr`](http://yihui.name/printr/) package which can be downloaded from this GitHub [repo](https://github.com/yihui/printr).
 
-<code> 
+<pre><code>
 ```{r}
 library(printr)
 
 head(iris)
 ```
-</code>
+</pre></code>
 
 <center>
 <img src="/public/images/workflow/rmarkdown_tables.png" width="100%" height="100%"/>
@@ -300,3 +300,15 @@ The following output formats are available to use with R Markdown.
 
 ## Additional Resources
 R Markdown is an incredible tool for reproducible research and there are a lot of resource available.  Here are just a few of the available resources to learn more about R Markdown.
+
+- [Rstudio tutorials](http://rmarkdown.rstudio.com/)
+- [R Markdown course by DataCamp](https://www.datacamp.com/community/blog/r-markdown-tutorial-reproducible-reporting-in-r#gs.4iluNvI)
+- [Karl Browman's tutorial](http://kbroman.org/knitr_knutshell/pages/Rmarkdown.html)
+- [Daring Fireball](http://daringfireball.net/projects/markdown/)
+- [Reproducible Research course on Coursera](https://www.coursera.org/learn/reproducible-research/)
+
+Also, you can find the R Markdown cheatsheet [here](https://www.rstudio.com/wp-content/uploads/2016/03/rmarkdown-cheatsheet-2.0.pdf) or within the RStudio console at Help menu &raquo; Cheatsheets.
+
+<center>
+<img src="/public/images/workflow/rmarkdown_cheatsheet.png" width="100%" height="100%"/>
+</center>
