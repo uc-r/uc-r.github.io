@@ -215,7 +215,7 @@ ggplot(iris, aes(Sepal.Length, Sepal.Width, color = Species)) +
 #### Inline code chunks
 A key motivation for reproducible research is to link any results reported directly to the data and functions used to create them. Consequently, you should never manual insert numbers such as "The average miles per gallon is 20.1."  Rather, code results can be inserted directly into the text of a .Rmd file by enclosing the code with <code>`r `</code> such as:  "The average miles per gallon is <code>`r mean(mtcars$mpg)`</code>."  
 
-Now if the underlying data changes you do not need to remember all the inline values you manually entered. You may not like the fact that the output is reporting all the decimals. You could include the `round` function in the inline code: ` `r round(mean(mtcars$mpg), 1)` `
+Now if the underlying data changes you do not need to remember all the inline values you manually entered. You may not like the fact that the output is reporting all the decimals. You could include the `round` function in the inline code: <code>`r round(mean(mtcars$mpg), 1)` </code>.
 
 <center>
 <img src="/public/images/workflow/inline_code_chunks.png" width="100%" height="100%"/>
