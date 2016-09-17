@@ -109,7 +109,7 @@ There are many YAML options which you can read more about at:
 The beauty of R Markdown is the ability to easily combine prose (text) and code.  For the text component, much of your writing is similar to when you type a Word document; however, to perform many of the basic text formatting you use basic markdown code such as:
 
 <center>
-<img src="/public/images/workflow/markdown_text.png" width="90%" height="90%"/>
+<img src="/public/images/workflow/markdown_text.png" width="85%" height="85%"/>
 </center>
 
 There are many additional formatting options which can be viewed [here](http://rmarkdown.rstudio.com/authoring_pandoc_markdown.html); however, this should get you well on your way.
@@ -120,9 +120,11 @@ R code chunks can be used as a means to render R output into documents or to sim
 Here is a simple R code chunk that will result in both the code and it’s output being included:
 
 
-<pre><code>```{r}
+<pre><code>
+```{r}
 summary(cars)
-```</code></pre>
+```
+</code></pre>
 
 <center>
 <img src="/public/images/workflow/code_chunks.png" width="100%" height="100%"/>
@@ -131,69 +133,76 @@ summary(cars)
 Chunk output can be customized with many [knitr options](http://yihui.name/knitr/options/) which are arguments set in the `{}` of a chunk header. Examples include:
 
 1. `echo=FALSE` hides the code but displays results:
-<code> 
+
+<pre><code> 
 ```{r echo=FALSE}
 x <- rnorm(100)
 y <- 2 * x + rnorm(100)
 
 cor(x, y)
 ```
-</code>
+</code></pre>
 
 2. `results='hide'` hides the results but shows the code
-<code> 
+
+<pre><code>
 ```{r results='hide'}
 x <- rnorm(100)
 y <- 2 * x + rnorm(100)
 
 cor(x, y)
 ```
-</code>
+</code></pre>
 
 3. `eval=FALSE` displays the code but does not evaluate it
-<code> 
+
+<pre><code> 
 ```{r eval=FALSE}
 x <- rnorm(100)
 y <- 2 * x + rnorm(100)
 
 cor(x, y)
 ```
-</code>
+</code></pre>
 
 4. `include=FALSE` evaluates the code but does not display code *or* output
-<code> 
+
+<pre><code> 
 ```{r include=FALSE}
 x <- rnorm(100)
 y <- 2 * x + rnorm(100)
 
 cor(x, y)
 ```
-</code>
+</code></pre>
 
 5. `warning=FALSE` and `message=FALSE` are useful for suppressing any messages produced when loading packages
-<code> 
+
+<pre><code> 
 ```{r, warning=FALSE, message=FALSE}
 library(dplyr)
 ```
-</code>
+</code></pre>
 
 6. `collapse=TRUE` will collapse your output to be contained within the code chunk
-<code> 
+
+<pre><code> 
 ```{r, collapse=TRUE}
 head(iris)
 ```
-</code>
+</code></pre>
 
 
 7. `fig...` options are available to align and size figure outputs
-<code> 
+
+<pre><code> 
 ```{r, fig.align='center', fig.height=3, fig.width=4}
 library(ggplot2)
 
 ggplot(iris, aes(Sepal.Length, Sepal.Width, color = Species)) +
         geom_point()
 ```
-</code>
+</code></pre>
 
 <center>
 <img src="/public/images/workflow/code_chunk_examples.png" width="100%" height="100%"/>
