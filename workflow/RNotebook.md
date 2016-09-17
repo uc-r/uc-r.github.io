@@ -54,7 +54,7 @@ You can also run all chunks in your document by:
 When a code chunk is waiting to be executed, you’ll notice a progress meter that appears to the left of the code chunk plus there will be a status in the editor’s status bar indicating the number of chunks remaining to be executed. You can click on this meter at any time to jump to the currently executing chunk.
 
 <center>
-<img src="/public/images/workflow/notebook_code_execution.gif" />
+<img src="/public/images/workflow/rnotebook_code_execution.gif" />
 </center>
 
 
