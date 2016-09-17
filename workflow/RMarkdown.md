@@ -119,11 +119,11 @@ R code chunks can be used as a means to render R output into documents or to sim
 
 Here is a simple R code chunk that will result in both the code and it’s output being included:
 
-```
+<pre><code>
 ```{r}
 summary(cars)
-\```
 ```
+</code></pre>
 
 <center>
 <img src="/public/images/workflow/code_chunks.png" width="100%" height="100%"/>
