@@ -9,19 +9,19 @@ permalink: /r_markdown
 R Markdown provides an easy way to produce a rich, fully-documented reproducible analysis. It allows the user to share a single file that contains all of the prose, code, and metadata needed to reproduce the analysis from beginning to end. R Markdown allows for "chunks" of R code to be included along with Markdown text to produce a nicely formatted HTML, PDF, or Word file without having to know any HTML or LaTeX code or have to fuss with difficult formatting issues.  One R Markdown file can generate a variety of different formats and all of this is done in a single text file with a few bits of formatting.
 
 <center>
-<img src="public/images/workflow/rmarkdown-image1.png" width="60%" height="60%"/>
+<img src="/public/images/workflow/rmarkdown-image1.png" width="60%" height="60%"/>
 </center>
 
 So how does it work?  Creating documents with R Markdown starts with an .Rmd file that contains a combination of text and R code chunks. The .Rmd file is fed to `knitr`, which executes all of the R code chunks and creates a new markdown (.md) document with the output. Pandoc then processes the .md file to create a finished report in the form of a web page, PDF, Word document, slide show, etc.  
 
 <center>
-<img src="public/images/workflow/RMarkdownFlow.png" width="90%" height="90%"/>
+<img src="/public/images/workflow/RMarkdownFlow.png" width="90%" height="90%"/>
 </center>
 
 Sounds confusing you say, don't fret.  Much of what takes place happens behind the scenes.  You primarily need to worry only about the syntax required in the .Rmd file. You then press a button and out comes your report.
 
 <center>
-<img src="public/images/workflow/RMarkdownFlow2.png" width="100%" height="100%"/>
+<img src="/public/images/workflow/RMarkdownFlow2.png" width="100%" height="100%"/>
 </center>
 
 
@@ -109,24 +109,26 @@ There are many YAML options which you can read more about at:
 The beauty of R Markdown is the ability to easily combine prose (text) and code.  For the text component, much of your writing is similar to when you type a Word document; however, to perform many of the basic text formatting you use basic markdown code such as:
 
 <center>
-<img src="public/images/workflow//markdown_text.png" width="100%" height="100%"/>
+<img src="/public/images/workflow//markdown_text.png" width="100%" height="100%"/>
 </center>
 
 There are many additional formatting options which can be viewed [here](http://rmarkdown.rstudio.com/authoring_pandoc_markdown.html); however, this should get you well on your way.
 
 ### Code Chunks {#chunk}
-R code chunks can be used as a means to render R output into documents or to simply display code for illustration. Code chunks start with the following line: ` ```{r chunk_name} ` and end with ` ``` `. You can quickly insert chunks into your R Markdown file with the keyboard shortcut **Cmd + Option + I** (Windows **Ctrl + Alt + I**).
+R code chunks can be used as a means to render R output into documents or to simply display code for illustration. Code chunks start with the following line: <code>```{r chunk_name}</code> and end with <code>```</code>. You can quickly insert chunks into your R Markdown file with the keyboard shortcut **Cmd + Option + I** (Windows **Ctrl + Alt + I**).
 
 Here is a simple R code chunk that will result in both the code and it’s output being included:
 
 <code> 
 ```{r}
+
 summary(cars)
+
 ``` 
 </code>
 
 <center>
-<img src="public/images/workflow/code_chunks.png" width="100%" height="100%"/>
+<img src="/public/images/workflow/code_chunks.png" width="100%" height="100%"/>
 </center>
 
 Chunk output can be customized with many [knitr options](http://yihui.name/knitr/options/) which are arguments set in the `{}` of a chunk header. Examples include:
@@ -197,7 +199,7 @@ ggplot(iris, aes(Sepal.Length, Sepal.Width, color = Species)) +
 </code>
 
 <center>
-<img src="public/images/workflow/code_chunk_examples.png" width="100%" height="100%"/>
+<img src="/public/images/workflow/code_chunk_examples.png" width="100%" height="100%"/>
 </center>
 
 #### Inline code chunks
@@ -206,7 +208,7 @@ A key motivation for reproducible research is to link any results reported direc
 Now if the underlying data changes you do not need to remember all the inline values you manually entered. You may not like the fact that the output is reporting all the decimals. You could include the `round` function in the inline code: ` `r round(mean(mtcars$mpg), 1)` `
 
 <center>
-<img src="public/images/workflow/inline_code_chunks.png" width="100%" height="100%"/>
+<img src="/public/images/workflow/inline_code_chunks.png" width="100%" height="100%"/>
 </center>
 
 #### Dealing with Tables
@@ -238,7 +240,7 @@ head(iris)
 </code>
 
 <center>
-<img src="public/images/workflow/rmarkdown_tables.png" width="100%" height="100%"/>
+<img src="/public/images/workflow/rmarkdown_tables.png" width="100%" height="100%"/>
 </center>
 
 There are several packages that can be used to make very nice packages:
@@ -254,7 +256,7 @@ There are several packages that can be used to make very nice packages:
 When you are all done writing your .Rmd document you have two options to render the output.  The first is to call the following function in your console: `render("document_name.Rmd", output_format = "html_document")`. Alternatively you can click the drop down arrow next to the `knit` button on the RStudio toolbar, select the document format (HTML, PDF, Word) and your report will be developed.
 
 <center>
-<img src="public/images/workflow/rmarkdown_generate.gif" width="100%" height="100%"/>
+<img src="/public/images/workflow/rmarkdown_generate.gif" width="100%" height="100%"/>
 </center>
 
 The following output formats are available to use with R Markdown.
