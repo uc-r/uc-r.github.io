@@ -28,6 +28,10 @@ Sounds confusing you say, don't fret.  Much of what takes place happens behind t
 ## Creating an R Markdown File
 To create an R Markdown file you can select **File**  &raquo; **New File** &raquo; **R Markdown** or you can select the shortcut for creating a new document in the top left-hand corner of the RStudio window. You will be given an option to create an HTML, PDF, or Word document; however, R Markdown let's you change seamlessly between these options after you've created your document so I tend to just select the default HTML option.  
 
+<center>
+<img src="/public/images/workflow/rmarkdown_create.gif" width="100%" height="100%"/>
+</center>
+
 There are additional options such as creating Presentations (HTML or PDF), Shiny documents, or other template documents but for now we will focus on the initial HTML, PDF, or Word document options.
 
 
@@ -132,7 +136,7 @@ summary(cars)
 
 Chunk output can be customized with many [knitr options](http://yihui.name/knitr/options/) which are arguments set in the `{}` of a chunk header. Examples include:
 
-1. `echo=FALSE` hides the code but displays results:
+1\. `echo=FALSE` hides the code but displays results:
 
 <pre><code> 
 ```{r echo=FALSE}
@@ -143,7 +147,7 @@ cor(x, y)
 ```
 </code></pre>
 
-2. `results='hide'` hides the results but shows the code
+2\. `results='hide'` hides the results but shows the code
 
 <pre><code>
 ```{r results='hide'}
@@ -154,7 +158,7 @@ cor(x, y)
 ```
 </code></pre>
 
-3. `eval=FALSE` displays the code but does not evaluate it
+3\. `eval=FALSE` displays the code but does not evaluate it
 
 <pre><code> 
 ```{r eval=FALSE}
@@ -165,7 +169,7 @@ cor(x, y)
 ```
 </code></pre>
 
-4. `include=FALSE` evaluates the code but does not display code *or* output
+4\. `include=FALSE` evaluates the code but does not display code *or* output
 
 <pre><code> 
 ```{r include=FALSE}
@@ -176,7 +180,7 @@ cor(x, y)
 ```
 </code></pre>
 
-5. `warning=FALSE` and `message=FALSE` are useful for suppressing any messages produced when loading packages
+5\. `warning=FALSE` and `message=FALSE` are useful for suppressing any messages produced when loading packages
 
 <pre><code> 
 ```{r, warning=FALSE, message=FALSE}
@@ -184,7 +188,7 @@ library(dplyr)
 ```
 </code></pre>
 
-6. `collapse=TRUE` will collapse your output to be contained within the code chunk
+6\. `collapse=TRUE` will collapse your output to be contained within the code chunk
 
 <pre><code> 
 ```{r, collapse=TRUE}
@@ -193,7 +197,7 @@ head(iris)
 </code></pre>
 
 
-7. `fig...` options are available to align and size figure outputs
+7\. `fig...` options are available to align and size figure outputs
 
 <pre><code> 
 ```{r, fig.align='center', fig.height=3, fig.width=4}
