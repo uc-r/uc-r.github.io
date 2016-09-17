@@ -109,7 +109,7 @@ There are many YAML options which you can read more about at:
 The beauty of R Markdown is the ability to easily combine prose (text) and code.  For the text component, much of your writing is similar to when you type a Word document; however, to perform many of the basic text formatting you use basic markdown code such as:
 
 <center>
-<img src="/public/images/workflow//markdown_text.png" width="100%" height="100%"/>
+<img src="/public/images/workflow/markdown_text.png" width="90%" height="90%"/>
 </center>
 
 There are many additional formatting options which can be viewed [here](http://rmarkdown.rstudio.com/authoring_pandoc_markdown.html); however, this should get you well on your way.
@@ -119,11 +119,10 @@ R code chunks can be used as a means to render R output into documents or to sim
 
 Here is a simple R code chunk that will result in both the code and it’s output being included:
 
-<pre><code>
-```{r}
+
+<pre><code>```{r}
 summary(cars)
-```
-</code></pre>
+```</code></pre>
 
 <center>
 <img src="/public/images/workflow/code_chunks.png" width="100%" height="100%"/>
