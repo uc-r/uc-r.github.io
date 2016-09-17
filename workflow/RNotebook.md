@@ -61,7 +61,7 @@ When a code chunk is waiting to be executed, you’ll notice a progress meter th
 ## Saving, Sharing, Previewing & Knitting an R Notebook
 When a notebook .Rmd is saved, an .nb.html file is created alongside it. This file is a self-contained HTML file which contains all current code chunks (collapsable/expandable) and their respective outputs. You can view this .nb.html file directly in any browser along with sharing it with others who can also view it in any browser. 
 
-Ordinary R Markdown documents are “knit”, but notebooks are “previewed”. So by default, when you select the preview option in the editor toolbar your document will be previewed in the Viewer Pane. You preview your document in a window by selecting the desired option in the gear in the editor toolbar.
+Ordinary R Markdown documents are “knit”, but notebooks are “previewed”. So by default, when you select the preview option in the editor toolbar your document will be previewed in the Viewer Pane. You can preview your document in a window by selecting the desired option in the gear in the editor toolbar.
 
 <center>
 <img src="/public/images/workflow/rnotebook_preview.gif" />
