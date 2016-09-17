@@ -229,7 +229,7 @@ By default, the table outputs produced in R Markdown will look like the output y
 ```{r, results='asis'}
 knitr::kable(iris)
 ```
-</pre></code>
+</code></pre>
 
 To include captions:
 
@@ -237,7 +237,7 @@ To include captions:
 ```{r}
 knitr::kable(head(iris), caption = 'Example caption for the iris data frame')
 ```
-</pre></code>
+</code></pre>
 
 The simplest approach to print nice looking tables is to use the [`printr`](http://yihui.name/printr/) package which can be downloaded from this GitHub [repo](https://github.com/yihui/printr).
 
@@ -247,7 +247,7 @@ library(printr)
 
 head(iris)
 ```
-</pre></code>
+</code></pre>
 
 <center>
 <img src="/public/images/workflow/rmarkdown_tables.png" width="100%" height="100%"/>
