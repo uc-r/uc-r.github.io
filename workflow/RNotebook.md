@@ -30,7 +30,7 @@ output: html_notebook
 <img src="/public/images/workflow/rnotebook_create.gif" width="100%" height="100%"/>
 </center>
 
-The default notebook mode allows inline output on all R Markdown documents. If you prefer to use the traditional console method of interaction, you can disable notebook mode by clicking the gear in the editor toolbar and choosing Chunk Output in Console. You can also toggle between viewing the final document in the Viewer Pane versus in a Window.
+The default notebook mode allows inline output on all R Markdown documents. If you prefer to use the traditional console method of interaction, you can disable notebook mode by clicking the gear in the editor toolbar and choosing Chunk Output in Console. You can also toggle between previewing the document in the Viewer Pane versus in a Window.
 
 <center>
 <img src="/public/images/workflow/notebook_options.png" />
