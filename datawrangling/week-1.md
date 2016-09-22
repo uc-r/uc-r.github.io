@@ -14,11 +14,15 @@ Please work through the following tutorials prior to Saturday's class. The skill
 
 ### Introduction to the course, data wrangling, and R
 
+- Read about the [Role of Data Wrangling](why_wrangle)
+- Work through the [R Basics tutorial](section2_basics) to (re-)familiarize yourself with the basic functionality of R and RStudio
 
-Before our first meeting, install R and the RStudio Desktop IDE (you may wish to install the preview version to get notebook support).
 
 ### Managing your workflow
 
+- Work through the [R Projects tutorial](r_projects)
+- Work through the [R Markdown tutorial](r_markdown)
+- Not necessary but for those more ambitious folks work through the [R Notebook](r_notebook) tutorial. This will require you to install the [Preview Release](https://www.rstudio.com/products/rstudio/download/preview/) version of RStudio.
 
 
 ## Assignment
