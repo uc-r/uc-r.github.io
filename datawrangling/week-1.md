@@ -27,3 +27,6 @@ Please work through the following tutorials prior to Saturday's class. The skill
 
 ## Assignment
 
+1. Create an R Project that will be your central project directory for this class. Title this R Project "Data Wrangling with R (BANA 8090)".
+2. Create a .R script titled "week-1.R" and in this script perform the following exercises:
+   - write an R command to compute $100(1 + \frac{0.05}{12})^24$
