@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: tutorial
 title: The Role of Data Wrangling
 permalink: /why_wrangle
 ---
