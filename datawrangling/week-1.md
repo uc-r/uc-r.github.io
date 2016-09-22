@@ -22,7 +22,7 @@ Please work through the following tutorials prior to Saturday's class. The skill
 
 - Work through the [R Projects tutorial](http://uc-r.github.io/r_projects)
 - Work through the [R Markdown tutorial](http://uc-r.github.io/r_markdown)
-- Not necessary but for those more ambitious folks work through the [R Notebook](http://uc-r.github.io/r_notebook) tutorial. This will require you to install the [Preview Release](https://www.rstudio.com/products/rstudio/download/preview/) version of RStudio.
+- Not necessary but for those more ambitious folks, work through the [R Notebook](http://uc-r.github.io/r_notebook) tutorial. This will require you to install the [Preview Release](https://www.rstudio.com/products/rstudio/download/preview/) version of RStudio.
 
 
 ## Assignment
