@@ -26,7 +26,7 @@ Please work through the following tutorials prior to Saturday's class. The skill
 ### Scraping text & tables
 
 - Read & work through the [Importing spreadsheet data files stored online](Importing spreadsheet data files stored online) portion of the [Scraping Data tutorial](http://uc-r.github.io/scraping)
-
+- Not necessary but for those more ambitious folks, work through the following sections of the [Scraping Data tutorial](http://uc-r.github.io/scraping): [Scraping HTML text](http://uc-r.github.io/scraping#scraping_HTML_text), [Scraping HTML tables](http://uc-r.github.io/scraping#scraping_HTML_tables), and [Leveraging APIs to scrape data](http://uc-r.github.io/scraping#scraping_api)
 
 
 ## Assignment
