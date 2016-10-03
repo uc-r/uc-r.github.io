@@ -35,7 +35,7 @@ Please work through the following tutorials prior to Saturday's class. The skill
 1. Create a .R script titled “week-2.R” and in this script perform the following exercises:
     - import the csv file located at: [https://bradleyboehmke.github.io/public/data/reddit.csv](https://bradleyboehmke.github.io/public/data/reddit.csv)
     - import the .xlsx file located at: [http://www.huduser.gov/portal/datasets/fmr/fmr2017/FY2017_4050_FMR.xlsx](http://www.huduser.gov/portal/datasets/fmr/fmr2017/FY2017_4050_FMR.xlsx)
-    - 
+    - import...
 2. Create an HTML R Markdown document titled “week-2.Rmd” that...
 
 
