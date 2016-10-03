@@ -128,7 +128,7 @@ To read in Excel data with `readxl` you will commonly use the `excel_sheets()` a
 library(readxl)
 
 excel_sheets("data/mydata.xlsx")
-[1] "Sheet1"    "Sheet2"    "Sheet3"    "Sheet4"    "Sheet5"    "Sheet6"
+## [1] "Sheet1"    "Sheet2"    "Sheet3"    "Sheet4"    "Sheet5"    "Sheet6"
 
 mydata <- read_excel("mydata.xlsx", sheet = "Sheet5")
 mydata
