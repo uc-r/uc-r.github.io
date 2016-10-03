@@ -27,7 +27,7 @@ To read in the CSV file we can use `read.csv()`.  Note that when we assess the s
 
 
 ```r
-mydata = read.csv("mydata.csv")
+mydata <- read.csv("mydata.csv")
 mydata
 ##   variable.1 variable.2 variable.3
 ## 1         10       beer       TRUE
@@ -45,7 +45,7 @@ However, we may want to read in `variable.2` as a character variable rather then
 
 
 ```r
-mydata_2 = read.csv("mydata.csv", stringsAsFactors = FALSE)
+mydata_2 <- read.csv("mydata.csv", stringsAsFactors = FALSE)
 mydata_2
 ##   variable.1 variable.2 variable.3
 ## 1         10       beer       TRUE
@@ -122,7 +122,7 @@ To illustrate, we can use `read_csv()` which is equivalent to base R's `read.csv
 
 ```r
 library(readr)
-mydata_3 = read_csv("mydata.csv")
+mydata_3 <- read_csv("mydata.csv")
 mydata_3
 ##   variable 1 variable 2 variable 3
 ## 1         10       beer       TRUE
