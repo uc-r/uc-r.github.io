@@ -37,7 +37,7 @@ Please work through the following tutorials prior to Saturday's class. The skill
 3. Create an HTML R Markdown titled "week-1.Rmd" that includes two sections:
    - Section 1 will be an introduction of yourself that describes where you are from, your academic and professional background, your experience with R (or other coding languages), and what your plans are after you complete your UC masters degree. This section will serve as a way to introduce yourself to your small group peers.
    - In section 2 you will use code chunks to complete the exercises you performed in the .R script in your R markdown file.
-   - You will find an example [here](http://rpubs.com/bradleyboehmke/datawrangling_week1_homework) of the basic output I am looking for but feel free to be creative and test out the many syntax features for R Markdown.
+   - "Knit" this .Rmd file so that you produce a "week-1.html" file. You will find an example [here](http://rpubs.com/bradleyboehmke/datawrangling_week1_homework) of the basic output I am looking for but feel free to be creative and test out the many syntax features for R Markdown.
    
 
 See you in class on Saturday!
