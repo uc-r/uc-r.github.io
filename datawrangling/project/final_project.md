@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Final Project
-permalink: /bana_datawrangling/final-project
+permalink: /data_wrangling/final-project
 ---
 
 
