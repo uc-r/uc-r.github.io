@@ -63,7 +63,7 @@ All required classroom material will be provided in class or online. Any recomme
 | **1**         | **Introduction** &nbsp;&nbsp; <a href="http://uc-r.github.io/data_wrangling/week-1" style="color:black;"><i class="fa fa-folder-open" style="font-size:1em"></i></a> |
 |               | Intro to data wrangling, R, and course outline  |
 |               | Managing your workflow with RStudio Projects, R Markdown, and R Notebook |
-| **2**         | **Getting Your Data**  |
+| **2**         | **Getting Your Data** &nbsp;&nbsp; <a href="http://uc-r.github.io/data_wrangling/week-2" style="color:black;"><i class="fa fa-folder-open" style="font-size:1em"></i></a>  |
 |               | Importing and exporting data  |
 |               | Scraping text & tables |
 | **3**         | **First Date Guidelines for Data**  |
