@@ -33,10 +33,16 @@ Please work through the following tutorials prior to Saturday's class. The skill
 
 ## Assignment
 1. Create a .R script titled “week-2.R” and in this script perform the following exercises:
-    - import the csv file located at: [https://bradleyboehmke.github.io/public/data/reddit.csv](https://bradleyboehmke.github.io/public/data/reddit.csv)
-    - import the .xlsx file located at: [http://www.huduser.gov/portal/datasets/fmr/fmr2017/FY2017_4050_FMR.xlsx](http://www.huduser.gov/portal/datasets/fmr/fmr2017/FY2017_4050_FMR.xlsx)
-    - import...
-2. Create an HTML R Markdown document titled “week-2.Rmd” that...
+    - download & import the csv file located at: [https://bradleyboehmke.github.io/public/data/reddit.csv](https://bradleyboehmke.github.io/public/data/reddit.csv)
+    - now import the above csv file directly from the url provided (*without* downloading to your local hard drive)
+    - download & import the .xlsx file located at: [http://www.huduser.gov/portal/datasets/fmr/fmr2017/FY2017_4050_FMR.xlsx](http://www.huduser.gov/portal/datasets/fmr/fmr2017/FY2017_4050_FMR.xlsx)
+    - now import the above .xlsx file directly from the url provided (*without* downloading to your local hard drive)
+    - go to this University of Dayton webpage [http://academic.udayton.edu/kissock/http/Weather/citylistUS.htm](http://academic.udayton.edu/kissock/http/Weather/citylistUS.htm), scroll down to *Ohio* and import the Cincinnati (OHCINCIN.txt) file
+
+2. Create an HTML R Markdown document titled “week-2.Rmd” that contains the following:
+    - **Synopsis**: Include a short paragraph that summarizes what the point of this R Markdown file is
+    - **Packages Required**: Include a code chunk in this section that loads all the packages required for this homework and a short comment that says what purpose each package provides
+    - **Homework Problems**: Perform the five data importing exercises listed in #1. For each problem you should import the data and save as a data frame, use `head()` to display the first few rows of the data frame, use `str()` to display the structure of each data frame, and be sure that each code chunk fully displays your code. 
 
 
 See you in class on Saturday!
