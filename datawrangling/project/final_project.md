@@ -18,7 +18,7 @@ The course is structured in a way that allows you to work on your project as you
 
 ### Project Goal
 
-The principle goal of this data is to import an existing data set on the web, clean and tidy the data, and perform basic exploratory data analysis; all while using R Markdown to produce an HTML report that is fully reproducible. 
+The principal goal of this project is to import an existing data set on the web, clean and tidy the data, and perform basic exploratory data analysis; all while using R Markdown to produce an HTML report that is fully reproducible. 
 
 ### Project Data
 
@@ -54,11 +54,11 @@ You will write an [R Markdown](http://uc-r.github.io/r_markdown) HTML report tha
 - **Exploratory Data Analysis**: I do not expect you to do any sophisticated analytic techniques; rather, I want you to explore the data set you obtained and try to uncover some interesting insights.  I expect you to report some basic summary statistics of the data sliced and diced in different ways along with reporting findings with plots *and* tables.
 - **Summary**: Provide a concluding paragraph that summarizes your findings.
 
-An example of the type of report that I am looking for can be seen [here](https://rpubs.com/bradleyboehmke/final_project_example).  When you turn in your report I will require two things:
+I expect your report to tell a story with the data. I do not want you to just report some statistics that you find but, rather, to provide a coherent narrative of your findings. An example of the type of report that I am looking for can be seen [here](https://rpubs.com/bradleyboehmke/final_project_example).  When you turn in your report I will require two things:
 
 1. The HTML file that you will produce when you knit your R Markdown report
 2. The .Rmd file you write your report in. I expect the .Rmd file to be executable on its own; thus I should be able to take your .Rmd file (without any required files such as a .csv data file) and run it on my computer and produce the exact same results that you produced in your HTML report.
 
-
+Any additional details regarding the final project will be provided in class.
 
 
