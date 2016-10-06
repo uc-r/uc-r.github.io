@@ -11,7 +11,7 @@ Welcome to Data Wrangling with R! This course provides an intensive, hands-on in
 ## Class Information
 
 * Instructor: [Brad Boehmke](http://bradleyboehmke.github.io/) &nbsp; 
-  <a href="mailto:bradleyboehmke@gmail.com" target="_blank" style="color:#515151;"><i class="fa fa-envelope" style="font-size:1em"></i></a> &nbsp;
+  <a href="mailto:boehmkbc@ucmail.uc.edu" target="_blank" style="color:#515151;"><i class="fa fa-envelope" style="font-size:1em"></i></a> &nbsp;
   <a href="https://twitter.com/bradleyboehmke" target="_blank" style="color:#515151;"><i class="fa fa-twitter"></i></a> &nbsp;
   <a href="https://github.com/bradleyboehmke" target="_blank" style="color:#515151;"><i class="fa fa-github" style="font-size:1em"></i></a> &nbsp;
   <a href="https://www.linkedin.com/in/brad-boehmke-ph-d-9b0a257" target="_blank" style="color:#515151;"><i class="fa fa-linkedin" style="font-size:1em"></i></a>
