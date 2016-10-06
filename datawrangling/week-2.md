@@ -43,6 +43,8 @@ Please work through the following tutorials prior to Saturday's class. The skill
     - **Synopsis**: Include a short paragraph that summarizes what the point of this R Markdown file is
     - **Packages Required**: Include a code chunk in this section that loads all the packages required for this homework and a short comment that says what purpose each package provides
     - **Homework Problems**: Perform the five data importing exercises listed in #1. For each problem you should import the data and save as a data frame, use `head()` to display the first few rows of the data frame, use `str()` to display the structure of each data frame, and be sure that each code chunk fully displays your code. 
+    - **Example**: You will find an example [here](https://rpubs.com/bradleyboehmke/datawrangling_week2_homework) of the basic output I am looking for.
+
 
 
 See you in class on Saturday!
