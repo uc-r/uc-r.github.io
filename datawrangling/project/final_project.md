@@ -59,6 +59,10 @@ I expect your report to tell a story with the data. I do not want you to just re
 1. The HTML file that you will produce when you knit your R Markdown report
 2. The .Rmd file you write your report in. I expect the .Rmd file to be executable on its own; thus I should be able to take your .Rmd file (without any required files such as a .csv data file) and run it on my computer and produce the exact same results that you produced in your HTML report.
 
+
+**Optional:**  For those who are more advanced or daring, I challenge you to develop a [Shiny app](http://shiny.rstudio.com/) using [flexdashboard](http://rmarkdown.rstudio.com/flexdashboard/) to accompany your report. This will turn your exploratory data analysis into an interactive tool for users.  You can see examples [here](https://bradleyboehmke.shinyapps.io/us_savings_rate_app/) and [here](https://bradleyboehmke.shinyapps.io/LPI_Rankings/). 
+
+
 Any additional details regarding the final project will be provided in class.
 
 
