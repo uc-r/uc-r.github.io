@@ -23,7 +23,7 @@ Please work through the following tutorials prior to Saturday's class. The skill
 - Work through the [R Projects tutorial](http://uc-r.github.io/r_projects)
 - Work through the [R Markdown tutorial](http://uc-r.github.io/r_markdown)
 - Optional: Read the [R Markdown chapter](http://r4ds.had.co.nz/r-markdown.html) in the [R for Data Science book](http://r4ds.had.co.nz/)
-- Option: For the more ambitious folks, work through the [R Notebook](http://uc-r.github.io/r_notebook) tutorial. This will require you to install the [Preview Release](https://www.rstudio.com/products/rstudio/download/preview/) version of RStudio.
+- Optional: For the more ambitious folks, work through the [R Notebook](http://uc-r.github.io/r_notebook) tutorial. This will require you to install the [Preview Release](https://www.rstudio.com/products/rstudio/download/preview/) version of RStudio.
 
 
 ## Assignment
