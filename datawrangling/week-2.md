@@ -22,13 +22,13 @@ Please work through the following tutorials prior to Saturday's class. The skill
 - Read & work through the [Importing Data tutorial](http://uc-r.github.io/import)
 - Read & work through the [Exporting Data tutorial](http://uc-r.github.io/exporting)
     - Newbies can focus on the following sections of this tutorial: [exporting to text files](http://uc-r.github.io/exporting#export_text_files) and [exporting to R objects](http://uc-r.github.io/exporting#export_r_objects)
-    - Those more ambitious can also work through [exporting to Excel portion](http://uc-r.github.io/exporting#export_excel_files)
+    - Optional: Those more ambitious can also work through [exporting to Excel portion](http://uc-r.github.io/exporting#export_excel_files)
 
 
 ### Scraping text & tables
 
 - Read & work through the [Importing spreadsheet data files stored online](http://uc-r.github.io/scraping#importing_spreadsheet_data) portion of the [Scraping Data tutorial](http://uc-r.github.io/scraping)
-- Not necessary but for those more ambitious folks, work through the following sections of the [Scraping Data tutorial](http://uc-r.github.io/scraping): [Scraping HTML text](http://uc-r.github.io/scraping#scraping_HTML_text), [Scraping HTML tables](http://uc-r.github.io/scraping#scraping_HTML_tables), and [Leveraging APIs to scrape data](http://uc-r.github.io/scraping#scraping_api)
+- Optional: For those more ambitious folks, work through the following sections of the [Scraping Data tutorial](http://uc-r.github.io/scraping): [Scraping HTML text](http://uc-r.github.io/scraping#scraping_HTML_text), [Scraping HTML tables](http://uc-r.github.io/scraping#scraping_HTML_tables), and [Leveraging APIs to scrape data](http://uc-r.github.io/scraping#scraping_api)
 
 
 ## Assignment
