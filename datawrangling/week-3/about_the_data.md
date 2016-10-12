@@ -171,3 +171,5 @@ summary(mtcars)
 ##  3rd Qu.:3.610   3rd Qu.:18.90          3rd Qu.:1.0000          6: 1  
 ##  Max.   :5.424   Max.   :22.90          Max.   :1.0000          8: 1
 ```
+
+These initial bits of information of your data are primarily for your own benefit.  You do not always report these in your studies in this manner but you should always report the number of variables, what the variables are, how they are coded, the number of observations, and the number of missing values in your data. This is typically done in the *Data Preparation* section of your report (I will be looking for this info in your final report!).
