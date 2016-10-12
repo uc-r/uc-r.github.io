@@ -1,7 +1,7 @@
 ---
 layout: tutorial
 title: Review the Codebook
-permalink: /codebook
+permalink: /data_wrangling/codebook
 ---
 
 A codebook is a technical description of the data that was collected for a particular purpose. It describes how the data are arranged in the computer file or files, what the various numbers and letters mean, and any special instructions on how to use the data properly. Like any other kind of "book," some codebooks are better than others. The best codebooks have:
