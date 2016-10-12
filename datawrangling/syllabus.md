@@ -67,18 +67,22 @@ All required classroom material will be provided in class or online. Any recomme
 |               | Importing and exporting data  |
 |               | Scraping text & tables |
 | **3**         | **First Date Guidelines for Data**  |
-|               | Clean & organize your data
+|               | Understanding the basics of your data
 |               | Initial visualizations |
 | **4**         | **Exploratory Data Analysis**  |
-|               | Advancing your visualizations with `ggplot2`  |
 |               | Transforming your data |
-| **5**         | **Wrangling Text**  |
-|               | Dealing with character strings  |
-|               | Dealing with regular expressions |
-| **6**         | **Creating Efficient and Readable Code in R**  |
+|               | Advancing your visualizations |
+| **5**         | **Controlling Your Data**  |
+|               | Data frames vs. Tibbles  |
+|               | Tidy data |
+|               | Relational data |
+| **6**         | **Dealing with Different Types of Data**  |
+|               | Strings  |
+|               | Factors |
+|               | Dates and times |
+| **7**         | **Creating Efficient and Readable Code in R**  |
 |               | Loop control statements (if, for, while, apply family)  |
 |               | Creating your own functions |
-| **7**         | **Final Projects** |
 
 
 ## Grading Policies
