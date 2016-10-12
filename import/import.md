@@ -37,7 +37,7 @@ To read in the CSV file we can use `read.csv()`.  Note that when we assess the s
 
 
 ```r
-mydata = read.csv("mydata.csv")
+mydata <- read.csv("mydata.csv")
 mydata
 ##   variable.1 variable.2 variable.3
 ## 1         10       beer       TRUE
@@ -55,7 +55,7 @@ However, we may want to read in `variable.2` as a character variable rather then
 
 
 ```r
-mydata_2 = read.csv("mydata.csv", stringsAsFactors = FALSE)
+mydata_2 <- read.csv("mydata.csv", stringsAsFactors = FALSE)
 mydata_2
 ##   variable.1 variable.2 variable.3
 ## 1         10       beer       TRUE
@@ -74,14 +74,14 @@ As previously stated `read.csv` is just a wrapper for `read.table` but with adju
 
 ```r
 # provides same results as read.csv above
-read.table("mydata.csv", sep=",", header = TRUE, stringsAsFactors = FALSE)
+read.table("mydata.csv", sep = ",", header = TRUE, stringsAsFactors = FALSE)
 ##   variable.1 variable.2 variable.3
 ## 1         10       beer       TRUE
 ## 2         25       wine       TRUE
 ## 3          8     cheese      FALSE
 
 # set column and row names
-read.table("mydata.csv", sep=",", header = TRUE, stringsAsFactors = FALSE,
+read.table("mydata.csv", sep = ",", header = TRUE, stringsAsFactors = FALSE,
            col.names = c("Var 1", "Var 2", "Var 3"),
            row.names = c("Row 1", "Row 2", "Row 3"))
 ##       Var.1  Var.2 Var.3
@@ -90,7 +90,7 @@ read.table("mydata.csv", sep=",", header = TRUE, stringsAsFactors = FALSE,
 ## Row 3     8 cheese FALSE
 
 # manually set the classes of the columns 
-set_classes <- read.table("mydata.csv", sep=",", header = TRUE,
+set_classes <- read.table("mydata.csv", sep = ",", header = TRUE,
                           colClasses = c("numeric", "character", "character"))
 str(set_classes)
 ## 'data.frame':	3 obs. of  3 variables:
@@ -99,7 +99,7 @@ str(set_classes)
 ##  $ variable.3: chr  "TRUE" "TRUE" "FALSE"
 
 # limit the number of rows to read in
-read.table("mydata.csv", sep=",", header = TRUE, nrows = 2)
+read.table("mydata.csv", sep = ",", header = TRUE, nrows = 2)
 ##   variable.1 variable.2 variable.3
 ## 1         10       beer       TRUE
 ## 2         25       wine       TRUE
@@ -117,7 +117,7 @@ read.delim("mydata.txt")
 ## 3          8     cheese      FALSE
 
 # provides same results as read.delim
-read.table("mydata.txt", sep="\t", header = TRUE)
+read.table("mydata.txt", sep = "\t", header = TRUE)
 ##   variable.1 variable.2 variable.3
 ## 1         10       beer       TRUE
 ## 2         25       wine       TRUE
@@ -132,7 +132,7 @@ To illustrate, we can use `read_csv()` which is equivalent to base R's `read.csv
 
 ```r
 library(readr)
-mydata_3 = read_csv("mydata.csv")
+mydata_3 <- read_csv("mydata.csv")
 mydata_3
 ##   variable 1 variable 2 variable 3
 ## 1         10       beer       TRUE
