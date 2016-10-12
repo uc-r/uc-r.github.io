@@ -113,7 +113,7 @@ summary(mtcars)
 ##  Max.   :1.0000   Max.   :5.000   Max.   :8.000
 ```
 
-However, you may notice something. According to the codebook (`?data`) the `cyl`, `vs`, `gear`, and `carb` are not necessarily continuous variables. These variables are categorical variables (we'll get into this more later in the class) where:
+However, you may notice something. According to the codebook (`?mtcars`) the `cyl`, `vs`, `gear`, and `carb` are not necessarily continuous variables. These variables are categorical variables (we'll get into this more later in the class) where:
 
 - `cyl` is the number of cylinders (4 , 6, or 8)
 - `vs` represents a V-engine (0) or straight engine (1)
