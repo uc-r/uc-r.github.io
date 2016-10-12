@@ -32,3 +32,5 @@ Getting the codebook for data that you are importing is a little more difficult.
 - Consumer Expenditure Survey: [[Data](https://www.icpsr.umich.edu/icpsrweb/ICPSR/series/20#vars)] [[Codebook](https://www.icpsr.umich.edu/icpsrweb/ICPSR/ssvd/series/20/variables)]
 - College Scorecard:  [[Data](https://catalog.data.gov/dataset/college-scorecard/resource/d43bae25-209a-4b17-affb-6ef8ff8f84ed)] [[Codebook](https://collegescorecard.ed.gov/data/documentation/)]
 - Consumer Complaints: [[Data](https://catalog.data.gov/dataset/consumer-complaint-database/resource/2f297213-7198-4be1-af1e-2d2623e7f6e9)] [[Codebook](https://cfpb.github.io/api/ccdb//)]
+
+The important thing to remember is that you need to identify the documentation that explicitly tells you about the data you are working with. If not then in your analysis you need to state what the implied meaning of the data is; however, you should also state that ambiguity may exist if a codebook can not be identified.  With your final project, I expect you to explain the meaning of the source data you analyze and provide a link to the codebook.
