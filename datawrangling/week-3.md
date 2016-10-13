@@ -13,3 +13,15 @@ So last week we started to import data. However, data by themselves are pretty u
 ## Tutorials & Resources
 
 Please work through the following tutorials prior to Saturday’s class. The skills and functions introduced in these tutorials will be necessary to complete your assignment, which is due at the beginning of Saturday’s class, and will also be used in Saturday’s in-class small group work.
+
+### Review the codebook
+
+Read [*Review the Codebook*](codebook)
+
+### Learn about the data
+
+
+### Visualize the data
+
+
+## Assignment
