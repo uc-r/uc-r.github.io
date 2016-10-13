@@ -14,14 +14,11 @@ So last week we started to import data. However, data by themselves are pretty u
 
 Please work through the following tutorials prior to Saturday’s class. The skills and functions introduced in these tutorials will be necessary to complete your assignment, which is due at the beginning of Saturday’s class, and will also be used in Saturday’s in-class small group work.
 
-### Review the codebook
+__1. Review the codebook:__ Understanding the source data is crucial to any analysis. A codebook is the documentation that explicitly tells you about the data you are working with and should be the first thing you review before starting any kind of analysis. Read [*Review the Codebook*](codebook) to get a taste of what to look for.
 
-Read [*Review the Codebook*](codebook)
+__2. Learn about the data:__ When first opening a data set it is important to get a basic understanding of the data dimensions (rows and columns), what the data looks like, how many missing values are in the data, and some basic summary statistis such as mean, median, and the range of each variable. Read and work through [*Learn About the Data*](about_the_data) to understand some of the first things you should do with a fresh data set.
 
-### Learn about the data
-
-
-### Visualize the data
+__3. Visualize the data:__ Although visualizing your data is not always considered a data wrangling activity, it is essential in every step of data analysis. In this class we are going to focus on `ggplot2` for visualizing our data, as it is the premier data visualizing package in R. Read and work through [*Chapter 3: Data Visualization*](http://r4ds.had.co.nz/data-visualisation.html) of the [*R for Data Science*](http://r4ds.had.co.nz/) book.
 
 
 ## Assignment
