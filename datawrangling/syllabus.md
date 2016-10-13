@@ -120,6 +120,7 @@ All cases of academic misconduct (e.g., cheating, plagiarism, falsification) wil
 
 <u>Acknowledgments</u>: I have drawn ideas or readings from the following syllabi:
 
+* Garrett Grolemund & Hadley Wickham, [R for Data Science](http://r4ds.had.co.nz/index.html)
 * Jenny Bryan, [STAT 545: Data wrangling, exploration, and analysis with R](http://stat545.com/)
 * Lincoln Mullen, [HIST 688: Data and visualization in digital history](http://lincolnmullen.com/courses/data-dh.2016/)
 * Kieran Healy, [Soc 880: Data Visualization](http://socviz.github.io/soc880/)
