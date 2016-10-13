@@ -25,8 +25,11 @@ __3. Visualize the data:__ Although visualizing your data is not always consider
 
 Create an HTML R Markdown document titled “week-3.Rmd”. I want you to scrape the Cincinnati weather data located [here](http://academic.udayton.edu/kissock/http/Weather/gsod95-current/OHCINCIN.txt) and provide the following sections in the R Markdown document:
 
-- __Synopsis:__ Include a short paragraph that summarizes what the point of this R Markdown file is.
+- __Synopsis:__ Include a short paragraph that summarizes what the point of this R Markdown file is and a short summary of your initial findings.
 - __Packages Required:__ Include a code chunk in this section that loads all the packages required for this homework and a short comment that says what purpose each package provides.
-- __Source Code:__  Describe what the variables are measuring in this data set. You will a link to the codebook on this web page: [http://academic.udayton.edu/kissock/http/Weather/](http://academic.udayton.edu/kissock/http/Weather/).
+- __Source Code:__  Describe what each of the variables are measuring in this data set. You will a link to the codebook on this web page: [http://academic.udayton.edu/kissock/http/Weather/](http://academic.udayton.edu/kissock/http/Weather/).
 - __Data Description:__ Provide an explanation of the data set that includes the number of observations and variables, if any missing values exist, and provide some basic summary statistics such as mean, median, min and max values.
 - __Data Visualization:__ Create three different visualizations of this data set. Provide an explanation of the information that the visualization is providing.
+
+Knit this R Markdown document to an HTML file and I will see you in class!
+
