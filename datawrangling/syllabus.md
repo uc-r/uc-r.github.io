@@ -66,7 +66,7 @@ All required classroom material will be provided in class or online. Any recomme
 | **2**         | **Getting Your Data** &nbsp;&nbsp; <a href="http://uc-r.github.io/data_wrangling/week-2" style="color:black;"><i class="fa fa-folder-open" style="font-size:1em"></i></a>  |
 |               | Importing and exporting data  |
 |               | Scraping text & tables |
-| **3**         | **First Date Guidelines for Data**  |
+| **3**         | **First Date Guidelines for Data** &nbsp;&nbsp; <a href="http://uc-r.github.io/data_wrangling/week-3" style="color:black;"><i class="fa fa-folder-open" style="font-size:1em"></i></a>  |
 |               | Understanding the basics of your data
 |               | Initial visualizations |
 | **4**         | **Exploratory Data Analysis**  |
