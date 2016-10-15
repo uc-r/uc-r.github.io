@@ -42,3 +42,9 @@ Please work through the following tutorials prior to Saturday's class. The skill
    
 
 See you in class on Saturday!
+
+## Class
+
+**1\. Lecture:** In today's lecture we are going to create an automated R Markdown report. Please download this material: &nbsp; <a href="https://www.dropbox.com/sh/fs9qnoz09n7on8c/AAApAUBtf3EMGTpA-dWJ6KQea?dl=1" style="color:black;"><i class="fa fa-cloud-download" style="font-size:1em"></i></a>.
+
+**2\. Group Work:** First, I want you to turn your homework assignment, which should look something like [this](http://rpubs.com/bradleyboehmke/datawrangling_week1_homework) into a presentation format that looks like [this](https://rpubs.com/bradleyboehmke/week1_gw). You may want to consult the links provided at [http://uc-r.github.io/r_markdown#presentations-slides](http://uc-r.github.io/r_markdown#presentations-slides) for available options.  Each student should produce their own presentation; however, leverage your group to help each other. If you complete this and have available time, work with your small group to re-produce this [HTML file](https://rpubs.com/bradleyboehmke/rmarkdown_replication).
