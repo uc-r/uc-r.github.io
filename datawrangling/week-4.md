@@ -27,8 +27,8 @@ __2. Advancing your visualizations:__ Visualizing and transforming your data in 
 
 Create an HTML R Markdown document titled “week-4.Rmd”.  Use the gapminder data introduced in Jenny Bryan's tutorials and answer the questions below. Be sure that your report includes the following sections:
 
-__- Synopsis:__ Include a short paragraph that summarizes what the point of this R Markdown file is and a short summary of your initial findings.
-__- Packages Required:__ Include a code chunk in this section that loads all the packages required for this homework and a short comment that says what purpose each package provides.
-__- Source Code:__ Describe what each of the variables are measuring in this data set (`?gapminder`).
-__- Data Description:__ Provide an explanation of the data set that includes the number of observations and variables, if any missing values exist, and provide some basic summary statistics such as what continents are included, how many countries are included, and what years are measured.
-__-Exploratory Data Analysis:__
+- __Synopsis:__ Include a short paragraph that summarizes what the point of this R Markdown file is and a short summary of your initial findings.
+- __Packages Required:__ Include a code chunk in this section that loads all the packages required for this homework and a short comment that says what purpose each package provides.
+- __Source Code:__ Describe what each of the variables are measuring in this data set (`?gapminder`).
+- __Data Description:__ Provide an explanation of the data set that includes the number of observations and variables, if any missing values exist, and provide some basic summary statistics such as what continents are included, how many countries are included, and what years are measured.
+- __Exploratory Data Analysis:__
