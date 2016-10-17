@@ -38,3 +38,5 @@ Create an HTML R Markdown document named “week-4.Rmd”.  Title this HTML docu
    4. Plot the GDP per capita for your country of origin for all years available. 
    5. What was the percent growth (or decline) in GDP per capita in 2007?
    6. What has been the historical growth (or decline) in GDP per capita for your country?
+
+Knit this R Markdown document to an HTML file, publish it on [RPubs](https://rpubs.com/about/getting-started), and send me the URL for your published report prior to class (either by email or through Slack messenger).  
