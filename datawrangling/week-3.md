@@ -31,5 +31,5 @@ Create an HTML R Markdown document titled “week-3.Rmd”. I want you to scrape
 - __Data Description:__ Provide an explanation of the data set that includes the number of observations and variables, if any missing values exist, and provide some basic summary statistics such as mean, median, min and max values.
 - __Data Visualization:__ Create three different visualizations of this data set. Provide an explanation of the information that the visualization is providing.
 
-Knit this R Markdown document to an HTML file and I will see you in class!
+Knit this R Markdown document to an HTML file, publish it on [RPubs](https://rpubs.com/about/getting-started), and send me the URL for your published report prior to class (either by email or through Slack messenger).  
 
