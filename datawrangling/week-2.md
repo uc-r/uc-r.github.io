@@ -45,4 +45,4 @@ Please work through the following tutorials prior to Saturday's class. The skill
     - **Homework Problems**: Perform the five data importing exercises listed in #1. For each problem you should import the data and save as a data frame, use `head()` to display the first few rows of the data frame, use `str()` to display the structure of each data frame, and be sure that each code chunk fully displays your code. 
     - **Example**: You will find an example [here](https://rpubs.com/bradleyboehmke/datawrangling_week2_homework) of the basic output I am looking for.
 
-Knit this R Markdown document to an HTML file, publish it on [RPubs](https://rpubs.com/about/getting-started), and send me the URL for your published report prior to class (either by email or through Slack messenger).  
+**Submission:** Knit this R Markdown document to an HTML file, publish it on [RPubs](https://rpubs.com/about/getting-started), and send me the URL for your published report prior to class (either by email or through Slack messenger).  Also, knit to a PDF document and bring this document to class on Saturday for submission.
