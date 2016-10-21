@@ -72,7 +72,7 @@ All required classroom material will be provided in class or online. Any recomme
 | **4**         | **Exploratory Data Analysis**  &nbsp;&nbsp; <a href="http://uc-r.github.io/data_wrangling/week-4" style="color:black;"><i class="fa fa-folder-open" style="font-size:1em"></i></a>  |
 |               | Transforming your data |
 |               | Advancing your visualizations |
-| **5**         | **Controlling Your Data**  |
+| **5**         | **Controlling Your Data**  &nbsp;&nbsp; <a href="http://uc-r.github.io/data_wrangling/week-5" style="color:black;"><i class="fa fa-folder-open" style="font-size:1em"></i></a>   |
 |               | Data frames vs. Tibbles  |
 |               | Tidy data |
 |               | Relational data |
