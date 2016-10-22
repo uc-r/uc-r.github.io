@@ -46,3 +46,8 @@ Please work through the following tutorials prior to Saturday's class. The skill
     - **Example**: You will find an example [here](https://rpubs.com/bradleyboehmke/datawrangling_week2_homework) of the basic output I am looking for.
 
 **Submission:** Knit this R Markdown document to an HTML file, publish it on [RPubs](https://rpubs.com/about/getting-started), and send me the URL for your published report prior to class (either by email or through Slack messenger).  Also, knit to a PDF document and bring this document to class on Saturday for submission.
+
+
+## Class
+
+In today's lecture we are going to work through several data importing exercises. Please download this material: &nbsp; <a href="https://www.dropbox.com/sh/8g07lb168yt3tgg/AACTe4bxG23lFCOivirFWa_ba?dl=1" style="color:black;"><i class="fa fa-cloud-download" style="font-size:1em"></i></a>
