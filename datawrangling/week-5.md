@@ -26,7 +26,7 @@ Please work through the following tutorials prior to Saturday’s class. The ski
 
 ## Homework
 
-Create an HTML R Markdown document named “week-5.Rmd”. Title this HTML document “Week 5 Homework” and be sure to include your name in the YAML.  Download this data: XX. There are multiple data sets[^data] in this file and a short decription of each variable is provided in the footnotes.[^codebook]
+Create an HTML R Markdown document named “week-5.Rmd”. Title this HTML document “Week 5 Homework” and be sure to include your name in the YAML.  Download this data: XX. There are multiple data sets[^data] in this file and a short decription of each variable is provided in the footnotes.<sup><a href="#fn2" id="ref2">2</a></sup>
 
 With these available data sets perform the following exercises:
 
@@ -69,7 +69,7 @@ For #5, plot the historical trends of this data in ggplot2 with a __line chart__
     3. Filter for only *"AIRCRAFT"* or *"MISSILES"* __Systems__
     4. Calculate the total sum of the *Total_O.S* and *End_Strength* variables at the __System__ level
 
-7. Once again, join the `ws_programmatics.rds` & `ws_categorization.rds` data and identify which *Base* had the largest cost per flying hour (defined as $CPFH = \frac{Total\text{_}O.S}{FH}$ which requires you to create a new variable) in 2014.  Using a __bar chart__ in ggplot2, plot these values for the top 10 bases with the largest cost per flying hour.
+7. Once again, join the `ws_programmatics.rds` & `ws_categorization.rds` data and identify which *Base* had the largest cost per flying hour (defined as $$CPFH = \frac{Total\text{_}O.S}{FH}$$ which requires you to create a new variable) in 2014.  Using a __bar chart__ in ggplot2, plot these values for the top 10 bases with the largest cost per flying hour.
 
 8. Using __scatter plots__ in ggplot2, assess the relationship between the end strength (*End_Strength*) variable and total costs (*Total_O.S*).  Provide three scatter plots that visually assesses this replationship from different angles (by *FY*, *System*, etc).  
 
@@ -77,7 +77,7 @@ For #5, plot the historical trends of this data in ggplot2 with a __line chart__
 
 [^data]: Note that these are fictional data sets and none of this data represents actual information regarding United States Air Force assets. This artificial data was originally generated for instructional purposes for an R programming course at the Air Force Institute of Technology.
 
-[^codebook]: A short description of the variables in each data set are provided:
+<sup id="fn2">2. A short description of the variables in each data set are provided:
 
 __Bomber data sets:__ These data provide the following information regarding the United States Air Force bomber aircraft:
 
@@ -113,4 +113,4 @@ __ws_categorization:__ This data provides the system categorization for each air
 - Base: Represents the Air Force installation. Provides the name of the installation followed by the state the base is located in.
 - System: Represents the system classification of the weapon system. The major classifications for the different weapon systems includes *aircraft, missiles, munitions, space systems, ground control,* and *other*.
 - MD: Represents the "Mission Design." The letter represents the basic mission of the weapon system (A for attack, C for cargo, B for bomber, F for fighter, etc) and the number represents the design number.
-
+<a href="#ref2" title="Jump back to footnote 2 in the text.">↩</a>
