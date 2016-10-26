@@ -91,12 +91,12 @@ __4\.__ Import the `bomber_prefix.rds` data. Take this data and convert it to a 
 
 __5\.__ Import the `bomber_mess.rds` file so that it is a tibble.  Clean this data up by making it contain the following variables: 
 
-    - *Type*
-    - *MD* which combines the *prefix* and *number* variable (i.e. "B-1")
-    - *FY* which is the left part of the *Metric* variable
-    - *Cost* which is captured in the right part of the *Metric* variable
-    - *FH* which is captured in the right part of the *Metric* variable
-    - *Gallons* which is captured in the right part of the *Metric* variable
+- *Type*
+- *MD* which combines the *prefix* and *number* variable (i.e. "B-1")
+- *FY* which is the left part of the *Metric* variable
+- *Cost* which is captured in the right part of the *Metric* variable
+- *FH* which is captured in the right part of the *Metric* variable
+- *Gallons* which is captured in the right part of the *Metric* variable
 
 For #5, perform the required actions by stringing together the all necessary functions with the [pipe operator](http://uc-r.github.io/pipe) (`%>%`). The final data should look like:
     
@@ -121,11 +121,11 @@ For #5, plot the historical trends of this data in ggplot2 with a __line chart__
 
 __6\.__ Import the `ws_programmatics.rds` & `ws_categorization.rds` data so that they are tibbles and perform the following steps in sequence using the [pipe operator](http://uc-r.github.io/pipe) (`%>%`). 
 
-    1. Join the `ws_categorization` data to the `ws_programmatics` data
-    2. Filter for only __FY__ 2014 data at the following __Base__: *"Minot AFB (ND)"*
-    3. Filter for only *"AIRCRAFT"* or *"MISSILES"* __Systems__
-    4. Group the data by __System__ level
-    4. Calculate the total sum of the *Total_O.S* and *End_Strength* variables
+1. Join the `ws_categorization` data to the `ws_programmatics` data
+2. Filter for only __FY__ 2014 data at the following __Base__: *"Minot AFB (ND)"*
+3. Filter for only *"AIRCRAFT"* or *"MISSILES"* __Systems__
+4. Group the data by __System__ level
+5. Calculate the total sum of the *Total_O.S* and *End_Strength* variables
 
 __7\.__ Once again, join the `ws_programmatics.rds` & `ws_categorization.rds` data and identify which *Base* had the largest cost per flying hour (defined as $$CPFH = \frac{Total\text{_}O.S}{FH}$$ which requires you to create a new variable) in 2014.  Using a __bar chart__ in ggplot2, plot these values for the top 10 bases with the largest cost per flying hour.
 
