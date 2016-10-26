@@ -98,7 +98,7 @@ __5\.__ Import the `bomber_mess.rds` file so that it is a tibble.  Clean this da
 - *FH* which is captured in the right part of the *Metric* variable
 - *Gallons* which is captured in the right part of the *Metric* variable
 
-For #5, perform the required actions by stringing together the all necessary functions with the [pipe operator](http://uc-r.github.io/pipe) (`%>%`). The final data should look like:
+Perform the required actions by stringing together the necessary functions with the [pipe operator](http://uc-r.github.io/pipe) (`%>%`). The final data should look like:
     
 ```
 # A tibble: 57 × 6
@@ -117,7 +117,7 @@ For #5, perform the required actions by stringing together the all necessary fun
 # ... with 47 more rows
 ```
 
-For #5, plot the historical trends of this data in ggplot2 with a __line chart__ such that the plot is __facetted__ by the *Cost, FH,* and *Gallons* variables and each facet compares the different MDs ("B-1", "B-2", "B-52").
+Once you've created the above tidy data, plot the historical trends of this data in ggplot2 with a __line chart__ such that the plot is __facetted__ by the *Cost, FH,* and *Gallons* variables and each facet compares the different MDs ("B-1", "B-2", "B-52").
 
 __6\.__ Import the `ws_programmatics.rds` & `ws_categorization.rds` data so that they are tibbles and perform the following steps in sequence using the [pipe operator](http://uc-r.github.io/pipe) (`%>%`). 
 
@@ -127,7 +127,7 @@ __6\.__ Import the `ws_programmatics.rds` & `ws_categorization.rds` data so that
 4. Group the data by __System__ level
 5. Calculate the total sum of the *Total_O.S* and *End_Strength* variables
 
-__7\.__ Once again, join the `ws_programmatics.rds` & `ws_categorization.rds` data and identify which *Base* had the largest cost per flying hour (defined as $$CPFH = \frac{Total\text{_}O.S}{FH}$$ which requires you to create a new variable) in 2014.  Using a __bar chart__ in ggplot2, plot these values for the top 10 bases with the largest cost per flying hour.
+__7\.__ Once again, join the `ws_programmatics.rds` & `ws_categorization.rds` data; however, this time identify which *Base* had the largest cost per flying hour (defined as $$CPFH = \frac{Total\text{_}O.S}{FH}$$ which requires you to create a new variable) in 2014.  Using a __bar chart__ in ggplot2, plot these values for the top 10 bases with the largest cost per flying hour.
 
 __8\.__ Using __scatter plots__ in ggplot2, assess the relationship between the end strength (*End_Strength*) variable and total costs (*Total_O.S*).  Provide three scatter plots that visually assesses this replationship from different angles (by *FY*, *System*, etc).  
 
