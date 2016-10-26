@@ -30,7 +30,7 @@ Create an HTML R Markdown document named “week-5.Rmd”. Title this HTML docum
 
 With these available data sets perform the following exercises:
 
-1. Import the `bomber_wide.rds` file, which lists the flying hours for each aircraft by year. Convert this data to a tibble and tidy it by changing it from a wide format to a long format so that you have the following columns: *Type, MD, Year,* & *FH*. The final data should look like:
+1\. Import the `bomber_wide.rds` file, which lists the flying hours for each aircraft by year. Convert this data to a tibble and tidy it by changing it from a wide format to a long format so that you have the following columns: *Type, MD, Year,* & *FH*. The final data should look like:
 
 ```
 # A tibble: 57 × 4
@@ -49,7 +49,7 @@ With these available data sets perform the following exercises:
 # ... with 47 more rows
 ```
 
-2. Import the `bomber_long.rds` data, which provides the value for three different outputs for each aircraft by year. The output measures include cost, flying hours, and gallons of gas consumed but these variables are "stacked" in the *Output* variable. Change this data to a tibble and convert to a wider format so that you have the following columns: *Type, MD, FY, Cost, FH,* & *Gallons*. Your data should look like:
+2\. Import the `bomber_long.rds` data, which provides the value for three different outputs for each aircraft by year. The output measures include cost, flying hours, and gallons of gas consumed but these variables are "stacked" in the *Output* variable. Change this data to a tibble and convert to a wider format so that you have the following columns: *Type, MD, FY, Cost, FH,* & *Gallons*. Your data should look like:
 
 ```
 # A tibble: 57 × 6
@@ -68,7 +68,7 @@ With these available data sets perform the following exercises:
 # ... with 47 more rows
 ```
 
-3. Import the `bomber_combined.rds` file. Note that the first variable in this data (*AC*) combines the aircraft type (Bomber) and aircraft designator (i.e. B-1). This variable should be split into two.  Take this data and convert it to a tibble and separate the *AC* variable into *"Type"* and *"MD"* so that your data looks like:
+3\. Import the `bomber_combined.rds` file. Note that the first variable in this data (*AC*) combines the aircraft type (Bomber) and aircraft designator (i.e. B-1). This variable should be split into two.  Take this data and convert it to a tibble and separate the *AC* variable into *"Type"* and *"MD"* so that your data looks like:
 
 ```
 # A tibble: 57 × 6
@@ -87,8 +87,9 @@ With these available data sets perform the following exercises:
 # ... with 47 more rows
 ```
 
-4. Import the `bomber_prefix.rds` data. Take this data and convert it to a tibble and unite the *prefix* and *number* variables into an *"MD"* variable so that the data matches the tidy data sets you produced in problems #2 and #3.
-5. Import the `bomber_mess.rds` file so that it is a tibble.  Clean this data up by making it contain the following variables: 
+4\. Import the `bomber_prefix.rds` data. Take this data and convert it to a tibble and unite the *prefix* and *number* variables into an *"MD"* variable so that the data matches the tidy data sets you produced in problems #2 and #3.
+
+5\. Import the `bomber_mess.rds` file so that it is a tibble.  Clean this data up by making it contain the following variables: 
     - *Type*
     - *MD* which combines the *prefix* and *number* variable (i.e. "B-1")
     - *FY* which is the left part of the *Metric* variable
@@ -117,16 +118,16 @@ For #5, perform the required actions by stringing together the all necessary fun
 
 For #5, plot the historical trends of this data in ggplot2 with a __line chart__ such that the plot is __facetted__ by the *Cost, FH,* and *Gallons* variables and each facet compares the different MDs ("B-1", "B-2", "B-52").
 
-6. Import the `ws_programmatics.rds` & `ws_categorization.rds` data so that they are tibbles and perform the following steps in sequence using the [pipe operator](http://uc-r.github.io/pipe) (`%>%`). 
+6\. Import the `ws_programmatics.rds` & `ws_categorization.rds` data so that they are tibbles and perform the following steps in sequence using the [pipe operator](http://uc-r.github.io/pipe) (`%>%`). 
     1. Join the `ws_categorization` data to the `ws_programmatics` data
     2. Filter for only __FY__ 2014 data at the following __Base__: *"Minot AFB (ND)"*
     3. Filter for only *"AIRCRAFT"* or *"MISSILES"* __Systems__
     4. Group the data by __System__ level
     4. Calculate the total sum of the *Total_O.S* and *End_Strength* variables
 
-7. Once again, join the `ws_programmatics.rds` & `ws_categorization.rds` data and identify which *Base* had the largest cost per flying hour (defined as $$CPFH = \frac{Total\text{_}O.S}{FH}$$ which requires you to create a new variable) in 2014.  Using a __bar chart__ in ggplot2, plot these values for the top 10 bases with the largest cost per flying hour.
+7\. Once again, join the `ws_programmatics.rds` & `ws_categorization.rds` data and identify which *Base* had the largest cost per flying hour (defined as $$CPFH = \frac{Total\text{_}O.S}{FH}$$ which requires you to create a new variable) in 2014.  Using a __bar chart__ in ggplot2, plot these values for the top 10 bases with the largest cost per flying hour.
 
-8. Using __scatter plots__ in ggplot2, assess the relationship between the end strength (*End_Strength*) variable and total costs (*Total_O.S*).  Provide three scatter plots that visually assesses this replationship from different angles (by *FY*, *System*, etc).  
+8\. Using __scatter plots__ in ggplot2, assess the relationship between the end strength (*End_Strength*) variable and total costs (*Total_O.S*).  Provide three scatter plots that visually assesses this replationship from different angles (by *FY*, *System*, etc).  
 
 
 
