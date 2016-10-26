@@ -26,7 +26,7 @@ Please work through the following tutorials prior to Saturday’s class. The ski
 
 ## Homework
 
-Create an HTML R Markdown document named “week-5.Rmd”. Title this HTML document “Week 5 Homework” and be sure to include your name in the YAML.  Download this data: XX. There are multiple data sets[^data] in this file and a short decription of each variable is provided [here](http://uc-r.github.io/data_wrangling/week-5-assignment-data).
+Create an HTML R Markdown document named “week-5.Rmd”. Title this HTML document “Week 5 Homework” and be sure to include your name in the YAML.  Download this data: &nbsp; <a href="https://www.dropbox.com/sh/qgv90e945updkzq/AADpwjjWq-7u3IArV0rYl3-9a?dl=1" style="color:black;"><i class="fa fa-cloud-download" style="font-size:1em"></i></a>. There are multiple data sets[^data] in this file and a short decription of each variable is provided [here](http://uc-r.github.io/data_wrangling/week-5-assignment-data).
 
 With these available data sets perform the following exercises:
 
