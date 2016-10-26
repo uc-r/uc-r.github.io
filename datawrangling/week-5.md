@@ -26,14 +26,68 @@ Please work through the following tutorials prior to Saturday’s class. The ski
 
 ## Homework
 
-Create an HTML R Markdown document named “week-5.Rmd”. Title this HTML document “Week 5 Homework” and be sure to include your name in the YAML.  Download this data: XX. There are multiple data sets[^data] in this file and a short decription of each variable is provided in the footnotes.
+Create an HTML R Markdown document named “week-5.Rmd”. Title this HTML document “Week 5 Homework” and be sure to include your name in the YAML.  Download this data: XX. There are multiple data sets[^data] in this file and a short decription of each variable is provided [here](http://uc-r.github.io/data_wrangling/week-5-assignment-data).
 
 With these available data sets perform the following exercises:
 
-1. Import the `bomber_wide.rds` file so that it is a tibble and turn this data from a wide format to a long format so that you have the following columns: *Type, MD, Year,* & *FH*.
-2. Import the `bomber_long.rds` file so that it is a tibble and turn this into a wider format so that you have the following columns: *Type, MD, FY, Cost, FH,* & *Gallons*.
-3. Import the `bomber_combined.rds` file so that it is a tibble and separate the *AC* variable into *"Type"* and *"MD"*
-4. Import the `bomber_prefix.rds` file so that it is a tibble and unite the *prefix* and *number* variables into an *"MD"* variable
+1. Import the `bomber_wide.rds` file, which lists the flying hours for each aircraft by year. Convert this data to a tibble and tidy it by changing it from a wide format to a long format so that you have the following columns: *Type, MD, Year,* & *FH*. The final data should look like:
+
+```
+# A tibble: 57 × 4
+     Type    MD  Year    FH
+    <chr> <chr> <chr> <int>
+1  Bomber   B-1  1996 26914
+2  Bomber   B-2  1996  2364
+3  Bomber  B-52  1996 28511
+4  Bomber   B-1  1997 25219
+5  Bomber   B-2  1997  2776
+6  Bomber  B-52  1997 26034
+7  Bomber   B-1  1998 24205
+8  Bomber   B-2  1998  2166
+9  Bomber  B-52  1998 25639
+10 Bomber   B-1  1999 23306
+# ... with 47 more rows
+```
+
+2. Import the `bomber_long.rds` data, which provides the value for three different outputs for each aircraft by year. The output measures include cost, flying hours, and gallons of gas consumed but these variables are "stacked" in the *Output* variable. Change this data to a tibble and convert to a wider format so that you have the following columns: *Type, MD, FY, Cost, FH,* & *Gallons*. Your data should look like:
+
+```
+# A tibble: 57 × 6
+     Type    MD    FY      Cost    FH   Gallons
+*   <chr> <chr> <int>     <int> <int>     <int>
+1  Bomber   B-1  1996  72753781 26914  88594449
+2  Bomber   B-1  1997  71297263 25219  85484074
+3  Bomber   B-1  1998  84026805 24205  85259038
+4  Bomber   B-1  1999  71848336 23306  79323816
+5  Bomber   B-1  2000  58439777 25013  86230284
+6  Bomber   B-1  2001  94946077 25059  86892432
+7  Bomber   B-1  2002  96458536 26581  89198262
+8  Bomber   B-1  2003  68650070 21491  74485788
+9  Bomber   B-1  2004 101895634 28118 101397707
+10 Bomber   B-1  2005 124816690 21859  78410415
+# ... with 47 more rows
+```
+
+3. Import the `bomber_combined.rds` file. Note that the first variable in this data (*AC*) combines the aircraft type (Bomber) and aircraft designator (i.e. B-1). This variable should be split into two.  Take this data and convert it to a tibble and separate the *AC* variable into *"Type"* and *"MD"* so that your data looks like:
+
+```
+# A tibble: 57 × 6
+     Type    MD    FY      Cost    FH   Gallons
+*   <chr> <chr> <int>     <int> <int>     <int>
+1  Bomber   B-1  1996  72753781 26914  88594449
+2  Bomber   B-1  1997  71297263 25219  85484074
+3  Bomber   B-1  1998  84026805 24205  85259038
+4  Bomber   B-1  1999  71848336 23306  79323816
+5  Bomber   B-1  2000  58439777 25013  86230284
+6  Bomber   B-1  2001  94946077 25059  86892432
+7  Bomber   B-1  2002  96458536 26581  89198262
+8  Bomber   B-1  2003  68650070 21491  74485788
+9  Bomber   B-1  2004 101895634 28118 101397707
+10 Bomber   B-1  2005 124816690 21859  78410415
+# ... with 47 more rows
+```
+
+4. Import the `bomber_prefix.rds` data. Take this data and convert it to a tibble and unite the *prefix* and *number* variables into an *"MD"* variable so that the data matches the tidy data sets you produced in problems #2 and #3.
 5. Import the `bomber_mess.rds` file so that it is a tibble.  Clean this data up by making it contain the following variables: 
     - *Type*
     - *MD* which combines the *prefix* and *number* variable (i.e. "B-1")
@@ -67,7 +121,8 @@ For #5, plot the historical trends of this data in ggplot2 with a __line chart__
     1. Join the `ws_categorization` data to the `ws_programmatics` data
     2. Filter for only __FY__ 2014 data at the following __Base__: *"Minot AFB (ND)"*
     3. Filter for only *"AIRCRAFT"* or *"MISSILES"* __Systems__
-    4. Calculate the total sum of the *Total_O.S* and *End_Strength* variables at the __System__ level
+    4. Group the data by __System__ level
+    4. Calculate the total sum of the *Total_O.S* and *End_Strength* variables
 
 7. Once again, join the `ws_programmatics.rds` & `ws_categorization.rds` data and identify which *Base* had the largest cost per flying hour (defined as $$CPFH = \frac{Total\text{_}O.S}{FH}$$ which requires you to create a new variable) in 2014.  Using a __bar chart__ in ggplot2, plot these values for the top 10 bases with the largest cost per flying hour.
 
@@ -75,4 +130,4 @@ For #5, plot the historical trends of this data in ggplot2 with a __line chart__
 
 
 
-[^data]: Note that these are fictional data sets and none of this data represents actual information regarding United States Air Force assets. This artificial data was originally generated for instructional purposes for an R programming course at the Air Force Institute of Technology.
+[^data]: Note that these are fictional data sets and none of this data represents actual information regarding United States Air Force assets. This artificial data was originally generated for instructional purposes for an R programming course at the Air Force Institute of Technology and was meant to simulate data that Air Force analysts often deal with.
