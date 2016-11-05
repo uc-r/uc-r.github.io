@@ -76,7 +76,7 @@ All required classroom material will be provided in class or online. Any recomme
 |               | Data frames vs. Tibbles  |
 |               | Tidy data |
 |               | Relational data |
-| **6**         | **Dealing with Different Types of Data**  |
+| **6**         | **Dealing with Different Types of Data**  &nbsp;&nbsp; <a href="http://uc-r.github.io/data_wrangling/week-6" style="color:black;"><i class="fa fa-folder-open" style="font-size:1em"></i></a>  |
 |               | Strings  |
 |               | Factors |
 |               | Dates and times |
