@@ -40,3 +40,7 @@ Create an HTML R Markdown document named “week-4.Rmd”.  Title this HTML docu
    6. What has been the historical growth (or decline) in GDP per capita for your country?
 
 Knit this R Markdown document to an HTML file, publish it on [RPubs](https://rpubs.com/about/getting-started), and send me the URL for your published report prior to class (either by email or through Slack messenger).  
+
+## Class
+
+In today's lecture we are going to work through several exploratory data analysis exercises. Feel free to download these .R scripts to reference the functionality and capabilities of dplyr and ggplot2: &nbsp; <a href="https://www.dropbox.com/sh/l0wjulpnkyb60du/AADlUpVx46KAJmcaYntiNorWa?dl=1" style="color:black;"><i class="fa fa-cloud-download" style="font-size:1em"></i></a>
