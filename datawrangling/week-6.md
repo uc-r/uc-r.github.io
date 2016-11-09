@@ -24,7 +24,7 @@ Please work through the following tutorials prior to Saturday’s class. The ski
 
 ## Homework
 
-Your homework this week is to provide a project proposal.  Create an HTML R markdown document titled "Project Proposal" and be sure to include your name in the YAML.  In this proposal I would like you to provide the following information:
+Your homework this week is to provide a proposal for your final project.  Create an HTML R markdown document titled "Project Proposal" and be sure to include your name in the YAML.  In this proposal I would like you to provide the following information:
 
 __1. Data Description:__ Provide a thorough description of your data set.  This goes back to [week 3's](http://uc-r.github.io/data_wrangling/week-3) discussion about the data code book.  You need to explain what the original purpose of the data set is, what the variables are measuring, the data type and values that each variable is coded as (including how missing values are coded), and the range of values for each variable.  Be sure to hyperlink to the actual code book and source data.  Also, when describing your variables, please summarize this information as concisely as possible.  For example, if one of your variables is *Year*, summarize this variable by telling me that the *Year* variable is recorded as integer values that range from 1950-2016 and are measured annually.  Do not just use `unique(data$year)` to spit out the 50 unique year values in the data.  You want to write this in a report style but show your code.
 
