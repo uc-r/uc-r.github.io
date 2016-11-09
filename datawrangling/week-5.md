@@ -122,8 +122,8 @@ Once you've created the above tidy data, plot the historical trends of this data
 __6\.__ Import the `ws_programmatics.rds` & `ws_categorization.rds` data so that they are tibbles and perform the following steps in sequence using the [pipe operator](http://uc-r.github.io/pipe) (`%>%`). 
 
 1. Join the `ws_categorization` data to the `ws_programmatics` data
-2. Filter for only __FY__ 2014 data at the following __Base__: *"Minot AFB (ND)"*
-3. Filter for only *"AIRCRAFT"* or *"MISSILES"* __Systems__
+2. Filter for only __FY__ 2014 data at the following __Base__: *Minot AFB (ND)*
+3. Filter for only __Systems__ classified as *"AIRCRAFT"* or *"MISSILES"*
 4. Group the data by __System__ level
 5. Calculate the total sum of the *Total_O.S* and *End_Strength* variables
 
