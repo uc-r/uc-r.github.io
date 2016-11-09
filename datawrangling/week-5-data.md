@@ -18,7 +18,6 @@ __Bomber data sets:__ These data provide the following information regarding the
 __ws_programmatics:__ This data provides weapon system programmatics information:
 
 - Base: Represents the Air Force installation. Provides the name of the installation followed by the state the base is located in.
-- System: Represents the system classification of the weapon system. The major classifications for the different weapon systems includes *aircraft, missiles, munitions, space systems, ground control,* and *other*.
 - MD: Represents the "Mission Design." The letter represents the basic mission of the weapon system (A for attack, C for cargo, B for bomber, F for fighter, etc) and the number represents the design number.
 - Manpower_Ops: Represents cost of pilots and operators required to operate the weapon system
 - Manpower_Mx: Represents cost of maintenance personnel required to maintain the weapon system
