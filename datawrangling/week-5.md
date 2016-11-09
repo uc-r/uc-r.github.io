@@ -132,5 +132,8 @@ __7\.__ Once again, join the `ws_programmatics.rds` & `ws_categorization.rds` da
 __8\.__ Using __scatter plots__ in ggplot2, assess the relationship between the end strength (*End_Strength*) variable and total costs (*Total_O.S*).  Provide three scatter plots that visually assesses this replationship from different angles (by *FY*, *System*, etc).  
 
 
+Knit this R Markdown document to an HTML file, publish it on RPubs, and send me the URL for your published report prior to class (either by email or through Slack messenger).
+
+
 
 [^data]: Note that these are fictional data sets and none of this data represents actual information regarding United States Air Force assets. This artificial data was originally generated for instructional purposes for an R programming course at the Air Force Institute of Technology and was meant to simulate data that Air Force analysts often deal with.
