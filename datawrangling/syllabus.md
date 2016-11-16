@@ -80,9 +80,9 @@ All required classroom material will be provided in class or online. Any recomme
 |               | Strings  |
 |               | Factors |
 |               | Dates and times |
-| **7**         | **Creating Efficient and Readable Code in R**  |
-|               | Loop control statements (if, for, while, apply family)  |
-|               | Creating your own functions |
+| **7**         | **Creating Efficient and Readable Code in R**  &nbsp;&nbsp; <a href="http://uc-r.github.io/data_wrangling/week-7" style="color:black;"><i class="fa fa-folder-open" style="font-size:1em"></i></a>   |
+|               | Writing functions  |
+|               | Iteration |
 
 
 ## Grading Policies
