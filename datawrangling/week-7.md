@@ -24,7 +24,7 @@ Please work through the following tutorials prior to Saturday’s class. The ski
 
 ## Homework
 
-For the exercises that follow use this [NYC Restaurant data](https://nycopendata.socrata.com/Health/DOHMH-New-York-City-Restaurant-Inspection-Results/xx67-kt59).  Note that this is a SOPA API so `read.socrata` will come in handy to dowload this data. This is a large data set so allow several minutes to download.  Also, we will explore this data in class so you probably want to save it to your computer in an RDS format (hint: `readr::write_rds`).
+For the exercises that follow use this [NYC Restaurant data](https://nycopendata.socrata.com/Health/DOHMH-New-York-City-Restaurant-Inspection-Results/xx67-kt59).  Note that this is a SOPA API so `RSocrata::read.socrata` will come in handy to dowload this data. This is a large data set so allow several minutes to download.  Also, we will explore this data in class so you probably want to save it to your computer in an RDS format (hint: `readr::write_rds`).
 
 1. Use the `map` function to identify the class of each variable.
 2. Notice how the date variables are in POSIXlt form. Create a function that takes a single argument ("x") and checks if it is of POSIXlt class.  If it is, have the function change the input to a simple Date class with `as.Date`. If not then, the function should keep the input class as is. Apply this function to each of the columns in the NY restaurant data set by using the `map` function. Be sure the final output is a tibble and not a list.
