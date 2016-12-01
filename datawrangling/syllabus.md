@@ -33,7 +33,7 @@ Upon successfully completing this course, you will be able to:
 - Index, subset, reshape and transform your data
 - Compute descriptive statistics
 - Visualize data
-- Perform loop control statements
+- Perform iterative functions
 - Write your own functions
 
 ...all with R!
