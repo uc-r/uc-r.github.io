@@ -96,15 +96,15 @@ Course grades will consist of:
 
 Final grades will be distributed according to the following cutoffs:
 		
-- A		94 – 100 % 
-- A-	90 – 93 %
-- B+	87 – 89 %	
-- B		83 – 86 %
-- B-	80 – 82 %
-- C+	77 – 79 %
-- C		73 – 76 %
-- C-	70 – 72 %
-- D & F  Hopefully None!
+- A &nbsp;&nbsp; 94 – 100 % 
+- A- &nbsp;      90 – 93 %
+- B+ &nbsp;      87 – 89 %	
+- B &nbsp;&nbsp; 83 – 86 %
+- B- &nbsp;      80 – 82 %
+- C+ &nbsp;      77 – 79 %
+- C &nbsp;&nbsp; 73 – 76 %
+- C- &nbsp;      70 – 72 %
+- D & F &nbsp;  Hopefully None!
 
 
 ## Software
