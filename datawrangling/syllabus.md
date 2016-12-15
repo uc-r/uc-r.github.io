@@ -99,7 +99,7 @@ Final grades will be distributed according to the following cutoffs:
 - A &nbsp;&nbsp;&nbsp; 94 – 100% 
 - A- &nbsp;&nbsp;      90 – 93%
 - B+ &nbsp;&nbsp;      87 – 89%	
-- B &nbsp;&nbsp;&nbsp; 83 – 86%
+- B &nbsp;&nbsp;&nbsp;&nbsp; 83 – 86%
 - B- &nbsp;&nbsp;      80 – 82%
 - C+ &nbsp;&nbsp;      77 – 79%
 - C &nbsp;&nbsp;       73 – 76%
