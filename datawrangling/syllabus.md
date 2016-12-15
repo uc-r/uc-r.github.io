@@ -96,7 +96,7 @@ Course grades will consist of:
 
 Final grades will be distributed according to the following cutoffs:
 		
-- A &nbsp;&nbsp;       94 – 100% 
+- A &nbsp;&nbsp;&nbsp; 94 – 100% 
 - A- &nbsp;&nbsp;      90 – 93%
 - B+ &nbsp;&nbsp;      87 – 89%	
 - B &nbsp;&nbsp;&nbsp; 83 – 86%
