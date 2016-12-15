@@ -92,8 +92,20 @@ Course grades will consist of:
 - 40% [final project](final-project)
 - 30% [homework](homework-guidelines)
 - 30% [engagement](engagement)
+- There will be no final exam
 
-There will be no final exam.
+Final grades will be distributed according to the following cutoffs:
+		
+- A		94 – 100 % 
+- A-	90 – 93 %
+- B+	87 – 89 %	
+- B		83 – 86 %
+- B-	80 – 82 %
+- C+	77 – 79 %
+- C		73 – 76 %
+- C-	70 – 72 %
+- D & F  Hopefully None!
+
 
 ## Software
 
