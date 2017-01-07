@@ -395,7 +395,9 @@ load("mydata.RData")
 
 load(file = "mydata.rda")
 
-name <- readRDS("mydata.rds")
+readRDS("mydata.rds")
+
+readr::read_rds("mydata.rds")
 ```
 
 
