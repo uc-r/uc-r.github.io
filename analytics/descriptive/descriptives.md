@@ -15,3 +15,6 @@ Descriptive methodologies focus on analyzing historic data for the purpose of id
 - [Assessing correlations](correlations)
 - [t-test&#58; Comparing Group Means](t_test)
 
+## Text Mining
+
+-[Tidying Text & Word Frequency](text_mining_tidy)
