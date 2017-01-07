@@ -419,6 +419,8 @@ Description:    Join two datasets
 Function:       
                 inner_join(x, y, by = NULL)
                 left_join(x, y, by = NULL)
+                right_join(x, y, by = NULL)
+                full_join(x, y, by = NULL)
                 semi_join(x, y, by = NULL)
                 anti_join(x, y, by = NULL)
 
