@@ -209,7 +209,7 @@ series %>%
           facet_wrap(~ book, ncol = 2, scales = "free_x")
 ```
 
-<img src="02-sentiment_files/figure-html/unnamed-chunk-8-1.png" style="display: block; margin: auto;" />
+<img src="/public/images/analytics/descriptives/sentiment1.png" style="display: block; margin: auto;" />
 
 Now we can see how the plot of each novel changes toward more positive or negative sentiment over the trajectory of the story.
 
@@ -260,7 +260,7 @@ bind_rows(afinn,
   facet_grid(book ~ method)
 ```
 
-<img src="02-sentiment_files/figure-html/unnamed-chunk-10-1.png" style="display: block; margin: auto;" />
+<img src="/public/images/analytics/descriptives/sentiment2.png" style="display: block; margin: auto;" />
 
 The three different lexicons for calculating sentiment give results that are different in an absolute sense but have fairly similar relative trajectories through the novels. We see similar dips and peaks in sentiment at about the same places in the novel, but the absolute values are significantly different. In some instances, it apears the AFINN lexicon finds more positive sentiments than the NRC lexicon.  This output also allows us to compare across novels.  First, you get a good sense of differences in book lengths - Order of the Pheonix is much longer than Philosopher's Stone.  Second, you can compare how books differ in their sentiment (both direction and magnitude) across a series.
 
@@ -310,7 +310,7 @@ bing_word_counts %>%
 ## Selecting by n
 ```
 
-<img src="02-sentiment_files/figure-html/unnamed-chunk-12-1.png" style="display: block; margin: auto;" />
+<img src="/public/images/analytics/descriptives/sentiment3.png" style="display: block; margin: auto;" />
 
 
 ## Sentiment Analysis with Larger Units {#larger}
@@ -403,5 +403,5 @@ ggplot(book_sent, aes(index, factor(chapter, levels = sort(unique(chapter), decr
               legend.position = "top")
 ```
 
-<img src="02-sentiment_files/figure-html/unnamed-chunk-16-1.png" style="display: block; margin: auto;" />
+<img src="/public/images/analytics/descriptives/sentiment4.png" style="display: block; margin: auto;" />
 
