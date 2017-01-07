@@ -273,7 +273,7 @@ series %>%
           theme(legend.position="none")
 ```
 
-<img src="01-tidy-text_files/figure-html/unnamed-chunk-10-1.png" style="display: block; margin: auto;" />
+<img src="/public/images/analytics/descriptives/tidy_text1.png" style="display: block; margin: auto;" />
 
 Now, let’s calculate the frequency for each word across the entire Harry Potter series versus within each book. This will allow us to compare strong deviations of word frequency within each book as compared to across the entire series.
 
@@ -331,7 +331,7 @@ ggplot(frequency, aes(x = book_words, y = all_words, color = abs(all_words - boo
         labs(y = "Harry Potter Series", x = NULL)
 ```
 
-<img src="01-tidy-text_files/figure-html/unnamed-chunk-12-1.png" style="display: block; margin: auto;" />
+<img src="/public/images/analytics/descriptives/tidy_text2.png" style="display: block; margin: auto;" />
 
 Words that are close to the line in these plots have similar frequencies across all the novels. For example, words such as "harry", "ron", "dumbledore" are fairly common and used with similar frequencies across most of the books. Words that are far from the line are words that are found more in one set of texts than another. Furthermore, words standing out above the line are common across the series but not within that book; whereas words below the line are common in that particular book but not across the series. For example, "cedric" stands out above the line in the Half-Blood Prince.  This means that "cedric" is fairly common across the entire Harry Potter series but is not used as much in Half-Blood Prince.  In contrast, a word below the line such as "quirrell" in the Philosopher's Stone suggests this word is common in this novel but far less common across the series.
 
