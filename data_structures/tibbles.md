@@ -6,8 +6,8 @@ permalink: /tibbles
 
 Tibbles are data frames, but they tweak some older behaviors to make life a little easier. The name comes from `dplyr`: originally you created these objects with `tbl_df()`, which was most easily pronounced as “tibble diff”.  Tibbles are provide by the `tibbles` package (which also comes automatically in the `tidyverse` package). This tutorial covers the basics of tibbles but you can always learn more by reading through the vignette `vignette("tibble")`.  This tutorial will cover the following:
 
-- [Creating tibbles](create)
-- [Comparing tibbles to data frames](compare)
+- [Creating tibbles](#create)
+- [Comparing tibbles to data frames](#compare)
 
 ### Prerequisite
 
