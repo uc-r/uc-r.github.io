@@ -17,4 +17,4 @@ Descriptive methodologies focus on analyzing historic data for the purpose of id
 
 ## Text Mining
 
--[Tidying Text & Word Frequency](text_mining_tidy)
+- [Tidying Text & Word Frequency](tidy_text)
