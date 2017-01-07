@@ -81,6 +81,9 @@ write_csv(df, path = "export_csv2", col_names = FALSE)
 
 # write to a txt file without column names
 write_delim(df, path = "export_txt2", col_names = FALSE)
+
+# write to a csv with UTF-8 Byte order mark to indicate to Excel the csv is UTF-8 encoded
+write_excel_csv(df, path = "export_csv2", col_names = FALSE)
 ```
 
 <br>
@@ -276,6 +279,9 @@ save(x, y, file = "xy.RData")
 # save.image() is just a short-cut for ‘save my current workspace’,
 # i.e. all objects in your global environment
 save.image()
+
+# write rds file readr
+readr::write_rds(x, "x.rds")
 
 # save a single object to file
 saveRDS(x, "x.rds")
