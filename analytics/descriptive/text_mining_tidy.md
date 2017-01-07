@@ -37,21 +37,35 @@ library(harrypotter)    # provides the first seven novels of the Harry Potter se
 
 The seven novels we are working with, and are provided by the `harrypotter` package, include:
 
-- `philosophers_stone`: Harry Potter and the Philosophers Stone, published in 1997
-- `chamber_of_secrets`: Harry Potter and the Chamber of Secrets, published in 1998
-- `prisoner_of_azkaban`: Harry Potter and the Prisoner of Azkaban, published in 1999
-- `goblet_of_fire`: Harry Potter and the Goblet of Fire, published in 2000
-- `order_of_the_phoenix`: Harry Potter and the Order of the Phoenix, published in 2003
-- `half_blood_prince`: Harry Potter and the Half-Blood Prince, published in 2005
-- `deathly_hallows`: Harry Potter and the Deathly Hallows, published in 2007
+- `philosophers_stone`: Harry Potter and the Philosophers Stone (1997)
+- `chamber_of_secrets`: Harry Potter and the Chamber of Secrets (1998)
+- `prisoner_of_azkaban`: Harry Potter and the Prisoner of Azkaban (1999)
+- `goblet_of_fire`: Harry Potter and the Goblet of Fire (2000)
+- `order_of_the_phoenix`: Harry Potter and the Order of the Phoenix (2003)
+- `half_blood_prince`: Harry Potter and the Half-Blood Prince (2005)
+- `deathly_hallows`: Harry Potter and the Deathly Hallows (2007)
 
 Each text is in a character vector with each element representing a single chapter.  For instance, the following illustrates the raw text of the first two chapters of the `philosophers_stone`:
 
 
 ```r
 philosophers_stone[1:2]
- [1] "THE BOY WHO LIVED　　Mr. and Mrs. Dursley, of number four, Privet Drive, were proud to say that they were perfectly normal, thank you very much. They were the last people you'd expect to be involved in anything strange or mysterious, because they just didn't hold with such nonsense.　　Mr. Dursley was the director of a firm called Grunnings, which made drills. He was a big, beefy man with hardly any neck, although he did have a very large mustache. Mrs. Dursley was thin and blonde and had nearly twice the usual amount of neck, which came in very useful as she spent so much of her time craning over garden fences, spying on the neighbors. The Dursleys had a small son called Dudley and in their opinion there was no finer boy anywhere.　　The Dursleys had everything they wanted, but they also had a secret, and their greatest fear was that somebody would discover it. They didn't think they could bear it if anyone found out about the Potters. Mrs. Potter was Mrs. Dursley's sister, but they hadn'... <truncated>
- [2] "THE VANISHING GLASS　　Nearly ten years had passed since the Dursleys had woken up to find their nephew on the front step, but Privet Drive had hardly changed at all. The sun rose on the same tidy front gardens and lit up the brass number four on the Dursleys' front door; it crept into their living room, which was almost exactly the same as it had been on the night when Mr. Dursley had seen that fateful news report about the owls. Only the photographs on the mantelpiece really showed how much time had passed. Ten years ago, there had been lots of pictures of what looked like a large pink beach ball wearing different-colored bonnets -- but Dudley Dursley was no longer a baby, and now the photographs showed a large blond boy riding his first bicycle, on a carousel at the fair, playing a computer game with his father, being hugged and kissed by his mother. The room held no sign at all that another boy lived in the house, too.　　Yet Harry Potter was still there, asleep at the moment, but no... <truncated>
+## [1] "THE BOY WHO LIVED　　Mr. and Mrs. Dursley, of number four, Privet Drive, were proud to say that they were perfectly normal, thank
+## you very much. They were the last people you'd expect to be involved in anything strange or mysterious, because they just didn't hold
+## with such nonsense.　　Mr. Dursley was the director of a firm called Grunnings, which made drills. He was a big, beefy man with hardly
+## any neck, although he did have a very large mustache. Mrs. Dursley was thin and blonde and had nearly twice the usual amount of neck,
+## which came in very useful as she spent so much of her time craning over garden fences, spying on the neighbors. The Dursleys had a
+## small son called Dudley and in their opinion there was no finer boy anywhere.　　The Dursleys had everything they wanted, but they also
+## had a secret, and their greatest fear was that somebody would discover it. They didn't think they could bear it if anyone found out
+## about the Potters. Mrs. Potter was Mrs. Dursley's sister, but they hadn'... <truncated>
+## [2] "THE VANISHING GLASS　　Nearly ten years had passed since the Dursleys had woken up to find their nephew on the front step, but
+## Privet Drive had hardly changed at all. The sun rose on the same tidy front gardens and lit up the brass number four on the Dursleys'
+## front door; it crept into their living room, which was almost exactly the same as it had been on the night when Mr. Dursley had seen
+## that fateful news report about the owls. Only the photographs on the mantelpiece really showed how much time had passed. Ten years ago,
+## there had been lots of pictures of what looked like a large pink beach ball wearing different-colored bonnets -- but Dudley Dursley was
+## no longer a baby, and now the photographs showed a large blond boy riding his first bicycle, on a carousel at the fair, playing a
+## computer game with his father, being hugged and kissed by his mother. The room held no sign at all that another boy lived in the house,
+## too.　　Yet Harry Potter was still there, asleep at the moment, but no... <truncated>
 ```
 
 
