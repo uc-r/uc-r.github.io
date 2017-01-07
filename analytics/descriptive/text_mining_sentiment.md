@@ -4,11 +4,11 @@ title: Text Mining&#58; Sentiment Analysis
 permalink: /sentiment_analysis
 ---
 
-Once we have cleaned up our text and performed some basic word frequency analysis, the next step is to understand the opinion or emotion in the text. This is considered *sentiment analysis* and this tutorial will walk you through a simple approach to perform sentiment analysis. 
+Once we have [cleaned up our text and performed some basic word frequency analysis](tidy_text), the next step is to understand the opinion or emotion in the text. This is considered *sentiment analysis* and this tutorial will walk you through a simple approach to perform sentiment analysis. 
 
 
 ## tl;dr
-This tutorial serves as an introduction to sentiment analysis.  This tutorial builds on the [tidy text tutorial]() so if you have not read through that tutorial I suggest you start there.  In this tutorial I cover the following: 
+This tutorial serves as an introduction to sentiment analysis.  This tutorial builds on the [tidy text tutorial](tidy_text) so if you have not read through that tutorial I suggest you start there.  In this tutorial I cover the following: 
 
 1. [Replication requirements](#replication): What you’ll need to reproduce the analysis in this tutorial
 2. [Sentiment data sets](#sentiment): The primary data sets leveraged to score sentiment
