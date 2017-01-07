@@ -306,11 +306,15 @@ read.xlsx("mydata.xlsx", sheetName = "Sheet4", keepFormulas = TRUE)
 ### readxl package {#readxl_import}
 [`readxl`](https://cran.rstudio.com/web/packages/readxl/) is one of the newest packages for accessing Excel data with R and was developed by [Hadley Wickham](https://twitter.com/hadleywickham) and the [RStudio](https://www.rstudio.com/) team who also developed the `readr` package.  This package works with both legacy .xls formats and the modern xml-based .xlsx format.  Similar to `readr` the `readxl` functions are based on a C++ library so they are extremely fast. Unlike most other packages that deal with Excel, `readxl` has no external dependencies, so you can use it to read Excel data on just about any platform.  Additional benefits `readxl` provides includes the ability to load dates and times as POSIXct formatted dates, automatically drops blank columns, and returns outputs as data.table formatted which provides easier viewing for large data sets.
 
-To read in Excel data with `readxl` you use the `read_excel()` function which has very similar operations and arguments as `xlsx`.  A few important differences you will see below include: `readxl` will automatically convert date and date-time variables to POSIXct formatted variables, character variables will not be coerced to factors, and logical variables will be read in as integers.
+
+To read in Excel data with `readxl` you will commonly use the `excel_sheets()` and `read_excel()` functions.  `excel_sheets()` allows you to read the names of the different worksheets in the Excel workbook. `read_excel()` operates similar to the `read.xlsx()` function you saw in the previous section; however, a few important differences you will see below include: `readxl` will automatically convert date and date-time variables to POSIXct formatted variables, character variables will not be coerced to factors, and logical variables will be read in as integers.
 
 
 ```r
 library(readxl)
+
+excel_sheets("data/mydata.xlsx")
+## [1] "Sheet1"    "Sheet2"    "Sheet3"    "Sheet4"    "Sheet5"    "Sheet6"
 
 mydata <- read_excel("mydata.xlsx", sheet = "Sheet5")
 mydata
