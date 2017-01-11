@@ -10,7 +10,7 @@ Another approach is to use what is called a term's *inverse document frequency* 
 
 $$idf(t,D) = log(\frac{N}{n_{t}})$$
 
-where the idf of a given term (*t*) in a set of documents (*D*) is a function of the total number of documents being assessed (*N*) and the number of documents where the term *t* appears ($n_t$).  In addition, we can combine tf and idf statistics into a single tf-idf statistic, which computes the frequency of a term adjusted for how rarely it is used. Since the ratio inside the idf's log function is always greater than or equal to 1, the value of idf (and tf-idf) is greater than or equal to 0. As a term appears in more documents, the ratio inside the logarithm approaches 1, bringing the idf and tf-idf closer to 0.  tf-idf is defined as
+where the idf of a given term (*t*) in a set of documents (*D*) is a function of the total number of documents being assessed (*N*) and the number of documents where the term *t* appears ($$n_t$$).  In addition, we can combine tf and idf statistics into a single tf-idf statistic, which computes the frequency of a term adjusted for how rarely it is used. Since the ratio inside the idf's log function is always greater than or equal to 1, the value of idf (and tf-idf) is greater than or equal to 0. As a term appears in more documents, the ratio inside the logarithm approaches 1, bringing the idf and tf-idf closer to 0.  tf-idf is defined as
 
 $$tf\text{-}idf(t,d,D) = tf(t,d) \cdot idf(t,D) $$
 
