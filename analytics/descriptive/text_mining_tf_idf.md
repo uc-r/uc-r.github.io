@@ -175,7 +175,7 @@ book_words %>%
         facet_wrap(~ book, ncol = 2)
 ```
 
-<img src="03-tf_idf_files/figure-html/unnamed-chunk-6-1.png" style="display: block; margin: auto;" />
+<img src="/public/images/analytics/descriptives/tf_idf1.png" style="display: block; margin: auto;" />
 
 
 ## Zipf's Law {#zip}
@@ -196,7 +196,7 @@ ggplot(freq_by_rank, aes(rank, `term freq`, color = book)) +
         scale_y_log10()
 ```
 
-<img src="03-tf_idf_files/figure-html/unnamed-chunk-7-1.png" style="display: block; margin: auto;" />
+<img src="/public/images/analytics/descriptives/tf_idf2.png" style="display: block; margin: auto;" />
 
 
 Our plot illustrates that the distribution is similar across the seven books. Furthermore, we can compare the distribution to a simple regression line.  We see that the tails of the distribution deviate suggesting our distribution doesn't follow Zipf's law perfectly; however, it is close enough to generally state that the law approximately holds within our corpus of text.
@@ -224,7 +224,7 @@ freq_by_rank %>%
         scale_y_log10()
 ```
 
-![](03-tf_idf_files/figure-html/unnamed-chunk-8-1.png)<!-- -->
+<img src="/public/images/analytics/descriptives/tf_idf3.png" style="display: block; margin: auto;" />
 
 
 
@@ -298,6 +298,6 @@ book_words %>%
         coord_flip()
 ```
 
-<img src="03-tf_idf_files/figure-html/unnamed-chunk-11-1.png" style="display: block; margin: auto;" />
+<img src="/public/images/analytics/descriptives/tf_idf5.png" style="display: block; margin: auto;" />
 
 As you can see most of these high ranking tf-idf words are nouns that provide specific context around the the most common characters in each individual book.
