@@ -516,9 +516,9 @@ Consider the following table:
 
 |  | Has word Y | No word Y | Total |  |
 |------------|---------------|---------------|--------------|---|
-| Has word X | $n_{11}$ | $n_{10}$ | $n_{1\cdot}$ |  |
-| No word X | $n_{01}$ | $n_{00}$ | $n_{0\cdot}$ |  |
-| Total | $n_{\cdot 1}$ | $n_{\cdot 0}$ | n |  |
+| Has word X | $$n_{11}$$ | $$n_{10}$$ | $$n_{1\cdot}$$ |  |
+| No word X | $$n_{01}$$ | $$n_{00}$$ | $$n_{0\cdot}$$ |  |
+| Total | $$n_{\cdot 1}$$ | $$n_{\cdot 0}$$ | n |  |
 
 For example, $n_{11}$ represents the number of documents where both word X and word Y appear, $n_{00}$ the number where neither appears, and $n_{10}$ and $n_{01}$ the cases where one appears without the other. In terms of this table, the phi coefficient is:
 
