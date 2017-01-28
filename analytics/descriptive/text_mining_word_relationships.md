@@ -204,7 +204,7 @@ series %>%
         coord_flip()
 ```
 
-<img src="04-n-grams_files/figure-html/unnamed-chunk-7-1.png" style="display: block; margin: auto;" />
+<img src="/public/images/analytics/descriptives/text_mining_words1.png" style="display: block; margin: auto;" />
 
 ## Analyzing n-grams {#analyze}
 
@@ -253,7 +253,7 @@ bigram_tf_idf %>%
         coord_flip()
 ```
 
-<img src="04-n-grams_files/figure-html/unnamed-chunk-9-1.png" style="display: block; margin: auto;" />
+<img src="/public/images/analytics/descriptives/text_mining_words2.png" style="display: block; margin: auto;" />
 
 The sentiment analysis approch used in the [sentiment analysis](sentiment_analysis) tutorial simply counted the appearance of positive or negative words, according to a specified lexicon (i.e. AFINN, bing, nrc). Unfortunately, this approach scores the sentiments of words merely on their presence rather than on context. For example, the words "happy" and "like" will be counted as positive, even in a sentence like "I'm not happy and I don’t like it!"   
 
@@ -329,7 +329,7 @@ nots %>%
         coord_flip()
 ```
 
-<img src="04-n-grams_files/figure-html/unnamed-chunk-12-1.png" style="display: block; margin: auto;" />
+<img src="/public/images/analytics/descriptives/text_mining_words3.png" style="display: block; margin: auto;" />
 
 The bi-grams "not help", "not want", "not like" were the largest causes of misidentification, making the text seem much more positive than it is. We also see bi-grams such as "not bad", "not dead", and "not stupid" at the bottom of our chart suggesting these bi-grams made the text appear more negative than it is.
 
@@ -379,7 +379,7 @@ negated %>%
         coord_flip()
 ```
 
-<img src="04-n-grams_files/figure-html/unnamed-chunk-14-1.png" style="display: block; margin: auto;" />
+<img src="/public/images/analytics/descriptives/text_mining_words4.png" style="display: block; margin: auto;" />
 
 ## Visualizing n-gram Networks {#visualize}
 
@@ -429,7 +429,7 @@ ggraph(bigram_graph, layout = "fr") +
         theme_void()
 ```
 
-<img src="04-n-grams_files/figure-html/unnamed-chunk-16-1.png" style="display: block; margin: auto;" />
+<img src="/public/images/analytics/descriptives/text_mining_words5.png" style="display: block; margin: auto;" />
 
 Here we can see clusters of word networks most commonly used together. 
 
@@ -595,5 +595,5 @@ ps_words %>%
   theme_void()
 ```
 
-<img src="04-n-grams_files/figure-html/unnamed-chunk-22-1.png" style="display: block; margin: auto;" />
+<img src="/public/images/analytics/descriptives/text_mining_words6.png" style="display: block; margin: auto;" />
 
