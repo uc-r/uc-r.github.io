@@ -1,7 +1,7 @@
 ---
 layout: tutorial
 title: Text Mining&#58; Word Relationships
-permalink: /tf-idf_analysis
+permalink: /word_relationships
 ---
 
 
