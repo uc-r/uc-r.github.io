@@ -160,7 +160,7 @@ which measures the number of standard deviations that $$\beta_1$$ is away from 0
 Next, we want to understand the extent to which the model fits the data. This is typically referred to as the *goodness-of-fit*.  We can measure this quantitatively by assessing three things:
 
 1. Residual standard error
-2. $$R^2$$
+2. $$R^2 \hfill$$
 3. F-statistic
 
 The RSE is an estimate of the standard deviation of $$\epsilon$$. Roughly speaking, it is the average amount that the response will deviate from the true regression line. It is computed by:
