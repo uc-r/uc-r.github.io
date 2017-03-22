@@ -12,7 +12,7 @@ Logistic regression (aka logit regression or logit model) was developed by stati
 This tutorial serves as an introduction to logistic regression and covers[^islr]:
 
 1. [Replication requirements](#req): What you'll need to reproduce the analysis in this tutorial
-2. [Why logistic regression](#why):
+2. [Why logistic regression](#why): Why use logistic regression?
 3. [Preparing our data](#prep): Prepare our data for modeling
 4. [Simple Logistic regression](#simple): Predicting the probability of response *Y* with a single predictor variable *X*
 5. [Multiple Logistic regression](#multi): Predicting the probability of response *Y* with multiple predictor variables $$X_1, X_2, \dots, X_p$$
