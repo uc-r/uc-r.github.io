@@ -464,7 +464,7 @@ test %>%
 ## 1 0.02782697 0.03491019 0.02807994
 ```
 
-We can gain some additional insights by looking at the raw values (not percentages) in our confusion matrix.  Lets look at model 1 to illustrate.  We see that there are a total of $$98 + 4 = 138$$ customers that defaulted.  Of the total defaults, $$98 / 138 =  71\%$$ were *not* predicted.  So while the overall error rate is low, the error rate among individuals who defaulted is very high! 
+We can gain some additional insights by looking at the raw values (not percentages) in our confusion matrix.  Lets look at model 1 to illustrate.  We see that there are a total of $$98 + 40 = 138$$ customers that defaulted.  Of the total defaults, $$98 / 138 =  71\%$$ were *not* predicted.  So while the overall error rate is low, the error rate among individuals who defaulted is very high! 
 
 
 ```r
