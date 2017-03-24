@@ -8,5 +8,6 @@ Predictive methodologies use knowledge, usually extracted from historical data, 
 
 <br>
 
-- [Linear regression](linear_regression)
-- [Logistic regression](logistic_regression)
+- [Linear Regression](linear_regression)
+- [Logistic Regression](logistic_regression)
+- [Linear & Quadratic Discriminant Analysis](discriminant_analysis)
