@@ -270,7 +270,7 @@ $$ \hat{p}(X) = \frac{e^{-10.907 + 0.00591 \times 1,500 - 0.00001 \times 40 -0.8
 
 A non-student with the same balance and income has an estimated probability of default of
 
-$$ \hat{p}(X) = \frac{e^{-10.907 + 0.00591 \times 1,500 - 0.00001 \times 40 -0.809 \times 1}}{1 + e^{-10.907 + 0.00591 \times 1,500 - 0.00001 \times 40 -0.809 \times 1}} = 0.114 $$
+$$ \hat{p}(X) = \frac{e^{-10.907 + 0.00591 \times 1,500 - 0.00001 \times 40 -0.809 \times 0}}{1 + e^{-10.907 + 0.00591 \times 1,500 - 0.00001 \times 40 -0.809 \times 0}} = 0.114 $$
 
 
 ```r
