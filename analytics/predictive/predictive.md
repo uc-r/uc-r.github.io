@@ -11,3 +11,4 @@ Predictive methodologies use knowledge, usually extracted from historical data, 
 - [Linear Regression](linear_regression)
 - [Logistic Regression](logistic_regression)
 - [Linear & Quadratic Discriminant Analysis](discriminant_analysis)
+- [Resampling Methods](resampling_methods)
