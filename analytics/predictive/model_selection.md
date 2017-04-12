@@ -75,7 +75,7 @@ Let's illustrate with our data. We can perform a best subset search using `regsu
 best_subset <- regsubsets(Salary ~ ., hitters, nvmax = 19)
 ```
 
-The `resubsets` function returns a list-object with *lots* of information.  Initially, we can use the `summary` command to assess the best set of variables for each model size.  So, for a model with 1 variable we see that CRBI has an asterisk signalling that a regression model with *Sales ~ CRBI* is the best single variable model.  The best 2 variable model is *Sales ~ CRBI + Hits*. The best 3 variable model is *Sales ~ CRBI + Hits + PutOuts*. An so forth.
+The `resubsets` function returns a list-object with *lots* of information.  Initially, we can use the `summary` command to assess the best set of variables for each model size.  So, for a model with 1 variable we see that CRBI has an asterisk signalling that a regression model with *Salary ~ CRBI* is the best single variable model.  The best 2 variable model is *Salary ~ CRBI + Hits*. The best 3 variable model is *Salary ~ CRBI + Hits + PutOuts*. An so forth.
 
 
 ```r
