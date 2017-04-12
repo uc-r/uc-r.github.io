@@ -26,7 +26,7 @@ This tutorial primarily leverages the `Hitters` data provided by the `ISLR` pack
 ```r
 # Packages
 library(tidyverse)  # data manipulation and visualization
-library(leaps)      # resampling and bootstrapping
+library(leaps)      # model selection functions
 
 # Load data and remove rows with missing data
 (
