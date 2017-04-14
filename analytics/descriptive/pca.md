@@ -136,7 +136,45 @@ phi
 ## Rape     0.5434321  0.1673186
 ```
 
+Each principal component vector defines a direction in feature space. Because eigenvectors are orthogonal to every other eigenvector, loadings and, therefore, principal components are uncorrelated with one another, and form a basis of the new space. This holds true no matter how many dimensions are being used.
 
+By examining the principal component vectors above, we can infer the the first principal component (PC1) roughly corresponds to an overall rate of serious crimes since *Murder, Assault,* and *Rape* have the largest values. The second component (PC2) is affected by  *UrbanPop* more than the other three variables, so it roughly corresponds to the level of urbanization of the state, with some opposite, smaller influence by murder rate.
+
+If we project the *n* data points $$x_1, ..., x_n$$ onto the first eigenvector, the projected values are called the principal component *scores* for each observation.
+
+
+```r
+# Calculate Principal Components scores
+PC1 <- as.matrix(scaled_df) %*% phi[,1]
+PC2 <- as.matrix(scaled_df) %*% phi[,2]
+
+# Create data frame with Principal Components scores
+PC <- data.frame(State = row.names(USArrests), PC1, PC2)
+head(PC)
+##        State        PC1        PC2
+## 1    Alabama  0.9756604 -1.1220012
+## 2     Alaska  1.9305379 -1.0624269
+## 3    Arizona  1.7454429  0.7384595
+## 4   Arkansas -0.1399989 -1.1085423
+## 5 California  2.4986128  1.5274267
+## 6   Colorado  1.4993407  0.9776297
+```
+
+Now that we've calculated the first and second principal components for each US state, we can plot them against each other and produce a two-dimensional view of the data.  The first principal component (x-axis) roughly corresponds to the rate of *serious crimes*. States such as California, Florida, and Nevada have high rates of serious crimes, while states such as North Dakota and Vermont have far lower rates. The second component (y-axis) is roughly explained as *urbanization*, which implies that states such as Hawaii and California are highly urbanized, while Mississippi and the Carolinas are far less so. A state close to the origin, such as Indiana or Virginia, is close to average in both categories.
+
+
+```r
+# Plot Principal Components for each State
+ggplot(PC, aes(PC1, PC2)) + 
+  modelr::geom_ref_line(h = 0) +
+  modelr::geom_ref_line(v = 0) +
+  geom_text(aes(label = State), size = 3) +
+  xlab("First Principal Component") + 
+  ylab("Second Principal Component") + 
+  ggtitle("First Two Principal Components of USArrests Data")
+```
+
+<img src="/public/images/analytics/pca/unnamed-chunk-8-1.png" style="display: block; margin: auto;" />
 
 
 
