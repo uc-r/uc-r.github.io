@@ -89,6 +89,10 @@ The *first principal component* of a data set $$X_1, X_2, ..., X_p$$ is the line
 
 $$Z_{1} = \phi_{11}X_{1} + \phi_{21}X_{2} + ... + \phi_{p1}X_{p} \tag{1}$$ 
 
+that has the largest variance and where $$\phi_1$$ is the first principal component loading vector, with elements $$\phi_{12}, \phi_{22}, \dots, \phi_{p2}$$. The $$\phi$$ are *normalized*, which means that $$\sum_{j=1}^{p}{\phi_{j1}^{2}} = 1$$.  After the first principal component $$Z_1$$ of the features has been determined, we can find the second principal component $$Z_2$$. The second principal component is the linear combination of $$X_1,\dots , X_p$$ that has maximal variance out of all linear combinations that are __*uncorrelated*__ with $$Z_1$$. The second principal component scores $$z_{12}, z_{22}, \dots, z_{n2}$$ take the form
+
+$$Z_{2} = \phi_{12}X_{1} + \phi_{22}X_{2} + ... + \phi_{p2}X_{p} \tag{2}$$
+
 
 
 
