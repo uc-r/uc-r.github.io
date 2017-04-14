@@ -97,7 +97,44 @@ This proceeds until all principal components are computed.  The elements $$\phi_
 
 Therefore, to calculate principal components, we start by using the `cov()` function to calculate the covariance matrix, followed by the `eigen` command to calculate the eigenvalues of the matrix. `eigen` produces an object that contains both the ordered eigenvalues (`$values`) and the corresponding eigenvector matrix (`$vectors`). 
 
+```r
+# Calculate eigenvalues & eigenvectors
+arrests.cov <- cov(scaled_df)
+arrests.eigen <- eigen(arrests.cov)
+str(arrests.eigen)
+## List of 2
+##  $ values : num [1:4] 2.48 0.99 0.357 0.173
+##  $ vectors: num [1:4, 1:4] -0.536 -0.583 -0.278 -0.543 0.418 ...
+```
 
+
+For our example, we'll take the first two sets of loadings and store them in the matrix `phi`.
+
+
+```r
+# Extract the loadings
+(phi <- arrests.eigen$vectors[,1:2])
+##            [,1]       [,2]
+## [1,] -0.5358995  0.4181809
+## [2,] -0.5831836  0.1879856
+## [3,] -0.2781909 -0.8728062
+## [4,] -0.5434321 -0.1673186
+```
+
+Eigenvectors that are calculated in any software package are unique up to a sign flip. By default, eigenvectors in R point in the negative direction. For this example, we'd prefer the eigenvectors point in the positive direction because it leads to more logical interpretation of graphical results as we'll see shortly. To use the positive-pointing vector, we multiply the default loadings by -1. The set of loadings for the first principal component (*PC1*) and second principal component (*PC2*) are shown below:
+
+
+```r
+phi <- -phi
+row.names(phi) <- c("Murder", "Assault", "UrbanPop", "Rape")
+colnames(phi) <- c("PC1", "PC2")
+phi
+##                PC1        PC2
+## Murder   0.5358995 -0.4181809
+## Assault  0.5831836 -0.1879856
+## UrbanPop 0.2781909  0.8728062
+## Rape     0.5434321  0.1673186
+```
 
 
 
