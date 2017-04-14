@@ -44,7 +44,38 @@ head(USArrests, 10)
 ## Georgia       17.4     211       60 25.8
 ```
 
+## Preparing Our Data {#preparing}
 
+It is usually beneficial for each variable to be centered at zero for PCA, due to the fact that it makes comparing each principal component to the mean straightforward.  This also eliminates potential problems with the scale of each variable. For example, the variance of *Assault* is 6945, while the variance of *Murder* is only 18.97. The *Assault* data isn't necessarily more variable, it's simply on a different scale relative to *Murder*. 
+
+
+```r
+# compute variance of each variable
+apply(USArrests, 2, var)
+##     Murder    Assault   UrbanPop       Rape 
+##   18.97047 6945.16571  209.51878   87.72916
+```
+
+
+Standardizing each variable will fix this issue. 
+
+
+```r
+# create new data frame with centered variables
+scaled_df <- apply(USArrests, 2, scale)
+head(scaled_df)
+##          Murder   Assault   UrbanPop         Rape
+## [1,] 1.24256408 0.7828393 -0.5209066 -0.003416473
+## [2,] 0.50786248 1.1068225 -1.2117642  2.484202941
+## [3,] 0.07163341 1.4788032  0.9989801  1.042878388
+## [4,] 0.23234938 0.2308680 -1.0735927 -0.184916602
+## [5,] 0.27826823 1.2628144  1.7589234  2.067820292
+## [6,] 0.02571456 0.3988593  0.8608085  1.864967207
+```
+
+However, keep in mind that there may be instances where scaling is not desirable. An example would be if every variable in the data set had the same units and the analyst wished to capture this difference in variance for his or her results. Since *Murder, Assault,* and *Rape* are all measured on occurrences per 100,000 people this may be reasonable depending on how you want to interpret the results.  But since *UrbanPop* is measured as a percentage of total population it wouldn't make sense to compare the variability of *UrbanPop* to *Murder, Assault,* and *Rape*.  
+
+The important thing to remember is PCA is influenced by the magnitude of each variable; therefore, *the results obtained when we perform PCA will also depend on whether the variables have been individually scaled.*
 
 
 
