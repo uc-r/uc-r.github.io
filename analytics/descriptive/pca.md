@@ -93,7 +93,9 @@ that has the largest variance and where $$\phi_1$$ is the first principal compon
 
 $$Z_{2} = \phi_{12}X_{1} + \phi_{22}X_{2} + ... + \phi_{p2}X_{p} \tag{2}$$
 
+This proceeds until all principal components are computed.  The elements $$\phi_{11}, ..., \phi_{p1}$$ in Eq. 1 are the *loadings* of the first principal component. To calculate these loadings, we must find the $$\phi$$ vector that maximizes the variance. It can be shown using techniques from linear algebra that the eigenvector corresponding to the largest eigenvalue of the covariance matrix is the set of loadings that explains the greatest proportion of the variability.
 
+Therefore, to calculate principal components, we start by using the `cov()` function to calculate the covariance matrix, followed by the `eigen` command to calculate the eigenvalues of the matrix. `eigen` produces an object that contains both the ordered eigenvalues (`$values`) and the corresponding eigenvector matrix (`$vectors`). 
 
 
 
