@@ -176,5 +176,18 @@ ggplot(PC, aes(PC1, PC2)) +
 
 <img src="/public/images/analytics/pca/unnamed-chunk-8-1.png" style="display: block; margin: auto;" />
 
+Because PCA is unsupervised, this analysis on its own is not making predictions about crime rates, but simply making connections between observations using fewer measurements.
+
+## Selecting the Number of Principal Components {#selecting}
+
+Note that in the above analysis we only looked at two of the four principal components.  How did we know to use two principal components? And how well is the data explained by these two principal components compared to using the full data set?
+
+### The Proportion of Variance Explained
+
+We mentioned previously that PCA reduces the dimensionality while explaining most of the variability, but there is a more technical method for measuring exactly what percentage of the variance was retained in these principal components.
+
+By performing some algebra, the proportion of variance explained (PVE) by the *m*th principal component is calculated using the equation:
+
+
 
 
