@@ -21,3 +21,8 @@ Descriptive methodologies focus on analyzing historic data for the purpose of id
 - [Sentiment Analysis](sentiment_analysis)
 - [Term vs. Document Frequency](tf-idf_analysis)
 - [Word Relationships](word_relationships)
+
+## Unsupervised Learning
+
+- [Principal Component Analysis](pca)
+
