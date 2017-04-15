@@ -190,6 +190,170 @@ By performing some algebra, the proportion of variance explained (PVE) by the *m
 
 $$PVE = \frac{\sum^n_{i=1}(\sum^p_{j=1}\phi_{jm}x_{ij})^2}{\sum^p_{j=1}\sum^n_{i=1}x^2_{ij}} \tag{3}$$
 
+It can be shown that the PVE of the *m*th principal component can be more simply calculated by taking the *m*th eigenvalue and dividing it by the number of principal components, *p*. A vector of PVE for each principal component is calculated:
 
+
+```r
+PVE <- arrests.eigen$values / sum(arrests.eigen$values)
+round(PVE, 2)
+## [1] 0.62 0.25 0.09 0.04
+```
+
+The first principal component in our example therefore explains 62% of the variability, and the second principal component explains 25%. Together, the first two principal components explain 87% of the variability.
+
+It is often advantageous to plot the PVE and cumulative PVE, for reasons explained in the following section of this tutorial. The plot of each is shown below:
+
+
+```r
+# PVE (aka scree) plot
+PVEplot <- qplot(c(1:4), PVE) + 
+  geom_line() + 
+  xlab("Principal Component") + 
+  ylab("PVE") +
+  ggtitle("Scree Plot") +
+  ylim(0, 1)
+
+# Cumulative PVE plot
+cumPVE <- qplot(c(1:4), cumsum(PVE)) + 
+  geom_line() + 
+  xlab("Principal Component") + 
+  ylab(NULL) + 
+  ggtitle("Cumulative Scree Plot") +
+  ylim(0,1)
+
+grid.arrange(PVEplot, cumPVE, ncol = 2)
+```
+
+<img src="/public/images/analytics/pca/unnamed-chunk-10-1.png" style="display: block; margin: auto;" />
+
+
+### Deciding How many Principal Components to Use
+
+For a general *n* x *p* data matrix *X*, there are up to $$min(n-1,p)$$ principal components that can be calculated. However, because the point of PCA is to significantly reduce the number of variables, we want to use the smallest number of principal components possible to explain *most* of the variability.
+
+The frank answer is that there is no robust method for determining how many components to use. As the number of observations, the number of variables, and the application vary, a different level of accuracy and variable reduction are desirable.
+
+The most common technique for determining how many principal components to keep is eyeballing the *scree plot*, which is the left-hand plot shown above and stored in the ggplot object `PVEplot`. To determine the number of components, we look for the "elbow point", where the PVE significantly drops off.
+
+In our example, because we only have 4 variables to begin with, reduction to 2 variables while still explaining 87% of the variability is a good improvement.
+
+
+## Built-in PCA Functions {#built}
+
+In the sections above we manually computed many of the attributes of PCA (i.e. eigenvalues, eigenvectors, principal components scores).  This was meant to help you learn about PCA by understanding what manipulations are occuring with the data; however, using this process to repeatedly perform PCA may be a bit tedious.  Fortunately R has several built-in functions (along with numerous add-on packages) that simplifies performing PCA.  
+
+One of these built-in functions is `prcomp`.  With `prcomp` we can perform many of the previous calculations quickly.  By default, the `prcomp` function centers the variables to have mean zero. By using the option `scale = TRUE`, we scale the variables to have standard deviation one. The output from `prcomp` contains a number of useful quantities.
+
+
+```r
+pca_result <- prcomp(USArrests, scale = TRUE)
+names(pca_result)
+## [1] "sdev"     "rotation" "center"   "scale"    "x"
+```
+
+The *center* and *scale* components correspond to the means and standard deviations of the variables that were used for scaling prior to implementing PCA.
+
+
+
+```r
+# means
+pca_result$center
+##   Murder  Assault UrbanPop     Rape 
+##    7.788  170.760   65.540   21.232
+
+# standard deviations
+pca_result$scale
+##    Murder   Assault  UrbanPop      Rape 
+##  4.355510 83.337661 14.474763  9.366385
+```
+
+The *rotation* matrix provides the principal component loadings; each column of `pca_result$rotation` contains the corresponding principal component loading vector.[^rotation]  
+
+
+```r
+pca_result$rotation
+##                 PC1        PC2        PC3         PC4
+## Murder   -0.5358995  0.4181809 -0.3412327  0.64922780
+## Assault  -0.5831836  0.1879856 -0.2681484 -0.74340748
+## UrbanPop -0.2781909 -0.8728062 -0.3780158  0.13387773
+## Rape     -0.5434321 -0.1673186  0.8177779  0.08902432
+```
+
+We see that there are four distinct principal components. This is to be expected because there are in general $$min(n − 1, p)$$ informative principal components in a data set with *n* observations and *p* variables.  Also, notice that *PCA1* and *PCA2* are opposite signs from what we computated earlier.  Recall that by default, eigenvectors in R point in the negative direction. We can adjust this with a simple change.
+
+
+```r
+pca_result$rotation <- -pca_result$rotation
+pca_result$rotation
+##                PC1        PC2        PC3         PC4
+## Murder   0.5358995 -0.4181809  0.3412327 -0.64922780
+## Assault  0.5831836 -0.1879856  0.2681484  0.74340748
+## UrbanPop 0.2781909  0.8728062  0.3780158 -0.13387773
+## Rape     0.5434321  0.1673186 -0.8177779 -0.08902432
+```
+
+Now our *PC1* and *PC2* match what we computed earlier.  We can also obtain the principal components scores from our results as these are stored in the *x* list item of our results.  However, we also want to make a slight sign adjustment to our scores to point them in the positive direction.
+
+
+```r
+pca_result$x <- - pca_result$x
+head(pca_result$x)
+##                   PC1        PC2         PC3          PC4
+## Alabama     0.9756604 -1.1220012  0.43980366 -0.154696581
+## Alaska      1.9305379 -1.0624269 -2.01950027  0.434175454
+## Arizona     1.7454429  0.7384595 -0.05423025  0.826264240
+## Arkansas   -0.1399989 -1.1085423 -0.11342217  0.180973554
+## California  2.4986128  1.5274267 -0.59254100  0.338559240
+## Colorado    1.4993407  0.9776297 -1.08400162 -0.001450164
+```
+
+Now we can plot the first two principal components using `biplot`.  Alternatively, if you wanted to plot principal components 3 vs. 4 you can include `choices = 3:4` within `biplot` (the default is `choices = 1:2`).  The output is very similar to what we produced earlier; however, you'll notice the labeled errors which indicates the directional influence each variable has on the principal components.  The `scale = 0` argument to `biplot` ensures that the arrows are scaled to represent the loadings; other values for scale give slightly different biplots with different interpretations.
+
+
+```r
+biplot(pca_result, scale = 0)
+```
+
+<img src="/public/images/analytics/pca/unnamed-chunk-16-1.png" style="display: block; margin: auto;" />
+
+The `prcomp` function also outputs the standard deviation of each principal component.
+
+
+```r
+pca_result$sdev
+## [1] 1.5748783 0.9948694 0.5971291 0.4164494
+```
+
+The variance explained by each principal component is obtained by squaring these values:
+
+
+```r
+(VE <- pca_result$sdev^2)
+## [1] 2.4802416 0.9897652 0.3565632 0.1734301
+```
+
+To compute the proportion of variance explained by each principal component, we simply divide the variance explained by each principal component by the total variance explained by all four principal components:
+
+
+```r
+PVE <- VE / sum(VE)
+round(PVE, 2)
+## [1] 0.62 0.25 0.09 0.04
+```
+
+As before, we see that that the first principal component explains 62% of the variance in the data, the next principal component explains 25% of the variance, and so forth.  And we could proceed to plot the PVE and cumulative PVE to provide us our scree plots as we did earlier.
+
+
+## Other Uses for Principal Components {#other}
+
+This tutorial gets you started with using PCA.  Many statistical techniques, including regression, classification, and clustering can be easily adapted to using principal components. These techniques will not be outlined in this tutorial but will be presented in future tutorials and much of the procedures remain similar to what you learned here.  In addition to our future tutorials on these other uses you can learn more about them by reading:
+
+- [An Introduction to Statistical Learning](http://www-bcf.usc.edu/~gareth/ISL/)
+- [Applied Predictive Modeling](http://appliedpredictivemodeling.com/)
+- [Elements of Statistical Learning](https://statweb.stanford.edu/~tibs/ElemStatLearn/)
+
+
+[^islr]: This tutorial was built as a supplement to section 10.2 of [An Introduction to Statistical Learning](http://www-bcf.usc.edu/~gareth/ISL/).
+[^rotation]: This function names it the rotation matrix, because when we matrix-multiply the X matrix by `pca_result$rotation`, it gives us the coordinates of the data in the rotated coordinate system. These coordinates are the principal component scores.
 
 
