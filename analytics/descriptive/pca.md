@@ -188,7 +188,7 @@ We mentioned previously that PCA reduces the dimensionality while explaining mos
 
 By performing some algebra, the proportion of variance explained (PVE) by the *m*th principal component is calculated using the equation:
 
-$$PVE = \frac{\sum^n_{i=1}(\sum^p_{j=1}\phi_{jm}x_{ij})^2}{\sum^p_{j=1}} \tag{3}$$
+$$PVE = \frac{\sum^n_{i=1}(\sum^p_{j=1}\phi_{jm}x_{ij})^2}{\sum^p_{j=1}\sum^n_{i=1}x^2_{ij}} \tag{3}$$
 
 
 
