@@ -254,7 +254,7 @@ book_words
 ## # ... with 67,871 more rows
 ```
 
-Notice how the common *non-contextual* words ("the", "to", "and", etc.) have high tf values but their idf and tf-idf values are 0.  Remember that $$idf(t,D) = log(\frac{N}{n_{t}})$$ so these common terms that occur in every document will have an $$idf = log(\frac{7}{7}) = 0$$ An since tf-idf is simply $$tf \cdot idf$$ this will also be zero.  
+Notice how the common *non-contextual* words ("the", "to", "and", etc.) have high tf values but their idf and tf-idf values are 0.  Remember that $$idf(t,D) = log(\frac{N}{n_{t}})$$ so these common terms that occur in every document will have an $$idf = log(\frac{7}{7}) = 0$$ And since tf-idf is simply $$tf \cdot idf$$ this will also be zero.  
 
 We can look at the words that have the highest tf-idf values.  Here we see mainly names for characters in each book that are unique to that book, and therefore used often, but are absent or nearly absent in the other books.
 
