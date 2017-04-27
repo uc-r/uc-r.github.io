@@ -46,7 +46,7 @@ Hierarchical clustering can be divided into two main types: *agglomerative* and 
 <img src="http://www.sthda.com/sthda/RDoc/images/hierarchical-clustering-agnes-diana.png" style="display: block; margin: auto;" />
 </center>
 
-The merging or the division of clusters is performed according to particular [(dis)similarity distance measures](kmeans_clustering#distance). In R, the Euclidean distance is used by default to measure the dissimilarity between each pair of observations. As we already know, it’s easy to [compute the dissimilarity measure](kmeans_clustering#distance) between two pairs of observations with the `get_dist` function. 
+As we learned in the [k-means tutorial](kmeans_clustering), we measure the (dis)similarity of observations using [distance measures](kmeans_clustering#distance) (i.e. Euclidean distance, Manhattan distance, etc.) In R, the Euclidean distance is used by default to measure the dissimilarity between each pair of observations.  As we already know, it’s easy to [compute the dissimilarity measure](kmeans_clustering#distance) between two pairs of observations with the `get_dist` function. 
 
 However, a bigger question is: *How do we measure the dissimilarity between two clusters of observations?* A number of different cluster agglomeration methods (i.e, linkage methods) have been developed to answer to this question. The most common types methods are:
 
