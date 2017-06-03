@@ -4,7 +4,7 @@ title: Importing Data
 permalink: /import
 ---
 
-The first step to any data analysis process is to *get* the data.  Data can come from many sources but two of the most common include text and Excel files.  This section covers how to import data from common files.  I also cover how to load data from saved R object files for holding or transferring data that has been processed in R.  In addition to the the commonly used base R functions to perform data importing, I will also cover functions from the popular [`readr`](https://cran.rstudio.com/web/packages/readr/), [`xlsx`](https://cran.rstudio.com/web/packages/xlsx/), and [`readxl`](https://cran.rstudio.com/web/packages/readxl/) packages.
+The first step to any data analysis process is to *get* the data.  Data can come from many sources but two of the most common include text and Excel files.  This section covers how to import data from common files.  I also cover how to load data from saved R object files for holding or transferring data that has been processed in R.  In addition to the the commonly used base R functions to perform data importing, I will also cover functions from the popular [`readr`](https://cran.rstudio.com/web/packages/readr/) and [`readxl`](https://cran.rstudio.com/web/packages/readxl/) packages.
 
 - [Importing text files](#import_text_files)
 - [Importing Excel files](#import_excel_files)
@@ -14,7 +14,7 @@ The first step to any data analysis process is to *get* the data.  Data can come
 <br>
 
 ## Importing Text Files {#import_text_files}
-Text files are a popular way to hold and exchange tabular data as almost any data application supports exporting data to the CSV (or other text file) formats.  Text file formats use delimiters to separate the different elements in a line, and each line of data is in its own line in the text file.  Therefore, importing different kinds of text files can follow a fairly consistent process once you've identified the delimiter.
+Text files are a popular way to hold and exchange tabular data as almost any data application supports exporting data to the .csv (or other text file) format.  Text file formats use delimiters to separate the different elements in a line, and each line of data is in its own line in the text file.  Therefore, importing different kinds of text files can follow a fairly consistent process once you've identified the delimiter.
 
 There are two main groups of functions that we can use to read in text files:
 
@@ -23,7 +23,7 @@ There are two main groups of functions that we can use to read in text files:
 
 
 ### Base R functions {#base_text_import}
-`read.table()` is a multipurpose work-horse function in base R for importing data.  The functions `read.csv()` and `read.delim()` are special cases of `read.table()` in which the defaults have been adjusted for efficiency.  To illustrate these functions let's work with a CSV file that is saved in our working directory which looks like:
+`read.table()` is a multipurpose work-horse function in base R for importing data.  The functions `read.csv()` and `read.delim()` are special cases of `read.table()` in which the defaults have been adjusted for efficiency.  To illustrate these functions let's work with this [.csv file](https://www.dropbox.com/s/63wgqkmd7b3o3wd/mydata.csv?dl=1) which looks like (be sure to save this file in your working directory):
 
 
 ```r
@@ -33,17 +33,23 @@ variable 1,variable 2,variable 3
 8,cheese,FALSE
 ```
 
-To read in the CSV file we can use `read.csv()`.  Note that when we assess the structure of the data set that we read in, `variable.2` is automatically coerced to a factor variable and `variable.3` is automatically coerced to a logical variable.  Furthermore, any whitespace in the column names are replaced with a ".". 
-
+To read in the CSV file we can use `read.csv()`.  
 
 ```r
 mydata <- read.csv("mydata.csv")
-mydata
-##   variable.1 variable.2 variable.3
-## 1         10       beer       TRUE
-## 2         25       wine       TRUE
-## 3          8     cheese      FALSE
+```
 
+Once you have imported the data there are several ways to get an initial view of this data prior to performing any analysis.  First, you can view it in your console by evaluating the `mydata` object you just created. Alternatively, you can use RStudio’s built-in data viewer to get a scroll-able view of the complete data set using `View` or use `str` to assess the **str**ucture of the data.  Try the following:
+
+```r
+View(mydata)
+str(mydata)
+```
+
+Note that when we assess the structure of the data set, `variable.2` is automatically coerced to a factor variable and `variable.3` is automatically coerced to a logical variable.  If you are unfamiliar with data types in R you can learn about them in the *Data Types* section of this website or, if you're in one of my classes, we will cover these concepts later. Furthermore, any whitespace in the column names are replaced with a ".". 
+
+
+```r
 str(mydata)
 ## 'data.frame':	3 obs. of  3 variables:
 ##  $ variable.1: int  10 25 8
@@ -69,7 +75,7 @@ str(mydata_2)
 ##  $ variable.3: logi  TRUE TRUE FALSE
 ```
 
-As previously stated `read.csv` is just a wrapper for `read.table` but with adjusted default arguments.  Therefore, we can use `read.table` to read in this same data.  The two arguments we need to be aware of are the field separator (`sep`) and the argument indicating whether the file contains the names of the variables as its first line (`header`).  In `read.table` the defaults are `sep = ""` and `header = FALSE` whereas in `read.csv` the defaults are `sep = ","` and `header = TRUE`.  There are multiple other arguments we can use for certain situations which we illustrate below:
+As previously stated `read.csv` is just a wrapper function for `read.table` but with adjusted default arguments.  Therefore, we can use `read.table` to read in this same data.  The two arguments we need to be aware of are the field separator (`sep`) and the argument indicating whether the file contains the names of the variables as its first line (`header`).  In `read.table` the defaults are `sep = ""` and `header = FALSE` whereas in `read.csv` the defaults are `sep = ","` and `header = TRUE`.  There are multiple other arguments we can use for certain situations which we illustrate below:
 
 
 ```r
@@ -105,8 +111,7 @@ read.table("mydata.csv", sep = ",", header = TRUE, nrows = 2)
 ## 2         25       wine       TRUE
 ```
 
-In addition to CSV files, there are other text files that `read.table` works with.  The primary difference is what separates the elements.  For example, tab delimited text files typically end with the `.txt` extension.  You can also use the `read.delim()` function as, similiar to `read.csv()`, `read.delim()` is a wrapper of `read.table()` with defaults set specifically for tab delimited files.
-
+In addition to .csv files, there are other text files that `read.table` works with.  The primary difference is what separates the elements.  For example, tab delimited text files typically end with the `.txt` extension.  You can also use the `read.delim()` function as, similiar to `read.csv()`, `read.delim()` is a wrapper of `read.table()` with defaults set specifically for tab delimited files. We can read in this [.txt file](https://www.dropbox.com/s/35vbtblzfx3gkna/mydata.txt?dl=1) with the following:
 
 ```r
 # reading in tab delimited text files
@@ -185,152 +190,51 @@ Similar to base R, `readr` also offers functions to import .txt files (`read_del
 
 These examples provide the basics for reading in text files. However, sometimes even text files can offer unanticipated difficulties with their formatting.  Both the base R and `readr` functions offer many arguments to deal with different formatting issues and I suggest you take time to look at the help files for these functions to learn more (i.e. `?read.table`).
 
+### Exercises
+
+1. Download and read in this [*flights.csv* file](https://www.dropbox.com/s/jtkdultbfp2a6sk/flights.csv?dl=1).
+2. Can you figure out how to read in the first line to see the titles? Try read in the first 1,000 lines and only the first 6 columns (check out the help file at `?read_csv`. 
+3. What function would you use to read in a .tsv file? See if you are correct by downloading and reading in this [*facebook.tsv* file](https://www.dropbox.com/s/bpmgrke55lcw13g/facebook.tsv?dl=1).
+4. What function would you use to read a file where fields were separated with "&#124;"?
+
 
 <br>
 
 ## Importing Excel Files {#import_excel_files}
-With Excel still being the spreadsheet software of choice its important to be able to efficiently import and export data from these files.  Often, R users will simply resort to exporting the Excel file as a CSV file and then import into R using `read.csv`; however, this is far from efficient.  This section will teach you how to eliminate the CSV step and to import data directly from Excel using two different packages:
+With Excel still being the spreadsheet software of choice its important to be able to efficiently import and export data from these files.  Often, R users will simply resort to exporting the Excel file as a CSV file and then import into R using `read.csv`; however, this is far from efficient.  This section will teach you how to eliminate the CSV step and to import data directly from Excel using the [`readxl` package](#readxl_import)
 
-* [`xlsx` package](#xlsx_import)
-* [`readxl` package](#readxl_import)
-
-Note that there are several packages available to connect R with Excel (i.e. `gdata`, `RODBC`, `XLConnect`, `RExcel`, etc.); however, I am only going to cover the two main packages that I use which provide all the fundamental requirements I've needed for dealing with Excel.
-
-### xlsx package {#xlsx_import}
-The [`xlsx`](https://cran.rstudio.com/web/packages/xlsx/) package provides tools neccessary to interact with Excel 2007 (and older) files from R. Many of the benefits of the `xlsx` come from being able to *export* and *format* Excel files from R.  Some of these capabilities will be covered in the [Exporting Excel Data](http://uc-r.github.io/exporting/#export_excel_files) section; however, in this section we will simply cover *importing* data from Excel with the `xlsx` package.
-
-To illustrate, we'll use similar data from the [previous section](#import_text_files); however, saved as an .xlsx file in our working director.  To import the Excel data we simply use the `read.xlsx()` function:
-
-
-```r
-library(xlsx)
-
-# read in first worksheet using a sheet index or name
-read.xlsx("mydata.xlsx", sheetName = "Sheet1")
-##   variable.1 variable.2 variable.3
-## 1         10       beer       TRUE
-## 2         25       wine       TRUE
-## 3          8     cheese      FALSE
-
-read.xlsx("mydata.xlsx", sheetIndex = 1)
-##   variable.1 variable.2 variable.3
-## 1         10       beer       TRUE
-## 2         25       wine       TRUE
-## 3          8     cheese      FALSE
-
-# read in second worksheet
-read.xlsx("mydata.xlsx", sheetName = "Sheet2")
-##   variable.4 variable.5
-## 1     Dayton     johnny
-## 2   Columbus      amber
-## 3  Cleveland       tony
-## 4 Cincinnati      alice
-```
-
-Since Excel is such a flexible spreadsheet software, people often make notes, comments, headers, etc. at the beginning or end of the files which we may not want to include.  If we want to read in data that starts further down in the Excel worksheet we can include the `startRow` argument.  If we have a specific range of rows (or columns) to include we can use the `rowIndex` (or `colIndex`) argument.
-
-
-```r
-# a worksheet with comments in the first two lines
-read.xlsx("mydata.xlsx", sheetName = "Sheet3")
-##                                         HEADER..COMPANY.A        NA.
-## 1 What if we want to disregard header text in Excel file?       <NA>
-## 2                                              variable 6 variable 7
-## 3                                                     200       Male
-## 4                                                     225     Female
-## 5                                                     400     Female
-## 6                                                     310       Male
-
-# read in all data below the second line
-read.xlsx("mydata.xlsx", sheetName = "Sheet3", startRow = 3)
-##   variable.6 variable.7
-## 1        200       Male
-## 2        225     Female
-## 3        400     Female
-## 4        310       Male
-
-# read in a range of rows
-read.xlsx("mydata.xlsx", sheetName = "Sheet3", rowIndex = 3:5)
-##   variable.6 variable.7
-## 1        200       Male
-## 2        225     Female
-```
-We can also change the class type of the columns when we read them in:
-
-
-```r
-# read in data without changing class type
-mydata_sheet1.1 <- read.xlsx("mydata.xlsx", sheetName = "Sheet1")
-
-str(mydata_sheet1.1)
-## 'data.frame':	3 obs. of  3 variables:
-##  $ variable.1: num  10 25 8
-##  $ variable.2: Factor w/ 3 levels "beer","cheese",..: 1 3 2
-##  $ variable.3: logi  TRUE TRUE FALSE
-
-# read in data and change class type
-mydata_sheet1.2 <- read.xlsx("mydata.xlsx", sheetName = "Sheet1",
-                             stringsAsFactors = FALSE,
-                             colClasses = c("double", "character", "logical"))
-
-str(mydata_sheet1.2)
-## 'data.frame':	3 obs. of  3 variables:
-##  $ variable.1: num  10 25 8
-##  $ variable.2: chr  "beer" "wine" "cheese"
-##  $ variable.3: logi  TRUE TRUE FALSE
-```
-
-Another useful argument is `keepFormulas` which allows you to see the text of any formulas in the Excel spreadsheet:
-
-
-```r
-# by default keepFormula is set to FALSE so only
-# the formula output will be read in
-read.xlsx("mydata.xlsx", sheetName = "Sheet4")
-##   Future.Value  Rate Periods Present.Value
-## 1          500 0.065      10      266.3630
-## 2          600 0.085       6      367.7671
-## 3          750 0.080      11      321.6621
-## 4         1000 0.070      16      338.7346
-
-# changing the keepFormula to TRUE will display the equations
-read.xlsx("mydata.xlsx", sheetName = "Sheet4", keepFormulas = TRUE)
-##   Future.Value  Rate Periods Present.Value
-## 1          500 0.065      10  A2/(1+B2)^C2
-## 2          600 0.085       6  A3/(1+B3)^C3
-## 3          750 0.080      11  A4/(1+B4)^C4
-## 4         1000 0.070      16  A5/(1+B5)^C5
-```
-
+Note that there are several packages available to connect R with Excel (i.e. `gdata`, `RODBC`, `XLConnect`, `RExcel`, etc.); however, `readxl` provides all the fundamental requirements typically needed for dealing with Excel.
 
 ### readxl package {#readxl_import}
 [`readxl`](https://cran.rstudio.com/web/packages/readxl/) is one of the newest packages for accessing Excel data with R and was developed by [Hadley Wickham](https://twitter.com/hadleywickham) and the [RStudio](https://www.rstudio.com/) team who also developed the `readr` package.  This package works with both legacy .xls formats and the modern xml-based .xlsx format.  Similar to `readr` the `readxl` functions are based on a C++ library so they are extremely fast. Unlike most other packages that deal with Excel, `readxl` has no external dependencies, so you can use it to read Excel data on just about any platform.  Additional benefits `readxl` provides includes the ability to load dates and times as POSIXct formatted dates, automatically drops blank columns, and returns outputs as data.table formatted which provides easier viewing for large data sets.
 
+To read in Excel data with `readxl` you will commonly use the `excel_sheets()` and `read_excel()` functions.  `excel_sheets()` allows you to read the names of the different worksheets in the Excel workbook. You can then use `read_excel()` to import the data.  `read_excel()` will auto detect the format from the file extension (.xls vs. .xlsx) so you need not worry about the extensions. Furthermore, `read_excel()` will automatically convert date and date-time variables to POSIXct formatted variables, character variables will not be coerced to factors, and white spacing in variable names will not be removed.
 
-To read in Excel data with `readxl` you will commonly use the `excel_sheets()` and `read_excel()` functions.  `excel_sheets()` allows you to read the names of the different worksheets in the Excel workbook. `read_excel()` operates similar to the `read.xlsx()` function you saw in the previous section; however, a few important differences you will see below include: `readxl` will automatically convert date and date-time variables to POSIXct formatted variables, character variables will not be coerced to factors, and logical variables will be read in as integers.
-
+The following illustrates how to use `readxl` to import Excel data and you can tag along using [this data](https://www.dropbox.com/s/arrlv8kmyihfukh/mydata.xlsx?dl=1).
 
 ```r
 library(readxl)
 
-excel_sheets("data/mydata.xlsx")
-## [1] "Sheet1"    "Sheet2"    "Sheet3"    "Sheet4"    "Sheet5"    "Sheet6"
+excel_sheets("mydata.xlsx")
+## [1] "PICK_ME_FIRST!" "Sheet2"         "extra_header"   "functions"     
+## [5] "date_time"      "unique_NA"
 
-mydata <- read_excel("mydata.xlsx", sheet = "Sheet5")
+mydata <- read_excel("mydata.xlsx", sheet = "PICK_ME_FIRST!")
 mydata
-##   variable 1 variable 2 variable 3 variable 4          variable 5
-## 1         10       beer          1 2015-11-20 2015-11-20 13:30:00
-## 2         25       wine          1       <NA> 2015-11-21 16:30:00
-## 3          8       <NA>          0 2015-11-22 2015-11-22 14:45:00
+## # A tibble: 3 x 3
+##   `variable 1` `variable 2` `variable 3`
+##          <dbl>        <chr>        <lgl>
+## 1           10         beer         TRUE
+## 2           25         wine         TRUE
+## 3            8       cheese        FALSE
 
 str(mydata)
-## Classes 'tbl_df', 'tbl' and 'data.frame':	3 obs. of  5 variables:
+## Classes 'tbl_df', 'tbl' and 'data.frame':	3 obs. of  3 variables:
 ##  $ variable 1: num  10 25 8
-##  $ variable 2: chr  "beer" "wine" NA
-##  $ variable 3: num  1 1 0
-##  $ variable 4: POSIXct, format: "2015-11-20" NA ...
-##  $ variable 5: POSIXct, format: "2015-11-20 13:30:00" "2015-11-21 16:30:00" ...
+##  $ variable 2: chr  "beer" "wine" "cheese"
+##  $ variable 3: logi  TRUE TRUE FALSE
 ```
+
 
 The available arguments allow you to change the data as you import it.  Some examples are provided:
 
@@ -338,56 +242,63 @@ The available arguments allow you to change the data as you import it.  Some exa
 ```r
 # change variable names by skipping the first row
 # and using col_names to set the new names
-read_excel("mydata.xlsx", sheet = "Sheet5", skip = 1, 
-           col_names = paste("Var", 1:5))
-##   Var 1 Var 2 Var 3 Var 4               Var 5
-## 1    10  beer     1 42328 2015-11-20 13:30:00
-## 2    25  wine     1    NA 2015-11-21 16:30:00
-## 3     8  <NA>     0 42330 2015-11-22 14:45:00
+read_excel("mydata.xlsx", sheet = "extra_header", skip = 3, 
+           col_names = c("Value", "Gender"))
+## # A tibble: 4 x 2
+##   Value Gender
+##   <dbl>  <chr>
+## 1   200   Male
+## 2   225 Female
+## 3   400 Female
+## 4   310   Male
 
 # sometimes missing values are set as a sentinel value
 # rather than just left blank - (i.e. "999")
-read_excel("mydata.xlsx", sheet = "Sheet6")
-##   variable 1 variable 2 variable 3 variable 4
-## 1         10       beer          1      42328
-## 2         25       wine          1        999
-## 3          8        999          0      42330
+read_excel("mydata.xlsx", sheet = "unique_NA")
+## # A tibble: 3 x 4
+##   `variable 1` `variable 2` `variable 3` `variable 4`
+##          <dbl>        <chr>        <lgl>        <dbl>
+## 1           10         beer         TRUE        42328
+## 2           25         wine         TRUE          999
+## 3            8          999        FALSE        42330
+
 
 # we can change these to missing values with na argument
-read_excel("mydata.xlsx", sheet = "Sheet6", na = "999")
-##   variable 1 variable 2 variable 3 variable 4
-## 1         10       beer          1      42328
-## 2         25       wine          1         NA
-## 3          8       <NA>          0      42330
+read_excel("mydata.xlsx", sheet = "unique_NA", na = "999")
+## # A tibble: 3 x 4
+##   `variable 1` `variable 2` `variable 3` `variable 4`
+##          <dbl>        <chr>        <lgl>       <dttm>
+## 1           10         beer         TRUE   2015-11-20
+## 2           25         wine         TRUE           NA
+## 3            8         <NA>        FALSE   2015-11-22
 ```
 
-One unique difference between `readxl` and `xlsx` is how to deal with column types.  Whereas `read.xlsx()` allows you to change the column types to integer, double, numeric, character, or logical; `read_excel()` restricts you to changing column types to blank, numeric, date, or text.  The "blank" option allows you to skip columns; however, to change variable 3 to a logical `TRUE`/`FALSE` variable requires a second step.
+`read_excel()` allows you to change column types. these options: "skip", "guess", "logical", "numeric", "date", "text" or "list".  Here I use skip to not import the 2nd and 5th columns and to change the logical variable (variable 3) to a numeric data type.
 
 
 ```r
-
-mydata_ex <- read_excel("mydata.xlsx", sheet = "Sheet5",
-                        col_types = c("numeric", "blank", "numeric", 
-                                      "date", "blank"))
-mydata_ex
-##   variable 1 variable 3 variable 4
-## 1         10          1 2015-11-20
-## 2         25          1       <NA>
-## 3          8          0 2015-11-22
-
-# change variable 3 to a logical variable
-mydata_ex$`variable 3` <- as.logical(mydata_ex$`variable 3`)
-mydata_ex
-##   variable 1 variable 3 variable 4
-## 1         10       TRUE 2015-11-20
-## 2         25       TRUE       <NA>
-## 3          8      FALSE 2015-11-22
+read_excel("mydata.xlsx", sheet = "date_time",
+           col_types = c("numeric", "skip", "numeric",
+                         "date", "skip"))
+## # A tibble: 3 x 3
+##   `variable 1` `variable 3` `variable 4`
+##          <dbl>        <dbl>       <dttm>
+## 1           10            1   2015-11-20
+## 2           25            1           NA
+## 3            8            0   2015-11-22
 ```
+
+### Exercises
+
+1. What spreadsheets are in this [*mydata.xlsx*](https://www.dropbox.com/s/mbmy3u36u6un463/mydata.xlsx?dl=1) file? Practice reading in the different spreadsheets.
+2. What spreadsheets are in this [*PEW Middle Class Data.xlsx*](https://www.dropbox.com/s/p6pcqf52acfktcp/PEW%20Middle%20Class%20Data.xlsx?dl=1) file?  Can you read in the *3.Median HH income, metro* spreadsheet (hint: you'll need to skip a few lines)?
+3. What spreadsheets are in this [*Supermarket Transactions.xlsx*](https://www.dropbox.com/s/aoub0lfvo2s1zen/Supermarket%20Transactions.xlsx?dl=1) file? Read in the spreadsheet containing the data.
+
 
 <br>
 
 ## Importing R Object Files {#import_r_objects}
-Sometimes you may need to save data or other R objects outside of your workspace.  You may want to share R data/objects with co-workers, transfer between projects or computers, or simply archive them.  There are three primary ways that people tend to save R data/objects: as .RData, .rda, or as .rds files.  The differences behind when you use each will be covered in the [Saving data as an R object file](http://uc-r.github.io/exporting/#export_r_objects) section.  This section will simply shows how to load these data/object forms.
+Sometimes you may need to save data or other R objects outside of your workspace.  You may want to share R data/objects with co-workers, transfer between projects or computers, or simply archive them.  There are three primary ways that people tend to save R data/objects: as .RData, .rda, or as .rds files.  The differences behind when you use each will be covered in the [Saving data as an R object file](http://uc-r.github.io/exporting#export_r_objects) section.  This section simply shows how to load these data/object forms. 
 
 
 ```r
@@ -399,6 +310,12 @@ readRDS("mydata.rds")
 
 readr::read_rds("mydata.rds")
 ```
+
+### Exercises
+
+1. Import this [mydata.rds file](https://www.dropbox.com/s/s4ix9d2fx479pyt/mydata.rds?dl=1).
+2. Import this [sheets1and2.RData file](https://www.dropbox.com/s/nrbztk6dtfpk8aa/sheets1and2.RData?dl=1). 
+3. How many objects did exercise 1 and 2 import into your global environment?
 
 
 <br>
