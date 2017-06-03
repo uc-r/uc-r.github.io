@@ -24,6 +24,7 @@ Sounds confusing you say, don't fret.  Much of what takes place happens behind t
 <img src="/public/images/workflow/RMarkdownFlow2.png" width="100%" height="100%"/>
 </center>
 
+<br>
 
 ## Creating an R Markdown File
 To create an R Markdown file you can select **File**  &raquo; **New File** &raquo; **R Markdown** or you can select the shortcut for creating a new document in the top left-hand corner of the RStudio window. You will be given an option to create an HTML, PDF, or Word document; however, R Markdown let's you change seamlessly between these options after you've created your document so I tend to just select the default HTML option.  
@@ -34,6 +35,7 @@ To create an R Markdown file you can select **File**  &raquo; **New File** &raqu
 
 There are additional options such as creating Presentations (HTML or PDF), Shiny documents, or other template documents but for now we will focus on the initial HTML, PDF, or Word document options.
 
+<br>
 
 ## Components of an R Markdown File
 There are three general components of an R Markdown file that you will eventually become accustomed to.  This includes the [YAML](#yaml), the [general markdown (or text) component](#text), and [code chunks](#chunks).
@@ -212,7 +214,9 @@ ggplot(iris, aes(Sepal.Length, Sepal.Width, color = Species)) +
 <img src="/public/images/workflow/code_chunk_examples.png" width="100%" height="100%"/>
 </center>
 
-#### Inline code chunks
+<br>
+
+### Inline code chunks
 A key motivation for reproducible research is to link any results reported directly to the data and functions used to create them. Consequently, you should never manual insert numbers such as "The average miles per gallon is 20.1."  Rather, code results can be inserted directly into the text of a .Rmd file by enclosing the code with <code>`r `</code> such as:  "The average miles per gallon is <code>`r mean(mtcars$mpg)`</code>."  
 
 Now if the underlying data changes you do not need to remember all the inline values you manually entered. You may not like the fact that the output is reporting all the decimals. You could include the `round` function in the inline code: <code>`r round(mean(mtcars$mpg), 1)` </code>.
@@ -221,7 +225,9 @@ Now if the underlying data changes you do not need to remember all the inline va
 <img src="/public/images/workflow/inline_code_chunks.png" width="100%" height="100%"/>
 </center>
 
-#### Dealing with Tables
+<br>
+
+### Dealing with Tables
 
 By default, the table outputs produced in R Markdown will look like the output you would see in your console. However, if you prefer that data be displayed with additional formatting you can use the knitr::kable function. For example:
 
@@ -261,6 +267,7 @@ There are several packages that can be used to make very nice packages:
 - [`tables`](https://cran.r-project.org/web/packages/tables/vignettes/tables.pdf)
 - [`pander`](http://rapporter.github.io/pander/)
 
+<br>
 
 ## Knitting the R Markdown File
 When you are all done writing your .Rmd document you have two options to render the output.  The first is to call the following function in your console: `render("document_name.Rmd", output_format = "html_document")`. Alternatively you can click the drop down arrow next to the `knit` button on the RStudio toolbar, select the document format (HTML, PDF, Word) and your report will be developed.
@@ -268,6 +275,8 @@ When you are all done writing your .Rmd document you have two options to render 
 <center>
 <img src="/public/images/workflow/rmarkdown_generate.gif" width="100%" height="100%"/>
 </center>
+
+<br>
 
 The following output formats are available to use with R Markdown.
 
@@ -297,6 +306,8 @@ The following output formats are available to use with R Markdown.
 - [html_vignette](http://rmarkdown.rstudio.com/package_vignette_format.html) - R package vignette (HTML)
 - [github_document](http://rmarkdown.rstudio.com/github_document_format.html) - GitHub Flavored Markdown document
 - [bookdown](https://bookdown.org/) - Write HTML, PDF, ePub, and Kindle books with R Markdown
+
+<br>
 
 ## Additional Resources
 R Markdown is an incredible tool for reproducible research and there are a lot of resource available.  Here are just a few of the available resources to learn more about R Markdown.
