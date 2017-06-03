@@ -18,25 +18,25 @@ My purpose in the following sections is to discuss these topics at a level meant
 <br>
 
 ## Importing Spreadsheet Data Files Stored Online {#importing_spreadsheet_data}
-The most basic form of getting data from online is to import tabular (i.e. .txt, .csv) or Excel files that are being hosted online. This is often not considered *web scraping*[^fn_scrap1]; however, I think its a good place to start introducing the user to interacting with the web for obtaining data. Importing tabular data is especially common for the many types of government data available online.  A quick perusal of [Data.gov](https://www.data.gov/) illustrates nearly 188,510 examples. In fact, we can provide our first example of importing online tabular data by downloading the Data.gov CSV file that lists all the federal agencies that supply data to Data.gov. 
+The most basic form of getting data from online is to import tabular (i.e. .txt, .csv) or Excel files that are being hosted online. This is often not considered *web scraping*[^fn_scrap1]; however, I think its a good place to start introducing the user to interacting with the web for obtaining data. Importing tabular data is especially common for the many types of government data available online.  A quick perusal of [Data.gov](https://www.data.gov/metrics) illustrates over 190,000 examples. In fact, we can provide our first example of importing online tabular data by downloading the Data.gov .csv file that lists all the federal agencies that supply data to Data.gov. 
 
 
 ```r
 # the url for the online CSV
-url <- "https://www.data.gov/media/federal-agency-participation.csv"
+url <- "https://s3.amazonaws.com/bsp-ocsit-prod-east-appdata/datagov/wordpress/agency-participation.csv"
 
 # use read.csv to import
 data_gov <- read.csv(url, stringsAsFactors = FALSE)
 
 # for brevity I only display first 6 rows
-data_gov[1:6, c(1,3:4)]
-##                                      Agency.Name Datasets Last.Entry
-## 1           Commodity Futures Trading Commission        3 01/12/2014
-## 2           Consumer Financial Protection Bureau        2 09/26/2015
-## 3           Consumer Financial Protection Bureau        2 09/26/2015
-## 4 Corporation for National and Community Service        3 01/12/2014
-## 5 Court Services and Offender Supervision Agency        1 01/12/2014
-## 6                      Department of Agriculture      698 12/01/2015
+head(data_gov)
+##                                      Agency.Name                 Sub.Agency.Publisher Organization.Type Datasets Last.Entry
+## 1                Broadcasting Board of Governors                                          Federal-Other        6 01/12/2014
+## 2           Commodity Futures Trading Commission                                          Federal-Other        3 01/12/2014
+## 3           Consumer Financial Protection Bureau                                          Federal-Other        2 09/26/2015
+## 4           Consumer Financial Protection Bureau Consumer Financial Protection Bureau     Federal-Other        2 09/26/2015
+## 5 Corporation for National and Community Service                                          Federal-Other        3 01/12/2014
+## 6 Court Services and Offender Supervision Agency                                          Federal-Other        1 01/12/2014
 ```
 
 Downloading Excel spreadsheets hosted online can be performed just as easily.  Recall that there is not a base R function for importing Excel data; however, several packages exist to handle this capability.  One package that works smoothly with pulling Excel data from urls is [`gdata`](https://cran.r-project.org/web/packages/gdata/index.html).  With `gdata` we can use `read.xls()` to download this [Fair Market Rents for Section 8 Housing](http://catalog.data.gov/dataset/fair-market-rents-for-the-section-8-housing-assistance-payments-program) Excel file from the given url. 
@@ -61,7 +61,7 @@ rents[1:6, 1:10]
 ## 6 101199999 101199999  599  481  505  791 1061     11     1  99999
 ```
 
-Note that many of the arguments covered in the [Importing Data chapter](http://uc-r.github.io/import#import_excel_files) (i.e. specifying sheets to read from, skipping lines) also apply to `read.xls()`. In addition, `gdata` provides some useful functions (`sheetCount()` and `sheetNames()`) for identifying if multiple sheets exist prior to downloading.
+Note that many of the arguments covered in the [Importing Data chapter](http://uc-r.github.io/import#import_excel_files) (i.e. specifying sheets to read from, skipping lines) also apply to `read.xls()`. In addition, `gdata` provides some useful functions (`sheetCount()` and `sheetNames()`) for identifying if multiple sheets exist prior to downloading.  Check out `?gdata` for more help.
 
 Another common form of file storage is using zip files.  For instance, the [Bureau of Labor Statistics](http://www.bls.gov/home.htm) (BLS) stores their [public-use microdata](http://www.bls.gov/cex/pumdhome.htm) for the [Consumer Expenditure Survey](http://www.bls.gov/cex/home.htm) in .zip files.  We can use `download.file()` to download the file to your working directory and then work with this data as desired.
 
@@ -70,8 +70,8 @@ Another common form of file storage is using zip files.  For instance, the [Bure
 url <- "http://www.bls.gov/cex/pumd/data/comma/diary14.zip"
 
 # download .zip file and unzip contents
-download.file(url, dest="dataset.zip", mode="wb") 
-unzip ("dataset.zip", exdir = "./")
+download.file(url, dest = "dataset.zip", mode = "wb") 
+unzip("dataset.zip", exdir = "./")
 
 # assess the files contained in the .zip file which
 # unzips as a folder named "diary14"
@@ -119,105 +119,81 @@ zip_data2[1:5, 1:10]
 ## 5 2825381     0 2.50    2        2  20510        3        D        2        D
 ```
 
-One last common scenario I'll cover when importing spreadsheet data from online is when we identify multiple data sets that we'd like to download but are not centrally stored in a .zip format or the like. As a simple example lets look at the [average consumer price data](http://www.bls.gov/data/#prices) from the BLS. The BLS holds multiple data sets for different types of commodities within one [url](http://download.bls.gov/pub/time.series/ap/); however, there are separate links for each individual data set.  More complicated cases of this will have the links to tabular data sets scattered throughout a webpage[^fn_scrap2]. The [`XML`](https://cran.r-project.org/web/packages/XML/index.html) package provides the useful `getHTMLLinks()` function to identify these links.
+One last common scenario I'll cover when importing spreadsheet data from online is when we identify multiple data sets that we'd like to download but are not centrally stored in a single .zip format or the like. For example there are multiple data files scattered throughout the [Maryland State Board of Elections websiteMaryland State Board of Elections website](http://www.elections.state.md.us/elections/2012/election_data/index.html) that we may want to download.  The first objective here is to identify the relevant links.  The [`XML`](https://cran.r-project.org/web/packages/XML/index.html) package provides the useful `getHTMLLinks()` function to identify these links.
 
 
 ```r
 library(XML)
 
-# url hosting multiple links to data sets
-url <- "http://download.bls.gov/pub/time.series/ap/"
-
-# identify the links available
+url <- "http://www.elections.state.md.us/elections/2012/election_data/index.html"
 links <- getHTMLLinks(url)
-
-links
-##  [1] "/pub/time.series/"                           
-##  [2] "/pub/time.series/ap/ap.area"                 
-##  [3] "/pub/time.series/ap/ap.contacts"             
-##  [4] "/pub/time.series/ap/ap.data.0.Current"       
-##  [5] "/pub/time.series/ap/ap.data.1.HouseholdFuels"
-##  [6] "/pub/time.series/ap/ap.data.2.Gasoline"      
-##  [7] "/pub/time.series/ap/ap.data.3.Food"          
-##  [8] "/pub/time.series/ap/ap.footnote"             
-##  [9] "/pub/time.series/ap/ap.item"                 
-## [10] "/pub/time.series/ap/ap.period"               
-## [11] "/pub/time.series/ap/ap.series"               
-## [12] "/pub/time.series/ap/ap.txt"
+head(links)
+## [1] "http://www.maryland.gov/"                              
+## [2] "../../../index.html"                                   
+## [3] "../../../index.html"                                   
+## [4] "https://www.facebook.com/MarylandStateBoardofElections"
+## [5] "https://twitter.com/md_sbe"                            
+## [6] "http://www.maryland.gov/pages/social_media.aspx"
 ```
 
-This allows us to assess which files exist that may be of interest.  In this case the links that we are primarily interested in are the ones that contain "data" in their name (links 4-7 listed above).  We can use the [`stringr`](https://cran.r-project.org/web/packages/stringr/index.html) package to extract these desired links which we will use to download the data.
+However, this provides all the links on the page.  For this example we will only concentrate on the links that contain .csv files.  Here, we see that there are 307 .csv files.
 
 
 ```r
 library(stringr)
 
 # extract names for desired links and paste to url
-links_data <- links[str_detect(links, "data")]
+links_data <- links[str_detect(links, ".csv")]
 
-# paste url to data links to have full url for data sets
-# use str_sub and regexpr to paste links at appropriate 
-# starting point
-filenames <- paste0(url, str_sub(links_data, 
-                    start = regexpr("ap.data", links_data)))
-
-filenames
-## [1] "http://download.bls.gov/pub/time.series/ap/ap.data.0.Current"       
-## [2] "http://download.bls.gov/pub/time.series/ap/ap.data.1.HouseholdFuels"
-## [3] "http://download.bls.gov/pub/time.series/ap/ap.data.2.Gasoline"      
-## [4] "http://download.bls.gov/pub/time.series/ap/ap.data.3.Food"
+length(links_data)
+## [1] 307
 ```
 
-We can now proceed to develop a simple [`for` loop](http://uc-r.github.io/control_statements#for_loop) function to download each data set. We store the results in a list which contains 4 items, one item for each data set.  Each list item contains the url in which the data was extracted from and the dataframe containing the downloaded data.  We're now ready to analyze these data sets as necessary. 
+If we wanted to we could loop through and download all 307 .csv files.  However, for simplicity we'll just download the first six files and save each one as a separate data frame. 
 
 
 ```r
-# create empty list to dump data into
-data_ls <- list()
+links_data <- head(links_data)
 
-for(i in 1:length(filenames)){
-        url <- filenames[i]
-        data <- read.delim(url)
-        data_ls[[length(data_ls) + 1]] <- list(url = filenames[i], data = data)
+for(i in seq_along(links_data)) {
+  
+  # step 1: paste .csv portion of link to the base URL
+  url <- paste0("http://www.elections.state.md.us/elections/2012/election_data/",
+                links_data[i])
+  
+  # step 2: download .csv file and save as df
+  df <- read.csv(url)
+  
+  # step 3: rename df
+  assign(paste0("df", i), df)
 }
+```
 
-str(data_ls)
-## List of 4
-##  $ :List of 2
-##   ..$ url : chr "http://download.bls.gov/pub/time.series/ap/ap.data.0.Current"
-##   ..$ data:'data.frame':	144712 obs. of  5 variables:
-##   .. ..$ series_id     : Factor w/ 878 levels "APU0000701111    ",..: 1 1 ...
-##   .. ..$ year          : int [1:144712] 1995 1995 1995 1995 1995 1995 ...
-##   .. ..$ period        : Factor w/ 12 levels "M01","M02","M03",..: 1 2 3 4 ...
-##   .. ..$ value         : num [1:144712] 0.238 0.242 0.242 0.236 0.244 ...
-##   .. ..$ footnote_codes: logi [1:144712] NA NA NA NA NA NA ...
-##  $ :List of 2
-##   ..$ url : chr "http://download.bls.gov/pub/time.series/ap/ap.data.1.Hou..."
-##   ..$ data:'data.frame':	90339 obs. of  5 variables:
-##   .. ..$ series_id     : Factor w/ 343 levels "APU000072511     ",..: 1 1 ...
-##   .. ..$ year          : int [1:90339] 1978 1978 1979 1979 1979 1979 1979 ...
-##   .. ..$ period        : Factor w/ 12 levels "M01","M02","M03",..: 11 12 ...
-##   .. ..$ value         : num [1:90339] 0.533 0.545 0.555 0.577 0.605 0.627 ...
-##   .. ..$ footnote_codes: logi [1:90339] NA NA NA NA NA NA ...
-##  $ :List of 2
-##   ..$ url : chr "http://download.bls.gov/pub/time.series/ap/ap.data.2.Gas..."
-##   ..$ data:'data.frame':	69357 obs. of  5 variables:
-##   .. ..$ series_id     : Factor w/ 341 levels "APU000074712     ",..: 1 1 ...
-##   .. ..$ year          : int [1:69357] 1973 1973 1973 1974 1974 1974 1974 ...
-##   .. ..$ period        : Factor w/ 12 levels "M01","M02","M03",..: 10 11 ...
-##   .. ..$ value         : num [1:69357] 0.402 0.418 0.437 0.465 0.491 0.528 ...
-##   .. ..$ footnote_codes: logi [1:69357] NA NA NA NA NA NA ...
-##  $ :List of 2
-##   ..$ url : chr "http://download.bls.gov/pub/time.series/ap/ap.data.3.Food"
-##   ..$ data:'data.frame':	122302 obs. of  5 variables:
-##   .. ..$ series_id     : Factor w/ 648 levels "APU0000701111    ",..: 1 1 ...
-##   .. ..$ year          : int [1:122302] 1980 1980 1980 1980 1980 1980 1980 ...
-##   .. ..$ period        : Factor w/ 12 levels "M01","M02","M03",..: 1 2 3 4 ...
-##   .. ..$ value         : num [1:122302] 0.203 0.205 0.211 0.206 0.207 0.21 ...
-##   .. ..$ footnote_codes: logi [1:122302] NA NA NA NA NA NA ...
+I now have the six downloaded data frames in my global environment saved as "df1", "df2", "df3", "df4", "df5", and "df6"
+
+
+```r
+sapply(paste0("df", 1:6), exists)
+##  df1  df2  df3  df4  df5  df6 
+## TRUE TRUE TRUE TRUE TRUE TRUE
+
+head(df1)
+##   County                            Candidate.Name Party             Office.Name Office.District Winner CONG.08 CONG.04 CONG.07 CONG.01 CONG.03 CONG.02 CONG.05 CONG.06
+## 1      0                              Barack Obama   DEM   President - Vice Pres                      Y   30138   37385   38838   15734   26963   22444   34224   26702
+## 2      0 Uncommitted To Any Presidential Candidate   DEM   President - Vice Pres                           3186    1815    2797    6007    4959    4408    3640    4991
+## 3      0                      Raymond Levi Blagmon   DEM U.S. Senator                                       443     662     672     568     646     594     589     786
+## 4      0                                Ben Cardin   DEM U.S. Senator                                 Y   28493   22818   31357   16589   25800   20669   23218   24589
+## 5      0                              J. P. Cusick   DEM U.S. Senator                                       350     229     387     686     526     562     612     713
+## 6      0                              Chris Garner   DEM U.S. Senator                                       976     694     733    1232     829     838     961    1577
 ```
 
 These examples provide the basics required for downloading most tabular and Excel files from online. However, this is just the beginning of importing/scraping data from the web.  Next, we'll start exploring the more conventional forms of [scraping text](#scraping_HTML_text) and [data](#scraping_HTML_tables) stored in HTML webpages.
+
+### Exercises
+
+1. Import the following csv file directly from this url: [https://bradleyboehmke.github.io/public/data/reddit.csv](https://bradleyboehmke.github.io/public/data/reddit.csv). 
+2. Import the .xlsx file directly from this url: [http://www.huduser.gov/portal/datasets/fmr/fmr2017/FY2017_4050_FMR.xlsx](http://www.huduser.gov/portal/datasets/fmr/fmr2017/FY2017_4050_FMR.xlsx).
+3. Go to this University of Dayton webpage [http://academic.udayton.edu/kissock/http/Weather/citylistUS.htm](http://academic.udayton.edu/kissock/http/Weather/citylistUS.htm).  Download the weather data for a selected city.  Can you download data for all the Alabama cities?  
 
 <br>
 
@@ -323,7 +299,7 @@ p_text[1]
 ## [1] "Web scraping (web harvesting or web data extraction) is a computer software technique of extracting information from websites. Usually, such software programs simulate human exploration of the World Wide Web by either implementing low-level Hypertext Transfer Protocol (HTTP), or embedding a fully-fledged web browser, such as Mozilla Firefox."
 ```
 
-Not too bad; however, we may not have captured all the text that we were hoping for.  Since we extracted text for all `<p>` nodes, we collected all identified paragraph text; however, this does not capture the text in the bulleted lists.  For example, when you look at the [Web Scraping Wikipedia page](https://en.wikipedia.org/wiki/Web_scraping) you will notice a significant amount of text in bulleted list format following the third paragraph under the **[Techniques](https://en.wikipedia.org/wiki/Web_scraping#Techniques)** heading.  If we look at our data we'll see that that the text in this list format are not capture between the two paragraphs:
+Not too bad; however, we may not have captured all the text that we were hoping for.  Since we extracted text for all `<p>` nodes, we collected all identified paragraph text; however, this does not capture the text in the bulleted lists.  For example, when you look at the [Web Scraping Wikipedia page](https://en.wikipedia.org/wiki/Web_scraping) you will notice a significant amount of text in bulleted list format following the third paragraph under the [Techniques](https://en.wikipedia.org/wiki/Web_scraping#Techniques) heading.  If we look at our data we'll see that that the text in this list format are not capture between the two paragraphs:
 
 
 ```r
@@ -458,7 +434,7 @@ scraping_wiki %>%
 scraping_wiki %>%
         html_nodes("#cite_note-22") %>% 
         html_text()
-## [1] "^ \"Web Scraping: Everything You Wanted to Know (but were afraid to ask)\". Distil Networks. 2015-07-22. Retrieved 2015-11-04. "
+## [1] "^ \"Web Scraping: Everything You Wanted to Know (but were afraid to ask)\". Distil Networks. 2015-07-22. Retrieved 2015-11-04. "
 ```
 
 ### Cleaning up
@@ -504,7 +480,7 @@ library(stringr)
 
 # read the last 700 characters
 substr(body_text, start = nchar(body_text)-700, stop = nchar(body_text))
-## [1] " 2010). \"Intellectual Property: Website Terms of Use\". Issue 26: June 2010. LK Shields Solicitors Update. p. 03. Retrieved 2012-04-19. \n^ National Office for the Information Economy (February 2004). \"Spam Act 2003: An overview for business\" (PDF). Australian Communications Authority. p. 6. Retrieved 2009-03-09. \n^ National Office for the Information Economy (February 2004). \"Spam Act 2003: A practical guide for business\" (PDF). Australian Communications Authority. p. 20. Retrieved 2009-03-09. \n^ \"Web Scraping: Everything You Wanted to Know (but were afraid to ask)\". Distil Networks. 2015-07-22. Retrieved 2015-11-04. \n\n\nSee also[edit]\n\nData scraping\nData wrangling\nKnowledge extraction\n\n\n\n\n\n\n\n\n"
+## [1] " 2010). \"Intellectual Property: Website Terms of Use\". Issue 26: June 2010. LK Shields Solicitors Update. p. 03. Retrieved 2012-04-19. \n^ National Office for the Information Economy (February 2004). \"Spam Act 2003: An overview for business\" (PDF). Australian Communications Authority. p. 6. Retrieved 2009-03-09. \n^ National Office for the Information Economy (February 2004). \"Spam Act 2003: A practical guide for business\" (PDF). Australian Communications Authority. p. 20. Retrieved 2009-03-09. \n^ \"Web Scraping: Everything You Wanted to Know (but were afraid to ask)\". Distil Networks. 2015-07-22. Retrieved 2015-11-04. \n\n\nSee also[edit]\n\nData scraping\nData wrangling\nKnowledge extraction\n\n\n\n\n\n\n\n\n"
 
 # clean up text
 body_text %>%
@@ -519,6 +495,16 @@ body_text %>%
 
 
 So there we have it, text scraping in a nutshell.  Although not all encompassing, this section covered the basics of scraping text from HTML documents. Whether you want to scrape text from all common text-containing nodes such as `<div>`, `<p>`, `<ul>` and the like or you want to scrape from a specific node using the specific ID, this section provides you the basic fundamentals of using `rvest` to scrape the text you need. In the next section we move on to scraping data from HTML tables.
+
+### Exercises
+
+1. See if you can scrape chapter 1 of Philosopher's Stone located [here](http://www.readbooksvampire.com/J.K._Rowling/Harry_Potter_and_the_Philosophers_Stone/01.html). To do so follow these steps:
+   1. Import the HTML/XML content.
+   2. The book text is contained in the `<td>` nodes so extract these nodes out of the HTML content.
+   3. Extract the text out of the `<td> nodes (the text of interest is in the 5th element so you can index for this element).
+   4. Bonus: Minor cleaning can be done by removing the "\r\n" throughout the text (this is just embedded HTML code within the text). 
+2. Extract all the text from the main body content for the [Wikipedia entry on the War in Afghanistan](https://en.wikipedia.org/wiki/War_in_Afghanistan_(2001%E2%80%932014)).  Can you scrape just the references on this page?
+
 
 <br>
 
@@ -833,6 +819,11 @@ str(bls_table3)
 
 Between `rvest` and `XML`, scraping HTML tables is relatively easy once you get fluent with the syntax and the available options.  This section covers just the basics of both these packages to get you moving forward with scraping tables. In the [next section](#scraping_api) we move on to working with application program interfaces (APIs) to get data from the web.
 
+### Exercises
+
+1. Scrape the [2016 GDP nominal rankings table](http://statisticstimes.com/economy/countries-by-projected-gdp.php) provided by Statistics Times.
+2. Scrape any of the tables [here](http://statisticstimes.com/economy/economy-statistics.php) that summarize world economic measures.
+
 <br>
 
 ## Leveraging APIs to Scrape Data {#scraping_api}
@@ -901,7 +892,7 @@ List of 4
   .. .. .. .. ..$ value     : chr "1383"
 ```
 
-One of the inconveniences of an API is we do not get to specify how the data we receive is formatted. This is a minor price to pay considering all the other benefits APIs provide. Once we understand the received data format we can typically re-format using a little [list subsetting](http://uc-r.github.io/lists#lists_subsetting) and [`for` looping](http://uc-r.github.io/control_statements#for_loop).
+One of the inconveniences of an API is we do not get to specify how the data we receive is formatted. This is a minor price to pay considering all the other benefits APIs provide. Once we understand the received data format we can typically re-format using a little [list subsetting](http://afit-r.github.io/lists#lists_subsetting) and [`for` looping](http://afit-r.github.io/control_statements#for_loop).
 
 
 
@@ -1330,10 +1321,14 @@ This provides a fairly simple example of incorporating OAuth authorization. The 
 
 Also, note that `httr` provides several other useful functions not covered here for communicating with APIs (i.e. `POST()`, `BROWSE()`). For more on these other `httr` capabilities see this [quickstart vignette](https://cran.r-project.org/web/packages/httr/vignettes/quickstart.html).
 
+### Exercises
+
+1. Go to [opendatanetwork.com](https://www.opendatanetwork.com), search for open source data sets in your metropolitan area.
+2. Now use the [RSocrata](https://cran.r-project.org/web/packages/RSocrata/index.html) package to connect with one of these data set APIs and import the data.
+3. Use the recently published [rscorecard](https://cran.r-project.org/web/packages/rscorecard/index.html) package to download Department of Education College Scorecard data for your undergrad school.
+
 
 [^fn_scrap1]: In [Automated Data Collection with R](http://www.amazon.com/Automated-Data-Collection-Practical-Scraping/dp/111883481X/ref=pd_sim_14_1?ie=UTF8&dpID=51Tm7FHxWBL&dpSrc=sims&preST=_AC_UL160_SR108%2C160_&refRID=1VJ1GQEY0VCPZW7VKANX") Munzert et al. state that "[t]he first way to get data from the web is almost too banal to be considered here and actually not a case of web scraping in the narrower sense."
-
-[^fn_scrap2]: An example is provided in [Automated Data Collection with R](http://www.amazon.com/Automated-Data-Collection-Practical-Scraping/dp/111883481X/ref=pd_sim_14_1?ie=UTF8&dpID=51Tm7FHxWBL&dpSrc=sims&preST=_AC_UL160_SR108%2C160_&refRID=1VJ1GQEY0VCPZW7VKANX") in which they use a similar approach to extract desired CSV files scattered throughout the [Maryland State Board of Elections websiteMaryland State Board of Elections website](http://www.elections.state.md.us/elections/2012/election_data/index.html).
 
 [^selector]: You can learn more about selectors at [flukeout.github.io](http://flukeout.github.io/)
 
