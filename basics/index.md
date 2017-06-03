@@ -705,6 +705,13 @@ base :: get
 
 It is important to think about style when communicating any form of language. Writing code is no exception and is especially important if your code will be read by others. Following these basic style guides will get you on the right track for writing code that can be easily communicated to others. 
 
+### Exercises
+
+Go back through the script you've been writing to execute the exercises in this tutorial and make sure
+
+1. your naming conventions are consistent
+2. your code is nicely organized and annotated
+3. your syntax includes proper spacing
 
 
 [^character_length]: Go to *RStudio* on the menu bar then *Preferences* > *Code* > *Display* and you can select the "show margin" option and set the margin to 80.
