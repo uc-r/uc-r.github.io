@@ -69,7 +69,18 @@ The RStudio console is where all the action happens. There are four fundamental 
 </center>
 
 ### Script Editor
-The top left window is where your script files will display. There are multiple forms of script files but the basic one to start with is the .R file. To create a new file you use the **File -> New File** menu. To open an existing file you use either the **File -> Open File...** menu or the **Recent Files** menu to select from recently opened files. RStudio's source editor includes a variety of productivity enhancing features including syntax highlighting, code completion, multiple-file editing, and find/replace. A good introduction to the script editor can be found [here](https://support.rstudio.com/hc/en-us/articles/200484448-Editing-and-Executing-Code).
+The top left window is where your script files will display. There are multiple forms of script files but the basic one to start with is the .R file. To create a new file you use the **File &#187; New File menu**. To open an existing file you use either the **File &#187; Open File...** menu or the **Recent Files** menu to select from recently opened files. RStudio's source editor includes a variety of productivity enhancing features including syntax highlighting, code completion, multiple-file editing, and find/replace. A good introduction to the script editor can be found [here](https://support.rstudio.com/hc/en-us/articles/200484448-Editing-and-Executing-Code).
+
+The script editor is a great place to put code you care about. Keep experimenting in the console, but once you have written code that works and does what you want, put it in the script editor. RStudio will automatically save the contents of the editor when you quit RStudio, and will automatically load it when you re-open. Nevertheless, it’s a good idea to save your scripts regularly and to back them up.  
+
+To execute the code in the script editor you have two options:
+
+1. Place the cursor on the line that you would like to execute and execute Cmd/Ctrl + Enter.  Alternatively, you could hit the **Run** button in the toolbar.
+2. If you want to run *all* lines of code in the script then you can highlight the lines you want to run and then execute one of the options in #1.
+
+<center>
+<img src="/public/images/run_code.png">
+</center>
 
 ### Workspace Environment
 The top right window is the workspace environment which captures much of your your current R working environment and includes any user-defined objects (vectors, matrices, data frames, lists, functions).  When saving your R working session, these are the components along with the script files that will be saved in your working directory, which is the default location for all file inputs and outputs.  To get or set your working directory so you can direct where your files are saved:
@@ -79,25 +90,32 @@ The top right window is the workspace environment which captures much of your yo
 getwd()                  
 
 # set the working directory to a specified directory
-setwd(directory_name)    
+setwd("path/of/directory")   
 ```
 
-For example, if I call `getwd()` the file path "/Users/bradboehmke/Desktop/Personal/Data Wrangling" is returned.  If I want to set the working directory to the "Workspace" folder within the "Data Wrangling" directory I would use `setwd("Workspace")`.  Now if I call `getwd()` again it returns "/Users/bradboehmke/Desktop/Personal/Data Wrangling/Workspace".
+For example, if I call `getwd()` the file path "/Users/bradboehmke/Desktop/Personal/Data Wrangling" is returned.  If I want to set the working directory to the "Workspace" folder within the "Data Wrangling" directory I would use `setwd("Workspace")`.  Now if I call `getwd()` again it returns "/Users/bradboehmke/Desktop/Personal/Data Wrangling/Workspace". An alternative solution is to go to the following location in your toolbar **Session &#187; Set Working Directory &#187; Choose Directory** and select the directory of choice (much easier!).
 
-The workspace environment will also list your user defined objects such as vectors, matrices, data frames, lists, and functions. To identify or remove the objects (i.e. vectors, data frames, user defined functions, etc.) in your current R environment:
+The workspace environment will also list your user defined objects such as vectors, matrices, data frames, lists, and functions. For example, if you type the following in your console:
+
+```r
+x <- 2
+y <- 3
+```
+
+You will now see `x` and `y` listed in your workspace environment.  To identify or remove the objects (i.e. vectors, data frames, user defined functions, etc.) in your current R environment:
 
 ```r
 # list all objects
 ls()              
 
 # identify if an R object with a given name is present
-exists("object_name")        
+exists("x")        
 
 # remove defined object from the environment
-rm("object_name")            
+rm(x)            
 
 # you can remove multiple objects by using the `c()` function
-rm(c("object1", "object2"))  
+rm(c(x, y))  
 
 # basically removes everything in the working environment -- use with caution!
 rm(list = ls())              
@@ -117,30 +135,18 @@ history(100)
 history(Inf)     
 ```
 
-You can also save and load your workspaces.  Saving your workspace will save all R files and objects within your workspace to a .RData file in your working directory and loading your workspace will load any .RData files in your working directory.
-
+### Console
+The bottom left window contains the console. You can code directly in this window but it will not save your code. It is best to use this window when you are simply wanting to perform calculator type functions.  This is also where your outputs will be presented when you run code in your script.  Go ahead and type the following in your console:
 
 ```r
-# save all items in workspace to a .RData file
-save.image()                                  
-
-# save specified objects to a .RData file
-save(object1, object2, file = "myfile.RData")    
-
-# load workspace into current session
-load("myfile.RData")                             
+2 * 3 + 8 / 2
 ```
-
-Note that saving the workspace without specifying the working directory will default to saving in the current directory.  You can further specify where to save the .RData by including the path: `save(object1, object2, file = "/users/name/folder/myfile.RData")`
-
-### Console
-The bottom left window contains the console. You can code directly in this window but it will not save your code. It is best to use this window when you are simply wanting to perform calculator type functions.  This is also where your outputs will be presented when you run code in your script.
 
 ### Misc. Displays
 The bottom right window contains multiple tabs. The **Files** tab allows you to see which files are available in your working directory. The **Plots** tab will display any plots/graphics that are produced by your code. The **Packages** tab will list all packages downloaded to your computer and also the ones that are loaded (more on this later). And the **Help** tab allows you to search for topics you need help on and will also display any help responses (more on this later as well).
 
 ### Workspace Options & Shortcuts {#options}
-There are multiple options available for you to set and customize your console. You can view and set options for the current R session:
+There are multiple options available for you to set and customize your console. You can read about,  and set, available options for the current R session with the following code.  For now you don't need to worry about making any adjustments, just know that *many* options do exist.
 
 ```r
 # learn about available options
@@ -156,58 +162,54 @@ options(digits=3)
 For a thorough tutorial regarding the RStudio console and how to customize different components check out [this tutorial](http://dss.princeton.edu/training/RStudio101.pdf). You can also find the RStudio console cheatsheet shown below [here](https://www.rstudio.com/wp-content/uploads/2016/01/rstudio-IDE-cheatsheet.pdf) or by going to Help menu &#187; Cheatsheets.  As with most computer programs, there are numerous keyboard shortcuts for working with the console. To access a menu displaying all the shortcuts in RStudio you can use option + shift + k.  Within RStudio you can also access them in the Help menu &#187; Keyboard Shortcuts.
 
 <center>
-<img src="/public/images/RStudio Cheatsheet.png">
+<img src="https://raw.githubusercontent.com/uc-r/uc-r.github.io/master/public/images/RStudio%20Cheatsheet.png">
 </center>
+
+### Exercises 
+
+1. Identify what working directory you are working out of.
+2. Create a folder on your computer titled *Learning R*.  Within R, set your working directory to this folder.
+3. Type `pi` in the console. Set the option to show 8 digits. Re-type `pi` in the console.
+4. Type `?pi` in the console.  Note that documentation on this object pops up in the *Help* tab in the Misc. Display.
+5. Now check out your code *History* tab.
+6. Create a new .R file and save this as *my-first-script* (note how this now appears in your *Learning R* folder).  Type `pi` in line 1 of this script, `option(digits = 8)` in line 2, and `pi` again in line three.  Execute this code one line at a time and then re-execute all lines at once.
 
 
 <br>
 
 ## Getting Help {#getting_help}
 
-The help documentation and support in R is comprehensive and easily accessible from the command line.  
+The help documentation and support in R is comprehensive and easily accessible from the command line (aka the console).
 
 ### General Help {#general_help}
 To leverage general help resources you can use:  
 
 ```r
-help.start()           # provides general help links
-help.search("text")    # searches the help system for documentation matching a given character string
+# provides general help links
+help.start()   
+
+# searches the help system for documentation matching a given character string
+help.search("linear regression") 
 ```
 
-Note that the `help.search("some text here")` function requires a character string enclosed in quotation marks.
-
-
-### Getting Help on Packages
-
-For more direct help on packages that are installed on your computer:
-
-
-```r
-help(package = "packagename")      # provides details regarding contents of a package
-vignette(package = "packagename")  # list vignettes available for a specific package
-vignette("vignettename")           # view specific vignette
-vignette()                         # view all vignettes on your computer
-```
-
-Note that some packages will have multiple vignettes.  For instance `vignette(package = "grid")` will list the 13 vignettes available for the grid package.  To access one of the specific vignettes you simply use `vignette("vignettename")`.  
+Note that the `help.search("some text here")` function requires a character string enclosed in quotation marks. So if you are in search of time series functions in R, using `help.search("time series")` will pull up a healthy list of vignettes and code demonstrations that illustrate packages and functions that work with time series data.
 
 
 ### Getting Help on Functions
 
-For more direct help on functions that are installed on your computer:
-
+For more direct help on functions that are installed on your computer you can use the following.  Test these out in your console:
 
 ```r
-help(functionname)      # provides details for specific function
-?functionname           # provides same information as help(functionname) 
-example(functionname)   # provides examples for said function
+help(mean)      # provides details for specific function 
+?mean           # provides same information as help(functionname) 
+example(mean)   # provides examples for said function
 ```
 
-Note that the `help()` and `?` function calls only work for functions within loaded packages.  If you want to see details on a function in a package that is installed on your computer but not loaded in the active R session you can use `help(functionname, package = "packagename")`.  Another alternative is to use the `::` operator as in `help(packagename::functionname)`.
+Note that the `help()` and `?` function calls only work for functions within loaded packages.  You'll understand what this means shortly.
 
 
 ### Getting Help from the Web
-Typically, a problem you may be encountering is not new and others have faced, solved, and documented the same issue online.  The following resources can be used to search for online help.  Although, I typically just google the problem and find answers relatively quickly.
+Typically, a problem you may be encountering is not new and others have faced, solved, and documented the same issue online.  The following resources can be used to search for online help.  Although, I typically just Google the problem and find answers relatively quickly.
 
 * `RSiteSearch("key phrase")`:  searches for the key phrase in help manuals and archived mailing lists on the [R Project website]("http://search.r-project.org/").
 * [Stack Overflow](http://stackoverflow.com/): a searchable Q&A site oriented toward programming issues.  75% of my answers typically come from Stack Overflow.
@@ -215,48 +217,31 @@ Typically, a problem you may be encountering is not new and others have faced, s
 * [R-seek](http://rseek.org): a Google custom search that is focused on R-specific websites
 * [R-bloggers](http://www.r-bloggers.com/): a central hub of content collected from over 500 bloggers who provide news and tutorials about R.
 
+### Exercises
+
+1. Search for documentation, code demonstrations and help pages regarding "linear regression".
+2. The `stats` package is a core package that comes with base R.  Pull up the help documentation regarding this package.
+3. Within the `grid` package there is an introductory vignette titled "grid".  Access this vignette.
+4. Assume you want to make a logarithmic transformation using the `log` function.  Check out the help information on this function.
+
 <br>
 
 
 ## Working with packages {#packages}
 
-In R, the fundamental unit of shareable code is the package.  A package bundles together code, data, documentation, and tests and provides an easy method to share with others[^hadley_R_Packages].  As of June 2016 there were over 8000 packages available on [CRAN](https://cran.r-project.org), 1000 on [Bioconductor](https://www.bioconductor.org), and countless more available through [GitHub](https://github.com).  This huge variety of packages is one of the reasons that R is so successful: chances are that someone has already solved a problem that you're working on, and you can benefit from their work by downloading their package.
-
+In R, the fundamental unit of share-able code is the package.  A package bundles together code, data, documentation, and tests and provides an easy method to share with others[^hadley_R_Packages].  As of May 2017 there were over 10,000 packages available on [CRAN](https://cran.r-project.org), 1000 on [Bioconductor](https://www.bioconductor.org), and countless more available through [GitHub](https://github.com).  This huge variety of packages is one of the reasons that R is so successful: chances are that someone has already solved a problem that you're working on, and you can benefit from their work by downloading their package.
 
 ### Installing Packages {#install}
 
-To install packages: 
-
-
-```r
-# install packages from CRAN
-install.packages("packagename")   
-```
-
-As previously stated, packages are also available through Bioconductor and GitHub.  To download Bioconductor packages:
-
+The most common place to get packages from is CRAN. To install packages from CRAN you use `install.packages("packagename")`.  For instance, if you want to install the `ggplot2` package, which is a very popular visualization package you would type the following in the console: 
 
 ```r
-# link to Bioconductor URL
-source("http://bioconductor.org/biocLite.R")  
-
-# install core Bioconductor packages
-biocLite()                                    
-
-# install specific Bioconductor package
-biocLite("packagename")                       
+# install package from CRAN
+install.packages("ggplot2")   
 ```
 
-And to download GitHub packages:
+As previously stated, packages are also available through Bioconductor and GitHub. Bioconductor provides R packages primarily for genomic data analyses and packages on GitHub are usually under development but have not gone through all the checks and balances to be loaded onto CRAN (aka download and use these packages at your discretion).  You can learn how to install Bioconductor packages [here](https://www.bioconductor.org/install/) and GitHub packages [here](https://cran.r-project.org/web/packages/githubinstall/vignettes/githubinstall.html). 
 
-
-```r
-# the devtools package provides a simply function to download GitHub packages
-install.packages("devtools")                      
-
-# install package which exists at github.com/username/packagename
-devtools::install_github("username/packagename")  
-```
 
 ### Loading Packages {#load}
 
@@ -271,32 +256,18 @@ library(packagename)
 packagename::functionname    
 ```
 
-For instance, if you want to have full access to the tidyr package you would use `library(tidyr)`; however, if you just wanted to use the `gather()` function without loading the tidyr package you can use `tidyr::gather(function arguments)`.
+For instance, if you want to have full access to the tidyr package you would use `library(tidyr)`; however, if you just wanted to use the `gather()` function which is provided by the tidyr package without fully loading tidyr you can use `tidyr::gather(...)` (here `...` just represents the arguments that you would include in this function).
 
 
 ### Getting Help on Packages {#help}
 
-For help on packages that are installed on your computer:
-
+For more direct help on packages that are installed on your computer you can use the `help` and `vignette` functions.  Here we can get help on the `ggplot2` package with the following:
 
 ```r
-# provides details regarding contents of a package
-help(package = "packagename")
-
-# see all packages installed
-library()                          
-
-# see packages currently loaded
-search()                           
-
-# list vignettes available for a specific package
-vignette(package = "packagename")  
-
-# view specific vignette
-vignette("vignettename")           
-
-# view all vignettes on your computer
-vignette()                         
+help(package = "ggplot2")      # provides details regarding contents of a package
+vignette(package = "ggplot2")  # list vignettes available for a specific package
+vignette("ggplot2-specs")      # view specific vignette
+vignette()                     # view all vignettes on your computer
 ```
 
 Note that some packages will have multiple vignettes.  For instance `vignette(package = "grid")` will list the 13 vignettes available for the grid package.  To access one of the specific vignettes you simply use `vignette("vignettename")`.
@@ -304,24 +275,30 @@ Note that some packages will have multiple vignettes.  For instance `vignette(pa
 ### Useful packages
 There are thousands of helpful R packages for you to use, but navigating them all can be a challenge.  To help you out, RStudio compiled a [guide](https://support.rstudio.com/hc/en-us/articles/201057987-Quick-list-of-useful-R-packages) to some of the best packages for loading, manipulating, visualizing, analyzing, and reporting data.  In addition, their list captures packages that specialize in spatial data, time series and financial data, increasing spead and performance, and developing your own R packages. 
 
+### Exercises
+
+`dplyr` is an extremely popular package for common data transformation activities and is available from CRAN.  Perform the following tasks:
+
+1. Install the `dplyr` package.
+2. Load the `dplyr` package.
+3. Access the help documentation for the `dplyr` package.
+4. Check out the vignette(s) for `dplyr`
 
 <br>
 
 ## Assignment & Evaluation {#assignment}
-The first operator you'll run into is the assignment operator. The assignment operator is used to *assign* a value. For instance we can assign the value 3 to the variable `x` using the `<-` assignment operator.  We can then evaluate the variable by simply typing `x` at the command line which will return the value of `x`.  Note that prior to the value returned you'll see `## [1]` in the command line.  This simply implies that the output returned is the first output. Note that you can type any comments in your code by preceding the comment with the hashtag (`#`) symbol.  Any values, symbols, and texts following `#` will not be evaluated.
+
+### Assignment
+
+The first operator you'll run into is the assignment operator. The assignment operator is used to *assign* a value. For instance we can assign the value 3 to the variable `x` using the `<-` assignment operator.  
 
 
 ```r
 # assignment
 x <- 3
-
-# evaluation
-x
-## [1] 3
 ```
 
 Interestingly, R actually allows for five assignment operators:
-
 
 ```r
 # leftward assignment
@@ -340,6 +317,18 @@ The operators `<<-` is normally only used in functions which we will not get int
 
 Overwhelmed yet?  Don't be.  This is just meant to show you that there are options and you will likely come across them sooner or later.  My suggestion is to stick with the tried and true `<-` operator.  This is the most conventional assignment operator used and is what you will find in all the base R source code...which means it should be good enough for you. 
 
+### Evaluation
+
+We can then evaluate the variable by simply typing `x` at the command line which will return the value of `x`.  Note that prior to the value returned you'll see `## [1]` in the command line.  This simply implies that the output returned is the first output. Note that you can type any comments in your code by preceding the comment with the hash tag (`#`) symbol.  Any values, symbols, and texts following `#` will not be evaluated.
+
+```r
+# evaluation
+x
+## [1] 3
+```
+
+### Case Sensitivity
+
 Lastly, note that R is a case sensitive programming language.  Meaning all variables, functions, and objects must be called by their exact spelling:
 
 
@@ -354,9 +343,19 @@ x * Y * z
 ## Error in eval(expr, envir, enclos): object 'Y' not found
 ```
 
+### Exercises
+
+1. Assign the value 5 to variable `x` (note how this shows up in your *Global Environment*). 
+2. Assign the character "abc" to variable `y`.
+3. Evaluate the value of `x` and `y` at the command line.
+4. Now use the `rm()` function to remove these objects from you working environment.
+
 <br>
 
 ## R as a Calculator {#calculator}
+
+### Basic Arithmetic
+
 At its most basic function R can be used as a calculator.  When applying basic arithmetic, the PEMBDAS order of operations applies: **p**arentheses first followed by **e**xponentiation, **m**ultiplication and **d**ivision, and final **a**ddition and **s**ubtraction.
 
 
@@ -415,7 +414,38 @@ pi
 ## [1] 3.141592653589793115998
 ```
 
-When performing undefined calculations R will produce `Inf` and `NaN` outputs.
+We can also perform integer divide (`%/%`) and modulo (`%%`) functions.  The integer divide function will give the integer part of a fraction while the modulo will provide the remainder.
+
+
+```r
+42 / 4          # regular division
+## [1] 10.5
+
+42 %/% 4        # integer division
+## [1] 10
+
+42 %% 4         # modulo (remainder)
+## [1] 2
+```
+
+### Miscellaneous Mathematical Functions
+
+There are many built-in functions to be aware of.  These include but are not limited to the following.  Go ahead and run this code in your console.
+
+```r
+x <- 10
+
+abs(x)      # absolute value
+sqrt(x)     # square root
+exp(x)      # exponential transformation
+log(x)      # logarithmic transformation
+cos(x)      # cosine and other trigonometric functions
+```
+
+
+### Infinite, and NaN Numbers
+
+When performing undefined calculations, R will produce `Inf` (*infinity*) and `NaN` (*not a number*) outputs.
 
 
 ```r
@@ -436,24 +466,21 @@ sqrt(-9)        # square root of -9
 ## [1] NaN
 ```
 
-The last two functions to mention are the integer divide (`%/%`) and modulo (`%%`) functions.  The integer divide function will give the integer part of a fraction while the modulo will provide the remainder.
 
+### Exercises
 
-```r
-42 / 4          # regular division
-## [1] 10.5
-
-42 %/% 4        # integer division
-## [1] 10
-
-42 %% 4         # modulo (remainder)
-## [1] 2
-```
+1. Create variables `D = 1000`, `K = 5`, and `h = 0.05`.
+2. Compute $$2 \times D \times K$$.
+3. Compute $$\frac{2 \times D \times K}{h}$$.
+4. Now put this together to compute the Economic Order Quantity, which is $$\sqrt{\frac{2 \times D \times K}{h}}$$.  Save the output as `Q`.  (hint: you'll probably need the `sqrt()` function in R)
 
 <br>
 
 ## Vectorization {#vectorization}
-A key difference between R and many other languages is a topic known as vectorization. What does this mean? It means that many functions that are to be applied individually to each element in a vector of numbers require a *loop* assessment to evaluate; however, in R many of these functions have been coded in C to perform much faster than a `for` loop would perform.  For example, let's say you want to add the elements of two seperate vectors of numbers (`x` and `y`). 
+
+### Looping versus Vectorization
+
+A key difference between R and many other languages is a topic known as vectorization. What does this mean? It means that many functions that are to be applied individually to each element in a vector of numbers require a *loop* assessment to evaluate; however, in R many of these functions have been coded in C to perform much faster than a `for` loop would perform.  For example, let's say you want to add the elements of two separate vectors of numbers (`x` and `y`). 
 
 
 ```r
@@ -483,17 +510,24 @@ for (i in seq_along(x)) {
 ## [1] 2 5 8
 ```
 
-Instead, in R, `+` is a vectorized function which can operate on entire vectors at once. So rather than creating `for` loops for many function, you can just use simple syntax:
+Instead, in R, `+` is a vectorized function which can operate on entire vectors at once. So rather than creating `for` loops for many functions, you can just use simple syntax:
 
 
 ```r
+# add each element in x and y
 x + y
 ## [1] 2 5 8
+
+# multiply each element in x and y
 x * y
 ## [1]  1  6 16
+
+# compare each element in x to y
 x > y
 ## [1] FALSE  TRUE FALSE
 ```
+
+### Recycling
 
 When performing vector operations in R, it is important to know about *recycling*. When performing an operation on two or more vectors of unequal length, R will recycle elements of the shorter vector(s) to match the longest vector. For example:
 
@@ -511,7 +545,7 @@ long + short
 ##  [1]  2  4  6  8 10  7  9 11 13 15
 ```
 
-The elements of `long` and `short` are added together starting from the first element of both vectors. When R reaches the end of the `short` vector, it starts again at the first element of `short` and contines until it reaches the last element of the `long` vector. This functionality is very useful when you want to perform the same operation on every element of a vector. For example, say we want to multiply every element of our vector long by 3:
+The elements of `long` and `short` are added together starting from the first element of both vectors. When R reaches the end of the `short` vector, it starts again at the first element of `short` and continues until it reaches the last element of the `long` vector. This functionality is very useful when you want to perform the same operation on every element of a vector. For example, say we want to multiply every element of our vector long by 3:
 
 
 ```r
@@ -522,7 +556,7 @@ long * c
 ##  [1]  3  6  9 12 15 18 21 24 27 30
 ```
 
-Remember there are no scalars in R, so `c` is actually a vector of length 1; in order to add its value to every element of `long`, it is recycled to match the length of `long`.
+There are no scalars[^scalars] in R, so `c` is actually a vector of length 1; in order to add its value to every element of `long`, it is recycled to match the length of `long`.
 
 When the length of the longer object is a multiple of the shorter object length, the recycling occurs silently. When the longer object length is not a multiple of the shorter object length, a warning is given:
 
@@ -536,6 +570,13 @@ even_length + odd_length
 ## of shorter object length
 ##  [1]  2  4  6  5  7  9  8 10 12 11
 ```
+
+### Exercises
+
+1. Create this vector `my_vec <- 1:10`.
+2. Add 1 to every element in `my_vec`.
+3. Divide every element in `my_vec` by 2.
+4. Create a second vector `my_vec2 <- 10:18` and add `my_vec` to `my_vec2`.
 
 <br>
 
@@ -663,6 +704,7 @@ base :: get
 ```
 
 It is important to think about style when communicating any form of language. Writing code is no exception and is especially important if your code will be read by others. Following these basic style guides will get you on the right track for writing code that can be easily communicated to others. 
+
 
 
 [^character_length]: Go to *RStudio* on the menu bar then *Preferences* > *Code* > *Display* and you can select the "show margin" option and set the margin to 80.
