@@ -892,7 +892,7 @@ List of 4
   .. .. .. .. ..$ value     : chr "1383"
 ```
 
-One of the inconveniences of an API is we do not get to specify how the data we receive is formatted. This is a minor price to pay considering all the other benefits APIs provide. Once we understand the received data format we can typically re-format using a little [list subsetting](http://afit-r.github.io/lists#lists_subsetting) and [`for` looping](http://afit-r.github.io/control_statements#for_loop).
+One of the inconveniences of an API is we do not get to specify how the data we receive is formatted. This is a minor price to pay considering all the other benefits APIs provide. Once we understand the received data format we can typically re-format using a little [list subsetting](http://uc-r.github.io/lists#lists_subsetting) and [`for` looping](http://uc-r.github.io/control_statements#for_loop).
 
 
 
