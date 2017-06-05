@@ -97,6 +97,25 @@ df
 ## 4   NA  3.2
 ```
 
+If we want to recode missing values in a single data frame variable we can subset for the missing value in that specific variable of interest and then assign it the replacement value.  For example, here we recode the missing value in *col4* with the mean value of *col4*.
+
+```r
+# data frame with missing data
+df <- data.frame(col1 = c(1:3, NA),
+                 col2 = c("this", NA,"is", "text"), 
+                 col3 = c(TRUE, FALSE, TRUE, TRUE), 
+                 col4 = c(2.5, 4.2, 3.2, NA),
+                 stringsAsFactors = FALSE)
+                 
+df$col4[is.na(df$col4)] <- mean(df$col4, na.rm = TRUE)
+df
+##   col1 col2  col3 col4
+## 1    1 this  TRUE  2.5
+## 2    2 <NA> FALSE  4.2
+## 3    3   is  TRUE  3.2
+## 4   NA text  TRUE  3.3
+```
+
 <br>
 
 ## Exclude missing values {#na_exclude}
