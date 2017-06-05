@@ -58,6 +58,14 @@ sum(is.na(df))
 ## [1] 3
 ```
 
+For data frames, a convenient shortcut to compute the total missing values in each column is to use `colSums()`:
+
+```r
+colSums(is.na(df))
+## col1 col2 col3 col4
+##    1    1    0    1
+```
+
 <br>
 
 ## Recode missing values {#na_recode}
@@ -157,3 +165,12 @@ na.omit(df)
 ## 1    1 this TRUE  2.5
 ## 3    3   is TRUE  3.2
 ```
+
+<br>
+
+## Exercises
+
+1. How many missing values are in the built-in data set `airquality`?
+2. Which variables are the missing values concentrated in?
+3. How would you impute the mean or median for these values?
+4. How would you omit all rows containing missing values?
