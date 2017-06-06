@@ -44,7 +44,7 @@ faithful
 library(ggplot2)
 ```
 
-&#9755; *See [Working with packages](http://uc-r.github.io/packages/) for more information on installing, loading, and getting help with packages.*
+&#9755; *See [Working with packages](http://afit-r.github.io/packages/) for more information on installing, loading, and getting help with packages.*
 
 
 <br>
@@ -94,7 +94,6 @@ plot(mtcars[, 4:6])
 
 <img src="/public/images/visual/quickplots/unnamed-chunk-8-1.png" style="display: block; margin: auto;" />
 
-<a href="#top">Go to top</a>
 
 <br>
 
@@ -178,8 +177,6 @@ ggplot(pressure, aes(x = temperature, y = pressure)) +
 ```
 
 
-<a href="#top">Go to top</a>
-
 <br>
 
 ## Bar Chart {#bar}
@@ -226,14 +223,13 @@ Note how the x axis defaults to a continuous variable in the plot above. Since b
 
 ```r
 # use factor(x) to make it discrete
-qplot(factor(mtcars$cyl), geom = "bar")
+qplot(as.factor(mtcars$cyl), geom = "bar")
 ```
 
 <img src="/public/images/visual/quickplots/unnamed-chunk-22-1.png" style="display: block; margin: auto;" />
 
-&#9755; *See the [Factors](http://uc-r.github.io/factors/) tutorial for more information on categorical variables (aka factors) in R.*
+&#9755; *See the [Factors](http://afit-r.github.io/factors/) tutorial for more information on categorical variables (aka factors) in R.*
 
-<a href="#top">Go to top</a>
 
 <br>
 
@@ -255,7 +251,7 @@ hist(mtcars$mpg, breaks = 10)
 
 <img src="/public/images/visual/quickplots/unnamed-chunk-26-1.png" style="display: block; margin: auto;" />
 
-To get the same result using `qplot()` we use don't need to specify a `geom` argument as when you feed `qplot()` with a single variable it will default to using a histogram. You can also control the binning by using the `binwidth` argument. Although not necessary I add the `color` argument to outline the bars.
+To get the same result using `qplot()` we don't need to specify a `geom` argument as when you feed `qplot()` with a single variable it will default to using a histogram. You can also control the binning by using the `binwidth` argument. Although not necessary I add the `color` argument to outline the bars.
 
 
 ```r
@@ -264,12 +260,11 @@ qplot(mtcars$mpg, binwidth = 3, color = I("white"))
 
 <img src="/public/images/visual/quickplots/unnamed-chunk-27-1.png" style="display: block; margin: auto;" />
 
-<a href="#top">Go to top</a>
 
 <br>
 
 ## Box Plot {#box}
-To make a box-whisker plot (aka box plot), use plot() and pass it x values that are categorical (aka factor) and a vector of y values. However, you need to ensure that the x values are factors otherwise you will get a scatter plot by default:
+To make a box-whisker plot (aka box plot), use `plot()` and pass it x values that are categorical (aka factor) and a vector of y values. However, you need to ensure that the x values are factors otherwise you will get a scatter plot by default:
 
 
 ```r
@@ -283,7 +278,7 @@ When x is a [factor](factors) (as opposed to a numeric vector), it will automati
 
 ```r
 # if x is a factor it will produce a box plot
-plot(factor(mtcars$cyl), mtcars$mpg)
+plot(as.factor(mtcars$cyl), mtcars$mpg)
 ```
 
 <img src="/public/images/visual/quickplots/unnamed-chunk-31-1.png" style="display: block; margin: auto;" />
@@ -328,8 +323,6 @@ qplot(x = factor(cyl), y = mpg, data = mtcars, geom = "boxplot")
 
 <img src="/public/images/visual/quickplots/unnamed-chunk-38-1.png" style="display: block; margin: auto;" />
 
-<a href="#top">Go to top</a>
-
 <br>
 
 ## Stem & Leaf Plot {#stem}
@@ -361,5 +354,16 @@ stem(faithful$eruptions)
 ##   48 | 00000022335800333
 ##   50 | 0370
 ```
+
+<br>
+
+## Exercises
+
+1. Using the built-in data set `airquality`, create a scatter plot comparing the *Temp* and *Ozone* variables.  Does there appear to be a relationship?
+2. Create a histogram of the *Temp* variable.  Can you adjust the binning so that there are (approximately) 25 bins? Does this look to be approximately normally distributed?
+3. Plot the frequency of observations in each *Month*.  Are the months equally represented?
+4. Compare a histogram and a stem & leaf plot for the *Ozone* variable.
+5. Create a boxplot to view the distribution of *Ozone* for each month.  Do the distributions differ across the months?
+6. Using the built-in data set `longley`, create a line chart that illustrates the number of unemployed over the years.
 
 <a href="#top">Go to top</a>
