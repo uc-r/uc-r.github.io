@@ -4,9 +4,10 @@ title: Managing Vectors
 permalink: /vectors
 ---
 
-The basic structure in R is the vector.  A vector is a sequence of data elements of the same basic type: [integer](http://uc-r.github.io/integer_double/), [double](http://uc-r.github.io/integer_double/), logical, or [character](http://uc-r.github.io/characters) (there are two additional vector types which I will not discuss - complex and raw). This tutorial provides you with the basics of managing vectors.
+The basic structure in R is the vector.  A vector is a sequence of data elements of the same basic type: [numeric](integer_double), [character](characters), [logical](logicals), [factors](factors), or [dates](dates) (there are two additional vector types which I will not discuss - complex and raw). This tutorial provides you with the basics of managing vectors.
 
 * [Creating vectors](#creating_vectors)
+* [Coercing vectors](#coerce)
 * [Adding on to vectors](#vectors_adding)
 * [Adding attributes to vectors](#vectors_attributes)
 * [Subsetting vectors](#vectors_subsetting)
@@ -23,19 +24,14 @@ w <- 8:17
 w
 ##  [1]  8  9 10 11 12 13 14 15 16 17
 
-# double vector
+# double precision floating point (number with decimals) vector
 x <- c(0.5, 0.6, 0.2)
 x
 ## [1] 0.5 0.6 0.2
 
 # logical vector
-y1 <- c(TRUE, FALSE, FALSE)
-y1
-## [1]  TRUE FALSE FALSE
-
-# logical vector in shorthand
-y2 <- c(T, F, F) 
-y2
+y <- c(TRUE, FALSE, FALSE)
+y
 ## [1]  TRUE FALSE FALSE
 
 # Character vector
@@ -44,7 +40,7 @@ z
 ## [1] "a" "b" "c"
 ```
 
-The `seq()` function can be used to generates a vector sequence of numbers (or [dates](http://uc-r.github.io/date_sequences/)) with a specified arithmetic progression. And the `rep()` function allows us to conveniently repeat specified constants into long vectors in a collated or non-collated manner.
+The `seq()` function can be used to generate a vector of a specified sequence of numbers (or [dates](date_sequences)) with a specified arithmetic progression. And the `rep()` function allows us to conveniently repeat specified constants into long vectors in a collated or non-collated manner.
 
 
 ```r
@@ -68,20 +64,11 @@ rep(1:4, each = 2)
 ## [1] 1 1 2 2 3 3 4 4
 ```
 
-You can also use the `as.vector()` function to initialize vectors or change the vector type:
+<br>
 
+## Coercing Vectors {#coerce}
 
-```r
-v <- as.vector(8:17)
-v
-##  [1]  8  9 10 11 12 13 14 15 16 17
-
-# turn numerical vector to character
-as.vector(v, mode = "character")
-##  [1] "8"  "9"  "10" "11" "12" "13" "14" "15" "16" "17"
-```
-
-All elements of a vector must be the same type, so when you attempt to combine different types of elements they will be coerced to the most flexible type possible:
+All elements of a vector must be the same type, so when you attempt to combine different types of elements (i.e. character and numeric) they will be coerced to the most flexible type possible:
 
 
 ```r
@@ -96,6 +83,17 @@ str(c(1, 2, 3, TRUE, FALSE))
 # or character
 str(c("A", "B", "C", TRUE, FALSE))
 ##  chr [1:5] "A" "B" "C" "TRUE" "FALSE"
+```
+
+Coercion often happens automatically. Most mathematical functions (`+`, `log`, `abs`, etc.) will coerce to a double or integer, and most logical operations (`&`, `|`, `any`, etc) will coerce to a logical. You will usually get a warning message if the coercion might lose information. Often it is best to explicitly coerce with `as.character()`, `as.double()`, `as.integer()`, or `as.logical()`.  For example, the built-in vector `state.region` is a factor vector.  We can coerce this to a character vector with `as.character`.
+
+```r
+class(state.region)
+## [1] "factor"
+
+state.region2 <- as.character(state.region)
+class(state.region2)
+## [1] "character"
 ```
 
 <br>
@@ -272,5 +270,17 @@ v1[1]
 v1[[1]]
 ## [1] 8
 ```
+
+<br>
+
+## Exercises
+
+1. Check out the built-in character vector `state.name`.
+2. How many elements are in this vector?
+3. What attributes does this vector have? 
+4. Can you name each vector element with “V1”, “V2”, …, “V50” (shortcut: `paste0("v", 1:50)`)?
+5. Now what attributes does this vector have?
+6. Subset `state.name` for those elements with the following names: V35, V17, V14, V38.
+
 
 [^preserve_simplify]: See Hadley Wickham's section on [Simplifying vs. Preserving Subsetting](http://adv-r.had.co.nz/Subsetting.html#subsetting-operators) to learn more.
