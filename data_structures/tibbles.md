@@ -176,3 +176,11 @@ df %>% .[["x"]]
 #> [1] 0.434 0.395 0.548 0.762 0.254
 ```
 Note that compared to a data.frame, tibbles are more strict: they never do partial matching, and they will generate a warning if the column you are trying to access does not exist.
+
+<br>
+
+## Exercises
+
+1. How can you tell if an object is a tibble? (Hint: try printing mtcars, which is a regular data frame).
+2. In your console print the built-in data frame `airquality`.  Now convert `airquality` to a tibble, print it in your console and compare the difference.
+3. Install the `nycflights13` package and print off the data frame `flights` contained within this package.  Now convert `flights` to a tibble, print it in your console and compare the difference.
