@@ -53,6 +53,8 @@ str(df)
 ##  $ item2: Factor w/ 18 levels "A","B","C","D",..: 1 2 3 4 5 6 7 8 9 10 ...
 ```
 
+You can also use `class` to get the data structure type of each data object.  Go ahead and apply `class` to each of the four objects created. 
+
 <br>
 
 ## Understanding Attributes {#understanding_attributes}
@@ -109,4 +111,12 @@ length(df)
 ```
 This tutorial only shows you functions to assess these attributes.  In the other data structure tutorials, more details are provided on how to view and create attributes for each type of data structure.
 
+<br>
 
+## Exercises:
+
+1. Identify the data structure and attributes for the built-in `sleep` data set.
+2. Identify the data structure and attributes for the built-in `state.name` data set.
+3. Identify the data structure and attributes for the built-in `Harman74.cor` data set.
+4. Identify the data structure and attributes for the built-in `WorldPhones` data set.
+5. __Bonus:__ Identify the data structure and attributes for the built-in `Nile` data set.  What kind of data object is this?
