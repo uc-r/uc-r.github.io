@@ -312,4 +312,25 @@ m2[, 2, drop = FALSE]
 ## row_4     8
 ```
 
+<br>
+
+## Exercises
+
+1. What are the attributes of the built-in `VADeaths` data matrix?
+2. Subset this matrix for only male death rates.
+3. Subset for males death rates over the age of 60.
+4. See if you can calculate averages for each column and row.
+5. Can you figure out how to add these averages to your table so the output looks like:
+
+```
+             Rural Male Rural Female Urban Male Urban Female Avg_by_Age
+50-54             11.70         8.70      15.40         8.40     11.050
+55-59             18.10        11.70      24.30        13.60     16.925
+60-64             26.90        20.30      37.00        19.30     25.875
+65-69             41.00        30.90      54.60        35.10     40.400
+70-74             66.00        54.30      71.10        50.00     60.350
+Avg_by_Local      32.74        25.18      40.48        25.28     30.920
+```
+
+
 [^preserve_simplify]: Its important to understand the difference between simplifying and preserving subsetting.  **Simplifying** subsets returns the simplest possible data structure that can represent the output. **Preserving** subsets keeps the structure of the output the same as the input.  See Hadley Wickham's section on [Simplifying vs. Preserving Subsetting](http://adv-r.had.co.nz/Subsetting.html#subsetting-operators) to learn more.
