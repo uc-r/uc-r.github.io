@@ -339,5 +339,26 @@ l3[[2]][[1]][3]
 ## [1] "c"
 ```
 
+<br>
+
+## Exercises
+
+Install and load the `nycflights13` package.  Using the `flights` data provided by this package create the following regression model:
+
+```r
+library(nycflights13)
+
+flight_lm <- lm(arr_delay ~ dep_delay + month + carrier, data = flights)
+```
+
+
+`flight_lm` is a list containing various regression results.  Answer the following questions about this list:
+
+1. How many items are in this list?
+2. What are the names of these list items?
+3. Extract the coefficients of this model.
+4. Extract the departure delay (*dep_delay*) coefficient.
+
 [^preserve_simplify]: Its important to understand the difference between simplifying and preserving subsetting.  **Simplifying** subsets returns the simplest possible data structure that can represent the output. **Preserving** subsets keeps the structure of the output the same as the input.  See Hadley Wickham's section on [Simplifying vs. Preserving Subsetting](http://adv-r.had.co.nz/Subsetting.html#subsetting-operators) to learn more.
+
 
