@@ -8,8 +8,16 @@ Predictive methodologies use knowledge, usually extracted from historical data, 
 
 <br>
 
+## Linear Models
 - [Linear Regression](linear_regression)
+- [Linear Model Selection](model_selection)
+
+## Time Series
+- [Exploring & Visualizing Times Series](ts_exploration)
+
+## Supervised Classification
 - [Logistic Regression](logistic_regression)
 - [Linear & Quadratic Discriminant Analysis](discriminant_analysis)
-- [Resampling Methods](resampling_methods)
-- [Linear Model Selection](model_selection)
+
+## Resampling Methods
+- [Resampling Basics](resampling_methods)
