@@ -234,9 +234,13 @@ This form of plot enables the underlying seasonal pattern to be seen clearly, an
 
 Another way to look at time series data is to plot each observation against another observation that occurred some time previously. For example, you could plot $$y_t$$ against $$y_{t−1}$$. This is called a lag plot because you are plotting the time series against lags of itself. The `gglagplot()` function produces various types of lag plots.
 
-The correlations associated with the lag plots form what is called the "autocorrelation function". When these correlations are plotted, we get an ACF plot. The `ggAcf()` function produces ACF plots.
+The correlations associated with the lag plots form what is called the "autocorrelation function". Autocorrelation between $$y_t$$ and $$y_{t-k}$$ for different values of *k* can be written as:
 
-Here we look at the total quarterly beer production in Australia (in megalitres) from 1956:Q1 to 2010:Q2. The data are available in the `fpp2::ausbeer` time series data.
+$$r_k = \frac{\sum^T_{t=k+1} (y_t - \bar y)(y_{t-k} - \bar y)}{\sum^T_{t=1}(y_t - \bar y)^2} $$
+
+where *T* is the length of the time series.
+
+When these autocorrelations are plotted, we get an ACF plot. The `ggAcf()` function produces ACF plots.  Here we look at the total quarterly beer production in Australia (in megalitres) from 1956:Q1 to 2010:Q2. The data are available in the `fpp2::ausbeer` time series data.
 
 
 ```r
@@ -251,6 +255,24 @@ ggAcf(ausbeer)
 ```
 
 <img src="/public/images/analytics/time_series/unnamed-chunk-19-1.png" style="display: block; margin: auto;" />
+
+The middle plot provides the bivariate scatter plot for each level of lag (1-9 lags).  The right plot provides a condensed plot of the autocorrelation values for the first 23 lags.  The right plot shows that the greatest autocorrelation values occur at lags 4, 8, 12, 16, and 20.  We can adjust the `gglagplot` to help illustrate this relationship.  Here, we create a scatter plot for the first 16 lags.  If you look at the right-most column (lags 4, 8, 12, 16) you can see that the relationship appears strongest for these lags, thus supporting our far right plot above.
+
+<img src="/public/images/analytics/time_series/lagplot2, -1.png" style="display: block; margin: auto;" />
+
+We can also access these autocorrelation values with `Acf`.  Here, we can see that the autocorrelation for the two strongest lags (4 and 8) is 0.94 and 0.887.
+
+
+```r
+acf(ausbeer, plot = FALSE)
+## 
+## Autocorrelations of series 'ausbeer', by lag
+## 
+##  0.00  0.25  0.50  0.75  1.00  1.25  1.50  1.75  2.00  2.25  2.50  2.75 
+## 1.000 0.684 0.500 0.667 0.940 0.644 0.458 0.621 0.887 0.598 0.410 0.574 
+##  3.00  3.25  3.50  3.75  4.00  4.25  4.50  4.75  5.00  5.25  5.50  5.75 
+## 0.835 0.543 0.354 0.519 0.770 0.481 0.300 0.454 0.704 0.418 0.236 0.393
+```
 
 When data are either seasonal or cyclic, the ACF will peak around the seasonal lags or at the average cycle length.  Thus, we see that the maximal autocorrelation for the `ausbeer` data occurs at a lag of 4 (right plot above).  This makes sense since this is quarterly production data so the highest correlated value for a particular quarter will be the same quarter in the previous year.
 
