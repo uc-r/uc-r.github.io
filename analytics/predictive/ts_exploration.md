@@ -163,7 +163,7 @@ summary(japan)
 ##   9.321  74.135 135.461 122.080 176.752 227.641
 ```
 
-You can also use the `frequency()` function to get the number of observations per unit time. This example returns 4 which means the data is recorded on a quarterly interval.
+You can also use the `frequency()` function to get the number of observations per unit time. This example returns 4 which means the data are recorded on a quarterly interval.
 
 
 ```r
@@ -234,11 +234,11 @@ This form of plot enables the underlying seasonal pattern to be seen clearly, an
 
 Another way to look at time series data is to plot each observation against another observation that occurred some time previously. For example, you could plot $$y_t$$ against $$y_{t−1}$$. This is called a lag plot because you are plotting the time series against lags of itself. The `gglagplot()` function produces various types of lag plots.
 
-The correlations associated with the lag plots form what is called the "autocorrelation function". Autocorrelation between $$y_t$$ and $$y_{t-k}$$ for different values of *k* can be written as:
+The correlations associated with the lag plots form what is called the "autocorrelation function". Autocorrelation is nearly the same as correlation, which you can learn about in the [Assessing Correlations](correlations) tutorial. However, autocorrelation is the correlation of a time series with a delayed copy of itself. Autocorrelation between $$y_t$$ and $$y_{t-k}$$ for different values of *k* can be written as:
 
 $$r_k = \frac{\sum^T_{t=k+1} (y_t - \bar y)(y_{t-k} - \bar y)}{\sum^T_{t=1}(y_t - \bar y)^2} $$
 
-where *T* is the length of the time series.
+where *T* is the length of the time series.  And similar to correlation, autocorrelation will always between +1 and -1.
 
 When these autocorrelations are plotted, we get an ACF plot. The `ggAcf()` function produces ACF plots.  Here we look at the total quarterly beer production in Australia (in megalitres) from 1956:Q1 to 2010:Q2. The data are available in the `fpp2::ausbeer` time series data.
 
@@ -343,7 +343,7 @@ ggAcf(wn)
 
 <img src="/public/images/analytics/time_series/unnamed-chunk-27-1.png" style="display: block; margin: auto;" />
 
-Assessing autocorrelation can be quite useful for data sets where trends and seasonalities are heard to see.  For example, the following displays the monthly number of pigs slaughtered in Victoria, Australia from 1990-1995.  There may be a slight trend over time but it is unclear.
+Assessing autocorrelation can be quite useful for data sets where trends and seasonalities are hard to see.  For example, the following displays the monthly number of pigs slaughtered in Victoria, Australia from 1990-1995.  There may be a slight trend over time but it is unclear.
 
 
 ```r
@@ -354,7 +354,7 @@ autoplot(pigs.ts)
 
 <img src="/public/images/analytics/time_series/unnamed-chunk-28-1.png" style="display: block; margin: auto;" />
 
-However, looking at the ACF plot makes the feature more clear. There is more information in this data than the plain time series plot provided.  We see that the first three lags clearly exceed the blue line suggesting there is possible some signal in this time series component that can be used in a forecasting approach.
+However, looking at the ACF plot makes the feature more clear. There is more information in this data then the plain time series plot provided.  We see that the first three lags clearly exceed the blue line suggesting there is possible some signal in this time series component that can be used in a forecasting approach.
 
 
 ```r
@@ -365,7 +365,7 @@ ggAcf(pigs.ts)
 
 The ACF plots test if an individual lag autocorrelation is different than zero.  An alternative approach is to use the Ljung-Box test, which tests whether any of a group of autocorrelations of a time series are different from zero.  In essence it tests the "overall randomness" based on a number of lags.  If the result is a small *p*-value than it indicates the data are probably not white noise.
 
-Here, we perform a Ljung-Box test on the first 24 lag autocorrelations. The resulting *p*-value is significant at $$p < .001$$ so this supports our ACF plot consideration above where we stated its likely this is not purely white noise and that some time series information exists in this data.
+Here, we perform a Ljung-Box test on the first 24 lag autocorrelations. The resulting *p*-value is significant at $$p < .001$$ so this supports our ACF plot consideration above where we stated it's likely this is not purely white noise and that some time series information exists in this data.
 
 
 ```r
