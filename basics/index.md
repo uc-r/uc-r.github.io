@@ -114,8 +114,8 @@ exists("x")
 # remove defined object from the environment
 rm(x)            
 
-# you can remove multiple objects by using the `c()` function
-rm(c(x, y))  
+# you can remove multiple objects
+rm(x, y)  
 
 # basically removes everything in the working environment -- use with caution!
 rm(list = ls())              
@@ -356,7 +356,7 @@ x * Y * z
 
 ### Basic Arithmetic
 
-At its most basic function R can be used as a calculator.  When applying basic arithmetic, the PEMBDAS order of operations applies: **p**arentheses first followed by **e**xponentiation, **m**ultiplication and **d**ivision, and final **a**ddition and **s**ubtraction.
+At its most basic function R can be used as a calculator.  When applying basic arithmetic, the PEMDAS order of operations applies: **p**arentheses first followed by **e**xponentiation, **m**ultiplication and **d**ivision, and final **a**ddition and **s**ubtraction.
 
 
 ```r
@@ -469,7 +469,7 @@ sqrt(-9)        # square root of -9
 
 ### Exercises
 
-1. Create variables `D = 1000`, `K = 5`, and `h = 0.05`.
+1. Assign the values 1000, 5, and 0.05 to variables `D`, `K`, and `h` respectively.
 2. Compute $$2 \times D \times K$$.
 3. Compute $$\frac{2 \times D \times K}{h}$$.
 4. Now put this together to compute the Economic Order Quantity, which is $$\sqrt{\frac{2 \times D \times K}{h}}$$.  Save the output as `Q`.  (hint: you'll probably need the `sqrt()` function in R)
@@ -556,7 +556,7 @@ long * c
 ##  [1]  3  6  9 12 15 18 21 24 27 30
 ```
 
-There are no scalars[^scalars] in R, so `c` is actually a vector of length 1; in order to add its value to every element of `long`, it is recycled to match the length of `long`.
+There are no [scalars](https://softwareengineering.stackexchange.com/questions/238033/what-does-it-mean-when-data-is-scalar) in R, so `c` is actually a vector of length 1; in order to add its value to every element of `long`, it is recycled to match the length of `long`.
 
 When the length of the longer object is a multiple of the shorter object length, the recycling occurs silently. When the longer object length is not a multiple of the shorter object length, a warning is given:
 
@@ -611,7 +611,7 @@ If files need to be run in sequence, prefix them with numbers:
 3-fit-model.R
 ```
 
-In R, naming conventions for variables and function are famously muddled. They include the following:
+In R, naming conventions for variables and functions are famously muddled. They include the following:
 
 
 ```r
