@@ -324,6 +324,7 @@ readr::read_rds("mydata.rds")
 In addition to text and Excel files, there are multiple other ways that data are stored and exchanged.  Commercial statistical software such as SPSS, SAS, Stata, and Minitab often have the option to store data in a specific format for that software.  In addition, analysts commonly use databases to store large quantities of data.  R has good support to work with these additional options which we did not cover here.  The following provides a list of additional resources to learn about data importing for these specific cases:
 
 * [R data import/export manual](https://cran.r-project.org/doc/manuals/R-data.html)
+* See what's new in the `readxl` package with this [RStudio webinar](https://www.rstudio.com/resources/webinars/whats-new-with-readxl/)
 * [Working with databases](https://cran.r-project.org/doc/manuals/R-data.html#Relational-databases)
     * [MySQL](https://cran.r-project.org/web/packages/RMySQL/index.html)
     * [Oracle](https://cran.r-project.org/web/packages/ROracle/index.html)
