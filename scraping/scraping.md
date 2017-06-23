@@ -15,6 +15,8 @@ My purpose in the following sections is to discuss these topics at a level meant
 - [Scraping HTML table data](#scraping_HTML_tables)
 - [Leveraging APIs to scrape data](#scraping_api)
 
+*Note: the examples provided below were performed in 2015. Consequently, if you apply the code provide throughout these examples your outputs may differ due to webpages and their content changing over time.* 
+
 <br>
 
 ## Importing Spreadsheet Data Files Stored Online {#importing_spreadsheet_data}
@@ -61,7 +63,37 @@ rents[1:6, 1:10]
 ## 6 101199999 101199999  599  481  505  791 1061     11     1  99999
 ```
 
-Note that many of the arguments covered in the [Importing Data chapter](http://uc-r.github.io/import#import_excel_files) (i.e. specifying sheets to read from, skipping lines) also apply to `read.xls()`. In addition, `gdata` provides some useful functions (`sheetCount()` and `sheetNames()`) for identifying if multiple sheets exist prior to downloading.  Check out `?gdata` for more help.
+Note that many of the arguments covered in the [Importing Data section](import#import_excel_files) (i.e. specifying sheets to read from, skipping lines) also apply to `read.xls()`. In addition, `gdata` provides some useful functions (`sheetCount()` and `sheetNames()`) for identifying if multiple sheets exist prior to downloading.  Check out `?gdata` for more help.
+
+<hr>
+
+__Special note when using gdata on Windows:__  When downloading excel spreadsheets from the internet, Mac users will be able to install the `gdata` package, attach the library, and be highly functional right away. Windows users, on the other hand, do not have a Perl interpreter installed by default.
+
+
+```r
+install.packages("gdata")
+```
+
+If you are a Windows user and attempt to attach the `gdata` library immediately after installation, you will likely receive the warning message given in Figure 1. You will not be able to download excel spreadsheets from the internet without installing some additional software.
+
+<div class="figure" style="text-align: center">
+<center>
+<img src="/public/images/importing/perlmissing.jpg" alt="gdata without Perl" width="600px" />
+<p class="caption">gdata without Perl</p>
+</center>
+</div>
+
+Unfortunately, it's not as straightforward to fix as the error message would indicate. Running ``installXLSXsupport()`` won't completely solve your problem without Perl software installed. In order for gdata to function properly, you must install ActiveState Perl using the following link: http://www.activestate.com/activeperl/. The download could take up to 10 minutes or so, and when finished, you will need to find where the software was stored on your machine (likely directly on the C:/ Drive).
+
+Once Perl software has been installed, you will need to direct R to find it each time you call the function.
+
+
+```r
+# use read.xls to import
+rents <- read.xls(url, perl = "C:/Perl64/bin/perl.exe")
+```
+
+<hr>
 
 Another common form of file storage is using zip files.  For instance, the [Bureau of Labor Statistics](http://www.bls.gov/home.htm) (BLS) stores their [public-use microdata](http://www.bls.gov/cex/pumdhome.htm) for the [Consumer Expenditure Survey](http://www.bls.gov/cex/home.htm) in .zip files.  We can use `download.file()` to download the file to your working directory and then work with this data as desired.
 
@@ -119,7 +151,7 @@ zip_data2[1:5, 1:10]
 ## 5 2825381     0 2.50    2        2  20510        3        D        2        D
 ```
 
-One last common scenario I'll cover when importing spreadsheet data from online is when we identify multiple data sets that we'd like to download but are not centrally stored in a single .zip format or the like. For example there are multiple data files scattered throughout the [Maryland State Board of Elections websiteMaryland State Board of Elections website](http://www.elections.state.md.us/elections/2012/election_data/index.html) that we may want to download.  The first objective here is to identify the relevant links.  The [`XML`](https://cran.r-project.org/web/packages/XML/index.html) package provides the useful `getHTMLLinks()` function to identify these links.
+One last common scenario I'll cover when importing spreadsheet data from online is when we identify multiple data sets that we'd like to download but are not centrally stored in a single .zip format or the like. For example there are multiple data files scattered throughout the [Maryland State Board of Elections website](http://www.elections.state.md.us/elections/2012/election_data/index.html) that we may want to download.  The first objective here is to identify the relevant links.  The [`XML`](https://cran.r-project.org/web/packages/XML/index.html) package provides the useful `getHTMLLinks()` function to identify these links.
 
 
 ```r
@@ -299,7 +331,7 @@ p_text[1]
 ## [1] "Web scraping (web harvesting or web data extraction) is a computer software technique of extracting information from websites. Usually, such software programs simulate human exploration of the World Wide Web by either implementing low-level Hypertext Transfer Protocol (HTTP), or embedding a fully-fledged web browser, such as Mozilla Firefox."
 ```
 
-Not too bad; however, we may not have captured all the text that we were hoping for.  Since we extracted text for all `<p>` nodes, we collected all identified paragraph text; however, this does not capture the text in the bulleted lists.  For example, when you look at the [Web Scraping Wikipedia page](https://en.wikipedia.org/wiki/Web_scraping) you will notice a significant amount of text in bulleted list format following the third paragraph under the [Techniques](https://en.wikipedia.org/wiki/Web_scraping#Techniques) heading.  If we look at our data we'll see that that the text in this list format are not capture between the two paragraphs:
+Not too bad; however, we may not have captured all the text that we were hoping for.  Since we extracted text for all `<p>` nodes, we collected all identified paragraph text; however, this does not capture the text in the bulleted lists.  For example, when you look at the [Web Scraping Wikipedia page](https://en.wikipedia.org/wiki/Web_scraping) you will notice a significant amount of text in bulleted list format following the third paragraph under the **[Techniques](https://en.wikipedia.org/wiki/Web_scraping#Techniques)** heading.  If we look at our data we'll see that that the text in this list format are not capture between the two paragraphs:
 
 
 ```r
@@ -438,7 +470,7 @@ scraping_wiki %>%
 ```
 
 ### Cleaning up
-With any webscraping activity, especially involving text, there is likely to be some clean up involved. For example, in the previous example we saw that we can specifically pull the list of [**Notable Tools**](https://en.wikipedia.org/wiki/Web_scraping#Notable_tools); however, you can see that in between each list item rather than a space there contains one or more `\n` which is used in HTML to specify a new line. We can clean this up quickly with a little [character string manipulation](http://uc-r.github.io/characters).
+With any webscraping activity, especially involving text, there is likely to be some clean up involved. For example, in the previous example we saw that we can specifically pull the list of [**Notable Tools**](https://en.wikipedia.org/wiki/Web_scraping#Notable_tools); however, you can see that in between each list item rather than a space there contains one or more `\n` which is used in HTML to specify a new line. We can clean this up quickly with a little [character string manipulation](characters).
 
 
 ```r
@@ -472,7 +504,7 @@ scraping_wiki %>%
 ```
 
 
-Similarly, as we saw in our example above with scraping the main body content (`body_text`), there are extra characters (i.e. `\n`, `\`, `^`) in the text that we may not want.  Using a [little regex](http://uc-r.github.io/regex) we can clean this up so that our character string consists of only text that we see on the screen and no additional HTML code embedded throughout the text.
+Similarly, as we saw in our example above with scraping the main body content (`body_text`), there are extra characters (i.e. `\n`, `\`, `^`) in the text that we may not want.  Using a [little regex](regex) we can clean this up so that our character string consists of only text that we see on the screen and no additional HTML code embedded throughout the text.
 
 
 ```r
@@ -663,7 +695,7 @@ length(tbls_xml)
 ## [1] 15
 ```
 
-You can see that `tbls_xml` captures the same 15 `<table>` nodes that `html_nodes` captured. To capture the same tables of interest we previously discussed (*Table 2. Nonfarm employment...* and *Table 3. Net birth/death...*) we can use a couple approaches. First, we can assess `str(tbls_xml)` to identify the tables of interest and perform normal [list subsetting](http://uc-r.github.io/lists#lists_subsetting). In our example list items 3 and 4 correspond with our tables of interest.
+You can see that `tbls_xml` captures the same 15 `<table>` nodes that `html_nodes` captured. To capture the same tables of interest we previously discussed (*Table 2. Nonfarm employment...* and *Table 3. Net birth/death...*) we can use a couple approaches. First, we can assess `str(tbls_xml)` to identify the tables of interest and perform normal [list subsetting](lists#lists_subsetting). In our example list items 3 and 4 correspond with our tables of interest.
 
 
 ```r
@@ -892,7 +924,7 @@ List of 4
   .. .. .. .. ..$ value     : chr "1383"
 ```
 
-One of the inconveniences of an API is we do not get to specify how the data we receive is formatted. This is a minor price to pay considering all the other benefits APIs provide. Once we understand the received data format we can typically re-format using a little [list subsetting](http://uc-r.github.io/lists#lists_subsetting) and [`for` looping](http://uc-r.github.io/control_statements#for_loop).
+One of the inconveniences of an API is we do not get to specify how the data we receive is formatted. This is a minor price to pay considering all the other benefits APIs provide. Once we understand the received data format we can typically re-format using a little [list subsetting](lists#lists_subsetting) and [`for` looping](control_statements#for_loop).
 
 
 
@@ -1001,7 +1033,7 @@ climate$data
 ## Variables not shown: fl_so (chr), fl_t (chr)
 ```
 
-Since we recently had some snow here let's pull data on snow fall for 2015. We adjust the limit argument (by default `ncdc` limits results to 25) and identify the data type we want.  By sorting we see what days experienced the greatest snowfall (don't worry, the results are reported in mm!).
+At the time of this post we had recently had some snow here so let's pull data on snow fall for 2015. We adjust the limit argument (by default `ncdc` limits results to 25) and identify the data type we want.  By sorting we see what days experienced the greatest snowfall (don't worry, the results are reported in mm!).
 
 
 ```r
@@ -1325,7 +1357,7 @@ Also, note that `httr` provides several other useful functions not covered here 
 
 1. Go to [opendatanetwork.com](https://www.opendatanetwork.com), search for open source data sets in your metropolitan area.
 2. Now use the [RSocrata](https://cran.r-project.org/web/packages/RSocrata/index.html) package to connect with one of these data set APIs and import the data.
-3. Use the recently published [rscorecard](https://cran.r-project.org/web/packages/rscorecard/index.html) package to download Department of Education College Scorecard data for your undergrad school.
+3. Use the [rscorecard](https://cran.r-project.org/web/packages/rscorecard/index.html) package to download Department of Education College Scorecard data for your undergrad school.
 
 
 [^fn_scrap1]: In [Automated Data Collection with R](http://www.amazon.com/Automated-Data-Collection-Practical-Scraping/dp/111883481X/ref=pd_sim_14_1?ie=UTF8&dpID=51Tm7FHxWBL&dpSrc=sims&preST=_AC_UL160_SR108%2C160_&refRID=1VJ1GQEY0VCPZW7VKANX") Munzert et al. state that "[t]he first way to get data from the web is almost too banal to be considered here and actually not a case of web scraping in the narrower sense."
