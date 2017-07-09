@@ -79,7 +79,7 @@ You will notice the forecast output provides a point forecast (the last observed
 
 $$\hat y_t \pm 1.96 \hat{\sigma} \tag{2}$$
 
-where $\hat{\sigma}$ is an estimate of the standard deviation of the forecast distribution. In forecasting, it is common to calculate 80% intervals and 95% intervals, although any percentage may be used.
+where $$\hat{\sigma}$$ is an estimate of the standard deviation of the forecast distribution. In forecasting, it is common to calculate 80% intervals and 95% intervals, although any percentage may be used.
 
 When forecasting one-step ahead, the standard deviation of the forecast distribution is almost the same as the standard deviation of the residuals. (In fact, the two standard deviations are identical if there are no parameters to be estimated such as with the naive method. For forecasting methods involving parameters to be estimated, the standard deviation of the forecast distribution is slightly larger than the residual standard deviation, although this difference is often ignored.)
 
