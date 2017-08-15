@@ -43,7 +43,7 @@ Since we have limited class time be sure you have R and RStudio downloaded and o
 
 ### Material
 
-You can download the required classroom material here: &nbsp; <a href="" style="color:black;"><i class="fa fa-folder-open" style="font-size:1em"></i></a>.  In this file you will find the slides, data, and initial code scripts that we will go through in class.
+You can download the required classroom material here: &nbsp; <a href="" style="color:black;"><i class="fa fa-spinner fa-pulse fa-3x fa-fw" style="font-size:1em"></i></a> (coming soon - check back on Thursday).  In this file you will find the slides, data, and initial code scripts that we will go through in class.
 
 
 
