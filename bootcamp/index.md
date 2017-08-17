@@ -43,7 +43,7 @@ Since we have limited class time be sure you have R and RStudio downloaded and o
 
 ### Material
 
-You can download the required classroom material here: <a href="https://www.dropbox.com/sh/2qv0a02l9ausnyh/AAD0cRwMz_qTU-w15TwDxgLSa?dl=1" style="color:black;"><i class="fa fa-folder-open" style="font-size:1em"></i></a> (coming soon - check back on Thursday).  In this file you will find the slides, data, and initial code scripts that we will go through in class.
+You can download the required classroom material here: <a href="https://www.dropbox.com/sh/2qv0a02l9ausnyh/AAD0cRwMz_qTU-w15TwDxgLSa?dl=1" style="color:black;"><i class="fa fa-folder-open" style="font-size:1em"></i></a>.  In this file you will find the slides, data, and initial code scripts that we will go through in class.
 
 
 
