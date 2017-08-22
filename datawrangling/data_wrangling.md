@@ -40,7 +40,7 @@ Upon successfully completing this course, you will be able to:
 
 ## Class Structure 
 
-Each week you will read and work through selected tutorials on specific data wrangling activities in R.  In this class I blend external interactive learning modules via [Datacamp.com](https://www.datacamp.com/groups/data-wrangling-with-r) where you will complete specified modules prior to each Saturday session. Then in each Saturday class I’ll spend the first part of class reviewing the data wrangling activity and answer any burning questions. Then you will break up into defined small groups and work together to complete a data wrangling problem prior to the end of class.  Thus, the majority of class time will be spent practicing and applying what you learned outside of the classroom.
+Each week you will read and work through selected tutorials on specific data wrangling activities in R.  In this class I blend external interactive learning modules via [DataCamp.com](https://www.datacamp.com/groups/data-wrangling-with-r) where you will complete specified modules prior to each Saturday session. Then in each Saturday class I’ll spend the first part of class reviewing the data wrangling activity and answer any burning questions. Then you will break up into defined small groups and work together to complete a data wrangling problem prior to the end of class.  Thus, the majority of class time will be spent practicing and applying what you learned outside of the classroom.
 
 The purpose for this course structure is multi-dimensional:
 
