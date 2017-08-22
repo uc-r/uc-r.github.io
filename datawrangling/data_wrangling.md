@@ -2,7 +2,7 @@
 title: Course&#58; Data Wrangling with R
 author: Brad Boehmke
 layout: page
-permalink: /data_wrangling/syllabus
+permalink: /data_wrangling
 ---
 
 Welcome to Data Wrangling with R! This course provides an intensive, hands-on introduction to Data Wrangling with the R programming language. You will learn the fundamental skills required to acquire, munge, transform, manipulate, and visualize data in a computing environment that fosters reproducibility.
@@ -16,10 +16,10 @@ Welcome to Data Wrangling with R! This course provides an intensive, hands-on in
   <a href="https://github.com/bradleyboehmke" target="_blank" style="color:#515151;"><i class="fa fa-github" style="font-size:1em"></i></a> &nbsp;
   <a href="https://www.linkedin.com/in/brad-boehmke-ph-d-9b0a257" target="_blank" style="color:#515151;"><i class="fa fa-linkedin" style="font-size:1em"></i></a>
 * Day(s): Saturdays
-* Time: 2:00-3:50
+* Time: 1:00-4:50
 * Location: Lindner 110
-* Webpage: [http://uc-r.github.io/data_wrangling](http://uc-r.github.io/data_wrangling/syllabus)
-* Additional Resources: [http://uc-r.github.io/](http://uc-r.github.io/)
+* Webpage: [http://uc-r.github.io/data_wrangling](http://uc-r.github.io/data_wrangling)
+* Additional Resources: [http://uc-r.github.io](http://uc-r.github.io/)
 
 
 ## Course Objectives
@@ -40,14 +40,13 @@ Upon successfully completing this course, you will be able to:
 
 ## Class Structure 
 
-Each week I plan to have you read through selected tutorials on specific data wrangling activities in R. I will assign problems/activities that you will need to perform prior to each Saturday session. Then in each Saturday class I'll spend about 30 minutes reviewing the data wrangling activity and answer any burning questions. Then you will break up into defined small groups and review each others code and approaches to solving the assigned problems. And finally, for the last hour of class you and your small group will work together to complete another problem within this same data wrangling domain.
+Each week you will read and work through selected tutorials on specific data wrangling activities in R.  In this class I blend external interactive learning modules via [Datacamp.com](https://www.datacamp.com/groups/data-wrangling-with-r) where you will complete specified modules prior to each Saturday session. Then in each Saturday class I’ll spend the first part of class reviewing the data wrangling activity and answer any burning questions. Then you will break up into defined small groups and work together to complete a data wrangling problem prior to the end of class.  Thus, the majority of class time will be spent practicing and applying what you learned outside of the classroom.
 
 The purpose for this course structure is multi-dimensional:
 
-1. It will teach you to read and learn R programming tutorials and techniques on your own
-2. The out-of-class assignments will force you to come to each class prepared and these assignments will also prepare you for your final project
-3. The in-class peer review will help you get feedback on your code and also teach you to review other people's code
-4. The in-class small group work will teach you to work on a coding task collaboratively and within a constrained time limit
+1. It will teach you to read and learn R programming tutorials and techniques on your own.  
+2. The out-of-class modules will force you to come to each class prepared and these modules will also prepare you for your final project.  
+3. The in-class small group work will teach you to work on a coding task collaboratively and within a constrained time limit and also teach you to assess other people’s code.
 
 
 ## Material
@@ -56,42 +55,38 @@ All required classroom material will be provided in class or online. Any recomme
 
 ## Schedule
 
-
-
 | Session       | Description  |
 |:-------------:|--------------|
-| **1**         | **Introduction** &nbsp;&nbsp; <a href="http://uc-r.github.io/data_wrangling/week-1" style="color:black;"><i class="fa fa-folder-open" style="font-size:1em"></i></a> |
+| **1**         | **Introduction** &nbsp;&nbsp; <a href="" style="color:black;"><i class="fa fa-folder-open" style="font-size:1em"></i></a> |
 |               | Intro to data wrangling, R, and course outline  |
-|               | Managing your workflow with RStudio Projects, R Markdown, and R Notebook |
-| **2**         | **Getting Your Data** &nbsp;&nbsp; <a href="http://uc-r.github.io/data_wrangling/week-2" style="color:black;"><i class="fa fa-folder-open" style="font-size:1em"></i></a>  |
-|               | Importing and exporting data  |
-|               | Scraping text & tables |
-| **3**         | **First Date Guidelines for Data** &nbsp;&nbsp; <a href="http://uc-r.github.io/data_wrangling/week-3" style="color:black;"><i class="fa fa-folder-open" style="font-size:1em"></i></a>  |
-|               | Understanding the basics of your data
-|               | Initial visualizations |
-| **4**         | **Exploratory Data Analysis**  &nbsp;&nbsp; <a href="http://uc-r.github.io/data_wrangling/week-4" style="color:black;"><i class="fa fa-folder-open" style="font-size:1em"></i></a>  |
-|               | Transforming your data |
-|               | Advancing your visualizations |
-| **5**         | **Controlling Your Data**  &nbsp;&nbsp; <a href="http://uc-r.github.io/data_wrangling/week-5" style="color:black;"><i class="fa fa-folder-open" style="font-size:1em"></i></a>   |
-|               | Data frames vs. Tibbles  |
-|               | Tidy data |
+|               | Managing your workflow and reproducibility |
+| **2**         | **First Date Guidelines for Data** &nbsp;&nbsp; <a href="" style="color:black;"><i class="fa fa-folder-open" style="font-size:1em"></i></a>  |
+|               | Importing data  |
+|               | Understanding the basics of your data |
+| **3**         | **Data Structures & Cleaning** &nbsp;&nbsp; <a href="" style="color:black;"><i class="fa fa-folder-open" style="font-size:1em"></i></a>  |
+|               | Understanding data structures
+|               | Tidying & preparing data for analysis |
+| **4**         | **Data Transformations**  &nbsp;&nbsp; <a href="" style="color:black;"><i class="fa fa-folder-open" style="font-size:1em"></i></a>  |
+|               | Data manipulation |
 |               | Relational data |
-| **6**         | **Dealing with Different Types of Data**  &nbsp;&nbsp; <a href="http://uc-r.github.io/data_wrangling/week-6" style="color:black;"><i class="fa fa-folder-open" style="font-size:1em"></i></a>  |
-|               | Strings  |
-|               | Factors |
-|               | Dates and times |
-| **7**         | **Creating Efficient Code in R**  &nbsp;&nbsp; <a href="http://uc-r.github.io/data_wrangling/week-7" style="color:black;"><i class="fa fa-folder-open" style="font-size:1em"></i></a>   |
-|               | Writing functions  |
-|               | Iteration |
+| **5**         | **Data Visualizations**  &nbsp;&nbsp; <a href="" style="color:black;"><i class="fa fa-folder-open" style="font-size:1em"></i></a>   |
+|               | Data visualization  |
+| **6**         | **Creating Efficient Code in R**  &nbsp;&nbsp; <a href="" style="color:black;"><i class="fa fa-folder-open" style="font-size:1em"></i></a>   |
+|               | Control statements & iteration  |
+|               | Writing functions |
+| **7**         | **Introduction to Applied Modeling**  &nbsp;&nbsp; <a href="" style="color:black;"><i class="fa fa-folder-open" style="font-size:1em"></i></a>   |
+|               | Correlation & regression  |
+|               | Introduction to machine learning |
 
 
 ## Grading Policies
 
 Course grades will consist of: 
 
-- 40% [final project](final-project)
-- 30% [homework](homework-guidelines)
-- 30% [engagement](engagement)
+- 20% [DataCamp Modules](DataCamp)
+- 20% [Mid-term Project Evaluation](mid-term)
+- 50% [Final Project](final-project)
+- 10% [Engagement](engagement)
 - There will be no final exam
 
 Final grades will be distributed according to the following cutoffs:
