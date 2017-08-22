@@ -14,7 +14,7 @@ permalink: /r_bootcamp
 
 ### Class Information
 
-* Time: August 18, 8:00-5:00
+* Time: August 19, 8:00-5:00
 * Location: [Old Chem 525](https://www.google.com/maps/place/Old+Chemistry,+Cincinnati,+OH+45219/@39.1332449,-84.5197717,17z/data=!3m1!4b1!4m5!3m4!1s0x8841b38b8e12d73f:0xd3ff6de37f352e82!8m2!3d39.1332449!4d-84.517583)
 * Webpage: [http://uc-r.github.io/r_bootcamp](http://uc-r.github.io/r_bootcamp)
 * Additional Resources: [http://uc-r.github.io/](http://uc-r.github.io/)
