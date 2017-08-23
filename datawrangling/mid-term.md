@@ -5,7 +5,7 @@ layout: tutorial
 permalink: /data_wrangling/mid-term
 ---
 
-Throughout the term you will progressively create your final project.  You will submit your final project progress midway through the course for a progress evaluation.  This progress check will provide you direction for final completion.  This mid-term report will be rendered as an R Markdown HTML product.  You will need to upload your HTML report to [RPubs](https://rpubs.com/) and then send me the url via Slack. The following describes each deliverable and provides the expectations based on the [final project standards](data_wrangling/final-project):
+Throughout the term you will progressively create your final project.  You will submit your progress midway through the course for a progress evaluation.  This progress check will allow me to provide you direction for final completion.  This mid-term report will be rendered as an R Markdown HTML product.  You will need to upload your HTML report to [RPubs](https://rpubs.com/) and then send me the url via Slack. The following describes each deliverable and provides the expectations based on the [final project standards](final-project):
 
 
 <div id="final-project-rubric" class="section level1" style="width: 120%;">
@@ -64,7 +64,7 @@ Throughout the term you will progressively create your final project.  You will 
 <tr class="odd">
 <td align="left" valign="top">Formatting & Other Requirements </td>
 <td align="left" valign="top"> 
-  <b>7.1</b> Proper coding style is followed and code is well commented (see section regarding <a href="http://uc-r.github.io/basics#style">syle</a>). <br>
+  <b>7.1</b> All code is visible, proper coding style is followed, and code is well commented (see section regarding <a href="http://uc-r.github.io/basics#style">syle</a>). <br>
   <b>7.2</b> Coding is systematic - complicated problem broken down into sub-problems that are individually much simpler. Code is efficient, correct, and minimal. Code uses appropriate data structure (list, data frame, vector/matrix/array). Code checks for common errors. <br>
   <b>7.3</b> Achievement, mastery, cleverness, creativity:  Tools and techniques from the course are applied very competently and, perhaps,somewhat creatively. Perhaps student has gone beyond what was expected and required, e.g., extraordinary effort, additional tools not addressed by this course, unusually sophisticated application of tools from course. <br>
   <b>7.4</b> .Rmd fully executes without any errors and HTML produced matches the HTML report submitted by student.
