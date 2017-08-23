@@ -20,6 +20,8 @@ Welcome to Data Wrangling with R! This course provides an intensive, hands-on in
 * Location: Lindner 110
 * Webpage: [http://uc-r.github.io/data_wrangling](http://uc-r.github.io/data_wrangling)
 * Additional Resources: [http://uc-r.github.io](http://uc-r.github.io/)
+* Hardcopy Syllabus: &nbsp;
+  <a href="https://www.dropbox.com/s/ap56ezlnzcgsel9/Data%20Wrangling%20with%20R%20Syllabus.docx?dl=1" target="_blank" style="color:#515151;"><i class="fa fa-cloud-download" style="font-size:1em"></i></a>
 
 
 ## Course Objectives
