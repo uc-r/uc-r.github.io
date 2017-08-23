@@ -4,7 +4,7 @@ title: R Basics
 date: 2016-06-10
 author: Brad Boehmke
 layout: page
-permalink: /section2_basics
+permalink: /basics
 ---
 
 > *"Programming is like kicking yourself in the face, sooner or later your nose will bleed."* - Kyle Woodbury
