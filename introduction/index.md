@@ -4,7 +4,7 @@ title: Introduction to R
 date: 2016-06-10
 author: Brad Boehmke
 layout: page
-permalink: /section1_intro
+permalink: /introduction
 ---
 
 A language for data analysis and graphics. This definition of R was used by Ross Ihaka and Robert Gentleman in the title of their 1996 [paper](https://www.stat.auckland.ac.nz/~ihaka/downloads/R-paper.pdf) outlining their experience of designing and implementating the R software. It’s safe to say this remains the essence of what R is; however, it’s tough to encapsulate such a diverse programming language into a single phrase.
