@@ -85,7 +85,7 @@ All required classroom material will be provided in class or online. Any recomme
 
 Course grades will consist of: 
 
-- 20% [DataCamp Modules](DataCamp)
+- 20% [DataCamp Modules](data_wrangling/datacamp)
 - 20% [Mid-term Project Evaluation](mid-term)
 - 50% [Final Project](final-project)
 - 10% [Engagement](data_wrangling/engagement)
