@@ -59,7 +59,7 @@ All required classroom material will be provided in class or online. Any recomme
 
 | Session       | Description  |
 |:-------------:|--------------|
-| **1**         | **Introduction** &nbsp;&nbsp; <a href="" style="color:black;"><i class="fa fa-folder-open" style="font-size:1em"></i></a> |
+| **1**         | **Introduction** &nbsp;&nbsp; <a href="http://uc-r.github.io/data_wrangling/week-1" style="color:black;"><i class="fa fa-folder-open" style="font-size:1em"></i></a> |
 |               | Intro to data wrangling, R, and course outline  |
 |               | Managing your workflow and reproducibility |
 | **2**         | **First Date Guidelines for Data** &nbsp;&nbsp; <a href="" style="color:black;"><i class="fa fa-folder-open" style="font-size:1em"></i></a>  |
