@@ -88,7 +88,7 @@ Course grades will consist of:
 - 20% [DataCamp Modules](DataCamp)
 - 20% [Mid-term Project Evaluation](mid-term)
 - 50% [Final Project](final-project)
-- 10% [Engagement](engagement)
+- 10% [Engagement](data_wrangling/engagement)
 - There will be no final exam
 
 Final grades will be distributed according to the following cutoffs:
