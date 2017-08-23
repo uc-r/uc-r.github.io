@@ -73,5 +73,5 @@ Throughout the term you will progressively create your final project.  You will 
 </tr>
 </tbody>
 </table>
-<p><em>Total possible points: 35</em></p>
+<p><em>Total possible points: 40</em></p>
 </div>
