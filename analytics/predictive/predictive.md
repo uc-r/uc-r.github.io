@@ -11,6 +11,7 @@ Predictive methodologies use knowledge, usually extracted from historical data, 
 ## Linear Models
 - [Linear Regression](linear_regression)
 - [Linear Model Selection](model_selection)
+- [Imprecise Regression](imprecise_regression)
 
 ## Time Series
 - [Exploring & Visualizing Times Series](ts_exploration)
