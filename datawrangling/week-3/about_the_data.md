@@ -224,13 +224,30 @@ In this example we have no missing values. However, if we did have missing value
 
 ## Basic Descriptive Statistics
 
-Ok, so now we should have a pretty good understanding of the basic structure of our data. Next, we need to start understanding some descriptive statistics of our data. Descriptive statistics are the first pieces of information used to understand and represent a data set. There goal, in essence, is to describe the main features of numerical and categorical information with simple summaries. These summaries can be presented with a single numeric measure, frequency distributions, using summary tables, etc. Here, I illustrate the most common forms of descriptive statistics for [numerical](#numerical) and [categorical](#categorical) data data but keep in mind there are numerous ways to describe and illustrate key features of data.
+Ok, so now we should have a pretty good understanding of the basic structure of our data. Next, we need to start understanding some descriptive statistics of our data. Descriptive statistics are the first pieces of information used to understand and represent a data set. The goal, in essence, is to describe the main features of numerical and categorical information with simple summaries. These summaries can be presented with a single numeric measure, frequency distributions, using summary tables, etc. 
+
+A simple approach to get basic summary statistics for all the variables in a data set is to use `summary`.  This provides the minimum, 1st quantile, median, mean, 3rd quantile, and maximum summary measures. 
+
+
+```r
+summary(mtcars)
+      mpg        cyl         disp             hp             drat             wt             qsec       vs           am         gear   carb  
+ Min.   :10.40   4:11   Min.   : 71.1   Min.   : 52.0   Min.   :2.760   Min.   :1.513   Min.   :14.50   0:18   Min.   :0.0000   3:15   1: 7  
+ 1st Qu.:15.43   6: 7   1st Qu.:120.8   1st Qu.: 96.5   1st Qu.:3.080   1st Qu.:2.581   1st Qu.:16.89   1:14   1st Qu.:0.0000   4:12   2:10  
+ Median :19.20   8:14   Median :196.3   Median :123.0   Median :3.695   Median :3.325   Median :17.71          Median :0.0000   5: 5   3: 3  
+ Mean   :20.09          Mean   :230.7   Mean   :146.7   Mean   :3.597   Mean   :3.217   Mean   :17.85          Mean   :0.4062          4:10  
+ 3rd Qu.:22.80          3rd Qu.:326.0   3rd Qu.:180.0   3rd Qu.:3.920   3rd Qu.:3.610   3rd Qu.:18.90          3rd Qu.:1.0000          6: 1  
+ Max.   :33.90          Max.   :472.0   Max.   :335.0   Max.   :4.930   Max.   :5.424   Max.   :22.90          Max.   :1.0000          8: 1  
+```
+
+
+We may also want to look more closely at individual variables to get a better understanding of them.  Here, I illustrate the most common forms of descriptive statistics for [numerical](#numerical) and [categorical](#categorical) variables but keep in mind there are numerous ways to describe and illustrate key features of data.
 
 ### Numerical Data {#numerical}
 
 #### Central Tendency {#central}
 
-There are three common measures of central tendency, all of which try to answer the basic question of which value is the most “typical.” These are the mean (average of all observations), median (middle observation), and mode (appears most often). Each of these measures can be calculated for an individual variable or across all variables in a particular data frame.  For example, if we are interested in finding the central tendency measures for the *mpg* variable we can employ the following:
+There are three common measures of central tendency, all of which try to answer the basic question of which value is the most “typical.” These are the mean (average of all observations), median (middle observation), and mode (appears most often). Each of these measures can be calculated for an individual variable or across all variables in a particular data frame.  For example, if we are interested in finding the central tendency measures for the *mpg* variable we can employ the following (note that when you use `mtcars$mpg` you are selecting the mpg variable from the mtcars data set):
 
 
 ```r
@@ -307,7 +324,7 @@ IQR(mtcars$mpg)
 ```
 
 
-An alternative approach is to use the `summary` function which is a generic R function used to produce min, 1st quantile, median, mean, 3rd quantile, and max summary measures. However, though we do not see a difference here, note that the 1st and 3rd quantiles produced by `summary` may differ from the 1st and 3rd quantiles produced by `fivenum` and the default `quantile`. The reason for this is due to the lack of universal agreement on how the 1st and 3rd quartiles should be calculated.[^quant] Eric Cai provided a good [blog post](https://chemicalstatistician.wordpress.com/2013/08/12/exploratory-data-analysis-the-5-number-summary-two-different-methods-in-r-2/) that discusses this difference in the R functions.
+An alternative approach is to use the `summary` function directly on the individual variable:
 
 
 ```r
@@ -471,7 +488,7 @@ table(mtcars$am, mtcars$cyl, mtcars$carb) %>%
 ##   8  0.00000 0.00000 0.00000 0.03125 0.00000 0.03125
 ```
 
-You probably noticed something you haven't seen before - `%>%`.  This is called the pipe operator and it is provided by the `magrittr` package.  This simply allows us to pipe an output from one function directly into the next.  You can learn more about this very useful tool by going through the [Simplify Your Code with %>% tutorial](pipe).
+You probably noticed something you haven't seen before - `%>%`.  This is called the pipe operator and it is provided by the `magrittr` package.  This simply allows us to pipe an output from one function directly into the next.  You'll learn more about the pipe operator later in this class. In the meantime if you want to learn more about this very useful tool now you can check out the [Simplify Your Code with %>% tutorial](pipe).
 
 We can add `round()` after `prop.table()` to round our values to a specified decimal:
 
