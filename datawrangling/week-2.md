@@ -21,34 +21,33 @@ Below outlines the tutorials that you need to review, and the assignments you ne
 
 <hr>
 
-## 1. Basics of Importing, Exporting, and Understanding Your Data
+### 1. Basics of Importing & Exporting Data Tutorials
 
-First, learn the basics with the following tutorials and DataCamp assignment.
+First, learn the basics of importing and exporting tabular and spreadsheet data with R.
 
-### Tutorials
+1. Read & work through the [Importing Data tutorial](http://uc-r.github.io/import)
+2. Read & work through the [exporting to text files](http://uc-r.github.io/exporting#export_text_files) and [exporting to R objects](http://uc-r.github.io/exporting#export_r_objects) tutorials
+        
+<hr>
 
-1. The basics of importing & exporting data:
-    1. Read & work through the [Importing Data tutorial](http://uc-r.github.io/import)
-    2. Read & work through the [Exporting Data tutorial](http://uc-r.github.io/exporting)
-        - Newbies can focus on the following sections of this tutorial: [exporting to text files](http://uc-r.github.io/exporting#export_text_files) and [exporting to R objects](http://uc-r.github.io/exporting#export_r_objects)
-        - Optional: Those more ambitious can also work through [exporting to Excel portion](http://uc-r.github.io/exporting#export_excel_files)
-2. Getting a basic understanding of the data once its in R:
-    1. Review the codebook: Understanding the source data is crucial to any analysis. A codebook is the documentation that explicitly tells you about the data you are working with and should be the first thing you review before starting any kind of analysis. Read [*Review the Codebook*](codebook) to get a taste of what to look for.
-    2. Learn about the data: When first opening a data set it is important to get a basic understanding of the data dimensions (rows and columns), what the data looks like, how many missing values are in the data, and some basic summary statistis such as mean, median, and the range of each variable. Read and work through [*Learn About the Data*](about_the_data) to understand some of the first things you should do with a fresh data set.
+### 2. Get to Know Your Data
 
-### Assignments
+Now that you know how to get data into R, learn the process of getting a basic understanding of your data:
 
-- Complete the [Importing Data into R: Part 1](https://www.datacamp.com/groups/data-wrangling-with-r/assignments/9232) DataCamp assignment.
+1. Review the codebook: Understanding the source data is crucial to any analysis. A codebook is the documentation that explicitly tells you about the data you are working with and should be the first thing you review before starting any kind of analysis. Read [*Review the Codebook*](codebook) to get a taste of what to look for.
+2. Learn about the data: When first opening a data set it is important to get a basic understanding of the data dimensions (rows and columns), what the data looks like, how many missing values are in the data, and some basic summary statistis such as mean, median, and the range of each variable. Read and work through [*Learn About the Data*](about_the_data) to understand some of the first things you should do with a fresh data set.
 
 <hr>
 
-## 2. Get to Know Your Data
+### 3. DataCamp Assignment 
 
-Next, start learning how to organize your workflow with R Projects and how to create dynamic reporting capabilities with R Markdown by reading and completing the following tutorials and DataCamp assignments.
+Now that you've gone through some initial tutorials, complete the [Importing Data into R: Part 1](https://www.datacamp.com/groups/data-wrangling-with-r/assignments/9232) DataCamp assignment.
 
-### Tutorials
+### 4. Advanced
 
+Now that you have the basics down, work through the [Importing Data into R: Part 2](https://www.datacamp.com/groups/data-wrangling-with-r/assignments/9233) DataCamp assignment. This will take a deeper dive into the wide range of data formats out there. More specifically, you'll learn how to import data from relational databases and how to import and work with data coming from the web. Finally, you'll get hands-on experience with importing data from statistical software packages such SAS, STATA and SPSS. 
 
+You may feel overwhelmed with this material but that is okay.  This advanced material is meant to give you exposure to the many data importing options available in R.  If this was not overwhelming and you are still looking for more to learn prior to Saturday, then dig into this [web scraping tutorial](http://uc-r.github.io/scraping).
 
 <hr>
 
@@ -58,24 +57,5 @@ Please download this material for Saturday's: &nbsp; <a href="" style="color:bla
 
 See you in class on Saturday!
 
-
-
-
-
-
-
-### Scraping text & tables
-
-- Read & work through the [Importing spreadsheet data files stored online](http://uc-r.github.io/scraping#importing_spreadsheet_data) portion of the [Scraping Data tutorial](http://uc-r.github.io/scraping)
-- Optional: For those more ambitious folks, work through the following sections of the [Scraping Data tutorial](http://uc-r.github.io/scraping): [Scraping HTML text](http://uc-r.github.io/scraping#scraping_HTML_text), [Scraping HTML tables](http://uc-r.github.io/scraping#scraping_HTML_tables), and [Leveraging APIs to scrape data](http://uc-r.github.io/scraping#scraping_api)
-
-
-## Assignment
-1. Create a .R script titled “week-2.R” and in this script perform the following exercises:
-    - download & import the csv file located at: [https://bradleyboehmke.github.io/public/data/reddit.csv](https://bradleyboehmke.github.io/public/data/reddit.csv)
-    - now import the above csv file directly from the url provided (*without* downloading to your local hard drive)
-    - download & import the .xlsx file located at: [http://www.huduser.gov/portal/datasets/fmr/fmr2017/FY2017_4050_FMR.xlsx](http://www.huduser.gov/portal/datasets/fmr/fmr2017/FY2017_4050_FMR.xlsx)
-    - now import the above .xlsx file directly from the url provided (*without* downloading to your local hard drive)
-    - go to this University of Dayton webpage [http://academic.udayton.edu/kissock/http/Weather/citylistUS.htm](http://academic.udayton.edu/kissock/http/Weather/citylistUS.htm), scroll down to *Ohio* and import the Cincinnati (OHCINCIN.txt) file
 
 
