@@ -231,7 +231,7 @@ A simple approach to get basic summary statistics for all the variables in a dat
 
 ```r
 summary(mtcars)
-##      mpg        cyl         disp             hp             drat             wt             qsec       vs           am     ##    gear   carb  
+##      mpg        cyl         disp             hp             drat             wt             qsec       vs           am         gear   carb  
 ## Min.   :10.40   4:11   Min.   : 71.1   Min.   : 52.0   Min.   :2.760   Min.   :1.513   Min.   :14.50   0:18   Min.   :0.0000   3:15   1: 7  
 ## 1st Qu.:15.43   6: 7   1st Qu.:120.8   1st Qu.: 96.5   1st Qu.:3.080   1st Qu.:2.581   1st Qu.:16.89   1:14   1st Qu.:0.0000   4:12   2:10  
 ## Median :19.20   8:14   Median :196.3   Median :123.0   Median :3.695   Median :3.325   Median :17.71          Median :0.0000   5: 5   3: 3  
