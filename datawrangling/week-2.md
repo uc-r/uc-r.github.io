@@ -23,16 +23,16 @@ Below outlines the tutorials that you need to review, and the assignments you ne
 
 ## 1. Basics of Importing, Exporting, and Understanding Your Data
 
-First, learn the basics with the following tutorials and DataCamp assigment.
+First, learn the basics with the following tutorials and DataCamp assignment.
 
 ### Tutorials
 
-- The basics of importing & exporting data:
+1. The basics of importing & exporting data:
     1. Read & work through the [Importing Data tutorial](http://uc-r.github.io/import)
     2. Read & work through the [Exporting Data tutorial](http://uc-r.github.io/exporting)
         - Newbies can focus on the following sections of this tutorial: [exporting to text files](http://uc-r.github.io/exporting#export_text_files) and [exporting to R objects](http://uc-r.github.io/exporting#export_r_objects)
         - Optional: Those more ambitious can also work through [exporting to Excel portion](http://uc-r.github.io/exporting#export_excel_files)
-- Getting a basic understanding of the data once its in R:
+2. Getting a basic understanding of the data once its in R:
     1. Review the codebook: Understanding the source data is crucial to any analysis. A codebook is the documentation that explicitly tells you about the data you are working with and should be the first thing you review before starting any kind of analysis. Read [*Review the Codebook*](codebook) to get a taste of what to look for.
     2. Learn about the data: When first opening a data set it is important to get a basic understanding of the data dimensions (rows and columns), what the data looks like, how many missing values are in the data, and some basic summary statistis such as mean, median, and the range of each variable. Read and work through [*Learn About the Data*](about_the_data) to understand some of the first things you should do with a fresh data set.
 
