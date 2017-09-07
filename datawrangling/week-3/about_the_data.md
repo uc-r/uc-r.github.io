@@ -299,7 +299,7 @@ max(mtcars$mpg) - min(mtcars$mpg)
 
 ##### Percentiles
 
-Given a certain percentage such as 25%, what is the mpg value such that 25% of the `mtcars` observations fall below it? This type of question leads to <u>percentiles</u> and <u>quartiles</u>. Specifically, for any percentage *p*, the *p*th percentile is the value such that a percentage *p* of all values are less than it. Similarly, the first, second, and third quartiles are the percentiles corresponding to $p=25\%$, $p=50\%$, and $p=75\%$. These three values divide the data into four groups, each with (approximately) a quarter of all observations. Note that the second quartile is equal to the median by definition. These measures are easily computed in R:
+Given a certain percentage such as 25%, what is the mpg value such that 25% of the `mtcars` observations fall below it? This type of question leads to <u>percentiles</u> and <u>quartiles</u>. Specifically, for any percentage *p*, the *p*th percentile is the value such that a percentage *p* of all values are less than it. Similarly, the first, second, and third quartiles are the percentiles corresponding to $$p=25\%$$, $$p=50\%$$, and $$p=75\%$$. These three values divide the data into four groups, each with (approximately) a quarter of all observations. Note that the second quartile is equal to the median by definition. These measures are easily computed in R:
 
 
 ```r
