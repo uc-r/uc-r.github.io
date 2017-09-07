@@ -43,6 +43,8 @@ Now that you know how to get data into R, learn the process of getting a basic u
 
 Now that you've gone through some initial tutorials, complete the [Importing Data into R: Part 1](https://www.datacamp.com/groups/data-wrangling-with-r/assignments/9232) DataCamp assignment.
 
+<hr>
+
 ### 4. Advanced
 
 Now that you have the basics down, work through the [Importing Data into R: Part 2](https://www.datacamp.com/groups/data-wrangling-with-r/assignments/9233) DataCamp assignment. This will take a deeper dive into the wide range of data formats out there. More specifically, you'll learn how to import data from relational databases and how to import and work with data coming from the web. Finally, you'll get hands-on experience with importing data from statistical software packages such SAS, STATA and SPSS. 
