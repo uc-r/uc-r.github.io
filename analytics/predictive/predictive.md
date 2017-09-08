@@ -22,5 +22,10 @@ Predictive methodologies use knowledge, usually extracted from historical data, 
 - [Logistic Regression](logistic_regression)
 - [Linear & Quadratic Discriminant Analysis](discriminant_analysis)
 
+## Deep Learning
+- [Neural Network Fundamentals](ann_fundamentals)
+- [Neural Network for Regression](ann_regression)
+- [Neural Network for Classification](ann_classification)
+
 ## Resampling Methods
 - [Resampling Basics](resampling_methods)
