@@ -22,7 +22,7 @@ There are three main groups of functions that we can use to read in text files:
 * [`readr` package functions](#readr_text_import)
 * [`data.table` package functions](#fread)
 
-All three functions will import a tabular file (.csv, .tsv, .txt, etc.) and convert it to a data frame in R.
+All three functions will import a tabular file (.csv, .tsv, .txt, etc.) and convert it to a [data frame](dataframes) in R.
 
 
 ### Base R functions {#base_text_import}
