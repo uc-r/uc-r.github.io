@@ -209,7 +209,7 @@ system.time(df1 <- read_csv("train_1.csv"))
 ##  8.985   0.926   9.875
 ```
 
-However, reading this in with data.table's `fread` function is much faster.  The syntax for `fread` is similar to `read.csv` and `read_csv`.  We supply `fread` with the path to the file.  
+However, reading this in with data.table's `fread` function is much faster.  The syntax for `fread` is similar to `read.csv` and `read_csv`.  We supply `fread` with the path to the file, similar to our previous examples, and the output is a data frame.  
 
 ```r
 library(data.table)
@@ -220,15 +220,15 @@ fread("mydata.csv")
 ## 3:          8     cheese      FALSE
 ```
 
-So how much faster is `fread` than `read.csv` and `read_csv`?  It imports the train_1.csv file in under 3 seconds.
+Similar to `read_csv`, `fread` maintains the white space in the variable names and the default sets `stringsAsFactors = FALSE` so all character variables will be imported as characters rather than factors.  You can specify the `sep` argument; however, a benefit of `fread` is that it will identify the delimiter automatically so you should not have to change the default setting.  Also, like the other functions you set parameters to skip lines, change variable names and types, drop columns, etc.  Just check out `?fread` for all the options.
+
+So how much faster is `fread` than `read.csv` and `read_csv`?  It imports the train_1.csv file in under 3 seconds, which is 3x faster than `read_csv` and 20x faster than `read.csv`:
 
 ```r
 system.time(df2 <- fread("train_1.csv"))
 ##   user  system elapsed 
 ##  2.717   0.229   2.973
 ```
-
-Similar to `read_csv`, `fread` maintains the white space in the variable names and the default sets `stringsAsFactors = FALSE` so all character variables will be imported as characters rather than factors.  You can specify the `sep` argument; however, a benefit of `fread` is that it will identify the delimiter automatically so you should not have to change the default setting.  Also, like the other functions you set parameters to skip lines, change variable names and types, drop columns, etc.  Just check out `?fread` for all the options.
 
 These examples provide the basics for reading in text files. However, sometimes even text files can offer unanticipated difficulties with their formatting.  The base R, `readr`, and `data.table` functions offer many arguments to deal with different formatting issues and I suggest you take time to look at the help files for these functions to learn more (i.e. `?read.table`).
 
