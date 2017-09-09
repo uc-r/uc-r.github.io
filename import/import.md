@@ -16,10 +16,13 @@ The first step to any data analysis process is to *get* the data.  Data can come
 ## Importing Text Files {#import_text_files}
 Text files are a popular way to hold and exchange tabular data as almost any data application supports exporting data to the .csv (or other text file) format.  Text file formats use delimiters to separate the different elements in a line, and each line of data is in its own line in the text file.  Therefore, importing different kinds of text files can follow a fairly consistent process once you've identified the delimiter.
 
-There are two main groups of functions that we can use to read in text files:
+There are three main groups of functions that we can use to read in text files:
 
 * [Base R functions](#base_text_import)
 * [`readr` package functions](#readr_text_import)
+* [`data.table` package functions](#fread)
+
+All three functions will import a tabular file (.csv, .tsv, .txt, etc.) and convert it to a data frame in R.
 
 
 ### Base R functions {#base_text_import}
@@ -111,7 +114,7 @@ read.table("mydata.csv", sep = ",", header = TRUE, nrows = 2)
 ## 2         25       wine       TRUE
 ```
 
-In addition to .csv files, there are other text files that `read.table` works with.  The primary difference is what separates the elements.  For example, tab delimited text files typically end with the `.txt` extension.  You can also use the `read.delim()` function as, similiar to `read.csv()`, `read.delim()` is a wrapper of `read.table()` with defaults set specifically for tab delimited files. We can read in this [.txt file](https://www.dropbox.com/s/35vbtblzfx3gkna/mydata.txt?dl=1) with the following:
+In addition to .csv files, there are other text files that `read.table` works with.  The primary difference is what separates the elements.  For example, tab delimited text files typically end with the .txt and .tsv extensions.  You can also use the `read.delim()` function as, similiar to `read.csv()`, `read.delim()` is a wrapper of `read.table()` with defaults set specifically for tab delimited files. We can read in this [.txt file](https://www.dropbox.com/s/35vbtblzfx3gkna/mydata.txt?dl=1) with the following:
 
 ```r
 # reading in tab delimited text files
@@ -188,14 +191,54 @@ read_csv("mydata.csv", n_max = 2)
 
 Similar to base R, `readr` also offers functions to import .txt files (`read_delim()`), fixed-width files (`read_fwf()`), general text files (`read_table()`), and more. 
 
-These examples provide the basics for reading in text files. However, sometimes even text files can offer unanticipated difficulties with their formatting.  Both the base R and `readr` functions offer many arguments to deal with different formatting issues and I suggest you take time to look at the help files for these functions to learn more (i.e. `?read.table`).
+### data.table package functions {#fread}
+
+The base R (`read.csv`) and readr (`read_csv`) functions work great for everyday, "normal" sized data sets.  However, as analysts we also need to be able to quickly import and analyze large data sets.  Although the `readr` functions are about 10x faster than base R importing functions, importing large data sets can still be a bit slow.  
+
+For example, check out the [train_1.csv web traffic data set](https://www.kaggle.com/c/web-traffic-time-series-forecasting/data) provided by Kaggle. This data set has 145,063 observations and 551 variables which equates to 79,929,713 elements and 265.1 MB. Importing this data with base R `read.csv` takes about 60 seconds and importing with readr's `read_csv` takes 9 seconds.  
+
+```r
+# time to import with base R
+system.time(df0 <- read.csv("train_1.csv"))
+##    user  system elapsed 
+##  60.153   2.137  63.446
+
+# time to import with readr
+system.time(df1 <- read_csv("train_1.csv"))
+##   user  system elapsed 
+##  8.985   0.926   9.875
+```
+
+However, reading this in with data.table's `fread` function is much faster.  The syntax for `fread` is similar to `read.csv` and `read_csv`.  We supply `fread` with the path to the file.  
+
+```r
+data.table::fread("mydata.csv")
+##    variable 1 variable 2 variable 3
+## 1:         10       beer       TRUE
+## 2:         25       wine       TRUE
+## 3:          8     cheese      FALSE
+```
+
+So how much faster is `fread` than `read.csv` and `read_csv`?  It imports the train_1.csv file in under 3 seconds.
+
+```r
+system.time(df2 <- data.table::fread("train_1.csv"))
+##   user  system elapsed 
+##  2.717   0.229   2.973
+```
+
+Similar to `read_csv`, `fread` maintains the white space in the variable names and the default sets `stringsAsFactors = FALSE` so all character variables will be imported as characters rather than factors.  You can specify the `sep` argument; however, a benefit of `fread` is that it will identify the delimiter automatically so you should not have to change the default setting.  Also, like the other functions you set parameters to skip lines, change variable names and types, drop columns, etc.  Just check out `?fread` for all the options.
+
+These examples provide the basics for reading in text files. However, sometimes even text files can offer unanticipated difficulties with their formatting.  The base R, `readr`, and `data.table` functions offer many arguments to deal with different formatting issues and I suggest you take time to look at the help files for these functions to learn more (i.e. `?read.table`).
 
 ### Exercises
 
 1. Download and read in this [*flights.csv* file](https://www.dropbox.com/s/jtkdultbfp2a6sk/flights.csv?dl=1).
-2. Can you figure out how to read in the first line to see the titles? Try read in the first 1,000 lines and only the first 6 columns (check out the help file at `?read_csv`. 
-3. What function would you use to read in a .tsv file? See if you are correct by downloading and reading in this [*facebook.tsv* file](https://www.dropbox.com/s/bpmgrke55lcw13g/facebook.tsv?dl=1).
-4. What function would you use to read a file where fields were separated with "&#124;"?
+2. Compare the time it takes to read in this file with `read.csv`, `read_csv`, and `fread`.
+3. Can you figure out how to read in the first line to see the titles? Try read in the first 1,000 lines and only the first 6 columns (check out the help file at `?read_csv`. 
+4. What functions could you use to read in a .tsv file? See if you are correct by downloading and reading in this [*facebook.tsv* file](https://www.dropbox.com/s/bpmgrke55lcw13g/facebook.tsv?dl=1).
+5. What functions and settings could you use to read a file where fields were separated with "&#124;"?
+
 
 
 <br>
