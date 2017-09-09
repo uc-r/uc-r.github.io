@@ -212,7 +212,8 @@ system.time(df1 <- read_csv("train_1.csv"))
 However, reading this in with data.table's `fread` function is much faster.  The syntax for `fread` is similar to `read.csv` and `read_csv`.  We supply `fread` with the path to the file.  
 
 ```r
-data.table::fread("mydata.csv")
+library(data.table)
+fread("mydata.csv")
 ##    variable 1 variable 2 variable 3
 ## 1:         10       beer       TRUE
 ## 2:         25       wine       TRUE
@@ -222,7 +223,7 @@ data.table::fread("mydata.csv")
 So how much faster is `fread` than `read.csv` and `read_csv`?  It imports the train_1.csv file in under 3 seconds.
 
 ```r
-system.time(df2 <- data.table::fread("train_1.csv"))
+system.time(df2 <- fread("train_1.csv"))
 ##   user  system elapsed 
 ##  2.717   0.229   2.973
 ```
