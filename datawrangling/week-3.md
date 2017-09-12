@@ -4,32 +4,45 @@ title: Week 3 (October 23-29)
 permalink: data_wrangling/week-3
 ---
 
-So last week we learned to import data. However, data by themselves are pretty useless so we need to start doing some basic care and feeding of the data we've imported. This week we investigate good practices for when we get a new data set. Spending a little time up front to understand your data will help speed up your analysis later on. Thus, this week we are going to focus on three objectives that we should have when we first open up a new data set:
+Last week we discussed general guidelines for first interacting with a new data set. This week we want to build on those activities by learning how to clean and tidy our data.  But first, it is important to understand the different structural forms for holding data within R. 
 
-1. Review the codebook
-2. Learn about the data
-3. Visualize the data
+Specifically, this week you are going to learn: 
 
-## Tutorials & Resources
+1. The most common data structures in R.
+2. How to manage non-data frame data structures.
+3. How to make your data "tidy".
 
-Please work through the following tutorials prior to Saturday’s class. The skills and functions introduced in these tutorials will be necessary to complete your assignment, which is due at the beginning of Saturday’s class, and will also be used in Saturday’s in-class small group work.
+Consequently, this week will give you a strong foundation for managing and cleaning your data. This will prepare you for your second challenge in completing your course project - that of cleaning, tidying, and preparing your data for exploratory data analysis!
 
-__1. Review the codebook:__ Understanding the source data is crucial to any analysis. A codebook is the documentation that explicitly tells you about the data you are working with and should be the first thing you review before starting any kind of analysis. Read [*Review the Codebook*](codebook) to get a taste of what to look for.
+Below outlines the tutorials that you need to review, and the assignments you need to complete, prior to Saturday’s class. The skills and functions introduced in these tutorials will be necessary for Saturday’s in-class activities.
 
-__2. Learn about the data:__ When first opening a data set it is important to get a basic understanding of the data dimensions (rows and columns), what the data looks like, how many missing values are in the data, and some basic summary statistis such as mean, median, and the range of each variable. Read and work through [*Learn About the Data*](about_the_data) to understand some of the first things you should do with a fresh data set.
+<hr>
 
-__3. Visualize the data:__ Although visualizing your data is not always considered a data wrangling activity, it is essential in every step of data analysis. In this class we are going to focus on `ggplot2` for visualizing our data, as it is the premier data visualizing package in R. Read and work through [*Chapter 3: Data Visualization*](http://r4ds.had.co.nz/data-visualisation.html) of the [*R for Data Science*](http://r4ds.had.co.nz/) book.
+## 1. Most Common Data Structures
+R’s base data structures can be organized by their dimensionality (1d, 2d, or nd) and whether they’re homogeneous (all contents must be of the same type) or heterogeneous (the contents can be of different types). This gives rise to four data types most often used in data analysis, and the four data types that nearly all R objects and outputs are built upon.  The two most common data structures are vectors and data frames.  To understand these data structures read and work through:
+
+- [Data structure basics](structure_basics)
+- [Managing vectors](vectors)
+- [Managing data frames](dataframes)
 
 
-## Assignment
+<hr>
 
-Create an HTML R Markdown document titled “week-3.Rmd”. I want you to scrape the Cincinnati weather data located [here](http://academic.udayton.edu/kissock/http/Weather/gsod95-current/OHCINCIN.txt) and provide the following sections in the R Markdown document:
+## 2. Less Common Data Structures
+You will work with vectors and data frames on a daily basis.  However, two additional data structures you might find your self dealing with are matrices and lists.  Read and work through:
 
-- __Synopsis:__ Include a short paragraph that summarizes what the point of this R Markdown file is and a short summary of your initial findings.
-- __Packages Required:__ Include a code chunk in this section that loads all the packages required for this homework and a short comment that says what purpose each package provides.
-- __Source Code:__  Describe what each of the variables are measuring in this data set. You will find a link to the codebook on this web page: [http://academic.udayton.edu/kissock/http/Weather/](http://academic.udayton.edu/kissock/http/Weather/).
-- __Data Description:__ Provide an explanation of the data set that includes the number of observations and variables, if any missing values exist, and provide some basic summary statistics such as mean, median, min and max values.
-- __Data Visualization:__ Create three different visualizations of this data set. Provide an explanation of the information that the visualization is providing.
+- [Managing matrices](matrices)
+- [Managing lists](lists)
+   
+<hr>   
 
-Knit this R Markdown document to an HTML file, publish it on [RPubs](https://rpubs.com/about/getting-started), and send me the URL for your published report prior to class (either by email or through Slack messenger).  
 
+## 3. Cleaning and Tidying Your Data
+
+Now that we have imported our data and we understand the basics managing our data structure, the next thing you probably want to do is jump into exploratory data analysis.  , most functions require your data frame to be well organized and in a specific format.  This may require you to manipulate the structure of your data (i.e. long vs. wide data) so that it is properly organized for the next activity.  Read and work through [Chapter 12: Tidy Data](http://r4ds.had.co.nz/tidy-data.html) in R for Data Science to learn how to organize your data the "tidy" way.
+
+<hr>
+
+## Class
+
+Work through the exercises in each of the tutorials provided.
