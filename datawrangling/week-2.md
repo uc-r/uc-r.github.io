@@ -36,6 +36,7 @@ Now that you know how to get data into R, learn the process of getting a basic u
 
 1. Review the codebook: Understanding the source data is crucial to any analysis. A codebook is the documentation that explicitly tells you about the data you are working with and should be the first thing you review before starting any kind of analysis. Read [*Review the Codebook*](codebook) to get a taste of what to look for.
 2. Learn about the data: When first opening a data set it is important to get a basic understanding of the data dimensions (rows and columns), what the data looks like, how many missing values are in the data, and some basic summary statistis such as mean, median, and the range of each variable. Read and work through [*Learn About the Data*](about_the_data) to understand some of the first things you should do with a fresh data set.
+3. Quick visualizations: It is also good to get an initial understanding of your data through visual means. Read and work through [*Getting Started with Charts in R*](quickplots).
 
 <hr>
 
