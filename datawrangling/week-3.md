@@ -19,11 +19,11 @@ Below outlines the tutorials that you need to review, and the assignments you ne
 <hr>
 
 ## 1. Most Common Data Structures
-R’s base data structures can be organized by their dimensionality (1d, 2d, or nd) and whether they’re homogeneous (all contents must be of the same type) or heterogeneous (the contents can be of different types). This gives rise to four data types most often used in data analysis, and the four data types that nearly all R objects and outputs are built upon.  The two most common data structures are vectors and data frames.  To understand these data structures read and work through:
+R’s basic data structures can be organized by their dimensionality (1d, 2d, or nd) and whether they’re homogeneous (all contents must be of the same type) or heterogeneous (the contents can be of different types). This gives rise to five data types most often used in data analysis, and the five data types that nearly all R objects and outputs are built upon (there are five but we'll focus on four).  The two most common data structures are vectors and data frames.  To understand these data structures read and work through:
 
-- [Data structure basics](structure_basics)
-- [Managing vectors](vectors)
-- [Managing data frames](dataframes)
+- [Data structure basics](http://uc-r.github.io/structure_basics)
+- [Managing vectors](http://uc-r.github.io/vectors)
+- [Managing data frames](http://uc-r.github.io/dataframes)
 
 Now that you've gone through some initial tutorials, complete the following DataCamp assignments:
 
@@ -35,8 +35,8 @@ Now that you've gone through some initial tutorials, complete the following Data
 ## 2. Less Common Data Structures
 You will work with vectors and data frames on a daily basis.  However, two additional data structures you might find your self dealing with are matrices and lists.  Read and work through:
 
-- [Managing matrices](matrices)
-- [Managing lists](lists)
+- [Managing matrices](http://uc-r.github.io/matrices)
+- [Managing lists](http://uc-r.github.io/lists)
 
 Now that you've gone through some initial tutorials, complete the following DataCamp assignments:
 
@@ -48,7 +48,7 @@ Now that you've gone through some initial tutorials, complete the following Data
 
 ## 3. Cleaning and Tidying Your Data
 
-Now that we have imported our data and we understand the basics of managing our data structure, the next thing you probably want to do is jump into exploratory data analysis.  However, prior to that it is important to make sure your data frame is properly prepared for analysis.  This may require you to do some basic cleaning and ensure your data is in a "tidy" format.  Read and work through [Chapter 12: Tidy Data](http://r4ds.had.co.nz/tidy-data.html) in R for Data Science to learn how to organize your data the "tidy" way.
+Now that you have imported your data and you understand the basics of managing your data structure, the next thing you probably want to do is jump into exploratory data analysis.  However, prior to that it is important to make sure your data frame is properly prepared for analysis.  This may require you to do some basic cleaning and ensure your data is in a "tidy" format.  Read and work through [Chapter 12: Tidy Data](http://r4ds.had.co.nz/tidy-data.html) in R for Data Science to learn how to organize your data the "tidy" way.
 
 Now that you've gone through some initial tutorials, complete the [Cleaning data in R](https://www.datacamp.com/groups/data-wrangling-with-r/assignments/9239) DataCamp assignment.
 
