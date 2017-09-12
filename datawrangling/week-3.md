@@ -25,6 +25,10 @@ R’s base data structures can be organized by their dimensionality (1d, 2d, or 
 - [Managing vectors](vectors)
 - [Managing data frames](dataframes)
 
+Now that you've gone through some initial tutorials, complete the following DataCamp assignments:
+
+- [Vectors](https://www.datacamp.com/groups/data-wrangling-with-r/assignments/9234) & [Factors](https://www.datacamp.com/groups/data-wrangling-with-r/assignments/9236) (factors are just categorical vectors and this assignment helps you learn a little more about these particular data types).
+- [Data frames](https://www.datacamp.com/groups/data-wrangling-with-r/assignments/9237)
 
 <hr>
 
@@ -33,6 +37,11 @@ You will work with vectors and data frames on a daily basis.  However, two addit
 
 - [Managing matrices](matrices)
 - [Managing lists](lists)
+
+Now that you've gone through some initial tutorials, complete the following DataCamp assignments:
+
+- [Matrices](https://www.datacamp.com/groups/data-wrangling-with-r/assignments/9235)
+- [Lists](https://www.datacamp.com/groups/data-wrangling-with-r/assignments/9238)
    
 <hr>   
 
@@ -40,6 +49,8 @@ You will work with vectors and data frames on a daily basis.  However, two addit
 ## 3. Cleaning and Tidying Your Data
 
 Now that we have imported our data and we understand the basics of managing our data structure, the next thing you probably want to do is jump into exploratory data analysis.  However, prior to that it is important to make sure your data frame is properly prepared for analysis.  This may require you to do some basic cleaning and ensure your data is in a "tidy" format.  Read and work through [Chapter 12: Tidy Data](http://r4ds.had.co.nz/tidy-data.html) in R for Data Science to learn how to organize your data the "tidy" way.
+
+Now that you've gone through some initial tutorials, complete the [Cleaning data in R](https://www.datacamp.com/groups/data-wrangling-with-r/assignments/9239) DataCamp assignment.
 
 <hr>
 
