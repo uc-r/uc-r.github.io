@@ -21,6 +21,7 @@ Predictive methodologies use knowledge, usually extracted from historical data, 
 ## Supervised Classification
 - [Logistic Regression](logistic_regression)
 - [Linear & Quadratic Discriminant Analysis](discriminant_analysis)
+- [Support Vector Machines](svm)
 
 ## Deep Learning
 - [Neural Network Fundamentals](ann_fundamentals)
