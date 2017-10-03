@@ -56,6 +56,6 @@ Now that you've gone through some initial tutorials, complete the [Cleaning data
 
 ## Class
 
-Please download this material for Saturday's: &nbsp; <a href="" style="color:black;"><i class="fa fa-cloud-download" style="font-size:1em"></i></a>
+Please download this material for Saturday's: &nbsp; <a href="https://www.dropbox.com/sh/vcaeoxg6vu65e6l/AAAZryPxONaNqwpBE0ctuxb5a?dl=1" style="color:black;"><i class="fa fa-cloud-download" style="font-size:1em"></i></a>
 
 See you in class on Saturday!
