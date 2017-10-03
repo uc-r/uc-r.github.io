@@ -4,4 +4,39 @@ title: Week 4 (October 30 - November 5)
 permalink: data_wrangling/week-4
 ---
 
+This week builds onto our data wrangling skills by focusing on transforming and joining data. Common transformation procedures include filtering observations by their values, reordering the rows, selecting variables, creating new variables with functions of existing variables, and collapsing values down to single summary summary statistics (i.e. mean, max, variance). 
 
+Furthermore, it’s rare that a data analysis involves only a single table of data. Typically you have many tables of data, and you must combine them to answer the questions that you’re interested in. Collectively, multiple tables of data are called _relational_ data because it is the relations, not just the individual datasets, that are important.
+
+This module covers these basic capabilities by teaching you how to use the `dplyr` package to perform common data transformation and joining tasks.
+
+
+<hr>
+
+## 1. Data Transformation with dplyr
+Although many fundamental data manipulation functions exist in R, they have been a bit convoluted to date and have lacked consistent coding and the ability to easily flow together. dplyr is one such package which was built for the sole purpose of simplifying the process of manipulating, sorting, summarizing, and joining data frames. 
+
+- Read and work through [Chapter 5: Data Transformation](http://r4ds.had.co.nz/transform.html) in R for Data Science.
+
+Now that you've learned the basics, complete the following DataCamp assignment to hone your skill:
+
+- [Data Manipulation in R with dplyr](https://www.datacamp.com/groups/data-wrangling-with-r/assignments/9240)
+
+<hr>
+
+## 2. Joining relational data
+It’s rare that a data analysis involves only a single data set. Typically you have many sets of data and you need to join them to perform your analysis and answer the questions that you’re interested in. This module will teach you to work with relational data sets.
+
+- Read and work through [Chapter 13: Relational Data](http://r4ds.had.co.nz/relational-data.html) in R for Data Science.
+
+Now that you've learned the basics, complete the following DataCamp assignment to hone your skill:
+
+- [Joining Data in R with dplyr](https://www.datacamp.com/groups/data-wrangling-with-r/assignments/9241)
+   
+<hr>   
+
+## Class
+
+Please download this material for Saturday's: &nbsp; <a href="" style="color:black;"><i class="fa fa-cloud-download" style="font-size:1em"></i></a>
+
+See you in class on Saturday!
