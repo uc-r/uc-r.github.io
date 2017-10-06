@@ -9,7 +9,7 @@ Regression ANNs predict an output variable as a function of the inputs. The inpu
 
 <br>
 
-## tl;df
+## tl;dr
 
 In this tutorial we introduce a neural network used for numeric predictions and cover:
 
