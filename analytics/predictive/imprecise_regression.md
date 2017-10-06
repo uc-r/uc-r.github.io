@@ -11,7 +11,7 @@ This tutorial is based on the imprecise regression work in [Cattaneo and Wiencie
 
 <br>
 
-## tl;df
+## tl;dr
 
 Imprecise regression, and imprecise probability more generally, is still a relatively young field. Imprecise regression can refer to several different modeling approaches, but this tutorial will focus on likelihood-based imprecise regression (LIR) for interval data.
 
