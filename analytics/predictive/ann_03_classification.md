@@ -9,7 +9,7 @@ Classification ANNs seek to classify an observation as belonging to some discret
 
 <br>
 
-## tl;df
+## tl;dr
 
 In this tutorial we introduce a neural network used for numeric predictions and cover:
 
