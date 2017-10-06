@@ -74,4 +74,5 @@ Throughout the term you will progressively create your final project.  You will 
 </tbody>
 </table>
 <p><em>Total possible points: 40</em></p>
+<p><em>Due no later than: Saturday, November 4, 4:50PM ET</em></p>
 </div>
