@@ -9,7 +9,7 @@ In this tutorial, you will learn general tools that are useful for many differen
 
 <br>
 
-## tl;df
+## tl;dr
 This tutorial serves as an introduction to basic benchmarking approaches for time series data and covers:
 
 1. [Replication requirements](#replication): What you'll need to reproduce the analysis.
