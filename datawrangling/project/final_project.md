@@ -124,6 +124,7 @@ You will write an [R Markdown](http://wfu-r.github.io/r_markdown) HTML report th
 </tbody>
 </table>
 <p><em>Total possible points: 50</em></p>
+<p><em>Due no later than: Sunday, December 3, 11:59PM ET</em></p>
 </div>
 
 I expect your report to tell a story with the data. I do not want you to just report some statistics that you find but, rather, to provide a coherent narrative of your findings. Examples of the type of report that I am looking for can be seen 
