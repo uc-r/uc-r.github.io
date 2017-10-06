@@ -9,7 +9,7 @@ Time series forecasting is performed in nearly every organization that works wit
 
 <br>
 
-## tl;df
+## tl;dr
 This tutorial serves as an introduction to exploring and visualizing time series data and covers:
 
 1. [Replication requirements](#replication): What you'll need to reproduce the analysis.
