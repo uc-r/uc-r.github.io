@@ -130,18 +130,26 @@ You will write an [R Markdown](http://wfu-r.github.io/r_markdown) HTML report th
 </p>
 </div>
 
-I expect your report to tell a story with the data. I do not want you to just report some statistics that you find but, rather, to provide a coherent narrative of your findings. Examples of the type of report that I am looking for can be seen 
+I expect your report to tell a story with the data. I do not want you to just report some statistics that you find but, rather, to provide a coherent narrative of your findings. Here are some examples of the type of report that I am looking for: 
 
 - [State-level savings rates](https://rpubs.com/bradleyboehmke/final_project_example)
 - [Undergraduate student diversity](http://rpubs.com/murphm6/233993)
 - [AirBnB sentiment](http://rpubs.com/ishantnayer/234221)
+- [Capital punishment in America](http://rpubs.com/hailce17/301571)
+- [Ideal cities and states for analytic students](http://rpubs.com/dyang9411/301598)
 - [Movie exploratory analysis](http://rpubs.com/yash91sharma/dw_project_ys)
 - [AirBnB user pathways](http://rpubs.com/angiechen/234334)
 
 Upon submission you will upload the final HTML report to RPubs and provide me with the URL. You will also submit the .Rmd file that produced the HTML report, your data, and any other files your .Rmd file leverages (images, .bib file, etc.). Your submitted files should be named with year, course number, lastname, first & middle initial, and then “finalproject.” For example my file name would be: 2017_BANA8090 _boehmkebc_finalproject.Rmd.  I expect to be able to fully reproduce your report by knitting your .Rmd file.
 
 
-**Optional:**  For those who are more advanced or daring, I challenge you to develop a [Shiny app](http://shiny.rstudio.com/) using [flexdashboard](http://rmarkdown.rstudio.com/flexdashboard/) to accompany your report. This will turn your exploratory data analysis into an interactive tool for users.  You can see examples [here](https://bradleyboehmke.shinyapps.io/us_savings_rate_app/) and [here](https://bradleyboehmke.shinyapps.io/LPI_Rankings/). 
+**Optional:**  For those who are more advanced or daring, I challenge you to develop a [Shiny app](http://shiny.rstudio.com/) using [flexdashboard](http://rmarkdown.rstudio.com/flexdashboard/) to accompany your report. This will turn your exploratory data analysis into an interactive tool for users.  Here are some examples:
+
+- [U.S. Savings Rates](https://bradleyboehmke.shinyapps.io/us_savings_rate_app/)
+- [International Logistics Performance Index](https://bradleyboehmke.shinyapps.io/LPI_Rankings/)
+- [Craft Beer in the U.S.](http://rpubs.com/steffanigomez/301609)
+- [Co2 Emmissions](http://rpubs.com/AlinaC/final_project)
+- [McDonald's Nutrition Facts](https://zhanb17.shinyapps.io/mcdonaldsnutrition/)
 
 
 Any additional details regarding the final project will be provided in class.
