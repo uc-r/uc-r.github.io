@@ -41,6 +41,7 @@ Potential data sets include:
 - [Cincinnati police crime incident data](https://data.cincinnati-oh.gov/Safer-Streets/Police-Crime-Incident-Data/w7vh-beui)
 - [City of Cincinnati vendor payments](https://data.cincinnati-oh.gov/Growing-Economy/City-of-Cincinnati-Vendor-Payments/qrj9-83t8)
 - [City of Cincinnati salary schedule](https://data.cincinnati-oh.gov/Innovative-Government/City-of-Cincinnati-Salary-Schedule/yaws-h72m)
+- [Kaggle](https://www.kaggle.com/datasets) data sets (lots to choose from!)
 
 ### Project Report
 
