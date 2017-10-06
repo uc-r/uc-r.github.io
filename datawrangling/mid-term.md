@@ -29,7 +29,7 @@ Throughout the term you will progressively create your final project.  You will 
   <b>1.3</b> Discuss your current proposed approach/analytic technique you think will address (fully or partially) this problem. <br> 
   <b>1.4</b> Explain how your analysis will help the consumer of your analysis. 
 </td>
-<td align="center" valign="top"> 10 </td>
+<td align="center" valign="top"> 5 </td>
 </tr>
 <tr class="even">
 <td align="left" valign="top">Packages Required </td>
@@ -69,7 +69,7 @@ Throughout the term you will progressively create your final project.  You will 
   <b>7.3</b> Achievement, mastery, cleverness, creativity:  Tools and techniques from the course are applied very competently and, perhaps,somewhat creatively. Perhaps student has gone beyond what was expected and required, e.g., extraordinary effort, additional tools not addressed by this course, unusually sophisticated application of tools from course. <br>
   <b>7.4</b> .Rmd fully executes without any errors and HTML produced matches the HTML report submitted by student.
 </td>
-<td align="center" valign="top"> 10 </td>
+<td align="center" valign="top"> 15 </td>
 </tr>
 </tbody>
 </table>
