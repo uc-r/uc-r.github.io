@@ -8,7 +8,7 @@ Artificial neural networks (ANNs) describe a specific class of machine learning 
 
 <br>
 
-## tl;df
+## tl;dr
 
 This tutorial provides a high level overview of ANNs, an analytic technique that is currently undergoing rapid development and research. To provide a robust introduction, this tutorial will cover:
 
