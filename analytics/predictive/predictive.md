@@ -17,6 +17,7 @@ Predictive methodologies use knowledge, usually extracted from historical data, 
 - [Exploring & Visualizing Times Series](ts_exploration)
 - [Benchmark Methods & Forecast Accuracy](ts_benchmarking)
 - [Moving Averages](ts_moving_averages)
+- [Exponential Smoothing](ts_exp_smoothing)
 
 ## Supervised Classification
 - [Logistic Regression](logistic_regression)
