@@ -24,4 +24,4 @@ The following tutorials will provide you the knowledge and skills required to cr
 
 Please download this material for Saturday's: &nbsp; <a href="https://www.dropbox.com/sh/powzifsazrok00f/AAB4RimS4pEXpLVV8xJECmbla?dl=1" style="color:black;"><i class="fa fa-cloud-download" style="font-size:1em"></i></a>
 
-In addition, be sure to bring your final project data to class because you will work on it during class.  Furthermore, identify at least 10 specific questions you want to ask of your project data. Using what you learned this week, what type of visualizations can you apply to help answer these questions? Be ready to use ggplot2 to answer these questions in class.
+In addition, be sure to bring your final project data to class because you will work on it during class.  Furthermore, identify at least 10 specific questions you want to ask of your project data. Using what you learned this week, what type of visualizations can you apply to help answer these questions? Be ready to use `ggplot2` to answer these questions in class.
