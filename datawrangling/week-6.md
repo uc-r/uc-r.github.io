@@ -4,11 +4,14 @@ title: Week 6 (November 13 - 19)
 permalink: data_wrangling/week-6
 ---
 
-The last couple of weeks we have been learning to import, tidy, manipulate, and visualize our data. For the most part this was applied to pretty standard data.  Unfortunately, many times our data are not standard and contains very messy character strings that we need to clean up or extract patterns from or we have date-time stamp data that we need to manipulate. We've also seen how factors can determine how our data are organized and portrayed. This week we are going to put more focus on working with these concerns.  Specifically, we are going to concentrate on the following:
+Don't repeat yourself (DRY) is a software development principle aimed at reducing repetition. Formulated by Andy Hunt and Dave Thomas in their book [The Pragmatic Programmer](http://www.amazon.com/Pragmatic-Programmer-Journeyman-Master/dp/020161622X/ref=sr_1_1?s=books&ie=UTF8&qid=1456066112&sr=1-1&keywords=the+pragmatic+programmer), the DRY principle states that "every piece of knowledge must have a single, unambiguous, authoritative representation within a system." This principle has been widely adopted to imply that you should not duplicate code. Although the principle was meant to be far grander than that[^footnote], there's plenty of merit behind this slight misinterpretation.
 
-1. Working with strings and regular expressions
-2. Handling factors
-3. Managing date-time data
+Removing duplication is an important part of writing efficient code and reducing potential errors. First, reduced duplication of code can improve computing time and reduces the amount of code writing required. Second, less duplication results in less creating and saving of unnecessary objects. Inefficient code invariably creates copies of objects you have little interest in other than to feed into some future line of code; this wrecks havoc on properly managing your objects as it basically results in a global environment charlie foxtrot! Less duplication also results in less editing. When changes to code are required, duplicated code becomes tedious to edit and invariably mistakes or fat-fingering occur in the cut-and-paste editing process which just lengthens the editing that much more.
+
+Thus, minimizing duplication by writing efficient code is important to becoming a data analyst and this week we will focus on two methods to achieve this:
+
+1. Writing functions
+2. Using iteration
 
 ## Tutorials & Resources
 
