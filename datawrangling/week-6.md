@@ -13,23 +13,24 @@ Thus, minimizing duplication by writing efficient code is important to becoming 
 1. Writing functions
 2. Using iteration
 
+<hr>
 
-The following tutorials will provide you the knowledge and skills required to create the meaningful, elegant, and finely tuned  data visualizations that I will be looking for in your final project.
+The following tutorials will provide you the knowledge and skills required to start becomming more efficient with your programming.
 
-1. __Introduction to `ggplot2`:__ Read and work through [Chapter 3: Data Visualization](http://r4ds.had.co.nz/data-visualisation.html) in R for Data Science to get an introduction to the `ggplot2` package.
-    - Now that you've learned the basics, complete the [Data Visualization with ggplot2 (Part 1)](https://www.datacamp.com/groups/data-wrangling-with-r/assignments/9242) and the [Data Visualization with ggplot2 (Part 2)](https://www.datacamp.com/groups/data-wrangling-with-r/assignments/9243) DataCamp assignments to hone your skills.
+1. **Writing functions:** Functions allow you to reduce code duplication by automating a generalized task to be applied recursively. Whenever you catch yourself repeating a function or copy-and-pasteing code there is a good chance that you should write a function to eliminate the redundancies. Read [Chapter 19: Functions](http://r4ds.had.co.nz/functions.html) to get started with functions.
 
-2. __Advancing your visualizations:__ In your final project I will be looking for publication worthy visualizations. Thus, I fully expect your visualizations to improve with each deliverable submitted. Therefore it is essential that you learn how to use some of the more advanced features of `ggplot2` and other packages that work with `ggplot2`.  Here are some resources to help you take your visualizations to the next level:  
-    - Reading and working through [Chapter 28: Graphics for Communication](http://r4ds.had.co.nz/graphics-for-communication.html) in R for Data Science.
-    - Review some of the currently available [advanced plotting tutorials](ggplot).
-    - Although not required, you can further hone you advanced visualization skills with the [Data Visualization with ggplot2 (Part 3)](https://www.datacamp.com/courses/data-visualization-with-ggplot2-part-3) DataCamp module, which covers statistical, network, and mapping plots along with some of the internal functioning of `ggplot2`.
-   
+2. **Iteration:**  Another tool for reducing duplication is <u>iteration</u>, which helps you when you need to do the same thing to multiple inputs: repeating the same operation on different columns, or on different datasets. Read [Chapter 21: Iteration](http://r4ds.had.co.nz/iteration.html) to learn how to perform iteration programming.
+
+3. **DataCamp:**  Once you've read through these chapters, test your skills with the following DataCamp assignments:
+    - [Intermediate R](https://www.datacamp.com/groups/data-wrangling-with-r/assignments/9244)
+    - [Writing Functions in R](https://www.datacamp.com/groups/data-wrangling-with-r/assignments/9245)
+
 <hr>   
 
 ## Class
 
-Please download this material for Saturday's: &nbsp; <a href="https://www.dropbox.com/sh/powzifsazrok00f/AAB4RimS4pEXpLVV8xJECmbla?dl=1" style="color:black;"><i class="fa fa-cloud-download" style="font-size:1em"></i></a>
+Please download this material for Saturday's class: &nbsp; <a href="" style="color:black;"><i class="fa fa-cloud-download" style="font-size:1em"></i></a>
 
-In addition, be sure to bring your final project data to class because you will work on it during class.  Furthermore, identify at least 10 specific questions you want to ask of your project data. Using what you learned this week, what type of visualizations can you apply to help answer these questions? Be ready to use `ggplot2` to answer these questions in class.
+
 
 
