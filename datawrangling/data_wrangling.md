@@ -73,7 +73,7 @@ All required classroom material will be provided in class or online. Any recomme
 |               | Relational data |
 | **5**         | **Data Visualizations**   &nbsp;&nbsp; <a href="http://uc-r.github.io/data_wrangling/week-5" style="color:black;"><i class="fa fa-folder-open" style="font-size:1em"></i></a>  |
 |               | Data visualization  |
-| **6**         | **Creating Efficient Code in R**    |
+| **6**         | **Creating Efficient Code in R**   &nbsp;&nbsp; <a href="http://uc-r.github.io/data_wrangling/week-6" style="color:black;"><i class="fa fa-folder-open" style="font-size:1em"></i></a>    |
 |               | Control statements & iteration  |
 |               | Writing functions |
 | **7**         | **Introduction to Applied Modeling**   |
