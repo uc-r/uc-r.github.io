@@ -37,3 +37,9 @@ Please download this material for Saturday's: &nbsp; <a href="https://www.dropbo
 In addition, be sure to have identified which data you are going to use for your final project.  Be sure to have access to this data because you will work on it during class.  Furthermore, identify at least 10 specific questions you want to ask of your project data. Using what you learned this week, what type of data transformations do you need to make to help answer these questions? Be ready to use dplyr to answer these questions in class.
 
 See you in class on Saturday!
+
+<hr>
+
+## Mid-term Project Due!
+
+Your mid-term project is due by the end of class this week.  Be sure to refer to the [grading rubric](mid-term) so you understand what is expected.  Create an HTML R markdown document titled "Project Proposal" and be sure to include your name in the YAML.
