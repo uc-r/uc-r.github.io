@@ -13,28 +13,23 @@ Thus, minimizing duplication by writing efficient code is important to becoming 
 1. Writing functions
 2. Using iteration
 
-## Tutorials & Resources
 
-Please work through the following tutorials prior to Saturday’s class. The skills and functions introduced in these tutorials will be necessary to complete your assignment, which is due at the beginning of Saturday’s class, and will also be used in Saturday’s in-class small group work.
+The following tutorials will provide you the knowledge and skills required to create the meaningful, elegant, and finely tuned  data visualizations that I will be looking for in your final project.
 
-**Strings & regex:** To understand the fundamentals of working with strings and regex data read and work through [*Chapter 14: Strings*](http://r4ds.had.co.nz/strings.html).  If your final project is going to require you to work with lots of messy character string data you can get more practice by working through the [*Dealing with Characters* tutorial](http://uc-r.github.io/characters) and [*Dealing with Regular Expressions*](http://uc-r.github.io/regex) tutorials.
+1. __Introduction to `ggplot2`:__ Read and work through [Chapter 3: Data Visualization](http://r4ds.had.co.nz/data-visualisation.html) in R for Data Science to get an introduction to the `ggplot2` package.
+    - Now that you've learned the basics, complete the [Data Visualization with ggplot2 (Part 1)](https://www.datacamp.com/groups/data-wrangling-with-r/assignments/9242) and the [Data Visualization with ggplot2 (Part 2)](https://www.datacamp.com/groups/data-wrangling-with-r/assignments/9243) DataCamp assignments to hone your skills.
 
-**Factors:**  Historically, factors were much easier to work with than characters. As a result, many of the functions in base R automatically convert characters to factors. This means that factors often crop up in places where they’re not actually helpful and you need to understand how to manipulate and work with them. Read and work through *[Chapter 15: Factors](http://r4ds.had.co.nz/factors.html)*. 
+2. __Advancing your visualizations:__ In your final project I will be looking for publication worthy visualizations. Thus, I fully expect your visualizations to improve with each deliverable submitted. Therefore it is essential that you learn how to use some of the more advanced features of `ggplot2` and other packages that work with `ggplot2`.  Here are some resources to help you take your visualizations to the next level:  
+    - Reading and working through [Chapter 28: Graphics for Communication](http://r4ds.had.co.nz/graphics-for-communication.html) in R for Data Science.
+    - Review some of the currently available [advanced plotting tutorials](ggplot).
+    - Although not required, you can further hone you advanced visualization skills with the [Data Visualization with ggplot2 (Part 3)](https://www.datacamp.com/courses/data-visualization-with-ggplot2-part-3) DataCamp module, which covers statistical, network, and mapping plots along with some of the internal functioning of `ggplot2`.
+   
+<hr>   
 
-**Dates:**  Real world data are often associated with dates and time; however, dealing with dates accurately can appear to be a complicated task due to the variety in formats and accounting for time-zone differences and leap years. Read and work through [*Chapter 16: Dates and times*](http://r4ds.had.co.nz/dates-and-times.html) to learn how to manage date-time data.
+## Class
+
+Please download this material for Saturday's: &nbsp; <a href="https://www.dropbox.com/sh/powzifsazrok00f/AAB4RimS4pEXpLVV8xJECmbla?dl=1" style="color:black;"><i class="fa fa-cloud-download" style="font-size:1em"></i></a>
+
+In addition, be sure to bring your final project data to class because you will work on it during class.  Furthermore, identify at least 10 specific questions you want to ask of your project data. Using what you learned this week, what type of visualizations can you apply to help answer these questions? Be ready to use `ggplot2` to answer these questions in class.
 
 
-
-## Homework
-
-Your homework this week is to provide a proposal for your final project.  Create an HTML R markdown document titled "Project Proposal" and be sure to include your name in the YAML.  In this proposal I would like you to provide the following information:
-
-__1. Data Description:__ Provide a thorough description of your data set.  This goes back to [week 3's](http://uc-r.github.io/data_wrangling/week-3) discussion about the data code book.  You need to explain what the original purpose of the data set is, what the variables are measuring, the data type and values that each variable is coded as (including how missing values are coded), and the range of values for each variable.  Be sure to hyperlink to the actual code book and source data.  Also, when describing your variables, please summarize this information as concisely as possible.  For example, if one of your variables is *Year*, summarize this variable by telling me that the *Year* variable is recorded as integer values that range from 1950-2016 and are measured annually.  Do not just use `unique(data$year)` to spit out the 50 unique year values in the data.  You want to write this in a report style but show your code.
-
-__2. Import Your Data:__ Import your data set directly from the online source.  This means you cannot download the data onto your computer and then import it into R.  I want to be able to run the exact same line of code that you write and be able to import your data set. Store your data as a tibble and provide a preview of what the raw data looks like.
-
-__3. Data Cleaning:__ You can start to clean your data to get in a tidy format as described in [week 5](http://uc-r.github.io/data_wrangling/week-5); however, I do not expect you to have your data completely cleaned.  If you do not clean your data, provide a discussion of what is required to get your data into a clean and tidy format and how you plan to accomplish this task.
-
-__4. Planned Analysis:__ In this section I do not expect you to perform any coding or analysis yet.  However, I want you to propose 3-4 different ways you plan to analyse your data and the unique insights you hope to garner from this analysis.
-
-Knit this R Markdown document to an HTML file, publish it on RPubs, and send me the URL for your published report prior to class (either by email or through Slack messenger).
