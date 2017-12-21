@@ -180,7 +180,7 @@ stat.desc(golf[, c("Driving Accuracy", "Earnings")], basic = FALSE, norm = TRUE)
 ## Shapiro-Wilk Test for Normality {#shapiro}
 The Shapiro-Wilk test is a statistical test of the hypothesis that the distribution of the data as a whole deviates from a comparable normal distribution. If the test is non-significant (*p>.05*) it tells us that the distribution of the sample is <u>not</u> significantly different from a normal distribution. If, however, the test is significant (*p < .05*) then the distribution in question is significantly different from a normal distribution.
 
-The results below indicate that the driving accuracy data does not deviate from a normal distribution, however, the earnings data is statistically significant suggesting it does. Also, not that the value for *W* below corresponds to the *normtest.W* from the `stat.desc()` outputs above and the *p*-value below corresponds to the *normtest.p* from `stat.desc()`.
+The results below indicate that the driving accuracy data does not deviate from a normal distribution, however, the earnings data is statistically significant suggesting it does. Also, note that the value for *W* below corresponds to the *normtest.W* from the `stat.desc()` outputs above and the *p*-value below corresponds to the *normtest.p* from `stat.desc()`.
 
 
 ```r
