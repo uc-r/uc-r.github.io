@@ -10,8 +10,21 @@ Visual data exploration is a mandatory intial step whether or not more formal an
 
 Regardless, visual data exploration is about investigating the characteristics of your data set.  To do this, we typically create numerous plots in an interactive fashion.  This tutorial will show you how to create plots that answer some of the fundamental questions we typically have of our data.  
 
+<br>
 
-# Prerequisites
+## tl;dr
+Don't have the time to scroll through the full tutorial?  Skip directly to the section of interest:
+
+- [Replication requirements](#replication)
+- [Univariate continuous visualizations](#continuous)
+- [Univariate categorical visualizations](#categorical)
+- [Visualizing bi-variate relationships & associations](#bivariate)
+- [Visualizing multivariate relationships & associations](#multivariate)
+- [Visualizing data quality](#quality)
+
+<br>
+
+## Prerequisites {#replication}
 
 We’ll illustrate the key ideas by primarily focusing on data from the `AmesHousing` package.  We'll use `tidyverse` to provide some basic data manipulation capabilities along with `ggplot2` for plotting.  We also demonstrate some useful functions from a few other packages throughout the chapter.
 
@@ -27,12 +40,13 @@ library(treemap)
 ```r
 ames <- AmesHousing::make_ames()
 ```
+<br>
 
 ## Univariate Distributions
 
 Before moving on to more sophisticated visualizations that enable multidimensional investigation, it is important to be able to understand how an individual variable is distributed.  Visually understanding the distribution allows us to describe many features of a variable.
 
-### Continuous Variables
+### Continuous Variables {#continuous}
 
 A variable is continuous if it can take any of an infinite set of ordered values. There are several different plots that can effectively communicate the different features of continuous variables.  Features we are generally interested in include:
 
