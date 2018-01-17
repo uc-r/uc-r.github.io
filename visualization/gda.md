@@ -396,7 +396,7 @@ ggplot(ames, aes(Kitchen_Qual)) +
   geom_bar()
 ```
 
-<img src="/public/images/visual/graphical_data_analysisord1-1.png" style="display: block; margin: auto;" />
+<img src="/public/images/visual/graphical_data_analysis/ord1-1.png" style="display: block; margin: auto;" />
 
 Here, rather than order by frequency it may be important to order the bars by the natural order of the quality lables:  Poor, Fair, Typical, Good, Excellent.  This can provide better insight into where most observations fall within this spectrum of quality.  To do this we reorder the factor levels with `fct_relevel` and now its easier to see that most homes have average to slightly above average quality kitchens.
 
@@ -408,7 +408,7 @@ ames %>%
   geom_bar()
 ```
 
-<img src="/public/images/visual/graphical_data_analysisord2-1.png" style="display: block; margin: auto;" />
+<img src="/public/images/visual/graphical_data_analysis/ord2-1.png" style="display: block; margin: auto;" />
 
 We may also have a categorical variable that has set intervals and may even be identified by integer values.  For example, our data identifies the month each home was sold but uses integer values to represent the months.  In this case we do not need to reorder our factor levels but we should ensure we visualize these as discrete factor levels (note how I apply `factor(Mo_Sold)` within ggplot) so that the home sale counts are appropriately bucketed into each month.  
 
@@ -423,7 +423,7 @@ p2 <- ggplot(ames, aes(factor(Mo_Sold))) +
 gridExtra::grid.arrange(p1, p2, nrow = 2)
 ```
 
-<img src="/public/images/visual/graphical_data_analysisint1-1.png" style="display: block; margin: auto;" />
+<img src="/public/images/visual/graphical_data_analysis/int1-1.png" style="display: block; margin: auto;" />
 
 
 Bar charts can also illustrate how our missing values are disbursed across categorical variables.  Using the `MASS::survey` data (since our `ames` data does not have any missing data) we can make small multiples (more on this in the next section) using `facet_wrap` to visualize the `NA`s. 
