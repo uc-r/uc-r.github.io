@@ -4,6 +4,11 @@ title: Visual Data Exploration
 permalink: /gda
 ---
 
+
+
+<img src="/public/images/visual/graphical_data_analysis/gda_icon.png"  style="float:right; margin: 2px 0px 0px 10px; width: 50%; height: 50%;" />
+
+
 Data visualization is a critical tool in the data analysis process.  Visualization tasks can range from generating fundamental distribution plots to understanding the interplay of complex influential variables in machine learning algorithms.  In this tutotial we focus on the use of visualization for initial *data exploration*. 
 
 Visual data exploration is a mandatory intial step whether or not more formal analysis follows.  When combined with [descriptive statistics](descriptive), visualization provides an effective way to identify summaries, structure, relationships, differences, and abnormalities in the data.  Often times no elaborate analysis is necessary as all the important conclusions required for a decision are evident from simple visual examination of the data.  Other times, data exploration will be used to help guide the data cleaning, feature selection, and sampling process.  
