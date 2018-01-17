@@ -452,3 +452,367 @@ ggplot(titanic::titanic_train, aes(Embarked)) +
 
 Bar charts and their cousins are a simple form of visual display, yet they can provide much information about our categorical variables.  Whether viewing nominal, ordinal, or interval data we can make minor adjustments in our bar charts to highlight the important features of our variables.
 
+<br>
+
+## Bivariate Relationships and Associations {#bivariate}
+
+Having a solid understanding of univariate distributions is important; however, most analyses want to take the next step to understand associations and relationships between variables. Features we are generally interested in include:
+
+- Associations
+- Outliers
+- Clusters
+- Gaps
+- Barriers
+- Change points
+
+
+One of the most popular plots to assess association is the scatter plot.  The scatter plot helps us to see multiple features between two continuous variables.  Here we look at the relationship between `Sale_Price` and total above ground square footage (`Gr_Liv_Area`). A few features that pop out from this plot includes:
+
+- Associations: There is a positive relationship between these two variables.  As total above ground square footage increases the sale price also increases.
+- Outliers: Several outliers appear in multiple directions.  Two outliers appear at the top of the chart suggesting these are larger than normal homes that sold for very high prices.  We also see three outliers at the far right of the chart suggesting these homes have very large square footage but sold for average sale prices.
+- Clusters: Give the large number of points there is a lot of overplotting, which is why I incorporated `alpha = .3` to increase transparency.  This allows us to see the clustering of data points in the center of the variable relationship.
+- Barriers: The outer limits of our point clustering shows us that there are limitations on the sale price for given ranges of square footage.  For example, homes with less than 1,000 square feet above ground appear to have a price ceiling of \$200,000 or less.
+
+
+```r
+ggplot(ames, aes(x = Gr_Liv_Area, y = Sale_Price)) +
+  geom_point(alpha = .3)
+```
+
+<img src="/public/images/visual/graphical_data_analysis/scatter1-1.png" style="display: block; margin: auto;" />
+
+This relationship appears to be fairly linear but it is unclear. We can add trend lines to assess the linearity.  In the below plot we add a linear line with `geom_smooth(method = "lm")` (note the `method = "lm"` means to add a linear model line) and then we add a non-linear line (the second `geom_smooth` without a specified `method` adds uses a generalized additive model).  This allows us to assess how non-linear a relationship may be.  Our new plot shows that for homes with less than 2,250 square feet the relationship is fairly linear; however, beyond 2,250 square feet we see strong deviations from linearity.
+
+Also, note the funneling in the left scatter plot.  This is called heteroskedasticity (non-constant variance) and this can cause concerns with certain future modeling approaches (i.e. forms of linear regression).  We can assess if transforming our variables can alleviate this concern by adding `scale_?_log10`.  The right plot shows that transforming our variables makes our variability across the plot more constant.  We see that for the majority of the plot the relationship is now linear with the exception of the two ends where we see the non-linear line being pulled down.  This suggests that there are some influential observations with low and high square footage that are pulling the expected sale price down.  
+
+
+
+```r
+p1 <- ggplot(ames, aes(x = Gr_Liv_Area, y = Sale_Price)) +
+  geom_point(alpha = .3) +
+  geom_smooth(method = "lm", se = FALSE, color = "red", lty = "dashed") +
+  geom_smooth(se = FALSE, lty = "dashed") +
+  ggtitle("Non-transformed variables")
+
+p2 <- ggplot(ames, aes(x = Gr_Liv_Area, y = Sale_Price)) +
+  geom_point(alpha = .3) +
+  geom_smooth(method = "lm", se = FALSE, color = "red", lty = "dashed") +
+  geom_smooth(se = FALSE, lty = "dashed") +
+  scale_x_log10() +
+  scale_y_log10() +
+  ggtitle("log-transformed variables")
+
+gridExtra::grid.arrange(p1, p2, nrow = 1)
+```
+
+<img src="/public/images/visual/graphical_data_analysis/dbl_scatter-1.png" style="display: block; margin: auto;" />
+
+Scatter plots can also signal distinct clustering or gaps.  For example, if we plot `Sale_Price` versus `Garage_Area` (left) we see a couple areas of concentrated points.  By incorporating a density plot (middle) we can draw attention to the centers of these clusters which appears to be located at homes with zero garage square footage and homes with just over 250 square feet and just under 500 square feet of garage area. We can also change our plot to a hexbin plot, that replaces bunches of points with a larger hexagonal symbol. This provides us with a heatmap-like plot to signal highly concentrated regions.  It also does a better job identifying gaps in our data where no observations exist.
+
+
+```r
+p1 <- ggplot(ames, aes(x = Garage_Area, y = Sale_Price)) + 
+  geom_point(alpha = .2)
+
+p2 <- ggplot(ames, aes(x = Garage_Area, y = Sale_Price)) + 
+  geom_point(alpha = .2) + 
+  geom_density2d()
+
+p3 <- ggplot(ames, aes(x = Garage_Area, y = Sale_Price)) + 
+  geom_hex(bins = 50, show.legend = FALSE)
+
+gridExtra::grid.arrange(p1, p2, p3, nrow = 1)
+```
+
+<img src="/public/images/visual/graphical_data_analysis/density_plot-1.png" style="display: block; margin: auto;" />
+
+When using a scatter plot to assess a continuous variable against a categorical variable a stip plot will form.  Here we assess the `Sale_Price` to the number of above ground bedrooms (`Bedroom_AbvGr`).  Due to the size of this data set, the top left strip plot has a lot of overlaid data points.  We can use `geom_jitter` to add a little variation to our plot (top right), which allows us to see where heavier concentrations of points exist. Alternatively, we can use boxplots and violin plots to compare the distributions of `Sale_Price` to `Bedroom_AbvGr`.  Each plot provides different insights to the different features (i.e. outliers, clustering, median values).
+
+
+
+```r
+p1 <- ggplot(ames, aes(x = factor(Bedroom_AbvGr), y = Sale_Price)) +
+  geom_point(alpha = .2)
+
+p2 <- ggplot(ames, aes(x = factor(Bedroom_AbvGr), y = Sale_Price)) +
+  geom_jitter(alpha = .2, width = .2)
+
+p3 <- ggplot(ames, aes(x = factor(Bedroom_AbvGr), y = Sale_Price)) +
+  geom_boxplot()
+
+p4 <- ggplot(ames, aes(x = factor(Bedroom_AbvGr), y = Sale_Price)) +
+  geom_violin()
+
+gridExtra::grid.arrange(p1, p2, p3, p4, nrow = 2)
+```
+
+<img src="/public/images/visual/graphical_data_analysis/int_scatter-1.png" style="display: block; margin: auto;" />
+
+An alternative approach to view the distribution of a continuous variable across multiple categories includes overlaying distribution plots.  For example, we could assess the `Sale_Price` of homes across the overall quality of homes.  We can do this with a frequency polygon (left), which display the outline of a histogram. However, since some quality levels have very low counts it is tough to see the distribution of costs within each category.  A better approach is to overlay density plots which allows us to see how each quality level's distribution differs from one another. 
+
+
+```r
+p1 <- ggplot(ames, aes(x = Sale_Price, color = Overall_Qual)) +
+  geom_freqpoly() +
+  scale_x_log10(breaks = c(50, 150, 400, 750) * 1000, labels = scales::dollar)
+  
+p2 <- ggplot(ames, aes(x = Sale_Price, color = Overall_Qual, fill = Overall_Qual)) +
+  geom_density(alpha = .15) +
+  scale_x_log10(breaks = c(50, 150, 400, 750) * 1000, labels = scales::dollar)
+
+gridExtra::grid.arrange(p1, p2, nrow = 2)
+```
+
+<img src="/public/images/visual/graphical_data_analysis/unnamed-chunk-3-1.png" style="display: block; margin: auto;" />
+
+When there are many levels in a categorical variable, overlaid plots become difficult to decipher.  Rather than overlay plots, we can also use small multiples to compare the distribution of a continuous variable. Ridge plots provide a form of small multiples by partially overlapping distribution plots. They can be quite useful for visualizing changes in continuous distributions over discrete variable levels.  In this example I use the `ggridges` package which provides an add-on `geom_density_ridges` for ggplot.  Now we get a much clearer picture how the sales price differs for each quality level.
+
+
+```r
+ggplot(ames, aes(x = Sale_Price, y = Overall_Qual)) + 
+  ggridges::geom_density_ridges() +
+  scale_x_continuous(labels = scales::dollar)
+```
+
+<img src="/public/images/visual/graphical_data_analysis/joyplot-1.png" style="display: block; margin: auto;" />
+
+It is important to understand how a categorical response is associated with multiple variables.  We can use faceting (`facet_wrap` and `facet_grid`) to produce small multiples of bar charts across the levels of 1 or more categorical variable. For example, here we assess the quality of kitchens for homes that sold above and below the mean sales price.  Not surprisingly we see homes above average sales price have higher quality kitchens.
+
+
+```r
+ames %>%
+  mutate(
+    Above_Avg = ifelse(Sale_Price > mean(Sale_Price), "Above", "Below"),
+    Kitchen_Qual = fct_relevel(Kitchen_Qual, "Poor", "Fair", "Typical", "Good")
+    ) %>%
+  ggplot(aes(Kitchen_Qual)) + 
+  geom_bar() +
+  facet_wrap(~ Above_Avg) +
+  theme_bw()
+```
+
+<img src="/public/images/visual/graphical_data_analysis/facetw_bar-1.png" style="display: block; margin: auto;" />
+
+We can build onto this with `facet_grid` which allows us to create small multiples across two additional dimensions.  In this example we assess the quality of kitchens for homes that sold above and below the mean sales price by neighborhood.  This plot allows us to see gaps across the different categorical levels along with which category combinations are most frequent.
+
+
+```r
+ames %>%
+  mutate(
+    Above_Avg = ifelse(Sale_Price > mean(Sale_Price), "Above", "Below"),
+    Kitchen_Qual = fct_relevel(Kitchen_Qual, "Poor", "Fair", "Typical", "Good")
+    ) %>%
+  group_by(Neighborhood, Above_Avg, Kitchen_Qual) %>%
+  tally() %>%
+  mutate(pct = n / sum(n)) %>%
+  ggplot(aes(Kitchen_Qual, pct)) + 
+  geom_col() +
+  facet_grid(Neighborhood ~ Above_Avg) +
+  theme(strip.text.y = element_text(angle = 0, hjust = 0))
+```
+
+<img src="/public/images/visual/graphical_data_analysis/facetg_bar-1.png" style="display: block; margin: auto;" />
+
+<br>
+
+## Multivariate Relationships {#multivariate}
+
+In most analyses, data are usually multivariate by nature, and the analytics are designed to capture and measure multivariate relationships.  Visual exploration should therefore also incorporate this important aspect.  We can extend these basic principles and add in additional features to assess multidimensional relationships.  One approach is to add additional variables with features such as color, shape, or size.  For example, here we compare the sales price to above ground square footage of homes with and without central air conditioning.  We can see that there are far more homes with central air and that those homes without central air tend to have less square footage and sell for lower sales prices.
+
+
+```r
+ggplot(ames, aes(x = Gr_Liv_Area, y = Sale_Price, color = Central_Air, shape = Central_Air)) +
+  geom_point(alpha = .3) +
+  scale_x_log10() +
+  scale_y_log10()
+```
+
+<img src="/public/images/visual/graphical_data_analysis/multidim1-1.png" style="display: block; margin: auto;" />
+
+However, as before, when there are many levels in a categorical variable it becomes hard to compare differences by only incorporating color or shape features.  An alternative is to create small multiples. Here we compare the relationship between sales price and above ground square footage and we assess how this relationship may differ across the different house styles (i.e. one story, two story, etc.).
+
+
+```r
+ggplot(ames, aes(x = Gr_Liv_Area, y = Sale_Price)) +
+  geom_point(alpha = .3) +
+  scale_x_log10() +
+  scale_y_log10(labels = scales::dollar) +
+  facet_wrap(~ House_Style, nrow = 2) +
+  theme_bw()
+```
+
+<img src="/public/images/visual/graphical_data_analysis/smallmulti-1.png" style="display: block; margin: auto;" />
+
+We can start to add several of the features discussed in this chapter to highlight mutlivariate features.  For example, here we assess the relationship between sales price and above ground square footage for homes with and without central air conditioning and across the different housing styles.  For each house style and central air category we can see where the values are clustered and how the linear relationship changes.  For all home styles, houses with central air have a higher selling price with a steeper slope than those without central air.  Also, those plots without density markings and linear lines for the no central air category (red) tell us that there are no more than one observation in these groups; so this identifies gaps across multivariate categories of interest.
+
+
+```r
+ggplot(ames, aes(x = Gr_Liv_Area, y = Sale_Price, color = Central_Air, shape = Central_Air)) +
+  geom_point(alpha = .3) +
+  geom_density2d(alpha = .5) +
+  geom_smooth(method = "lm", se = FALSE) +
+  scale_x_log10() +
+  scale_y_log10(labels = scales::dollar) +
+  facet_wrap(~ House_Style, nrow = 2) +
+  ggtitle("Sale Price vs. Above Ground Sq.Ft",
+          subtitle = "How does central air and house style influence this relationship?") +
+  theme_bw()
+```
+
+<img src="/public/images/visual/graphical_data_analysis/multivar1-1.png" style="display: block; margin: auto;" />
+
+
+Parallel coordinate plots (PCP) are also a great way to visualize continuous variables across multiple variables. In these plots, a vertical axis is drawn for each variable.  Then each observation is represented by drawing a line that connects its values on the different axes, thereby creating a multivariate profile.  To create a PCP, we can use `ggparcoord` from the `GGally` package.  By default, `ggparcoord` will standardize the variables based on a Z-score distribution; however, there are many options for scaling (see `?ggparcoord`).  One benefit of of a PCP is that you can visualize your observations across continuous and categorical variables.  In this example I include `Overall_Qual` which is an ordered factor with levels "Very Poor", "Poor", "Fair", ..., "Excellent", "Very Excellent" having values of 1-10.  When including a factor variable `ggparcoord` will use the factor integer levels for their value so it is important to appropriately order any factors you want to include.
+
+
+```r
+variables <- c("Sale_Price", "Year_Built", "Year_Remod_Add", "Overall_Qual")
+
+ames %>%
+  select(variables) %>%
+  ggparcoord(alpha = .05, scale = "center")
+```
+
+<img src="/public/images/visual/graphical_data_analysis/parallel1-1.png" style="display: block; margin: auto;" />
+
+The darker bands in the above plot illustrate several features.  The observations with higher sales prices tend to be built in more recent years, be remodeled in recent years and be categorized in the top half of the overall quality measures.  In contracts, homes with lower sales prices tend to be more out-dated (based on older built and remodel dates) and have lower quality ratings.  We also see some homes with exceptionally old build dates that have much newer remodel dates but still have just average quality ratings.
+
+We can make this more explicit by adding a new variable to indicate if a sale price is above average.  We can then tell `ggparcood` to group by this new variable.  Now we clearly see that above average sale prices are related to much newer homes.
+
+
+```r
+ames %>%
+  select(variables) %>%
+  mutate(Above_Avg = Sale_Price > mean(Sale_Price)) %>%
+  ggparcoord(
+    alpha = .05,
+    scale = "center",
+    columns = 1:4,
+    groupColumn = "Above_Avg"
+    )
+```
+
+<img src="/public/images/visual/graphical_data_analysis/parallel2-1.png" style="display: block; margin: auto;" />
+
+
+Mosaic plots are a graphical method for visualizing data from two or more qualitative variables. In this visual the graphics area is divided up into rectangles proportional in size to the counts of the combinations they represent.
+
+
+
+```r
+ames2 <- ames %>%
+  mutate(
+    Above_Avg = Sale_Price > mean(Sale_Price),
+    Garage_Type = abbreviate(Garage_Type),
+    Garage_Qual = abbreviate(Garage_Qual)
+         )
+
+par(mfrow = c(1, 2))
+mosaicplot(Above_Avg ~ Garage_Type, data = ames2, las = 1)
+mosaicplot(Above_Avg ~ Garage_Type + Garage_Cars, data = ames2, las = 1)
+```
+
+<img src="/public/images/visual/graphical_data_analysis/mosaic-1.png" style="display: block; margin: auto;" />
+
+Treemaps are also a useful visualization aimed at assessing the hierarchical structure of data.  Treemaps are primarily used to assess a numeric value across multiple categories.  It can be useful to assess the counts or porportions of a categorical variable nested within other categorical variables.  For example, we can use a treemap to visualize the above right mosaic plot that illustrates the number of homes sold above and below average sales price with different garage characteristics.  We can see in the treemap that houses with above average prices tend to have attached 2 and 3-car garages.  Houses sold below average price have more attached 1-car garages and also have far more detached garages. 
+
+
+```r
+ames %>% 
+  mutate(Above_Below = ifelse(Sale_Price > mean(Sale_Price), "Above Avg", "Below Avg")) %>%
+  count(Garage_Type, Garage_Cars, Above_Below) %>%
+  treemap(
+    index = c("Above_Below", "Garage_Type", "Garage_Cars"),
+    vSize = "n"
+  )
+```
+
+<img src="/public/images/visual/graphical_data_analysis/mosaic2-1.png" style="display: block; margin: auto;" />
+
+A heatmap is a graphical display of numerical data where color is used to denote the case value realtive to other values in the column.  Heatmaps can be extremely useful in identify clusters of strongly correlated values. We can select all numeric variables in our `ames` data set, compute the correlation matrix and visualize this matrix with a heatmap. Those locations with dark red represent correlations with smaller values while lighter colored cells represent larger values.  Looking at `Sale_Price` (3rd row from top) you can see that the smaller values are clustered to the left of the plot suggestion weaker linear relationships with variables such as `BsmtFin_Sf_1`, `Bsmt_Unf_SF`, `Longitude`, `Enclosed_Porch`, etc.  The larger correlations values for `Sale_Price` align with variables to the right of the plot such as `Garage_Cars`, `Garage_Area`, `First_Flr_SF`, etc.
+
+
+```r
+ames %>%
+  select_if(is.numeric) %>%
+  cor() %>%
+  heatmap()
+```
+
+<img src="/public/images/visual/graphical_data_analysis/heatmap-1.png" style="display: block; margin: auto;" />
+
+A heatmap is a great way to assess the relationship across a large data set.  However, when you are dealing with a smaller data set (or subset), you may want to create a matrix plot to compare relationships across all variables. For example, here I select `Sale_Price` and all variables that contain "sf" (all square footage variables), I scale all variables, and then visualize the scatter plot and correlation values with `GGally::ggpairs`.
+
+
+```r
+ames %>%
+  select(Sale_Price, contains("sf")) %>%
+  map_df(scale) %>%
+  ggpairs()
+```
+
+<img src="/public/images/visual/graphical_data_analysis/ggpairs-1.png" style="display: block; margin: auto;" />
+
+<br>
+
+## Data Quality {#quality}
+
+Graphical displays can also assist in summarizing certain data quality features.  In the previous sections we illustrated how we can identify outliers but missing data also represent an important characteristic of our data. This tutorial has been using the processed version of the Ames housing data set.  However, if we use the raw data we see that there are 13,997 missing values.  It is important to understand how these missing values are dispersed acrossed a data set as that can determine if you need to eliminate a variable or if you can impute.
+
+
+```r
+sum(is.na(AmesHousing::ames_raw))
+## [1] 13997
+```
+
+Heatmaps have a nice alternative use case for visualizing missing values across a data set. In this example `is.na(AmesHousing::ames_raw)` will return a Boolean (TRUE/FALSE) output indicating the location of missing values and by multiplying this value by 1 converts the output to 0/1 binary to be plotted.  All yellow locations in our heatmap represent missing values.  This allows us to see those variables where the majority of the observations have missing values (i.e. `Alley`, `Fireplace Qual`, `Pool QC`, `Fence`, and `Misc Feature`).  Due to their high frequency of missingness, these variables would likely need to be removed from future analytic approaches.  However, we can also spot other unique features of missingness.  For example, missing values appear to occur across all garage variables for the same observations.  
+
+
+```r
+heatmap(1 * is.na(AmesHousing::ames_raw), Rowv = NA, Colv = NA)
+```
+
+<img src="/public/images/visual/graphical_data_analysis/heatmap2-1.png" style="display: block; margin: auto;" />
+
+If we dig a little deeper into these variables we would notice that `Garage Cars` and `Garage Area` all contain the value 0 for every observation where the other `Garage_xx` variables have missing values.  This is because in the raw Ames housing data set, they did not have an option to identify houses with no garages.  Therefore, all houses with no garage were identified by including nothing.  This would be opportunity to create a new categorical level ("None") for these garage variables.
+
+
+```r
+AmesHousing::ames_raw %>% 
+  filter(is.na(`Garage Type`)) %>% 
+  select(contains("garage"))
+## # A tibble: 157 x 7
+##    `Garage Type` `Garage Yr Blt` `Garage Finish` `Gara… `Gara… `Gar… `Gar…
+##    <chr>                   <int> <chr>            <int>  <int> <chr> <chr>
+##  1 <NA>                       NA <NA>                 0      0 <NA>  <NA> 
+##  2 <NA>                       NA <NA>                 0      0 <NA>  <NA> 
+##  3 <NA>                       NA <NA>                 0      0 <NA>  <NA> 
+##  4 <NA>                       NA <NA>                 0      0 <NA>  <NA> 
+##  5 <NA>                       NA <NA>                 0      0 <NA>  <NA> 
+##  6 <NA>                       NA <NA>                 0      0 <NA>  <NA> 
+##  7 <NA>                       NA <NA>                 0      0 <NA>  <NA> 
+##  8 <NA>                       NA <NA>                 0      0 <NA>  <NA> 
+##  9 <NA>                       NA <NA>                 0      0 <NA>  <NA> 
+## 10 <NA>                       NA <NA>                 0      0 <NA>  <NA> 
+## # ... with 147 more rows
+```
+
+An alternative approach is to use `extracat::visna`, which allows us to visualize missing patters.  The columns represent the 82 variables and the rows the missing patterns. The cells for the variables with missing values in a pattern are drawn in blue. The variables and patterns have been ordered by numbers of missings on both rows and columns (`sort = "b"`). The bars beneath the columns show the proporations of missings by variable and the bars on the right show the relative frequencies of patterns.   
+
+
+```r
+extracat::visna(AmesHousing::ames_raw, sort = "b")
+```
+
+<img src="/public/images/visual/graphical_data_analysis/missing2-1.png" style="display: block; margin: auto;" />
+
+Data can be missing for different reasons.  It could be that a value was not recorded, or that it was, but was obviously an error.  As in our case with the garage variables it could be because there was not an option to record the specific value observed so the default action was to not record any value.  Regardless, it is important to identify and understand how missing values are observed across a data set as they can provide insight into how to deal with these observations.
+
+
+
+
+[^baseRhist]: We could also use `hist(ames$Sale_Price)` to produce a histogram with base R graphics.
+[^bins]: These are approximates because the binning will round to whole numbers (12,800 rather than 12,370.)
+[^transf]: Two things to note here. 1. If you want to change the binwidth you either need to feed a log tranformed number to binwidth or, as I did, increase the bins by using `bins = 100`. 2. If you have values of zero in your variable try `scale_x_continuous(trans = "log1p"), which adds 1 prior to the log transformation.
+[^factors]: A great resource to learn more about which you can learn more about managing factors is R for Data Science, Ch. 15.
+
