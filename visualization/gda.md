@@ -73,7 +73,7 @@ ggplot(ames, aes(Sale_Price)) +
   geom_histogram()
 ```
 
-<img src="/public/images/visual/graphical_data_analysis/hist1-1.png.png" style="display: block; margin: auto;" />
+<img src="/public/images/visual/graphical_data_analysis/hist1-1.png" style="display: block; margin: auto;" />
 
 
 
