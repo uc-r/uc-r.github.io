@@ -6,7 +6,7 @@ permalink: /gda
 
 
 
-<img src="/public/images/visual/graphical_data_analysis/gda_icon.png"  style="float:right; margin: 2px 0px 0px 10px; width: 50%; height: 50%;" />
+<img src="/public/images/visual/graphical_data_analysis/gda_icon.png"  style="float:right; margin: 2px 0px 0px 2px; width: 50%; height: 50%;" />
 
 
 Data visualization is a critical tool in the data analysis process.  Visualization tasks can range from generating fundamental distribution plots to understanding the interplay of complex influential variables in machine learning algorithms.  In this tutorial we focus on the use of visualization for initial *data exploration*. 
