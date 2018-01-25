@@ -4,6 +4,8 @@ title: Multivariate Statistical Inference
 permalink: /multivariate_inference
 ---
 
+<img src="/public/images/analytics/multivariate-inference/attr_box2-1.png"  style="float:right; margin: 20px 0px 0px 5px;  width: 50%; height: 50%;" />
+
 In the [univariate statistical inference tutorial](univariate_inference) we focused on inference methods for one variable at a time.  However, analysts are often interested in multivariate inferential methods where comparisons between two or more groups can be assessed.  This tutorial builds on the [previous one](univariate_inference) by illustrating common approaches to perform multivariate statistical inference.
 
 <br>
