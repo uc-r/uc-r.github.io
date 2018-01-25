@@ -12,14 +12,14 @@ In the [univariate statistical inference tutorial](univariate_inference) we focu
 First, I provide the data and packages required to replicate the analysis and then I walk through the basic operations to compare means and proportions between two or more groups.
 
 1. [Replication requirements](#replication): What you'll need to reproduce the analysis in this tutorial.
-2. [Comparing means of two groups](#2means): Testing for the difference in group means.
+2. [Comparing means of two groups](#means): Testing for the difference in group means.
 3. [Comparing means of three or more groups](#anova): Testing for differences across multiple group means.
-4. [Comparing proportions of two groups](#2props): Testing for the difference in group proportions.
-5. [Comparing proportions of three or more groups](#3props): Testing for differences across multiple group proportions.
+4. [Comparing proportions of two groups](#props): Testing for the difference in group proportions.
+5. [Comparing proportions of three or more groups](#props3): Testing for differences across multiple group proportions.
 
 <br>
 
-## Prerequisites
+## Prerequisites {#replication}
 This tutorial primarily uses base R functions; however, we leverage `ggplot2` and `dplyr` for some basic data manipulation and visualization tasks.  To illustrate the key ideas, we use [employee attrition data](https://www.ibm.com/communities/analytics/watson-analytics-blog/hr-employee-attrition/) provided by the `rsample` package
 
 
@@ -254,7 +254,7 @@ table(attrition$Attrition, attrition$Gender) %>%
 <br>
 
 
-## Comparing Proportions of Three or More Groups {#3props}
+## Comparing Proportions of Three or More Groups {#props3}
 An extension of the two-sample *Z* test is if we desire to compare proportions across *multinomial* data.  Multinomial data is when there are three or more categorical groups.  For example, our `attrition` data has a `MaritalStatus` variable that categorizes employees as single, married, or divorced.  We may be interested in understanding if there are differences in the proportions of these categories ($$p_k$$) for employees that churn versus those that do not.  
 
 
