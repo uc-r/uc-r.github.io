@@ -65,7 +65,7 @@ ggplot(attrition, aes(Attrition, DistanceFromHome)) +
   coord_flip()
 ```
 
-<img src="multivariate_inference_files/figure-html/attr_box-1.png" style="display: block; margin: auto;" />
+<img src="/public/images/analytics/multivariate-inference/attr_box-1.png" style="display: block; margin: auto;" />
 
 However, the question remains, how certain are we that there is a difference in distances between the two attrition groups?  Assuming this data is a sample of a larger population data set, we saw in the previous tutorial that there is some uncertainty (*margin of error*) around the estimated mean produced by a sample.  If the margin of error is large enough then we cannot state that any differences in mean values between these groups are *statistically significant*.  This results in the following hypothesis:
 
@@ -75,9 +75,9 @@ where the null hypothesis is that the average distances are the same between the
 
 $$ t = \frac{\bar x_1 - \bar x_2}{\sqrt{(s^2_1/n_1) + (s^2_2/n_2)}} \tag{1} $$
 
-which follows an approximate *t* distribution with the smaller of $n_1 - 1$ or $n_2 - 1$ degrees of freedom. For *t* to be applicable, either both groups need to be normally distributed or both groups need to have sufficiently large sample sizes.  The same logic applies for this test statistic as those in the [previous tutorial](univariate_inference) &#8594; a sufficiently large *t* value provides evidence against the null hypothesis $H_0$ and this strength of evidence can be measured by the *p*-value.
+which follows an approximate *t* distribution with the smaller of $$n_1 - 1$$ or $$n_2 - 1$$ degrees of freedom. For *t* to be applicable, either both groups need to be normally distributed or both groups need to have sufficiently large sample sizes.  The same logic applies for this test statistic as those in the [previous tutorial](univariate_inference) &#8594; a sufficiently large *t* value provides evidence against the null hypothesis $$H_0$$ and this strength of evidence can be measured by the *p*-value.
 
-We apply this in R using `t.test`.  The *p*-value results suggest very strong evidence that the two groups are different. The difference of the two means is $8.916 - 10.633 = -1.717$ and the confidence interval suggests that we can be 95% certain that the true difference between these groups rests in the interval of -2.89 and -0.55 miles.  Consequently, we can state that, on average, employees that churn tend to live further away from work than employees that do not churn.
+We apply this in R using `t.test`.  The *p*-value results suggest very strong evidence that the two groups are different. The difference of the two means is $$8.916 - 10.633 = -1.717$$ and the confidence interval suggests that we can be 95% certain that the true difference between these groups rests in the interval of -2.89 and -0.55 miles.  Consequently, we can state that, on average, employees that churn tend to live further away from work than employees that do not churn.
 
 
 ```r
@@ -127,7 +127,7 @@ ggplot(attrition, aes(Department, MonthlyIncome)) +
   coord_flip()
 ```
 
-<img src="multivariate_inference_files/figure-html/attr_box2-1.png" style="display: block; margin: auto;" />
+<img src="/public/images/analytics/multivariate-inference/attr_box2-1.png" style="display: block; margin: auto;" />
 
 Consequently, the hypothesis we make here is:
 
@@ -136,12 +136,12 @@ Consequently, the hypothesis we make here is:
 
 We can turn to *analysis of variance* (ANOVA) to assess this hypothesis.  ANOVA works by comparing:
 
-1. the *between-sample variability*, which is the variability in the sample means, such as $\bar x_1 = 6654, \bar x_2 = 6281, \bar x_3 = 6959$, with
+1. the *between-sample variability*, which is the variability in the sample means, such as $$\bar x_1 = 6654, \bar x_2 = 6281, \bar x_3 = 6959$$, with
 2. the *within-sample variability*, which is the variability within each sample.
 
-When (1) is much larger than (2), this represents evidence that the population means are not equal ($H_a$).   Thus, the approach depends on variability, hence the term analysis of variance.
+When (1) is much larger than (2), this represents evidence that the population means are not equal ($$H_a$$).   Thus, the approach depends on variability, hence the term analysis of variance.
 
-Let $\bar{\bar x}$ represent the mean of all observations from all groups. We measure the between-sample variability by finding the variance of the *k* sample means, weighted by sample size, and expressed as the *mean square treatment* (MSTR):
+Let $$\bar{\bar x}$$ represent the mean of all observations from all groups. We measure the between-sample variability by finding the variance of the *k* sample means, weighted by sample size, and expressed as the *mean square treatment* (MSTR):
 
 $$ MSTR: \frac{\sum n_i(\bar x_i - \bar{\bar x})^2}{k - 1} \tag{2}$$
 
@@ -153,11 +153,11 @@ We compare these two quantities by taking their ratio, called the *F* statistic:
 
 $$ F = \frac{MSTR}{MSE} \tag{4} $$
 
-which follows an *F* distribution, with degrees of freedom $df_1 = k - 1$ and $df_2 = n_i - k$. The numerator of MSTR is also known as the *sum of squares treament* (SSTR) and the numerator of MSE is known as the *sum of squares error* (SSE).  The total sum of the squares (SST) is the sum of SSTR and SSE.  These quantities are often displayed in an ANOVA table that typically follows the format below:
+which follows an *F* distribution, with degrees of freedom $$df_1 = k - 1$$ and $$df_2 = n_i - k$$. The numerator of MSTR is also known as the *sum of squares treament* (SSTR) and the numerator of MSE is known as the *sum of squares error* (SSE).  The total sum of the squares (SST) is the sum of SSTR and SSE.  These quantities are often displayed in an ANOVA table that typically follows the format below:
 
 <img src="anova_table.png" width="1180" style="display: block; margin: auto;" />
 
-The *F*-statistic will be large when the between-sample variability is much greater than the within-sample variability, which provides supporting evidence against the null hypothesis.  In R we use `aov` to perform ANOVA.   As our results indicate, our *F*-statistic is 3.202 with $p\texttt{-value} = 0.041$, which provides solid evidence that our group means are not all equal. 
+The *F*-statistic will be large when the between-sample variability is much greater than the within-sample variability, which provides supporting evidence against the null hypothesis.  In R we use `aov` to perform ANOVA.   As our results indicate, our *F*-statistic is 3.202 with $$p\texttt{-value} = 0.041$$, which provides solid evidence that our group means are not all equal. 
 
 
 ```r
@@ -174,7 +174,7 @@ However, our ANOVA table does not tell us where or what differences exist; it ju
 
 $$q_s = \frac{Y_a - Y_b}{SE}  \tag{5}$$
 
-where $Y_a$ is the larger of the two means being compared, $Y_b$ is the smaller, SE represents the standard error of the sum of the means, and the resulting $q_s$ value can then be compared to a *q* value from the studentized range distribution with a specified $1 - \alpha$ confidence level.
+where $$Y_a$$ is the larger of the two means being compared, $$Y_b$$ is the smaller, SE represents the standard error of the sum of the means, and the resulting $$q_s$$ value can then be compared to a *q* value from the studentized range distribution with a specified $$1 - \alpha$$ confidence level.
 
 Applying Tukey's range test with `TukeyHSD` allows us to see that the primary difference in monthly income rests between the Sales and Research Development Departments where the *p*-value provides solid evidence that the average monthly Sales department income is $678 more than the average monthly Research Development department income.  You can also visualize these differences with `plot(TukeyHSD(anova_results))`.
 
@@ -228,7 +228,7 @@ To test this hypothesis we can use the two-sample *Z* test statistic to compare 
 
 $$ Z = \frac{p_1 - p_2}{\sqrt{p_{pooled} \cdot (1-p_{pooled}) ((1 / n_1) + (1/n_2))}}  \tag{6}$$
 
-where $p_{pooled} = \frac{x_1 + x_2}{n_1 + n_2}$, and $x_i$ and $p_i$ represents the number of and proportion of records with the given value for sample *i*, respectively.  In our example, $p_1$ represents the proportion of a given gender (i.e. female) where *Attrition = Yes* and $p_2$ represents the proportion of that same gender where *Attrition = No*.
+where $$p_{pooled} = \frac{x_1 + x_2}{n_1 + n_2}$$, and $$x_i$$ and $$p_i$$ represents the number of and proportion of records with the given value for sample *i*, respectively.  In our example, $$p_1$$ represents the proportion of a given gender (i.e. female) where *Attrition = Yes* and $$p_2$$ represents the proportion of that same gender where *Attrition = No*.
 
 We can apply `prop.test` in R to perform the two-sample Z-test.  Note that `prop.test` will use the first column in the output of `table`.  In our example this is *Female* so our `prop.test` is testing for a difference in the proportion of females that churn versus those that do not.  Our *p*-value suggests no evidence to reject the null hypothesis so we can be fairly confident that there are equal proportions of each gender that do and do not churn.
 
@@ -255,7 +255,7 @@ table(attrition$Attrition, attrition$Gender) %>%
 
 
 ## Comparing Proportions of Three or More Groups {#3props}
-An extension of the two-sample *Z* test is if we desire to compare proportions across *multinomial* data.  Multinomial data is when there are three or more categorical groups.  For example, our `attrition` data has a `MaritalStatus` variable that categorizes employees as single, married, or divorced.  We may be interested in understanding if there are differences in the proportions of these categories ($p_k$) for employees that churn versus those that do not.  
+An extension of the two-sample *Z* test is if we desire to compare proportions across *multinomial* data.  Multinomial data is when there are three or more categorical groups.  For example, our `attrition` data has a `MaritalStatus` variable that categorizes employees as single, married, or divorced.  We may be interested in understanding if there are differences in the proportions of these categories ($$p_k$$) for employees that churn versus those that do not.  
 
 
 ```r
@@ -270,13 +270,13 @@ table(attrition$Attrition, attrition$MaritalStatus) %>%
 
 The hypothesis here is:
 
-- Null hypothesis ($H_0$)
-    - $p_{single, no} = p_{single, yes}$
-    - $p_{married, no} = p_{married, yes}$
-    - $p_{divorced, no} = p_{divorced, yes}$
-- Alternative hypothesis ($H_a$): at least one of the claims in $H_0$ is wrong.
+- Null hypothesis ($$H_0$$)
+    - $$p_{single, no} = p_{single, yes}$$
+    - $$p_{married, no} = p_{married, yes}$$
+    - $$p_{divorced, no} = p_{divorced, yes}$$
+- Alternative hypothesis ($$H_a$$): at least one of the claims in $$H_0$$ is wrong.
 
-To determine if there is sufficient evidence against $H_0$, we compare the observed frequencies with the *expected frequencies* if $H_0$ were true. To compute expected frequencies we use
+To determine if there is sufficient evidence against $$H_0$$, we compare the observed frequencies with the *expected frequencies* if $$H_0$$ were true. To compute expected frequencies we use
 
 $$ E = \frac{(\texttt{row total})(\text{column total})}{\texttt{grand total}} $$
 
@@ -284,11 +284,11 @@ For example, our expected frequency for a divorced employee that did not attrit 
 
 $$ E_{\texttt{divorced,no}} = \frac{(1233)(327)}{1470} = 274$$
 
-We can compare the difference between the observed frequencies (*O*) and the expected frequencies (*E*) with the $\chi^2$ (chi-square) test statistic
+We can compare the difference between the observed frequencies (*O*) and the expected frequencies (*E*) with the $$\chi^2$$ (chi-square) test statistic
 
 $$ \chi^2 = \sum \frac{(O - E)^2}{E}  \tag{7}$$
 
-which will be large with a small *p*-value if the difference between *O* and *E* is sufficiently large. We can pass our frequency table to `chisq.test` in R to compute the $\chi^2$-statistic. Our results suggest there is very strong evidence that the marital status proportions are not consistent between employees that churn versus those that do not. We can also extract the expected frequencies and standardized residuals.  Large absolute standardized residual values identify the categories that deviate the most from their expected frequencies.   In our example, the residuals suggest that we actually observed far more employees that are single and churned ($O_\texttt{single,yes}$) than expected ($E_\texttt{single,yes}$), providing evidence that $p_{single, no} \ne p_{single, yes}$.
+which will be large with a small *p*-value if the difference between *O* and *E* is sufficiently large. We can pass our frequency table to `chisq.test` in R to compute the $$\chi^2$$-statistic. Our results suggest there is very strong evidence that the marital status proportions are not consistent between employees that churn versus those that do not. We can also extract the expected frequencies and standardized residuals.  Large absolute standardized residual values identify the categories that deviate the most from their expected frequencies.   In our example, the residuals suggest that we actually observed far more employees that are single and churned ($$O_\texttt{single,yes}$$) than expected ($$E_\texttt{single,yes}$$), providing evidence that $$p_{single, no} \ne p_{single, yes}$$.
 
 
 ```r
