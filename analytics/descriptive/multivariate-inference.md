@@ -280,7 +280,7 @@ For example, our expected frequency for a divorced employee that did not attrit 
 
 $$ E_{\texttt{divorced,no}} = \frac{(1233)(327)}{1470} = 274$$
 
-We can compare the difference between the observed frequencies (*O*) and the expected frequencies (*E*) with the $$\chi^2$$ (chi-square) test statistic
+whereas the actual observed frequency was 294.  We can compare the difference between the observed frequencies (*O*) and the expected frequencies (*E*) with the $$\chi^2$$ (chi-square) test statistic
 
 $$ \chi^2 = \sum \frac{(O - E)^2}{E}  \tag{7}$$
 
