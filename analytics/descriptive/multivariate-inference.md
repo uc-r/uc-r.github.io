@@ -131,8 +131,8 @@ ggplot(attrition, aes(Department, MonthlyIncome)) +
 
 Consequently, the hypothesis we make here is:
 
--  All groups have equal means: $H_0: \mu_1 = \mu_2 = \mu_3$
--  Not all groups have equal means: $H_a$
+-  All groups have equal means: $$H_0: \mu_1 = \mu_2 = \mu_3$$
+-  Not all groups have equal means: $$H_a$$
 
 We can turn to *analysis of variance* (ANOVA) to assess this hypothesis.  ANOVA works by comparing:
 
@@ -155,7 +155,7 @@ $$ F = \frac{MSTR}{MSE} \tag{4} $$
 
 which follows an *F* distribution, with degrees of freedom $$df_1 = k - 1$$ and $$df_2 = n_i - k$$. The numerator of MSTR is also known as the *sum of squares treament* (SSTR) and the numerator of MSE is known as the *sum of squares error* (SSE).  The total sum of the squares (SST) is the sum of SSTR and SSE.  These quantities are often displayed in an ANOVA table that typically follows the format below:
 
-<img src="anova_table.png" width="1180" style="display: block; margin: auto;" />
+<img src="/public/images/analytics/multivariate-inference/anova_table.png" width="1180" style="display: block; margin: auto;" />
 
 The *F*-statistic will be large when the between-sample variability is much greater than the within-sample variability, which provides supporting evidence against the null hypothesis.  In R we use `aov` to perform ANOVA.   As our results indicate, our *F*-statistic is 3.202 with $$p\texttt{-value} = 0.041$$, which provides solid evidence that our group means are not all equal. 
 
@@ -187,14 +187,10 @@ TukeyHSD(anova_results)
 ## Fit: aov(formula = MonthlyIncome ~ Department, data = attrition)
 ## 
 ## $Department
-##                                           diff         lwr      upr
-## Research_Development-Human_Resources -373.2551 -1807.57002 1061.060
-## Sales-Human_Resources                 304.6647 -1179.72420 1789.054
-## Sales-Research_Development            677.9198    46.02548 1309.814
-##                                          p adj
-## Research_Development-Human_Resources 0.8143913
-## Sales-Human_Resources                0.8800639
-## Sales-Research_Development           0.0320059
+##                                           diff         lwr      upr     p adj
+## Research_Development-Human_Resources -373.2551 -1807.57002 1061.060 0.8143913
+## Sales-Human_Resources                 304.6647 -1179.72420 1789.054 0.8800639
+## Sales-Research_Development            677.9198    46.02548 1309.814 0.0320059
 ```
 
 <br>
@@ -271,9 +267,9 @@ table(attrition$Attrition, attrition$MaritalStatus) %>%
 The hypothesis here is:
 
 - Null hypothesis ($$H_0$$)
-    - $$p_{single, no} = p_{single, yes}$$
-    - $$p_{married, no} = p_{married, yes}$$
-    - $$p_{divorced, no} = p_{divorced, yes}$$
+    - Single category: $$p_{single, no} = p_{single, yes}$$
+    - Married category: $$p_{married, no} = p_{married, yes}$$
+    - Divorced category: $$p_{divorced, no} = p_{divorced, yes}$$
 - Alternative hypothesis ($$H_a$$): at least one of the claims in $$H_0$$ is wrong.
 
 To determine if there is sufficient evidence against $$H_0$$, we compare the observed frequencies with the *expected frequencies* if $$H_0$$ were true. To compute expected frequencies we use
