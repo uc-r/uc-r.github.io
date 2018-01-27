@@ -7,7 +7,6 @@ permalink: /bootstrapping
 <img src="/public/images/analytics/bootstrap/bootstrap.png"  style="float:right; margin: 20px 0px 0px 5px;  width: 50%; height: 50%;" />
 Resampling methods are an indispensable tool in modern statistics. They involve repeatedly drawing samples from a training set and recomputing an item of interest on each sample. *Bootstrapping* is one such resampling method that repeatedly draws independent samples from our data set and provides a direct computational way of assessing uncertainty.  This tutorial covers the basics of bootstrapping to estimate the accuracy of a single statistic.  Note that resampling (to include bootstrapping) to improve the bias-variance tradeoff in predictive modeling is [discussed elsewhere](resampling_methods).
 
-<br>
 
 ## tl;dr
 First, I cover the packages and data used to reproduce results displayed in this tutorial.  I then discuss how boostrapping works followed by illustrating how to implement the method in R.
@@ -19,7 +18,6 @@ First, I cover the packages and data used to reproduce results displayed in this
 - [Where to learn more](#more): Resources to help you learn more.
 
 
-<br>
 
 ## Prerequisites {#prereq}
 This tutorial primarily uses the `rsample` package to create bootstrap samples but also uses the `purrr` and `ggplot2` packages (both contained in `tidyverse`).  To illustrate, our example `attrition` data comes from the `rsample` package.
@@ -54,9 +52,6 @@ as_tibble(attrition)
 ```
 
 
-
-<br>
-
 ## Why Bootstrap? {#why}
 Direct standard error formulas as discussed in the [univariate statistical inference tutorial](univariate_inference#mean) exist for various statistics and help to compute confidence intervals.  However, prior to the computer age, when estimating certain parameters of the distribution (i.e. percentile points, proportions, odds ratio, and correlation coefficients), complex and laborous Taylor series were required to compute errors of an estimate.  The bootstrap was developed as an alternative, computer-intensive approach to derive estimates of standard errors and confidence intervals for *any* statistics.
 
@@ -72,7 +67,6 @@ $$ \widehat{SE}_B = \sqrt{\frac{\sum^B_{b=1}(\hat \alpha^{*i} - \bar \alpha^{*B}
 
 Thus, $$\widehat{SE}_B$$ serves as an estimate of the standard error of $\hat \alpha$ estimated from the original data set.
 
-<br>
 
 ## Creating Bootstrap Samples {#create}
 The first objective in bootstrapping is to create your *B* bootstrap samples.  We can use `rsample::bootstrap` to create an object that contains *B* resamples of the original data. 
@@ -185,7 +179,6 @@ quantile(bt_samples$wage_diff, probs = c(.05, .5, .95))
 
 Consequently, we can be 95% confident that, *on average*, employees that churn are paid less than employees that do not churn (approximately -\$2,355 to -\$1,409 less).
 
-<br>
 
 ## Resource to Learn More {#more}
 
