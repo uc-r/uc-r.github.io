@@ -4,7 +4,7 @@ title: Bootstrapping for Parameter Estimates
 permalink: /bootstrapping
 ---
 
-<img src="/public/images/analytics/univariate-inference/unnamed-chunk-4-1.png"  style="float:right; margin: 20px 0px 0px 5px;  width: 50%; height: 50%;" />
+<img src="/public/images/analytics/bootstrap/bootstrap.png"  style="float:right; margin: 20px 0px 0px 5px;  width: 50%; height: 50%;" />
 Resampling methods are an indispensable tool in modern statistics. They involve repeatedly drawing samples from a training set and recomputing an item of interest on each sample. *Bootstrapping* is one such resampling method that repeatedly draws independent samples from our data set and provides a direct computational way of assessing uncertainty.  This tutorial covers the basics of bootstrapping to estimate the accuracy of a single statistic.  Note that resampling (to include bootstrapping) to improve the bias-variance tradeoff in predictive modeling is [discussed elsewhere](resampling_methods).
 
 <br>
@@ -60,17 +60,17 @@ as_tibble(attrition)
 ## Why Bootstrap? {#why}
 Direct standard error formulas as discussed in the [univariate statistical inference tutorial](univariate_inference#mean) exist for various statistics and help to compute confidence intervals.  However, prior to the computer age, when estimating certain parameters of the distribution (i.e. percentile points, proportions, odds ratio, and correlation coefficients), complex and laborous Taylor series were required to compute errors of an estimate.  The bootstrap was developed as an alternative, computer-intensive approach to derive estimates of standard errors and confidence intervals for *any* statistics.
 
-Bootstrapping involves repeatedly drawing independent samples from our data set (*Z*) to create bootstrap data sets ($Z^{*1}, Z^{*2}, \dots, Z^{*B}$).  This sample is performed with *replacement*, which means that the same observation can be sampled more than once and each bootstrap sample ($Z^{*i}$) will have the same number of observations as the original data set. 
+Bootstrapping involves repeatedly drawing independent samples from our data set (*Z*) to create bootstrap data sets ($$Z^{*1}, Z^{*2}, \dots, Z^{*B}$$).  This sample is performed with *replacement*, which means that the same observation can be sampled more than once and each bootstrap sample ($$Z^{*i}$$) will have the same number of observations as the original data set. 
 
-<img src="bootstrap.png" width="674" style="display: block; margin: auto;" />
+<img src="/public/images/analytics/bootstrap/bootstrap.png" width="674" style="display: block; margin: auto;" />
 
 The basic idea of bootstrapping is that inference about a population from sample data, can be modelled by resampling the sample data and performing inference about a sample from resampled data (resampled &#8594; sample &#8594; population).
 
-The bootstrap process begins with a statistic that we are interested in ($\hat\alpha^*$).  Some large number (*B*) of bootstrap samples are independently drawn.  Each bootstrap sample is used to compute this statistic ($\hat\alpha^{*1}, \hat\alpha^{*2}, \dots, \hat\alpha^{*B}$). We can then use all the bootstrapped data sets to compute the standard error of this desired statistic
+The bootstrap process begins with a statistic that we are interested in ($$\hat\alpha^*$$).  Some large number (*B*) of bootstrap samples are independently drawn.  Each bootstrap sample is used to compute this statistic ($$\hat\alpha^{*1}, \hat\alpha^{*2}, \dots, \hat\alpha^{*B}$$). We can then use all the bootstrapped data sets to compute the standard error of this desired statistic
 
 $$ \widehat{SE}_B = \sqrt{\frac{\sum^B_{b=1}(\hat \alpha^{*i} - \bar \alpha^{*B})^2}{(B-1)}}  \tag{1} $$
 
-Thus, $\widehat{SE}_B$ serves as an estimate of the standard error of $\hat \alpha$ estimated from the original data set.
+Thus, $$\widehat{SE}_B$$ serves as an estimate of the standard error of $\hat \alpha$ estimated from the original data set.
 
 <br>
 
@@ -100,7 +100,7 @@ set.seed(124)
 ## 10 <S3: rsplit> Bootstrap10
 ```
 
-The bootstrap samples are stored in data-frame-like `tibble` object where each bootstrap is nested in the `splits` column.  We can access each bootstrap sample just as you would access parts of a list.  Here, we access the first bootstrap sample stored in `bt_samples$splits[[1]]`. The `<1470/530/1470>` indicates that 1470 observations are in the bootstrap sample, 530 observations were not sampled in this bootstrap sample (meaning $1470-530 = 940$ observations were sample 1 or more times to make the 1470 observations in the bootstrap sample), and the last 1470 indicates the total number of observations in the original data set.  Remember, when performing bootstrap sampling, each bootstrap sample will always contain the same number of observations as the original data set.  To extract the first bootstrap sample we can use `rsample::analysis`.
+The bootstrap samples are stored in data-frame-like `tibble` object where each bootstrap is nested in the `splits` column.  We can access each bootstrap sample just as you would access parts of a list.  Here, we access the first bootstrap sample stored in `bt_samples$splits[[1]]`. The `<1470/530/1470>` indicates that 1470 observations are in the bootstrap sample, 530 observations were not sampled in this bootstrap sample (meaning $$1470-530 = 940$$ observations were sample 1 or more times to make the 1470 observations in the bootstrap sample), and the last 1470 indicates the total number of observations in the original data set.  Remember, when performing bootstrap sampling, each bootstrap sample will always contain the same number of observations as the original data set.  To extract the first bootstrap sample we can use `rsample::analysis`.
 
 
 ```r
@@ -171,7 +171,7 @@ ggplot(bt_samples, aes(x = wage_diff)) +
   xlab("Difference in Median Monthly Income (Attrition minus Non-Attrition)")
 ```
 
-<img src="Bootstrapping_for_parameter_estimates_files/figure-html/unnamed-chunk-6-1.png" style="display: block; margin: auto;" />
+<img src="/public/images/analytics/bootstrap/unnamed-chunk-6-1.png" style="display: block; margin: auto;" />
 
 
 We see that across all bootstrap samples, this statistic ranges from about -2500 to -1000. We can compute the confidence interval by taking the percentiles of the bootstrap distribution. We see that the median difference is -\$1,949 with a 95% confidence interval between -\$2,355 and -\$1,409.
