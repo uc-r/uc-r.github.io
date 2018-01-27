@@ -15,6 +15,7 @@ Descriptive methodologies focus on analyzing historic data for the purpose of id
 - [Assessing correlations](correlations)
 - [Univariate statistical inference](univariate_inference)
 - [Multivariate statistical inference](multivariate_inference)
+- [Bootstrapping for parameter estimates](bootstrapping)
 
 ## Text Mining
 
