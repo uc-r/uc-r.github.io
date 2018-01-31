@@ -26,8 +26,8 @@ First, get yourself (re-)introduced to R and the RStudio IDE by reading and comp
 
 ### Assignments
 
-- Complete the [Intro to basics](https://www.datacamp.com/groups/data-wrangling-with-r/assignments/9229) DataCamp assignment.
-- Complete the [Working with the RStudio IDE](https://www.datacamp.com/groups/data-wrangling-with-r/assignments/9193) DataCamp assignment.
+- Complete the [Intro to basics](https://www.datacamp.com/groups/data-wrangling-with-r-spring-2018/assignments/18847) DataCamp assignment.
+- Complete the [Working with the RStudio IDE](https://www.datacamp.com/groups/data-wrangling-with-r-spring-2018/assignments/18848) DataCamp assignment.
 
 <hr>
 
@@ -44,7 +44,7 @@ Next, start learning how to organize your workflow with R Projects and how to cr
 
 ### Assignments
 
-- Complete the [Reporting with R Markdown](https://www.datacamp.com/groups/data-wrangling-with-r/assignments/9231) DataCamp assignment.
+- Complete the [Reporting with R Markdown](https://www.datacamp.com/groups/data-wrangling-with-r-spring-2018/assignments/18849) DataCamp assignment.
 
 <hr>
 
