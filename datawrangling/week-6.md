@@ -22,8 +22,8 @@ The following tutorials will provide you the knowledge and skills required to st
 2. **Iteration:**  Another tool for reducing duplication is <u>iteration</u>, which helps you when you need to do the same thing to multiple inputs: repeating the same operation on different columns, or on different datasets. Read [Chapter 21: Iteration](http://r4ds.had.co.nz/iteration.html) to learn how to perform iteration programming.
 
 3. **DataCamp:**  Once you've read through these chapters, test your skills with the following DataCamp assignments:
-    - [Intermediate R](https://www.datacamp.com/groups/data-wrangling-with-r/assignments/9244)
-    - [Writing Functions in R](https://www.datacamp.com/groups/data-wrangling-with-r/assignments/9245)
+    - [Intermediate R](https://www.datacamp.com/groups/data-wrangling-with-r-spring-2018/assignments/18863)
+    - [Writing Functions in R](https://www.datacamp.com/groups/data-wrangling-with-r-spring-2018/assignments/18862)
 
 <hr>   
 
