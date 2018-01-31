@@ -1,6 +1,6 @@
 ---
 layout: tutorial
-title: Week 2 (October 15-21)
+title: Week 2 (March 4-10)
 permalink: data_wrangling/week-2
 ---
 
