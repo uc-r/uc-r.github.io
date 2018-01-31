@@ -1,6 +1,6 @@
 ---
 layout: tutorial
-title: Week 3 (October 22-28)
+title: Week 3 (March 11-17)
 permalink: data_wrangling/week-3
 ---
 
