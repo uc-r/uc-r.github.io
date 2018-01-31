@@ -1,6 +1,6 @@
 ---
 layout: tutorial
-title: Week 7 (November 27 - December 3)
+title: Week 7 (April 15-21)
 permalink: data_wrangling/week-7
 ---
 
@@ -15,6 +15,7 @@ The following tutorials will provide you the knowledge and skills required to st
     - Start practicing applying correlation and linear regression models with the [Correlation and Regression]( https://www.datacamp.com/groups/data-wrangling-with-r/assignments/9247) DataCamp assignment.
 
 2. **Machine Learning Toolbox:**  Every analyst should have a basic understanding of a few key analytic techniques.  This includes cluster analysis, decision trees, k-nearest neighbors, simple and multivariate regression.  By working through the [Machine Learning Toolbox]( https://www.datacamp.com/groups/data-wrangling-with-r/assignments/9246) DataCamp assignment, you will learn how to apply, interpret, and assess the accuracy of these analytic techniques.
+
 
 <hr>
 
