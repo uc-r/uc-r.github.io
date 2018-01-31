@@ -76,6 +76,6 @@ Throughout the term you will progressively create your final project.  You will 
 <p>
   <em>Total possible points: 40</em>
   <br>
-  <em>Due no later than: Saturday, November 4, 4:50PM ET</em>
+  <em>Due no later than: Saturday, March 17, 4:50PM ET</em>
 </p>
 </div>
