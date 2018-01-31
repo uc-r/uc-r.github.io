@@ -1,6 +1,6 @@
 ---
 layout: tutorial
-title: Week 4 (October 30 - November 5)
+title: Week 4 (March 25-31)
 permalink: data_wrangling/week-4
 ---
 
