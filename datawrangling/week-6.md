@@ -1,6 +1,6 @@
 ---
 layout: tutorial
-title: Week 6 (November 13 - 19)
+title: Week 6 (April 8-14)
 permalink: data_wrangling/week-6
 ---
 
