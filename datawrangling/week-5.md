@@ -1,6 +1,6 @@
 ---
 layout: tutorial
-title: Week 5 (November 6 - 12)
+title: Week 5 (April 1-7)
 permalink: data_wrangling/week-5
 ---
 
