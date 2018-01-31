@@ -11,10 +11,10 @@ Now that you are equipped with powerful programming tools we can finally move in
 The following tutorials will provide you the knowledge and skills required to start performing applied modeling techniques to your project data set.  
 
 1. **Model Basics & Model Building:** Start learning how models work mechanistically and using them to identify and pull out patterns in your data. 
-    - Read [Chapters 22-24]( http://r4ds.had.co.nz/model-intro.html) in R for Data Science.
-    - Start practicing applying correlation and linear regression models with the [Correlation and Regression]( https://www.datacamp.com/groups/data-wrangling-with-r/assignments/9247) DataCamp assignment.
+    - Read [Chapters 22-24](http://r4ds.had.co.nz/model-intro.html) in R for Data Science.
+    - Start practicing applying correlation and linear regression models with the [Correlation and Regression]( https://www.datacamp.com/groups/data-wrangling-with-r-spring-2018/assignments/18864) DataCamp assignment.
 
-2. **Machine Learning Toolbox:**  Every analyst should have a basic understanding of a few key analytic techniques.  This includes cluster analysis, decision trees, k-nearest neighbors, simple and multivariate regression.  By working through the [Machine Learning Toolbox]( https://www.datacamp.com/groups/data-wrangling-with-r/assignments/9246) DataCamp assignment, you will learn how to apply, interpret, and assess the accuracy of these analytic techniques.
+2. **Machine Learning Toolbox:**  Every analyst should have a basic understanding of a few key analytic techniques.  This includes cluster analysis, decision trees, k-nearest neighbors, simple and multivariate regression.  By working through the [Machine Learning Toolbox](https://www.datacamp.com/groups/data-wrangling-with-r-spring-2018/assignments/18865) DataCamp assignment, you will learn how to apply, interpret, and assess the accuracy of these analytic techniques.
 
 
 <hr>
