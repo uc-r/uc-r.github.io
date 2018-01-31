@@ -42,13 +42,13 @@ Now that you know how to get data into R, learn the process of getting a basic u
 
 ### 3. DataCamp Assignment 
 
-Now that you've gone through some initial tutorials, complete the [Importing Data into R: Part 1](https://www.datacamp.com/groups/data-wrangling-with-r/assignments/9232) DataCamp assignment.
+Now that you've gone through some initial tutorials, complete the [Importing Data into R: Part 1](https://www.datacamp.com/groups/data-wrangling-with-r-spring-2018/assignments/18850) DataCamp assignment.
 
 <hr>
 
 ### 4. Advanced
 
-Now that you have the basics down, work through the [Importing Data into R: Part 2](https://www.datacamp.com/groups/data-wrangling-with-r/assignments/9233) DataCamp assignment. This will take a deeper dive into the wide range of data formats out there. More specifically, you'll learn how to import data from relational databases and how to import and work with data coming from the web. Finally, you'll get hands-on experience with importing data from statistical software packages such SAS, STATA and SPSS. 
+Now that you have the basics down, work through the [Importing Data into R: Part 2](https://www.datacamp.com/groups/data-wrangling-with-r-spring-2018/assignments/18851) DataCamp assignment. This will take a deeper dive into the wide range of data formats out there. More specifically, you'll learn how to import data from relational databases and how to import and work with data coming from the web. Finally, you'll get hands-on experience with importing data from statistical software packages such SAS, STATA and SPSS. 
 
 You may feel overwhelmed with this material but that is okay.  This advanced material is meant to give you exposure to the many data importing options available in R.  If this was not overwhelming and you are still looking for more to learn prior to Saturday, then dig into this [web scraping tutorial](http://uc-r.github.io/scraping).
 
