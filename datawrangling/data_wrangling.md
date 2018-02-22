@@ -109,7 +109,7 @@ Final grades will be distributed according to the following cutoffs:
 We will use this software during the course. Plan on bringing a computer to each class meeting.
 
 * [R](https://cran.r-project.org/) and [RStudio](https://www.rstudio.com/) will be used to perform all programming activities, assignments, and the final project.  You can find details on how to download these [here](http://uc-r.github.io/section2_basics#installation).
-* [Slack](https://slack.com/) will replace e-mail and Blackboard for our course. You will receive an invitation to the [UC Data Wrangling slack team](https://uc-data-wrangling.slack.com/). You may wish to install one of the [apps](https://slack.com/downloads/osx). Here is an [introduction to Slack](https://vimeo.com/133692325) from one of Kris Shaffer’s courses (although this is a completely different course and slack team it provides a nice introduction that you might find useful).
+* [Slack](https://slack.com/) will replace e-mail and Blackboard for our course. You will receive an invitation to the [UC Data Wrangling slack team](data-wrangling-with-r.slack.com). You may wish to install one of the [apps](https://slack.com/downloads/osx). Here is an [introduction to Slack](https://vimeo.com/133692325) from one of Kris Shaffer’s courses (although this is a completely different course and slack team it provides a nice introduction that you might find useful).
 
 
 
