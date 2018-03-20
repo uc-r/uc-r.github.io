@@ -65,7 +65,7 @@ The bootstrap process begins with a statistic that we are interested in ($$\hat\
 
 $$ \widehat{SE}_B = \sqrt{\frac{\sum^B_{b=1}(\hat \alpha^{*i} - \bar \alpha^{*B})^2}{(B-1)}}  \tag{1} $$
 
-Thus, $$\widehat{SE}_B$$ serves as an estimate of the standard error of $\hat \alpha$ estimated from the original data set.
+Thus, $$\widehat{SE}_B$$ serves as an estimate of the standard error of $$\hat \alpha$$ estimated from the original data set.
 
 
 ## Creating Bootstrap Samples {#create}
