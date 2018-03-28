@@ -4,7 +4,7 @@ title: Regularized Regression
 permalink: /regularized_regression
 ---
 
-<img src="/public/images/analytics/regression/sq.errors-1.png"  style="float:right; margin: 2px 0px 0px 10px; width: 40%; height: 40%;" />
+<img src="/public/images/analytics/regularized_regression/sq.errors-1.png"  style="float:right; margin: 2px 0px 0px 10px; width: 40%; height: 40%;" />
 As discussed, [linear regression](linear_regression) is a simple and fundamental approach for supervised learning.  Moreover, when the assumptions required by ordinary least squares (OLS) regression are met, the coefficients produced by OLS are unbiased and, of all unbiased linear techniques, have the lowest variance.  However, in today's world, data sets being analyzed typically have a large amount of features.  As the number of features grow, our OLS assumptions typically break down and our models often overfit (aka have high variance) to the training sample, causing our out of sample error to increase.  ***Regularization*** methods provide a means to control our regression coefficients, which can reduce the variance and decrease out of sample error. 
 
 ## tl;dr
@@ -50,7 +50,7 @@ ames_test  <- testing(ames_split)
 The objective of ordinary least squares regression is to find the plane that minimizes the sum of squared errors (SSE) between the observed and predicted response.  In Figure 1, this means identifying the plane that minimizes the grey lines, which measure the distance between the observed (red dots) and predicted response (blue plane).
 
 <div class="figure" style="text-align: center">
-<img src="images/sq.errors-1.png" alt="Fig.1: Fitted regression line using Ordinary Least Squares." width="700" />
+<img src="/public/images/analytics/regularized_regression/sq.errors-1.png" alt="Fig.1: Fitted regression line using Ordinary Least Squares." width="700" />
 <p class="caption">Fig.1: Fitted regression line using Ordinary Least Squares.</p>
 </div>
 
@@ -143,7 +143,7 @@ $$\text{minimize } \bigg \{ SSE + \lambda \sum^p_{j=1} \beta_j^2 \bigg \} \tag{3
 This penalty parameter can take on a wide range of values, which is controlled by the *tuning parameter* $\lambda$.  When $\lambda = 0$ there is no effect and our objective function equals the normal OLS regression objective function of simply minimizing SSE.  However, as $\lambda \rightarrow \infty$, the penalty becomes large and forces our coefficients to zero. This is illustrated in Figure 2 where exemplar coefficients have been regularized with $\lambda$ ranging from 0 to over 8,000 ($log(8103) = 9$).    
 
 <div class="figure" style="text-align: center">
-<img src="images/ridge_coef.png" alt="Fig.2: Ridge regression coefficients as $\lambda$ grows from  $0 \rightarrow \infty$." width="702" />
+<img src="/public/images/analytics/regularized_regression/ridge_coef.png" alt="Fig.2: Ridge regression coefficients as $\lambda$ grows from  $0 \rightarrow \infty$." width="702" />
 <p class="caption">Fig.2: Ridge regression coefficients as $\lambda$ grows from  $0 \rightarrow \infty$.</p>
 </div>
 
@@ -186,7 +186,7 @@ ames_ridge <- glmnet(
 plot(ames_ridge, xvar = "lambda")
 ```
 
-<img src="regularization_files/figure-html/unnamed-chunk-8-1.svg" style="display: block; margin: auto;" />
+<img src="/public/images/analytics/regularized_regression/unnamed-chunk-8-1.svg" style="display: block; margin: auto;" />
 
 In fact, we can see the exact $\lambda$ values applied with `ames_ridge$lambda`.  Although you can specify your own $\lambda$ values, by default `glmnet` applies 100 $\lambda$ values that are data derived.  Majority of the time you will have little need to adjust the default $\lambda$ values.  
 
@@ -227,7 +227,7 @@ ames_ridge <- cv.glmnet(
 plot(ames_ridge)
 ```
 
-<img src="regularization_files/figure-html/unnamed-chunk-10-1.svg" style="display: block; margin: auto;" />
+<img src="/public/images/analytics/regularized_regression/unnamed-chunk-10-1.svg" style="display: block; margin: auto;" />
 
 Our plot output above illustrates the 10-fold CV mean squared error (MSE) across the $\lambda$ values.  It illustrates that we do not see substantial improvement; however, as we constrain our coefficients with $log(\lambda) \geq 0$ penalty, the MSE rises considerably. The numbers at the top of the plot (299) just refer to the number of variables in the model.  Ridge regression does not force any variables to exactly zero so all features will remain in the model (we'll see this change with [lasso](#lasso) and [elastic nets](#elastic)). 
 
@@ -260,7 +260,7 @@ plot(ames_ridge_min, xvar = "lambda")
 abline(v = log(ames_ridge$lambda.1se), col = "red", lty = "dashed")
 ```
 
-<img src="regularization_files/figure-html/unnamed-chunk-12-1.svg" style="display: block; margin: auto;" />
+<img src="/public/images/analytics/regularized_regression/unnamed-chunk-12-1.svg" style="display: block; margin: auto;" />
 
 
 #### Advantages & Disadvantages
@@ -280,7 +280,7 @@ coef(ames_ridge, s = "lambda.1se") %>%
   ylab(NULL)
 ```
 
-<img src="regularization_files/figure-html/unnamed-chunk-13-1.svg" style="display: block; margin: auto;" />
+<img src="/public/images/analytics/regularized_regression/unnamed-chunk-13-1.svg" style="display: block; margin: auto;" />
 
 However, a ridge model will retain <bold><font color="red">all</font></bold> variables.  Therefore, a ridge model is good if you believe there is a need to retain all features in your model yet reduce the noise that less influential variables may create and minimize multicollinearity.  However, a ridge model does not perform feature selection. If greater interpretation is necessary where you need to reduce the signal in your data to a smaller subset then a lasso model may be preferable.
 
@@ -293,7 +293,7 @@ $$\text{minimize } \bigg \{ SSE + \lambda \sum^p_{j=1} | \beta_j | \bigg \} \tag
 Whereas the ridge regression approach pushes variables to *approximately but not equal to zero*, the lasso penalty will actually push coefficients to zero as illustrated with Fig. 3.  Thus the lasso model not only improves the model with regularization but it also conducts automated feature selection.  
 
 <div class="figure" style="text-align: center">
-<img src="regularization_files/figure-html/unnamed-chunk-14-1.svg" alt="Fig.3: Lasso regression coefficients as $\lambda$ grows from  $0 \rightarrow \infty$."  />
+<img src="/public/images/analytics/regularized_regression/unnamed-chunk-14-1.svg" alt="Fig.3: Lasso regression coefficients as $\lambda$ grows from  $0 \rightarrow \infty$."  />
 <p class="caption">Fig.3: Lasso regression coefficients as $\lambda$ grows from  $0 \rightarrow \infty$.</p>
 </div>
 
@@ -315,7 +315,7 @@ ames_lasso <- glmnet(
 plot(ames_lasso, xvar = "lambda")
 ```
 
-<img src="regularization_files/figure-html/unnamed-chunk-15-1.svg" style="display: block; margin: auto;" />
+<img src="/public/images/analytics/regularized_regression/unnamed-chunk-15-1.svg" style="display: block; margin: auto;" />
 
 Our output illustrates a quick drop in the number of features retained in the lasso model as $log(\lambda) \rightarrow -6$.  In fact, we see several features that had very large coefficients for the OLS model (when $log(\lambda) = -10 \Rightarrow \lambda = 0$).  As before, these features are likely highly correlated with other features in the data, causing their coefficients to be excessively large.  As we constrain our model, these noisy features are pushed to zero. 
 
@@ -337,7 +337,7 @@ ames_lasso <- cv.glmnet(
 plot(ames_lasso)
 ```
 
-<img src="regularization_files/figure-html/unnamed-chunk-16-1.svg" style="display: block; margin: auto;" />
+<img src="/public/images/analytics/regularized_regression/unnamed-chunk-16-1.svg" style="display: block; margin: auto;" />
 
 As before, we can extract our minimum and one standard error MSE and $\lambda$ values.
 
@@ -369,7 +369,7 @@ abline(v = log(ames_lasso$lambda.min), col = "red", lty = "dashed")
 abline(v = log(ames_lasso$lambda.1se), col = "red", lty = "dashed")
 ```
 
-<img src="regularization_files/figure-html/unnamed-chunk-18-1.svg" style="display: block; margin: auto;" />
+<img src="/public/images/analytics/regularized_regression/unnamed-chunk-18-1.svg" style="display: block; margin: auto;" />
 
 
 #### Advantages & Disadvantages
@@ -388,7 +388,7 @@ coef(ames_lasso, s = "lambda.1se") %>%
   ylab(NULL)
 ```
 
-<img src="regularization_files/figure-html/unnamed-chunk-19-1.svg" style="display: block; margin: auto;" />
+<img src="/public/images/analytics/regularized_regression/unnamed-chunk-19-1.svg" style="display: block; margin: auto;" />
 
 
 However, often when we remove features we sacrifice accuracy.  Consequently, to gain the refined clarity and simplicity that lasso provides, we sometimes reduce the level of accuracy.  Typically we do not see large differences in the minimum errors between the two.  So practically, this may not be significant but if you are purely competing on minimizing error (i.e. Kaggle competitions) this may make all the difference!
@@ -431,7 +431,7 @@ plot(elastic2, xvar = "lambda", main = "Elastic Net (Alpha = .75)\n\n\n")
 plot(ridge, xvar = "lambda", main = "Ridge (Alpha = 0)\n\n\n")
 ```
 
-<img src="regularization_files/figure-html/unnamed-chunk-21-1.svg" style="display: block; margin: auto;" />
+<img src="/public/images/analytics/regularized_regression/unnamed-chunk-21-1.svg" style="display: block; margin: auto;" />
 
 #### Tuning
 
@@ -463,8 +463,8 @@ for(i in seq_along(tuning_grid$alpha)) {
   fit <- cv.glmnet(ames_train_x, ames_train_y, alpha = tuning_grid$alpha[i], foldid = fold_id)
   
   # extract MSE and lambda values
-  tuning_grid$mse_min[i]   <- fit$cvm[fit$lambda == fit$lambda.min]
-  tuning_grid$mse_1se[i]   <- fit$cvm[fit$lambda == fit$lambda.1se]
+  tuning_grid$mse_min[i]    <- fit$cvm[fit$lambda == fit$lambda.min]
+  tuning_grid$mse_1se[i]    <- fit$cvm[fit$lambda == fit$lambda.1se]
   tuning_grid$lambda_min[i] <- fit$lambda.min
   tuning_grid$lambda_1se[i] <- fit$lambda.1se
 }
@@ -498,7 +498,7 @@ tuning_grid %>%
   ggtitle("MSE ± one standard error")
 ```
 
-<img src="regularization_files/figure-html/unnamed-chunk-24-1.svg" style="display: block; margin: auto;" />
+<img src="/public/images/analytics/regularized_regression/unnamed-chunk-24-1.svg" style="display: block; margin: auto;" />
 
 #### Advantages & Disadvantages
 
