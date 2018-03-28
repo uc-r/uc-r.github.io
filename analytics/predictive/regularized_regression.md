@@ -4,7 +4,7 @@ title: Regularized Regression
 permalink: /regularized_regression
 ---
 
-<img src="/public/images/analytics/regularized_regression/sq.errors-1.png"  style="float:right; margin: 2px 0px 0px 10px; width: 40%; height: 40%;" />
+<img src="/public/images/analytics/regularized_regression/unnamed-chunk-21-1.svg"  style="float:right; margin: 2px 0px 0px 10px; width: 40%; height: 40%;" />
 As discussed, [linear regression](linear_regression) is a simple and fundamental approach for supervised learning.  Moreover, when the assumptions required by ordinary least squares (OLS) regression are met, the coefficients produced by OLS are unbiased and, of all unbiased linear techniques, have the lowest variance.  However, in today's world, data sets being analyzed typically have a large amount of features.  As the number of features grow, our OLS assumptions typically break down and our models often overfit (aka have high variance) to the training sample, causing our out of sample error to increase.  ***Regularization*** methods provide a means to control our regression coefficients, which can reduce the variance and decrease out of sample error. 
 
 ## tl;dr
