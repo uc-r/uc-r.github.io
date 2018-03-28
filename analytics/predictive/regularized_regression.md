@@ -4,7 +4,7 @@ title: Regularized Regression
 permalink: /regularized_regression
 ---
 
-<img src="/public/images/analytics/regularized_regression/unnamed-chunk-21-1.svg"  style="float:right; margin: 2px 0px 0px 10px; width: 40%; height: 40%;" />
+<img src="/public/images/analytics/regularized_regression/unnamed-chunk-12-1.svg"  style="float:right; margin: 2px 0px 0px 10px; width: 40%; height: 40%;" />
 As discussed, [linear regression](linear_regression) is a simple and fundamental approach for supervised learning.  Moreover, when the assumptions required by ordinary least squares (OLS) regression are met, the coefficients produced by OLS are unbiased and, of all unbiased linear techniques, have the lowest variance.  However, in today's world, data sets being analyzed typically have a large amount of features.  As the number of features grow, our OLS assumptions typically break down and our models often overfit (aka have high variance) to the training sample, causing our out of sample error to increase.  ***Regularization*** methods provide a means to control our regression coefficients, which can reduce the variance and decrease out of sample error. 
 
 ## tl;dr
@@ -64,7 +64,7 @@ The OLS objective function performs quite well when our data align to the key as
 * Multivariate normality
 * No autocorrelation
 * Homoscedastic (constant variance in residuals) 
-* There are more observations (*n*) than features (*p*) ($n > p$)
+* There are more observations (*n*) than features (*p*) ($$n > p$$)
 * No or little multicollinearity
 
 However, for many real-life data sets we have very *wide* data, meaning we have a large number of features (*p*) that we believe are informative in predicting some outcome.  As *p* increases, we can quickly violate some of the OLS assumptions and we require alternative approaches to provide predictive analytic solutions.  Specifically, as *p* increases there are three main issues we most commonly run into:
@@ -115,9 +115,9 @@ This is a common result when collinearity exists.  Coefficients for correlated f
 
 #### 2. Insufficient Solution
 
-When the number of features exceed the number of observations ($p > n$), the OLS solution matrix is *not* invertible.  This causes significant issues because it means: (1) The least-squares estimates are not unique. In fact, there are an infinite set of solutions available and most of these solutions overfit the data. (2) In many instances the result will be computationally infeasible. 
+When the number of features exceed the number of observations ($$p > n$$), the OLS solution matrix is *not* invertible.  This causes significant issues because it means: (1) The least-squares estimates are not unique. In fact, there are an infinite set of solutions available and most of these solutions overfit the data. (2) In many instances the result will be computationally infeasible. 
 
-Consequently, to resolve this issue an analyst can remove variables until $p < n$ and then fit an OLS regression model.  Although an analyst can use pre-processing tools to guide this manual approach ([Kuhn & Johnson, 2013, pp. 43-47](http://appliedpredictivemodeling.com/)), it can be cumbersome and prone to errors. 
+Consequently, to resolve this issue an analyst can remove variables until $$p < n$$ and then fit an OLS regression model.  Although an analyst can use pre-processing tools to guide this manual approach ([Kuhn & Johnson, 2013, pp. 43-47](http://appliedpredictivemodeling.com/)), it can be cumbersome and prone to errors. 
 
 #### 3. Interpretability
 
@@ -130,24 +130,25 @@ When we experience these concerns, one alternative to OLS regression is to use r
 The objective function of regularized regression methods is very similar to OLS regression; however, we add a penalty parameter (*P*). 
 
 $$\text{minimize} \big \{ SSE + P \big \} \tag{2}$$
+
 There are two main penalty parameters, which we'll see shortly, but they both have a similar effect.  They constrain the size of the coefficients such that the only way the coefficients can increase is if we experience a comparable decrease in the sum of squared errors (SSE).  Next, we'll explore the most common approaches to incorporate regularization.
 
 
 ## Ridge Regression {#ridge}
 
 
-Ridge regression ([Hoerl, 1970](https://www.tandfonline.com/doi/abs/10.1080/00401706.1970.10488634)) controls the coefficients by adding <font color="red">$\lambda \sum^p_{j=1} \beta_j^2$</font> to the objective function. This penalty parameter is also referred to as "$L_2$" as it signifies a second-order penalty being used on the coefficients.[^note1]
+Ridge regression ([Hoerl, 1970](https://www.tandfonline.com/doi/abs/10.1080/00401706.1970.10488634)) controls the coefficients by adding <font color="red">$$\lambda \sum^p_{j=1} \beta_j^2$$</font> to the objective function. This penalty parameter is also referred to as "$$L_2$$" as it signifies a second-order penalty being used on the coefficients.[^note1]
 
 $$\text{minimize } \bigg \{ SSE + \lambda \sum^p_{j=1} \beta_j^2 \bigg \} \tag{3}$$
 
-This penalty parameter can take on a wide range of values, which is controlled by the *tuning parameter* $\lambda$.  When $\lambda = 0$ there is no effect and our objective function equals the normal OLS regression objective function of simply minimizing SSE.  However, as $\lambda \rightarrow \infty$, the penalty becomes large and forces our coefficients to zero. This is illustrated in Figure 2 where exemplar coefficients have been regularized with $\lambda$ ranging from 0 to over 8,000 ($log(8103) = 9$).    
+This penalty parameter can take on a wide range of values, which is controlled by the *tuning parameter* $$\lambda$$.  When $$\lambda = 0$$ there is no effect and our objective function equals the normal OLS regression objective function of simply minimizing SSE.  However, as $$\lambda \rightarrow \infty$$, the penalty becomes large and forces our coefficients to zero. This is illustrated in Figure 2 where exemplar coefficients have been regularized with $\lambda$ ranging from 0 to over 8,000 ($$log(8103) = 9$$).    
 
 <div class="figure" style="text-align: center">
 <img src="/public/images/analytics/regularized_regression/ridge_coef.png" alt="Fig.2: Ridge regression coefficients as $\lambda$ grows from  $0 \rightarrow \infty$." width="702" />
-<p class="caption">Fig.2: Ridge regression coefficients as $\lambda$ grows from  $0 \rightarrow \infty$.</p>
+<p class="caption">Fig.2: Ridge regression coefficients as $$\lambda$$ grows from  $$0 \rightarrow \infty$$.</p>
 </div>
 
-Although these coefficients were scaled and centered prior to the analysis, you will notice that some are extremely large when $\lambda \rightarrow 0$.  Furthermore, you'll notice the large negative parameter that fluctuates until $log(\lambda) \approx 2$ where it then continuously skrinks to zero.  This is indicitive of multicollinearity and likely illustrates that constraining our coefficients with $log(\lambda) > 2$ may reduce the variance, and therefore the error, in our model. However, the question remains - how do we find the amount of shrinkage (or $\lambda$) that minimizes our error?  We'll answer this shortly.
+Although these coefficients were scaled and centered prior to the analysis, you will notice that some are extremely large when $$\lambda \rightarrow 0$$.  Furthermore, you'll notice the large negative parameter that fluctuates until $$log(\lambda) \approx 2$$ where it then continuously skrinks to zero.  This is indicitive of multicollinearity and likely illustrates that constraining our coefficients with $$log(\lambda) > 2$$ may reduce the variance, and therefore the error, in our model. However, the question remains - how do we find the amount of shrinkage (or $$\lambda$$) that minimizes our error?  We'll answer this shortly.
 
 
 #### Implementation
@@ -169,10 +170,10 @@ dim(ames_train_x)
 ## [1] 2054  307
 ```
 
-To apply a ridge model we can use the `glmnet::glmnet` function.  The `alpha` parameter tells `glmnet` to perform a ridge (`alpha = 0`), lasso (`alpha = 1`), or elastic net ($0 < alpha < 1$) model. Behind the scenes, `glmnet` is doing two things that you should be aware of:
+To apply a ridge model we can use the `glmnet::glmnet` function.  The `alpha` parameter tells `glmnet` to perform a ridge (`alpha = 0`), lasso (`alpha = 1`), or elastic net ($$0 < alpha < 1$$) model. Behind the scenes, `glmnet` is doing two things that you should be aware of:
 
 1. It is essential that predictor variables are standardized when performing regularized regression.  `glmnet` performs this for you. If you standardize your predictors prior to `glmnet` you can turn this argument off with `standardize = FALSE`.
-2. `glmnet` will perform ridge models across a wide range of $\lambda$ parameters, which are illustrated in the figure below. 
+2. `glmnet` will perform ridge models across a wide range of $$\lambda$$ parameters, which are illustrated in the figure below. 
 
 
 ```r
@@ -188,9 +189,9 @@ plot(ames_ridge, xvar = "lambda")
 
 <img src="/public/images/analytics/regularized_regression/unnamed-chunk-8-1.svg" style="display: block; margin: auto;" />
 
-In fact, we can see the exact $\lambda$ values applied with `ames_ridge$lambda`.  Although you can specify your own $\lambda$ values, by default `glmnet` applies 100 $\lambda$ values that are data derived.  Majority of the time you will have little need to adjust the default $\lambda$ values.  
+In fact, we can see the exact $$\lambda$$ values applied with `ames_ridge$lambda`.  Although you can specify your own $$\lambda$$ values, by default `glmnet` applies 100 $\lambda$ values that are data derived.  Majority of the time you will have little need to adjust the default $$\lambda$$ values.  
 
-We can also directly access the coefficients for a model using `coef`. `glmnet` stores all the coefficients for each model in order of largest to smallest $\lambda$. Due to the number of features, here I just peak at the coefficients for the `Gr_Liv_Area` and `TotRms_AbvGrd` features for the largest $\lambda$ (279.1035) and smallest $\lambda$ (0.02791035).  You can see how the largest $\lambda$ value has pushed these coefficients to nearly 0.
+We can also directly access the coefficients for a model using `coef`. `glmnet` stores all the coefficients for each model in order of largest to smallest $$\lambda$$. Due to the number of features, here I just peak at the coefficients for the `Gr_Liv_Area` and `TotRms_AbvGrd` features for the largest $$\lambda$$ (279.1035) and smallest $$\lambda$$ (0.02791035).  You can see how the largest $$\lambda$$ value has pushed these coefficients to nearly 0.
 
 
 ```r
@@ -211,7 +212,7 @@ However, at this point, we do not understand how much improvement we are experie
 
 #### Tuning
 
-Recall that $\lambda$ is a tuning parameter that helps to control our model from over-fitting to the training data.  However, to identify the optimal $\lambda$ value we need to perform [cross-validation](resampling_methods) (CV).  `cv.glmnet` provides a built-in option to perform k-fold CV, and by default, performs 10-fold CV.
+Recall that $$\lambda$$ is a tuning parameter that helps to control our model from over-fitting to the training data.  However, to identify the optimal $$\lambda$$ value we need to perform [cross-validation](resampling_methods) (CV).  `cv.glmnet` provides a built-in option to perform k-fold CV, and by default, performs 10-fold CV.
 
 
 
@@ -229,9 +230,9 @@ plot(ames_ridge)
 
 <img src="/public/images/analytics/regularized_regression/unnamed-chunk-10-1.svg" style="display: block; margin: auto;" />
 
-Our plot output above illustrates the 10-fold CV mean squared error (MSE) across the $\lambda$ values.  It illustrates that we do not see substantial improvement; however, as we constrain our coefficients with $log(\lambda) \geq 0$ penalty, the MSE rises considerably. The numbers at the top of the plot (299) just refer to the number of variables in the model.  Ridge regression does not force any variables to exactly zero so all features will remain in the model (we'll see this change with [lasso](#lasso) and [elastic nets](#elastic)). 
+Our plot output above illustrates the 10-fold CV mean squared error (MSE) across the $$\lambda$$ values.  It illustrates that we do not see substantial improvement; however, as we constrain our coefficients with $$log(\lambda) \geq 0$$ penalty, the MSE rises considerably. The numbers at the top of the plot (299) just refer to the number of variables in the model.  Ridge regression does not force any variables to exactly zero so all features will remain in the model (we'll see this change with [lasso](#lasso) and [elastic nets](#elastic)). 
 
-The first and second vertical dashed lines represent the $\lambda$ value with the minimum MSE and the largest $\lambda$ value within one standard error of the minimum MSE.
+The first and second vertical dashed lines represent the $\lambda$ value with the minimum MSE and the largest $$\lambda$$ value within one standard error of the minimum MSE.
 
 
 ```r
@@ -246,7 +247,7 @@ ames_ridge$lambda.1se  # lambda for this MSE
 ## [1] 0.6599372
 ```
 
-The advantage of identifying the $\lambda$ with an MSE within one standard error becomes more obvious with the lasso and elastic net models. However, for now we can assess this visually.  Here we plot the coefficients across the $\lambda$ values and the dashed red line represents the largest $\lambda$ that falls within one standard error of the minimum MSE.  This shows you how much we can constrain the coefficients while still maximizing predictive accuracy. 
+The advantage of identifying the $$\lambda$$ with an MSE within one standard error becomes more obvious with the lasso and elastic net models. However, for now we can assess this visually.  Here we plot the coefficients across the $$\lambda$$ values and the dashed red line represents the largest $$\lambda$$ that falls within one standard error of the minimum MSE.  This shows you how much we can constrain the coefficients while still maximizing predictive accuracy. 
 
 
 ```r
@@ -286,18 +287,18 @@ However, a ridge model will retain <bold><font color="red">all</font></bold> var
 
 ## Lasso Regression {#lasso}
 
-The *least absolute shrinkage and selection operator* (lasso) model ([Tibshirani, 1996](http://www.jstor.org/stable/2346178?seq=1#page_scan_tab_contents)) is an alternative to ridge regression that has a small modification to the penalty in the objective function. Rather than the $L_2$ penalty we use the following $L_1$ penalty <font color="red">$\lambda \sum^p_{j=1} | \beta_j|$</font> in the objective function. 
+The *least absolute shrinkage and selection operator* (lasso) model ([Tibshirani, 1996](http://www.jstor.org/stable/2346178?seq=1#page_scan_tab_contents)) is an alternative to ridge regression that has a small modification to the penalty in the objective function. Rather than the $$L_2$$ penalty we use the following $$L_1$$ penalty <font color="red">$$\lambda \sum^p_{j=1} | \beta_j|$$</font> in the objective function. 
 
 $$\text{minimize } \bigg \{ SSE + \lambda \sum^p_{j=1} | \beta_j | \bigg \} \tag{4}$$
 
 Whereas the ridge regression approach pushes variables to *approximately but not equal to zero*, the lasso penalty will actually push coefficients to zero as illustrated with Fig. 3.  Thus the lasso model not only improves the model with regularization but it also conducts automated feature selection.  
 
 <div class="figure" style="text-align: center">
-<img src="/public/images/analytics/regularized_regression/unnamed-chunk-14-1.svg" alt="Fig.3: Lasso regression coefficients as $\lambda$ grows from  $0 \rightarrow \infty$."  />
-<p class="caption">Fig.3: Lasso regression coefficients as $\lambda$ grows from  $0 \rightarrow \infty$.</p>
+<img src="/public/images/analytics/regularized_regression/unnamed-chunk-14-1.svg" alt="Fig.3: Lasso regression coefficients as $$\lambda$$ grows from  $$0 \rightarrow \infty$$."  />
+<p class="caption">Fig.3: Lasso regression coefficients as $$\lambda$$ grows from  $$0 \rightarrow \infty$$.</p>
 </div>
 
-In Fig. 3 we see that when $log(\lambda) = -5$ all 15 variables are in the model, when $log(\lambda) = -1$ 12 variables are retained, and when $log(\lambda) = 1$ only 3 variables are retained. Consequently, when a data set has many features lasso can be used to identify and extract those features with the largest (and most consistent) signal.
+In Fig. 3 we see that when $$log(\lambda) = -5$$ all 15 variables are in the model, when $$log(\lambda) = -1$$ 12 variables are retained, and when $$log(\lambda) = 1$$ only 3 variables are retained. Consequently, when a data set has many features lasso can be used to identify and extract those features with the largest (and most consistent) signal.
 
 #### Implementation
 
@@ -317,13 +318,13 @@ plot(ames_lasso, xvar = "lambda")
 
 <img src="/public/images/analytics/regularized_regression/unnamed-chunk-15-1.svg" style="display: block; margin: auto;" />
 
-Our output illustrates a quick drop in the number of features retained in the lasso model as $log(\lambda) \rightarrow -6$.  In fact, we see several features that had very large coefficients for the OLS model (when $log(\lambda) = -10 \Rightarrow \lambda = 0$).  As before, these features are likely highly correlated with other features in the data, causing their coefficients to be excessively large.  As we constrain our model, these noisy features are pushed to zero. 
+Our output illustrates a quick drop in the number of features retained in the lasso model as $$log(\lambda) \rightarrow -6$$.  In fact, we see several features that had very large coefficients for the OLS model (when $$log(\lambda) = -10 \Rightarrow \lambda = 0$$).  As before, these features are likely highly correlated with other features in the data, causing their coefficients to be excessively large.  As we constrain our model, these noisy features are pushed to zero. 
 
-However, similar to the Ridge regression section, we need to perfom CV to determine what the right value is for $\lambda$.
+However, similar to the Ridge regression section, we need to perfom CV to determine what the right value is for $$\lambda$$.
 
 #### Tuning
 
-To perform CV we use the same approach as we did in the ridge regression tuning section, but change our `alpha = 1`.  We see that we can minimize our MSE by applying approximately $-6 \leq log(\lambda) \leq -4$.  Not only does this minimize our MSE but it also reduces the number of features to $156 \geq p \geq 58$. 
+To perform CV we use the same approach as we did in the ridge regression tuning section, but change our `alpha = 1`.  We see that we can minimize our MSE by applying approximately $$-6 \leq log(\lambda) \leq -4$$.  Not only does this minimize our MSE but it also reduces the number of features to $$156 \geq p \geq 58$$. 
 
 
 ```r
@@ -339,7 +340,7 @@ plot(ames_lasso)
 
 <img src="/public/images/analytics/regularized_regression/unnamed-chunk-16-1.svg" style="display: block; margin: auto;" />
 
-As before, we can extract our minimum and one standard error MSE and $\lambda$ values.
+As before, we can extract our minimum and one standard error MSE and $$\lambda$$ values.
 
 
 ```r
@@ -354,7 +355,7 @@ ames_lasso$lambda.1se  # lambda for this MSE
 ## [1] 0.01180396
 ```
 
-Now the advantage of identifying the $\lambda$ with an MSE within one standard error becomes more obvious. If we use the $\lambda$ that drives the minimum MSE we can reduce our feature set from 307 down to less than 160.  However, there will be some variability with this MSE and we can reasonably assume that we can achieve a similar MSE with a slightly more constrained model that uses only 63 features.  If describing and interpreting the predictors is an important outcome of your analysis, this may significantly aid your endeavor.
+Now the advantage of identifying the $$\lambda$$ with an MSE within one standard error becomes more obvious. If we use the $$\lambda$$ that drives the minimum MSE we can reduce our feature set from 307 down to less than 160.  However, there will be some variability with this MSE and we can reasonably assume that we can achieve a similar MSE with a slightly more constrained model that uses only 63 features.  If describing and interpreting the predictors is an important outcome of your analysis, this may significantly aid your endeavor.
 
 
 ```r
@@ -415,7 +416,7 @@ Although lasso models perform feature selection, a result of their penalty param
 
 #### Implementation
 
-We implement an elastic net the same way as the ridge and lasso models, which are controlled by the `alpha` parameter.  Any `alpha` value between 0-1 will perform an elastic net.  When `alpha = 0.5` we perform an equal combination of penalties whereas `alpha` $\rightarrow 0$ will have a heavier ridge penalty applied and `alpha` $\rightarrow 1$ will have a heavier lasso penalty.
+We implement an elastic net the same way as the ridge and lasso models, which are controlled by the `alpha` parameter.  Any `alpha` value between 0-1 will perform an elastic net.  When `alpha = 0.5` we perform an equal combination of penalties whereas `alpha` $$\rightarrow 0$$ will have a heavier ridge penalty applied and `alpha` $$\rightarrow 1$$ will have a heavier lasso penalty.
 
 
 ```r
@@ -435,7 +436,7 @@ plot(ridge, xvar = "lambda", main = "Ridge (Alpha = 0)\n\n\n")
 
 #### Tuning
 
-In ridge and lasso models $\lambda$ is our primary tuning parameter.  However, with elastic nets, we want to tune the $\lambda$ and the `alpha` parameters.  To set up our tuning, we create a common `fold_id`, which just allows us to apply the same CV folds to each model.  We then create a tuning grid that searches across a range of `alpha`s from 0-1, and empty columns where we'll dump our model results into.
+In ridge and lasso models $$\lambda$$ is our primary tuning parameter.  However, with elastic nets, we want to tune the $$\lambda$$ and the `alpha` parameters.  To set up our tuning, we create a common `fold_id`, which just allows us to apply the same CV folds to each model.  We then create a tuning grid that searches across a range of `alpha`s from 0-1, and empty columns where we'll dump our model results into.
 
 
 
@@ -453,7 +454,7 @@ tuning_grid <- tibble::tibble(
 )
 ```
 
-Now we can iterate over each `alpha` value, apply a CV elastic net, and extract the minimum and one standard error MSE values and their respective $\lambda$ values.
+Now we can iterate over each `alpha` value, apply a CV elastic net, and extract the minimum and one standard error MSE values and their respective $$\lambda$$ values.
 
 
 ```r
@@ -486,7 +487,7 @@ tuning_grid
 ## 11 1.00   0.0223  0.0254    0.00424     0.0118
 ```
 
-If we plot the MSE ± one standard error for the optimal $\lambda$ value for each `alpha` setting, we see that they all fall within the same level of accuracy.  Consequently, we could select a full lasso model with $\lambda = 0.02062776$, gain the benefits of its feature selection capability and reasonably assume no loss in accuracy.
+If we plot the MSE ± one standard error for the optimal $$\lambda$$ value for each `alpha` setting, we see that they all fall within the same level of accuracy.  Consequently, we could select a full lasso model with $$\lambda = 0.02062776$$, gain the benefits of its feature selection capability and reasonably assume no loss in accuracy.
 
 
 ```r
@@ -502,14 +503,14 @@ tuning_grid %>%
 
 #### Advantages & Disadvantages
 
-As previously stated, the advantage of the elastic net model is that it enables effective regularization via the ridge penalty with the feature selection characteristics of the lasso penalty.  Effectively, elastic nets allow us to control multicollinearity concerns, perform regression when $p > n$, and reduce excessive noise in our data so that we can isolate the most influential variables while balancing prediction accuracy.  
+As previously stated, the advantage of the elastic net model is that it enables effective regularization via the ridge penalty with the feature selection characteristics of the lasso penalty.  Effectively, elastic nets allow us to control multicollinearity concerns, perform regression when $$p > n$$, and reduce excessive noise in our data so that we can isolate the most influential variables while balancing prediction accuracy.  
 
 However, elastic nets, and regularization models in general, still assume linear relationships between the features and the target variable.  And although we can incorporate non-additive models with interactions, doing this when the number of features is large is extremely tedious and difficult.  When non-linear relationships exist, its beneficial to start exploring non-linear regression approaches.
 
 
 ## Predicting {#predict}
 
-Once you have identified your preferred model, you can simply use `predict` to predict the same model on a new data set.  The only caveat is you need to supply `predict` an `s` parameter with the preferred models $\lambda$ value.  For example, here we create a lasso model, which provides me a minimum MSE of 0.022.  I use the minimum $\lambda$ value to predict on the unseen test set and obtain a slightly lower MSE of 0.015.
+Once you have identified your preferred model, you can simply use `predict` to predict the same model on a new data set.  The only caveat is you need to supply `predict` an `s` parameter with the preferred models $$\lambda$$ value.  For example, here we create a lasso model, which provides me a minimum MSE of 0.022.  I use the minimum $\lambda$ value to predict on the unseen test set and obtain a slightly lower MSE of 0.015.
 
 
 ```r
@@ -630,4 +631,4 @@ This serves as an introduction to regularized regression; however, it just scrap
 
 
 
-[^note1]: Note that our pentalty is only applied to our feature coefficients ($\beta_1, \beta2, \dots, \beta_p$) and not the intercept ($\beta_0$).
+[^note1]: Note that our pentalty is only applied to our feature coefficients ($$\beta_1, \beta2, \dots, \beta_p$$) and not the intercept ($$\beta_0$$).
