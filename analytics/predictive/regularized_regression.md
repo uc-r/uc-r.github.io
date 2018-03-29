@@ -4,7 +4,7 @@ title: Regularized Regression
 permalink: /regularized_regression
 ---
 
-<img src="/public/images/analytics/regularized_regression/unnamed-chunk-12-1.svg"  style="float:right; margin: 0px 0px 0px 0px; width: 50%; height: 50%;" />
+<img src="/public/images/analytics/regularized_regression/ridge_coef.png"  style="float:right; margin: 0px 0px 0px 0px; width: 50%; height: 50%;" />
 As discussed, [linear regression](linear_regression) is a simple and fundamental approach for supervised learning.  Moreover, when the assumptions required by ordinary least squares (OLS) regression are met, the coefficients produced by OLS are unbiased and, of all unbiased linear techniques, have the lowest variance.  However, in today's world, data sets being analyzed typically have a large amount of features.  As the number of features grow, our OLS assumptions typically break down and our models often overfit (aka have high variance) to the training sample, causing our out of sample error to increase.  ***Regularization*** methods provide a means to control our regression coefficients, which can reduce the variance and decrease out of sample error. 
 
 ## tl;dr
@@ -145,7 +145,7 @@ This penalty parameter can take on a wide range of values, which is controlled b
 
 <div class="figure" style="text-align: center">
 <img src="/public/images/analytics/regularized_regression/ridge_coef.png" alt="Fig.2: Ridge regression coefficients as $\lambda$ grows from  $0 \rightarrow \infty$." width="702" />
-<p class="caption">Fig.2: Ridge regression coefficients as $\\lambda$ grows from  $0 \rightarrow \infty$.</p>
+<p class="caption">Fig.2: Ridge regression coefficients as &#955; grows from  0 &#8594; &#8734;.</p>
 </div>
 
 Although these coefficients were scaled and centered prior to the analysis, you will notice that some are extremely large when $$\lambda \rightarrow 0$$.  Furthermore, you'll notice the large negative parameter that fluctuates until $$log(\lambda) \approx 2$$ where it then continuously skrinks to zero.  This is indicitive of multicollinearity and likely illustrates that constraining our coefficients with $$log(\lambda) > 2$$ may reduce the variance, and therefore the error, in our model. However, the question remains - how do we find the amount of shrinkage (or $$\lambda$$) that minimizes our error?  We'll answer this shortly.
