@@ -4,7 +4,7 @@ title: Regularized Regression
 permalink: /regularized_regression
 ---
 
-<img src="/public/images/analytics/regularized_regression/ridge_coef.png"  style="float:right; margin: 0px 0px 0px 0px; width: 50%; height: 50%;" />
+<img src="/public/images/analytics/regularized_regression/regularization_logo.png"  style="float:right; margin: 0px 0px 0px 0px; width: 50%; height: 50%;" />
 As discussed, [linear regression](linear_regression) is a simple and fundamental approach for supervised learning.  Moreover, when the assumptions required by ordinary least squares (OLS) regression are met, the coefficients produced by OLS are unbiased and, of all unbiased linear techniques, have the lowest variance.  However, in today's world, data sets being analyzed typically have a large amount of features.  As the number of features grow, our OLS assumptions typically break down and our models often overfit (aka have high variance) to the training sample, causing our out of sample error to increase.  ***Regularization*** methods provide a means to control our regression coefficients, which can reduce the variance and decrease out of sample error. 
 
 ## tl;dr
@@ -287,7 +287,7 @@ However, a ridge model will retain <bold><font color="red">all</font></bold> var
 
 ## Lasso Regression {#lasso}
 
-The *least absolute shrinkage and selection operator* (lasso) model ([Tibshirani, 1996](http://www.jstor.org/stable/2346178?seq=1#page_scan_tab_contents)) is an alternative to ridge regression that has a small modification to the penalty in the objective function. Rather than the $$L_2$$ penalty we use the following $$L_1$$ penalty $$\lambda \sum^p_{j=1} | \beta_j | $$ in the objective function. 
+The *least absolute shrinkage and selection operator* (lasso) model ([Tibshirani, 1996](http://www.jstor.org/stable/2346178?seq=1#page_scan_tab_contents)) is an alternative to ridge regression that has a small modification to the penalty in the objective function. Rather than the $$L_2$$ penalty we use the following $$L_1$$ penalty $$\lambda \sum^p_{j=1} \rvert \beta_j \rvert $$ in the objective function. 
 
 $$\text{minimize } \bigg \{ SSE + \lambda \sum^p_{j=1} | \beta_j | \bigg \} \tag{4}$$
 
