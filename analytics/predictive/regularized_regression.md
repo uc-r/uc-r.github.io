@@ -287,7 +287,7 @@ However, a ridge model will retain <bold><font color="red">all</font></bold> var
 
 ## Lasso Regression {#lasso}
 
-The *least absolute shrinkage and selection operator* (lasso) model ([Tibshirani, 1996](http://www.jstor.org/stable/2346178?seq=1#page_scan_tab_contents)) is an alternative to ridge regression that has a small modification to the penalty in the objective function. Rather than the $$L_2$$ penalty we use the following $$L_1$$ penalty $$\lambda \sum^p_{j=1} | \beta_j|$$ in the objective function. 
+The *least absolute shrinkage and selection operator* (lasso) model ([Tibshirani, 1996](http://www.jstor.org/stable/2346178?seq=1#page_scan_tab_contents)) is an alternative to ridge regression that has a small modification to the penalty in the objective function. Rather than the $$L_2$$ penalty we use the following $$L_1$$ penalty $$\lambda \sum^p_{j=1} | \beta_j | $$ in the objective function. 
 
 $$\text{minimize } \bigg \{ SSE + \lambda \sum^p_{j=1} | \beta_j | \bigg \} \tag{4}$$
 
@@ -295,7 +295,7 @@ Whereas the ridge regression approach pushes variables to *approximately but not
 
 <div class="figure" style="text-align: center">
 <img src="/public/images/analytics/regularized_regression/unnamed-chunk-14-1.svg" alt="Fig.3: Lasso regression coefficients as $$\lambda$$ grows from  $$0 \rightarrow \infty$$."  />
-<p class="caption">Fig.3: Lasso regression coefficients as $$\lambda$$ grows from  $$0 \rightarrow \infty$$.</p>
+<p class="caption">Fig.3: Lasso regression coefficients as &#955; grows from  0 &#8594; &#8734;.</p>
 </div>
 
 In Fig. 3 we see that when $$log(\lambda) = -5$$ all 15 variables are in the model, when $$log(\lambda) = -1$$ 12 variables are retained, and when $$log(\lambda) = 1$$ only 3 variables are retained. Consequently, when a data set has many features lasso can be used to identify and extract those features with the largest (and most consistent) signal.
