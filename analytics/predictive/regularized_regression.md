@@ -145,7 +145,7 @@ This penalty parameter can take on a wide range of values, which is controlled b
 
 <div class="figure" style="text-align: center">
 <img src="/public/images/analytics/regularized_regression/ridge_coef.png" alt="Fig.2: Ridge regression coefficients as $\lambda$ grows from  $0 \rightarrow \infty$." width="702" />
-<p class="caption">Fig.2: Ridge regression coefficients as $\lambda$ grows from  $0 \rightarrow \infty$.</p>
+<p class="caption">Fig.2: Ridge regression coefficients as $\\lambda$ grows from  $0 \rightarrow \infty$.</p>
 </div>
 
 Although these coefficients were scaled and centered prior to the analysis, you will notice that some are extremely large when $$\lambda \rightarrow 0$$.  Furthermore, you'll notice the large negative parameter that fluctuates until $$log(\lambda) \approx 2$$ where it then continuously skrinks to zero.  This is indicitive of multicollinearity and likely illustrates that constraining our coefficients with $$log(\lambda) > 2$$ may reduce the variance, and therefore the error, in our model. However, the question remains - how do we find the amount of shrinkage (or $$\lambda$$) that minimizes our error?  We'll answer this shortly.
@@ -232,7 +232,7 @@ plot(ames_ridge)
 
 Our plot output above illustrates the 10-fold CV mean squared error (MSE) across the $$\lambda$$ values.  It illustrates that we do not see substantial improvement; however, as we constrain our coefficients with $$log(\lambda) \geq 0$$ penalty, the MSE rises considerably. The numbers at the top of the plot (299) just refer to the number of variables in the model.  Ridge regression does not force any variables to exactly zero so all features will remain in the model (we'll see this change with [lasso](#lasso) and [elastic nets](#elastic)). 
 
-The first and second vertical dashed lines represent the $\lambda$ value with the minimum MSE and the largest $$\lambda$$ value within one standard error of the minimum MSE.
+The first and second vertical dashed lines represent the $$\lambda$$ value with the minimum MSE and the largest $$\lambda$$ value within one standard error of the minimum MSE.
 
 
 ```r
@@ -287,7 +287,7 @@ However, a ridge model will retain <bold><font color="red">all</font></bold> var
 
 ## Lasso Regression {#lasso}
 
-The *least absolute shrinkage and selection operator* (lasso) model ([Tibshirani, 1996](http://www.jstor.org/stable/2346178?seq=1#page_scan_tab_contents)) is an alternative to ridge regression that has a small modification to the penalty in the objective function. Rather than the $$L_2$$ penalty we use the following $$L_1$$ penalty <font color="red">$$\lambda \sum^p_{j=1} | \beta_j|$$</font> in the objective function. 
+The *least absolute shrinkage and selection operator* (lasso) model ([Tibshirani, 1996](http://www.jstor.org/stable/2346178?seq=1#page_scan_tab_contents)) is an alternative to ridge regression that has a small modification to the penalty in the objective function. Rather than the $$L_2$$ penalty we use the following $$L_1$$ penalty $$\lambda \sum^p_{j=1} | \beta_j|$$ in the objective function. 
 
 $$\text{minimize } \bigg \{ SSE + \lambda \sum^p_{j=1} | \beta_j | \bigg \} \tag{4}$$
 
@@ -510,7 +510,7 @@ However, elastic nets, and regularization models in general, still assume linear
 
 ## Predicting {#predict}
 
-Once you have identified your preferred model, you can simply use `predict` to predict the same model on a new data set.  The only caveat is you need to supply `predict` an `s` parameter with the preferred models $$\lambda$$ value.  For example, here we create a lasso model, which provides me a minimum MSE of 0.022.  I use the minimum $\lambda$ value to predict on the unseen test set and obtain a slightly lower MSE of 0.015.
+Once you have identified your preferred model, you can simply use `predict` to predict the same model on a new data set.  The only caveat is you need to supply `predict` an `s` parameter with the preferred models $$\lambda$$ value.  For example, here we create a lasso model, which provides me a minimum MSE of 0.022.  I use the minimum $$\lambda$$ value to predict on the unseen test set and obtain a slightly lower MSE of 0.015.
 
 
 ```r
