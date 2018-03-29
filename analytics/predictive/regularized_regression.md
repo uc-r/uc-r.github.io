@@ -141,7 +141,7 @@ Ridge regression ([Hoerl, 1970](https://www.tandfonline.com/doi/abs/10.1080/0040
 
 $$\text{minimize } \bigg \{ SSE + \lambda \sum^p_{j=1} \beta_j^2 \bigg \} \tag{3}$$
 
-This penalty parameter can take on a wide range of values, which is controlled by the *tuning parameter* $$\lambda$$.  When $$\lambda = 0$$ there is no effect and our objective function equals the normal OLS regression objective function of simply minimizing SSE.  However, as $$\lambda \rightarrow \infty$$, the penalty becomes large and forces our coefficients to zero. This is illustrated in Figure 2 where exemplar coefficients have been regularized with $\lambda$ ranging from 0 to over 8,000 ($$log(8103) = 9$$).    
+This penalty parameter can take on a wide range of values, which is controlled by the *tuning parameter* $$\lambda$$.  When $$\lambda = 0$$ there is no effect and our objective function equals the normal OLS regression objective function of simply minimizing SSE.  However, as $$\lambda \rightarrow \infty$$, the penalty becomes large and forces our coefficients to zero. This is illustrated in Figure 2 where exemplar coefficients have been regularized with $$\lambda$$ ranging from 0 to over 8,000 ($$log(8103) = 9$$).    
 
 <div class="figure" style="text-align: center">
 <img src="/public/images/analytics/regularized_regression/ridge_coef.png" alt="Fig.2: Ridge regression coefficients as $\lambda$ grows from  $0 \rightarrow \infty$." width="702" />
