@@ -27,8 +27,7 @@ Predictive methodologies use knowledge, usually extracted from historical data, 
 
 ## Deep Learning
 - [Neural Network Fundamentals](ann_fundamentals)
-- [Neural Network for Regression](ann_regression)
-- [Neural Network for Classification](ann_classification)
+- [Feedforward Deep Learning Models](feedforward_DNN)
 
 ## Resampling Methods
 - [Resampling Basics](resampling_methods)
