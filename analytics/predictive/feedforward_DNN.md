@@ -85,7 +85,7 @@ dim(test_x)
 Neural networks originated in the computer science field to answer questions that normal statistical approaches were not designed to answer.  A common example you will find is, assume we wanted to analyze hand-written digits and predict the numbers written.  This was a problem presented to AT&T Bell Lab's to help build automatic mail-sorting machines for the USPS.[^digits]
 
 <center>
-<img src="images/digits.png" />
+<img src="/public/images/analytics/digits.png" />
 <figcaption>Sample images from MNIST test dataset.</figcaption>
 </center>
 <br>
@@ -93,7 +93,7 @@ Neural networks originated in the computer science field to answer questions tha
 This problem is quite unique because many different features of the data can be represented.  As humans, we look at these numbers and consider features such as angles, edges, thickness, completeness of circles, etc.  We interpret these different representations of the features and combine them to recognize the digit.  In essence, neural networks perform the same task albeit in a far simpler manner than our brains. At their most basic levels, neural networks have an *input layer*, *hidden layer*, and *output layer*. The input layer reads in data values from a user provided input. Within the hidden layer is where a majority of the *learning* takes place, and the output layer projects the results.  
 
 <center>
-<img src="images/fig18_1.png" />
+<img src="/public/images/analytics/fig18_1.png" />
 <figcaption>Simple feedforward neural network.</figcaption>
 </center>
 <br>
@@ -102,7 +102,7 @@ Although simple on the surface, historically the magic being performed inside th
 
 
 <center>
-<img src="images/deep_nn.png" />
+<img src="/public/images/analytics/deep_nn.png" />
 <figcaption>Deep feedforward neural network.</figcaption>
 </center>
 <br>
@@ -116,7 +116,7 @@ This is the reason that DNNs are so popular for very complex problems where feat
 Multiple DNN models exist and, as interest and investment in this area have increased, expansions of DNN models have flurished. For example, convolutional neural networks (CNN or ConvNet) have wide applications in image and video recognition, recurrent neural networks (RNN) are used with speech recognition, and long short-term memory neural networks (LTSM) are advancing automated robotics and machine translation.  However, fundamental to all these methods is the feedforward neural net (aka multilayer perceptron).  Feedforward DNNs are densely connected layers where inputs influence each successive layer which then influences the final output layer.
 
 <center>
-<img src="images/mlp_network.png" />
+<img src="/public/images/analytics/mlp_network.png" />
 <figcaption>Feedforward neural network.</figcaption>
 </center>
 <br>
@@ -164,11 +164,11 @@ A key component with neural networks is what's called *activation*.  In the huma
 
 #### Activation functions
 
-As stated previously, each node is connected to all the nodes in the previous layer.  Each connection gets a weight and then that node adds all the incoming inputs multiplied by its corresponding connection weight (plus an extra *bias* ($w_0$) but don't worry about that right now). The summed total of these inputs become an input to an *activation function*.    
+As stated previously, each node is connected to all the nodes in the previous layer.  Each connection gets a weight and then that node adds all the incoming inputs multiplied by its corresponding connection weight (plus an extra *bias* ($$w_0$$) but don't worry about that right now). The summed total of these inputs become an input to an *activation function*.    
 
 
 <center>
-<img src="images/perceptron_node.png" />
+<img src="/public/images/analytics/perceptron_node.png" />
 <figcaption>Flow of information in an artificial neuron.</figcaption>
 </center>
 <br>
@@ -290,7 +290,7 @@ learn
 plot(learn)
 ```
 
-<img src="feedfoward_DNN_tutorial_files/figure-html/fit-1.png" style="display: block; margin: auto;" />
+<img src="/public/images/analytics/fit-1.png" style="display: block; margin: auto;" />
 
 
 ## Model tuning {#tuning}
@@ -338,7 +338,7 @@ learn <- model %>% fit(
 plot(learn)
 ```
 
-<img src="feedfoward_DNN_tutorial_files/figure-html/capacity-1.png" style="display: block; margin: auto;" />
+<img src="/public/images/analytics/capacity-1.png" style="display: block; margin: auto;" />
 
 Once we've overfit, we can reduce our layers and nodes until we see improvement in our validation metrics.  Not only do we want to see stable validation metrics, we also want to find the model capacity that minimizes overfitting.  Here, I find that 2 layers with 100 and 50 nodes respectively does a pretty good job of stabilizing our errors and minimizing our metrics and overfitting.
 
@@ -371,7 +371,7 @@ learn <- model %>% fit(
 plot(learn)
 ```
 
-<img src="feedfoward_DNN_tutorial_files/figure-html/capacity2-1.png" style="display: block; margin: auto;" />
+<img src="/public/images/analytics/capacity2-1.png" style="display: block; margin: auto;" />
 
 ### Adjust epochs
 
@@ -419,7 +419,7 @@ learn
 plot(learn)
 ```
 
-<img src="feedfoward_DNN_tutorial_files/figure-html/epochs-1.png" style="display: block; margin: auto;" />
+<img src="/public/images/analytics/epochs-1.png" style="display: block; margin: auto;" />
 
 
 ### Add batch normalization
@@ -470,7 +470,7 @@ learn
 plot(learn)
 ```
 
-<img src="feedfoward_DNN_tutorial_files/figure-html/batch-1.png" style="display: block; margin: auto;" />
+<img src="/public/images/analytics/batch-1.png" style="display: block; margin: auto;" />
 
 
 ### Add dropout
@@ -523,14 +523,14 @@ learn
 plot(learn)
 ```
 
-<img src="feedfoward_DNN_tutorial_files/figure-html/dropout-1.png" style="display: block; margin: auto;" />
+<img src="/public/images/analytics/dropout-1.png" style="display: block; margin: auto;" />
 
 
 ### Add weight regularization
 
-In a previous tutorial, we discussed the idea of [regularization](regularized_regression).  The same idea can be applied in DNNs where we put constraints on the size that the weights can take.  In DNNs, the most common regularization is the $L_2$ *norm*, which is called *weight decay* in the context of neural networks.  Regularization of weights will force small signals (noise) to have weights nearly equal to zero and only allow signals with consistently strong signals to have relatively larger weights.
+In a previous tutorial, we discussed the idea of [regularization](regularized_regression).  The same idea can be applied in DNNs where we put constraints on the size that the weights can take.  In DNNs, the most common regularization is the $$L_2$$ *norm*, which is called *weight decay* in the context of neural networks.  Regularization of weights will force small signals (noise) to have weights nearly equal to zero and only allow signals with consistently strong signals to have relatively larger weights.
 
-We apply regularization with a `kernel_regularizer` argument in our `layer_dense` functions. In this example I add the $L_2$ *norm* regularizer with a multiplier of 0.001, which means every weight coefficient in the layer will be multiplied by 0.001.  We could also add an $L_1$ regularization or a combination of $L_1$ and $L_2$ with `regularizer_l1` and `regularizer_l1_l2` respectively. Here, weight decay doesn't really improve our performance metrics but it does help a little in reducing overfitting. 
+We apply regularization with a `kernel_regularizer` argument in our `layer_dense` functions. In this example I add the $$L_2$$ *norm* regularizer with a multiplier of 0.001, which means every weight coefficient in the layer will be multiplied by 0.001.  We could also add an $$L_1$$ regularization or a combination of $$L_1$$ and $$L_2$$ (aka elastic net) with `regularizer_l1` and `regularizer_l1_l2` respectively. Here, weight decay doesn't really improve our performance metrics but it does help a little in reducing overfitting. 
 
 
 ```r
@@ -576,7 +576,7 @@ learn
 plot(learn)
 ```
 
-<img src="feedfoward_DNN_tutorial_files/figure-html/regularize-1.png" style="display: block; margin: auto;" />
+<img src="/public/images/analytics/regularize-1.png" style="display: block; margin: auto;" />
 
 
 ### Adjust learning rate
@@ -643,7 +643,7 @@ learn
 plot(learn)
 ```
 
-<img src="feedfoward_DNN_tutorial_files/figure-html/learning_rate-1.png" style="display: block; margin: auto;" />
+<img src="/public/images/analytics/learning_rate-1.png" style="display: block; margin: auto;" />
 
 
 ## Predicting {#predict}
