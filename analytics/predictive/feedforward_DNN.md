@@ -209,7 +209,7 @@ model <- keras_model_sequential() %>%
   layer_dense(units = 1)
 ```
 
-We have created our basic network architecture $\rightarrow$ two hidden layers with 10 and 5 nodes respectively with both hidden layers using ReLU activation functions.  Next, we need to incorporate a feedback mechanism to help our model learn.
+We have created our basic network architecture $$\rightarrow$$ two hidden layers with 10 and 5 nodes respectively with both hidden layers using ReLU activation functions.  Next, we need to incorporate a feedback mechanism to help our model learn.
 
 ## Backpropagation {#back}
 
