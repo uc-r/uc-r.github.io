@@ -14,12 +14,6 @@ Predictive methodologies use knowledge, usually extracted from historical data, 
 - [Regularized Regression](regularized_regression)
 - [Imprecise Regression](imprecise_regression)
 
-## Time Series
-- [Exploring & Visualizing Times Series](ts_exploration)
-- [Benchmark Methods & Forecast Accuracy](ts_benchmarking)
-- [Moving Averages](ts_moving_averages)
-- [Exponential Smoothing](ts_exp_smoothing)
-
 ## Supervised Classification
 - [Logistic Regression](logistic_regression)
 - [Linear & Quadratic Discriminant Analysis](discriminant_analysis)
@@ -31,3 +25,9 @@ Predictive methodologies use knowledge, usually extracted from historical data, 
 
 ## Resampling Methods
 - [Resampling Basics](resampling_methods)
+
+## Time Series
+- [Exploring & Visualizing Times Series](ts_exploration)
+- [Benchmark Methods & Forecast Accuracy](ts_benchmarking)
+- [Moving Averages](ts_moving_averages)
+- [Exponential Smoothing](ts_exp_smoothing)
