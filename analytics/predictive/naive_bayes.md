@@ -65,7 +65,7 @@ table(test$Attrition) %>% prop.table()
 
 ### The idea
 
-The naïve Bayes classifier is founded on Bayesian probability, which originated from [Reverend Thomas Bayes](https://en.wikipedia.org/wiki/Thomas_Bayes). Bayesian probability incorporates the concept of *conditional probability*, the probabilty of event *A* given that event *B* has occurred [denoted as $P(A|B)$].  In the context of our attrition data, we are seeking the probability of an employee belonging to attrition class $C_k$ (where $C_{yes} = \texttt{attrition}$ and $C_{no} = \texttt{non-attrition}$) given that its predictor values are $x_1, x_2, \dots, x_p$.  This can be written as $P(C_k|x_1, \dots, x_p)$. 
+The naïve Bayes classifier is founded on Bayesian probability, which originated from [Reverend Thomas Bayes](https://en.wikipedia.org/wiki/Thomas_Bayes). Bayesian probability incorporates the concept of *conditional probability*, the probabilty of event *A* given that event *B* has occurred [denoted as $P(A|B)$].  In the context of our attrition data, we are seeking the probability of an employee belonging to attrition class $$C_k$$ (where $$C_{yes} = \texttt{attrition}$$ and $$C_{no} = \texttt{non-attrition}$$) given that its predictor values are $$x_1, x_2, \dots, x_p$$.  This can be written as $$P(C_k|x_1, \dots, x_p)$$. 
 
 The Bayesian formula for calculating this probability is
 
@@ -73,20 +73,20 @@ $$ P(C_k \vert X) = \frac{P(C_k) \cdot P(X \vert C_k)}{P(X)} \tag{1} $$
 
 where:
 
-* $P(C_k)$ is the _prior_ probability of the outcome. Essentially, based on the historical data, what is the probability of an employee attriting or not.  As we saw in the above section preparing our training and test sets, our prior probability of an employee attriting was about 16% and the probability of not attriting was about 84%.
+* $$P(C_k)$$ is the _prior_ probability of the outcome. Essentially, based on the historical data, what is the probability of an employee attriting or not.  As we saw in the above section preparing our training and test sets, our prior probability of an employee attriting was about 16% and the probability of not attriting was about 84%.
 
-* $P(X)$ is the probability of the predictor variables (same as $P(C_k|x_1, \dots, x_p)$). Essentially, based on the historical data, what is the probability of each observed combination of predictor variables.  When new data comes in, this becomes our *evidence*.
+* $$P(X)$$ is the probability of the predictor variables (same as $$P(C_k|x_1, \dots, x_p)$$). Essentially, based on the historical data, what is the probability of each observed combination of predictor variables.  When new data comes in, this becomes our *evidence*.
 
-* $P(X \vert C_k)$ is the _conditional probability_ or *likelihood*. Essentially, for each class of the response variable (i.e. attrit or not attrit), what is the probability of observing the predictor values.
+* $$P(X \vert C_k)$$ is the _conditional probability_ or *likelihood*. Essentially, for each class of the response variable (i.e. attrit or not attrit), what is the probability of observing the predictor values.
 
-* $P(C_k \vert X)$ is called our _posterior probability_.  By combining our observed information, we are updating our _a priori_ information on probabilities to compute a posterior probability that an observation has class $C_k$.
+* $$P(C_k \vert X)$$ is called our _posterior probability_.  By combining our observed information, we are updating our _a priori_ information on probabilities to compute a posterior probability that an observation has class $$C_k$$.
 
 We can re-write Eq. (1) in plain english as:
 
 $$\texttt{posterior} = \frac{\texttt{prior} \times \texttt{likelihood}}{\texttt{evidence}} $$
 
 
-Although Eq. (1) has simplistic beauty on its surface, it becomes complex and intractable as the number of predictor variables grow. In fact, to compute the posterior probability for a response variable with *m* classes and a data set with *p* predictors, Eq. (1) would require $p^m$ probabilities computed.  So for our attrition data, we have 2 classes (attrition vs. non-attrition) and 31 variables, requiring 2,147,483,648 probabilities computed.
+Although Eq. (1) has simplistic beauty on its surface, it becomes complex and intractable as the number of predictor variables grow. In fact, to compute the posterior probability for a response variable with *m* classes and a data set with *p* predictors, Eq. (1) would require $$p^m$$ probabilities computed.  So for our attrition data, we have 2 classes (attrition vs. non-attrition) and 31 variables, requiring 2,147,483,648 probabilities computed.
 
 ### The simplified classifier
 
@@ -101,9 +101,9 @@ train %>%
   corrplot::corrplot()
 ```
 
-<img src="naive_bayes_files/figure-html/unnamed-chunk-3-1.png" style="display: block; margin: auto;" />
+<img src="/public/images/analytics/naive_bayes/unnamed-chunk-3-1.png" style="display: block; margin: auto;" />
 
-However, by making this assumption we can simplify our calculation such that the posterior probability is simply the product of the probability distribution for each individual variable conditioned on the response category (Eq. 2).  Now we are only required to compute $m \times p$ probabilities  (this equates to 62 probabilities for our data set), a far more managable task.
+However, by making this assumption we can simplify our calculation such that the posterior probability is simply the product of the probability distribution for each individual variable conditioned on the response category (Eq. 2).  Now we are only required to compute $$m \times p$$ probabilities  (this equates to 62 probabilities for our data set), a far more managable task.
 
 $$ P(C_k \vert X) = \prod^n_{i=1} P(x_i \vert C_k) \tag{2} $$
 
@@ -119,13 +119,13 @@ train %>%
   facet_wrap(~ metric, scales = "free")
 ```
 
-<img src="naive_bayes_files/figure-html/unnamed-chunk-4-1.png" style="display: block; margin: auto;" />
+<img src="/public/images/analytics/naive_bayes/unnamed-chunk-4-1.png" style="display: block; margin: auto;" />
 
 Granted, some numeric features may be normalized with a Box-Cox transformation; however, as you will see in this tutorial we can also use non-parametric kernel density estimators to try get a more accurate representation of continuous variable probabilities. Ultimately, transforming the distributions and selecting an estimator is part of the modeling development and tuning process.
 
 ### Laplace Smoother
 
-One additional issue to be aware of - since naïve Bayes uses the product of feature probabilities conditioned on each class, we run into a serious problem when new data includes a feature value that never occurs for one or more levels of a response class.  What results is $P(x_i \vert C_k) = 0$ for this individual feature and this zero will ripple through the entire multiplication of all features and will always force the posterior probability to be zero for that class.
+One additional issue to be aware of - since naïve Bayes uses the product of feature probabilities conditioned on each class, we run into a serious problem when new data includes a feature value that never occurs for one or more levels of a response class.  What results is $$P(x_i \vert C_k) = 0$$ for this individual feature and this zero will ripple through the entire multiplication of all features and will always force the posterior probability to be zero for that class.
 
 A solution to this problem involves using the ___Laplace smoother___. The Laplace smoother adds a small number to each of the counts in the frequencies for each feature, which ensures that each feature has a nonzero probability of occuring for each class.  Typically, a value of one to two for the Laplace smoother is sufficient, but this is a tuning parameter to incorporate and optimize with cross validation.
 
@@ -221,7 +221,7 @@ nb.m2$results %>%
 plot(nb.m2)
 ```
 
-<img src="naive_bayes_files/figure-html/caret2-1.png" style="display: block; margin: auto;" />
+<img src="/public/images/analytics/naive_bayes/caret2-1.png" style="display: block; margin: auto;" />
 
 ```r
 
@@ -433,7 +433,7 @@ data.frame(fpr = fpr, tpr = tpr) %>%
   ggtitle( sprintf('AUC: %f', auc) )
 ```
 
-<img src="naive_bayes_files/figure-html/h2o2-1.png" style="display: block; margin: auto;" />
+<img src="/public/images/analytics/naive_bayes/h2o2-1.png" style="display: block; margin: auto;" />
 
 Once we've identified the optimal model we can assess on our test set.
 
