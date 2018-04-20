@@ -65,7 +65,7 @@ table(test$Attrition) %>% prop.table()
 
 ### The idea
 
-The naïve Bayes classifier is founded on Bayesian probability, which originated from [Reverend Thomas Bayes](https://en.wikipedia.org/wiki/Thomas_Bayes). Bayesian probability incorporates the concept of *conditional probability*, the probabilty of event *A* given that event *B* has occurred [denoted as $P(A \vert B)$].  In the context of our attrition data, we are seeking the probability of an employee belonging to attrition class $$C_k$$ (where $$C_{yes} = \texttt{attrition}$$ and $$C_{no} = \texttt{non-attrition}$$) given that its predictor values are $$x_1, x_2, \dots, x_p$$.  This can be written as $$P(C_k \vert x_1, \dots, x_p)$$. 
+The naïve Bayes classifier is founded on Bayesian probability, which originated from [Reverend Thomas Bayes](https://en.wikipedia.org/wiki/Thomas_Bayes). Bayesian probability incorporates the concept of *conditional probability*, the probabilty of event *A* given that event *B* has occurred [denoted as $$P(A \vert B)$$].  In the context of our attrition data, we are seeking the probability of an employee belonging to attrition class $$C_k$$ (where $$C_{yes} = \texttt{attrition}$$ and $$C_{no} = \texttt{non-attrition}$$) given that its predictor values are $$x_1, x_2, \dots, x_p$$.  This can be written as $$P(C_k \vert x_1, \dots, x_p)$$. 
 
 The Bayesian formula for calculating this probability is
 
