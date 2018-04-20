@@ -15,6 +15,7 @@ Predictive methodologies use knowledge, usually extracted from historical data, 
 - [Imprecise Regression](imprecise_regression)
 
 ## Supervised Classification
+- [Naïve Bayes](naive_bayes)
 - [Logistic Regression](logistic_regression)
 - [Linear & Quadratic Discriminant Analysis](discriminant_analysis)
 - [Support Vector Machines](svm)
