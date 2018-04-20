@@ -4,7 +4,7 @@ title: Naïve Bayes Classifier
 permalink: /naive_bayes
 ---
 
-<img src="/public/images/analytics/naive_bayes/naive_bayes_icon.png"  style="float:right; margin: 0px 0px 0px 0px; width: 30%; height: 30%;" />
+<img src="/public/images/analytics/naive_bayes/naive_bayes_icon.png"  style="float:right; margin: 0px 0px 0px 0px; width: 40%; height: 40%;" />
 
 The ___Naïve Bayes classifier___ is a simple probabilistic classifier which is based on Bayes theorem but with strong assumptions regarding independence. Historically, this technique became popular with applications in email filtering, spam detection, and document categorization. Although it is often outperformed by other techniques, and despite the naïve design and oversimplified assumptions, this classifier can perform well in many complex real-world problems. And since it is a resource efficient algorithm that is fast and scales well, it is definitely a machine learning algorithm to have in your toolkit.
 
@@ -65,7 +65,7 @@ table(test$Attrition) %>% prop.table()
 
 ### The idea
 
-The naïve Bayes classifier is founded on Bayesian probability, which originated from [Reverend Thomas Bayes](https://en.wikipedia.org/wiki/Thomas_Bayes). Bayesian probability incorporates the concept of *conditional probability*, the probabilty of event *A* given that event *B* has occurred [denoted as $P(A|B)$].  In the context of our attrition data, we are seeking the probability of an employee belonging to attrition class $$C_k$$ (where $$C_{yes} = \texttt{attrition}$$ and $$C_{no} = \texttt{non-attrition}$$) given that its predictor values are $$x_1, x_2, \dots, x_p$$.  This can be written as $$P(C_k|x_1, \dots, x_p)$$. 
+The naïve Bayes classifier is founded on Bayesian probability, which originated from [Reverend Thomas Bayes](https://en.wikipedia.org/wiki/Thomas_Bayes). Bayesian probability incorporates the concept of *conditional probability*, the probabilty of event *A* given that event *B* has occurred [denoted as $P(A \vert B)$].  In the context of our attrition data, we are seeking the probability of an employee belonging to attrition class $$C_k$$ (where $$C_{yes} = \texttt{attrition}$$ and $$C_{no} = \texttt{non-attrition}$$) given that its predictor values are $$x_1, x_2, \dots, x_p$$.  This can be written as $$P(C_k \vert x_1, \dots, x_p)$$. 
 
 The Bayesian formula for calculating this probability is
 
@@ -75,7 +75,7 @@ where:
 
 * $$P(C_k)$$ is the _prior_ probability of the outcome. Essentially, based on the historical data, what is the probability of an employee attriting or not.  As we saw in the above section preparing our training and test sets, our prior probability of an employee attriting was about 16% and the probability of not attriting was about 84%.
 
-* $$P(X)$$ is the probability of the predictor variables (same as $$P(C_k|x_1, \dots, x_p)$$). Essentially, based on the historical data, what is the probability of each observed combination of predictor variables.  When new data comes in, this becomes our *evidence*.
+* $$P(X)$$ is the probability of the predictor variables (same as $$P(C_k \vert x_1, \dots, x_p)$$). Essentially, based on the historical data, what is the probability of each observed combination of predictor variables.  When new data comes in, this becomes our *evidence*.
 
 * $$P(X \vert C_k)$$ is the _conditional probability_ or *likelihood*. Essentially, for each class of the response variable (i.e. attrit or not attrit), what is the probability of observing the predictor values.
 
