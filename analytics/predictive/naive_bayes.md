@@ -86,7 +86,7 @@ We can re-write Eq. (1) in plain english as:
 $$\texttt{posterior} = \frac{\texttt{prior} \times \texttt{likelihood}}{\texttt{evidence}} $$
 
 
-Although Eq. (1) has simplistic beauty on its surface, it becomes complex and intractable as the number of predictor variables grow. In fact, to compute the posterior probability for a response variable with *m* classes and a data set with *p* predictors, Eq. (1) would require $$p^m$$ probabilities computed.  So for our attrition data, we have 2 classes (attrition vs. non-attrition) and 31 variables, requiring 2,147,483,648 probabilities computed.
+Although Eq. (1) has simplistic beauty on its surface, it becomes complex and intractable as the number of predictor variables grow. In fact, to compute the posterior probability for a response variable with *m* classes and a data set with *p* predictors, Eq. (1) would require $$m^p$$ probabilities computed.  So for our attrition data, we have 2 classes (attrition vs. non-attrition) and 31 variables, requiring 2,147,483,648 probabilities computed.
 
 ### The simplified classifier
 
