@@ -182,8 +182,8 @@ confusionMatrix(nb.m1)
 We can tune the few hyperparameters that a naïve Bayes model has.  
 
 * `usekernel` parameter allows us to use a kernel density estimate for continuous variables versus a guassian density estimate, 
-* `fL` allows us to incorporate the Laplace smoother, 
-* `adjust = TRUE` allows us to adjust the bandwidth of the kernel density (larger numbers mean more flexible density estimate).
+* `adjust` allows us to adjust the bandwidth of the kernel density (larger numbers mean more flexible density estimate),
+* `fL` allows us to incorporate the Laplace smoother.
 
 If we just tuned our model with the above parameters we are able to lift our accuracy to 85%; however, by incorporating some preprocessing of our features (normalize with Box Cox, standardize with center-scaling, and reducing with PCA) we actually get about another 2% lift in our accuracy.
 
