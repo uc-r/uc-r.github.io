@@ -55,10 +55,11 @@ There are many methodologies for constructing regression trees but one of the ol
 For example, consider we want to predict the miles per gallon a car will average based on cylinders (cyl) and horsepower (hp). All observations go through this tree, are assessed at a particular node, and proceed to the left if the answer is "yes" or proceed to the right if the answer is "no".  So, first, all observations that have 6 or 8 cylinders go to the left branch, all other observations proceed to the right branch.  Next, the left branch is further partitioned by horsepower.  Those 6 or 8 cylinder observations with horsepower equal to or greater than 192 proceed to the left branch; those with less than 192 hp proceed to the right.  These branches lead to _terminal nodes_ or _leafs_ which contain our predicted response value.  Basically, all observations (cars in this example) that do not have 6 or 8 cylinders (far right branch) average 27 mpg.  All observations that have 6 or 8 cylinders and have more than 192 hp (far left branch) average 13 mpg.
 
 <div class="figure" style="text-align: center">
+<center>
 <img src="/public/images/analytics/regression_trees/ex_regression_tree.png" alt="Fig 1. Predicting mpg based on cyl &amp; hp." width="60%" height="60%" />
 <p class="caption">Fig 1. Predicting mpg based on cyl & hp.</p>
+</center>  
 </div>
-<br>
 
 This simple example can be generalized to state we have a continuous response variable $$Y$$ and two inputs $$X_1$$ and $$X_2$$.  The recursive partitioning results in three regions ($$R_1, R_2, R_3$$) where the model predicts *Y* with a constant $c_m$ for region $$R_m$$:
 
@@ -357,7 +358,7 @@ Bagging combines and averages multiple models.  Averaging across multiple trees 
 
 <div class="figure" style="text-align: center">
 <center>
-<img src="/public/images/analytics/regression_trees/bagging3.png" alt="Fig 3. The bagging process." width="60%" height="60%" />
+<img src="/public/images/analytics/regression_trees/bagging3.png" alt="Fig 3. The bagging process." width="70%" height="70%" />
 <p class="caption">Fig 3. The bagging process.</p>
 </center>  
 </div>
