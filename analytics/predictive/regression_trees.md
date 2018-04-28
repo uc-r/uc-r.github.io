@@ -356,8 +356,10 @@ Bagging combines and averages multiple models.  Averaging across multiple trees 
 3. Average individual predictions from each tree to create an overall average predicted value.
 
 <div class="figure" style="text-align: center">
-<img src="/public/images/analytics/regression_trees/bagging3.png" alt="Fig 3. The bagging process." width="50%" height="50%" />
+<center>
+<img src="/public/images/analytics/regression_trees/bagging3.png" alt="Fig 3. The bagging process." width="60%" height="60%" />
 <p class="caption">Fig 3. The bagging process.</p>
+</center>  
 </div>
 
 This process can actually be applied to any regression or classification model; however, it provides the greatest improvement for models that have high variance.  For example, more stable parametric models such as linear regression and multi-adaptive regression splines tend to experience less improvement in predictive performance.
