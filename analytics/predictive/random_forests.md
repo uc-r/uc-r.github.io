@@ -4,7 +4,7 @@ title: Random Forests
 permalink: /random_forests
 ---
 
-<img src="/public/images/analytics/random_forests/RF_icon.jpg"  style="float:right; margin: 2px 0px 0px 10px; width: 15%; height: 15%;" />
+<img src="/public/images/analytics/random_forests/RF_icon.jpg"  style="float:right; margin: 2px 10px 0px 10px; width: 30%; height: 30%;" />
 
 [Bagging (__bootstrap aggregating__) regression trees](http://uc-r.github.io/regression_trees) is a technique that can turn a single tree model with high variance and poor predictive powerful into a fairly accurate prediction function.  Unfortunately, bagging regression trees typically suffers from tree correlation, which reduces the overall performance of the model.  ___Random forests___ are a modification of bagging that builds a large collection of *de-correlated* trees and have become a very popular "out-of-the-box" learning algorithm that enjoys good predictive performance. This tutorial will cover the fundamentals of random forests.
 
@@ -682,8 +682,7 @@ Random forests provide a very powerful out-of-the-box algorithm that often has g
 - [The Elements of Statistical Learning](https://web.stanford.edu/~hastie/ElemStatLearn/)
 
 
-[^task]: See the Random Forest section in the [Machine Learning Task View](https://CRAN.R-project.org/view=MachineLearning
-) on CRAN and Erin LeDell's [useR! Machine Learning Tutorial](https://koalaverse.github.io/machine-learning-in-R/random-forest.html#random-forest-software-in-r) for a non-comprehensive list.
+[^task]: See the Random Forest section in the [Machine Learning Task View](https://CRAN.R-project.org/view=MachineLearning) on CRAN and Erin LeDell's [useR! Machine Learning Tutorial](https://koalaverse.github.io/machine-learning-in-R/random-forest.html#random-forest-software-in-r) for a non-comprehensive list.
 
 
 
