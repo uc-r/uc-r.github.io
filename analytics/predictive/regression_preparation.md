@@ -85,9 +85,10 @@ To provide an accurate understanding of the generalizability of our final optima
 *  __Test Set__: having chosen a final model, these data are used to estimate its prediction error (generalization error). These data should _not be used during model training!_
 
 <center>
-<img src="images/data_split.png" alt="Fig 1: Splitting data into training and test sets." width="175" />
+<img src="/public/images/analytics/regression_prep/data_split.png" alt="Fig 1: Splitting data into training and test sets." width="175" />
 <figcaption>Fig 1: Splitting data into training and test sets.</figcaption>
 </center>
+<br>
 
 Given a fixed amount of data, typical recommendations for splitting your data into training-testing splits include 60% (training) - 40% (testing), 70%-30%, or 80%-20%. Generally speaking, these are appropriate guidelines to follow; however, it is good to keep in mind that as your overall data set gets smaller,
 
@@ -133,7 +134,7 @@ Since this sampling approach will randomly sample across the distribution of $$y
 <img src="/public/images/analytics/regression_prep/imagesdistributions-1.svg" alt="Fig 2: Training (black) vs. test (red) distribution."  />
 <figcaption>Fig 2: Training (black) vs. test (red) distribution.</figcaption>
 </center>
-
+<br>
 
 
 ### Stratified sampling
@@ -245,10 +246,10 @@ ggplot(train_1, aes(x = Sale_Price)) +
 ```
 
 <center>
-<img src="imagesskewedresponse-1.svg" alt="Fig 3: Right skewed response variable."  />
+<img src="/public/images/analytics/regression_prep/imagesskewedresponse-1.svg" alt="Fig 3: Right skewed response variable."  />
 <figcaption>Fig 3: Right skewed response variable.</figcaption>
 </center>
-
+<br>
 
 
 To normalize, we have two options:
@@ -278,6 +279,7 @@ We can see that in this example, the log transformation and Box Cox transformati
 <img src="/public/images/analytics/regression_prep/imagesunnamed-chunk-3-1.svg" alt="Fig 4: Response variable transformations."  />
 <figcaption>Fig 4: Response variable transformations.</figcaption>
 </center>
+<br>
 
 Note that when you model with a transformed response variable, your predictions will also be in the transformed value.  You will likely want to re-transform your predicted values back to their normal state so that decision-makers can interpret the results.  The following code can do this for you:
 
@@ -412,7 +414,8 @@ Hyperparameters control the level of model complexity.  Some algorithms have man
 <center>
 <img src="/public/images/analytics/regression_prep/imagesunnamed-chunk-9-1.svg" alt="Fig 5: Tuning allows for more flexible patterns to be fit."  />
 <figcaption>Fig 5: Tuning allows for more flexible patterns to be fit.</figcaption>
-<center>
+</center>
+<br>
 
 However, highly tunable models can also be dangerous because they allow us to overfit our model to the training data, which will not generalize well to future unseen data.
 
@@ -420,9 +423,10 @@ However, highly tunable models can also be dangerous because they allow us to ov
 <img src="/public/images/analytics/regression_prep/imagesunnamed-chunk-10-1.svg" alt="Fig 6: Highly tunable models can overfit if we are not careful."  />
 <figcaption>Fig 6: Highly tunable models can overfit if we are not careful.</figcaption>
 </center>
-
+<br>
 
 Throughout future tutorials we will demonstrate how to tune the different parameters for each model.  However, we bring up this point because it feeds into the next section nicely.
+
 
 ## Cross Validation for Generalization
 
@@ -434,6 +438,7 @@ Let's go back to this image...
 <img src="/public/images/analytics/regression_prep/imagesunnamed-chunk-11-1.svg" alt="Fig 7: Bias versus variance."  />
 <figcaption>Fig 7: Bias versus variance.</figcaption>
 </center>
+<br>
 
 The model on the left is considered rigid and consistent.  If we provided it a new training sample with slightly different values, the model would not change much, if at all.  Although it is consistent, the model does not accurately capture the underlying relationship.  This is considered a model with high ___bias___.
 
@@ -445,6 +450,7 @@ The model in the middle balances the two and, likely, will minimize the error on
 <img src="/public/images/analytics/regression_prep/bias_var.png" alt="Fig 8: Bias-variance tradeoff." width="50%" height="50%" />
 <figcaption>Fig 8: Bias-variance tradeoff.</figcaption>
 </center>
+<br>
 
 To find the model that balances the ___bias-variance tradeoff___, we search for a model that minimizes a *k*-fold cross-validation error metric (you will also be introduced to what's called an _out of bag error_ which provides a similar form of evaluation).  *k*-fold cross-validation is a resampling method that randomly divides the training data into *k* groups (aka folds) of approximately equal size. The model is fit on $$k-1$$ folds and then the held-out validation fold is used to compute the error.  This procedure is repeated *k* times; each time, a different group of observations is treated as the validation set. This process results in *k* estimates of the test error ($$\epsilon_1, \epsilon_2, \dots, \epsilon_k$$). Thus, the _k_-fold CV estimate is computed by averaging these values, which provides us with an approximation of the error to expect on unseen data.
 
@@ -452,6 +458,7 @@ To find the model that balances the ___bias-variance tradeoff___, we search for 
 <img src="/public/images/analytics/regression_prep/cv.png" alt="Fig 9: Illustration of the k-fold cross validation process." width="70%" height="70%" />
 <figcaption>Fig 9: Illustration of the k-fold cross validation process.</figcaption>
 </center>
+<br>
 
 Most algorithms and packages we cover in future tutorials have built-in cross validation capabilities.  One typically uses a 5 or 10 fold CV ($$k = 5$$ or $$k = 10$$).  For example, `h2o` implements CV with the `nfolds` argument:
 
