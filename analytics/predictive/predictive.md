@@ -9,6 +9,7 @@ Predictive methodologies use knowledge, usually extracted from historical data, 
 <br>
 
 ## Supervised Regression
+- [Preparing for Regression](regression_preparation)
 - [Linear Regression](linear_regression)
 - [Linear Model Selection](model_selection)
 - [Regularized Regression](regularized_regression)
