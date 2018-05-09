@@ -4,7 +4,7 @@ title: Preparing for Regression Problems
 permalink: /regression_preparation
 ---
 
-<img src="/public/images/analytics/regression_prep/modeling_process2.png"  style="float:right; margin: 2px 0px 0px 10px; width: 50%; height: 50%;" />
+<img src="/public/images/analytics/regression_prep/modeling_process2.png"  style="float:right; margin: 2px 0px 0px 10px; width: 65%; height: 65%;" />
 When the objective of a supervised model is to predict a continuous numeric output, we refer to this as a ___regression model___.  Applying statistical and machine learning algorithms for regression problems is a very iterative process.  If performed and interpreted correctly, we can have great confidence in our outcomes. If not, the results will be useless. Approaching this process correctly means approaching it strategically by spending our data wisely on learning and validation procedures, properly pre-processing variables, minimizing data leakage, tuning hyperparameters, and assessing model performance. This tutorial will prepare you with the fundamentals needed prior to applying regression machine learning algorithms.   
 
 ## tl;dr
