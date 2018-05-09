@@ -170,7 +170,7 @@ dim(ames_train_x)
 ## [1] 2054  307
 ```
 
-To apply a ridge model we can use the `glmnet::glmnet` function.  The `alpha` parameter tells `glmnet` to perform a ridge (`alpha = 0`), lasso (`alpha = 1`), or elastic net ($$0 < alpha < 1$$) model. Behind the scenes, `glmnet` is doing two things that you should be aware of:
+To apply a ridge model we can use the `glmnet::glmnet` function.  The `alpha` parameter tells `glmnet` to perform a ridge (`alpha = 0`), lasso (`alpha = 1`), or elastic net ($$0 \leq alpha \leq 1$$) model. Behind the scenes, `glmnet` is doing two things that you should be aware of:
 
 1. It is essential that predictor variables are standardized when performing regularized regression.  `glmnet` performs this for you. If you standardize your predictors prior to `glmnet` you can turn this argument off with `standardize = FALSE`.
 2. `glmnet` will perform ridge models across a wide range of $$\lambda$$ parameters, which are illustrated in the figure below. 
@@ -189,7 +189,7 @@ plot(ames_ridge, xvar = "lambda")
 
 <img src="/public/images/analytics/regularized_regression/unnamed-chunk-8-1.svg" style="display: block; margin: auto;" />
 
-In fact, we can see the exact $$\lambda$$ values applied with `ames_ridge$lambda`.  Although you can specify your own $$\lambda$$ values, by default `glmnet` applies 100 $\lambda$ values that are data derived.  Majority of the time you will have little need to adjust the default $$\lambda$$ values.  
+In fact, we can see the exact $$\lambda$$ values applied with `ames_ridge$lambda`.  Although you can specify your own $$\lambda$$ values, by default `glmnet` applies 100 $$\lambda$$ values that are data derived.  Majority of the time you will have little need to adjust the default $$\lambda$$ values.  
 
 We can also directly access the coefficients for a model using `coef`. `glmnet` stores all the coefficients for each model in order of largest to smallest $$\lambda$$. Due to the number of features, here I just peak at the coefficients for the `Gr_Liv_Area` and `TotRms_AbvGrd` features for the largest $$\lambda$$ (279.1035) and smallest $$\lambda$$ (0.02791035).  You can see how the largest $$\lambda$$ value has pushed these coefficients to nearly 0.
 
