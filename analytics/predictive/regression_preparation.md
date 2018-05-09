@@ -77,7 +77,7 @@ dim(df)
 
 ### Spending our data wisely
 
-A major goal of the machine learning process is to find an algorithm $f(x)$ that most accurately predicts future values ($y$) based on a set of inputs ($x$).  In other words, we want an algorithm that not only fits well to our past data, but more importantly, one that predicts a future outcome accurately.  This is called the ___generalizability___ of our algorithm.  How we _"spend"_ our data will help us understand how well our algorithm generalizes to unseen data.  
+A major goal of the machine learning process is to find an algorithm $$f(x)$$ that most accurately predicts future values ($$y$$) based on a set of inputs ($$x$$).  In other words, we want an algorithm that not only fits well to our past data, but more importantly, one that predicts a future outcome accurately.  This is called the ___generalizability___ of our algorithm.  How we _"spend"_ our data will help us understand how well our algorithm generalizes to unseen data.  
 
 To provide an accurate understanding of the generalizability of our final optimal model, we split our data into training and test data sets:
 
@@ -91,15 +91,15 @@ To provide an accurate understanding of the generalizability of our final optima
 
 Given a fixed amount of data, typical recommendations for splitting your data into training-testing splits include 60% (training) - 40% (testing), 70%-30%, or 80%-20%. Generally speaking, these are appropriate guidelines to follow; however, it is good to keep in mind that as your overall data set gets smaller,
 
-* spending too much in training ($>80\%$) won't allow us to get a good assessment of predictive performance.  We may find a model that fits the training data very well, but is not generalizable (overfitting),
-* sometimes too much spent in testing ($>40\%$) won't allow us to get a good assessment of model parameters
+* spending too much in training ($$>80\%$$) won't allow us to get a good assessment of predictive performance.  We may find a model that fits the training data very well, but is not generalizable (overfitting),
+* sometimes too much spent in testing ($$>40\%$$) won't allow us to get a good assessment of model parameters
 
 Typically, we are not lacking in the size of our data here, so a 70-30 split is often sufficient.  The two most common ways of splitting data include ___simple random sampling___ and ___stratified sampling___.
 
 
 ### Simple random sampling
 
-The simplest way to split the data into training and test sets is to take a simple random sample. This does not control for any data attributes, such as the percentage of data in the quantiles in your response variable ($y$). There are multiple ways to split our data.  Here we show four options to produce a 70-30 split (note that setting the seed value allows you to reproduce your randomized splits):
+The simplest way to split the data into training and test sets is to take a simple random sample. This does not control for any data attributes, such as the percentage of data in the quantiles in your response variable ($$y$$). There are multiple ways to split our data.  Here we show four options to produce a 70-30 split (note that setting the seed value allows you to reproduce your randomized splits):
 
 
 ```r
@@ -127,7 +127,7 @@ train_4 <- split_2[[1]]
 test_4  <- split_2[[2]]
 ```
 
-Since this sampling approach will randomly sample across the distribution of $y$ (`Sale_Price` in our example), you will typically result in a similar distribution between your training and test sets as illustrated below.
+Since this sampling approach will randomly sample across the distribution of $$y$$ (`Sale_Price` in our example), you will typically result in a similar distribution between your training and test sets as illustrated below.
 
 <center>
 <img src="/public/images/analytics/regression_prep/imagesdistributions-1.svg" alt="Fig 2: Training (black) vs. test (red) distribution."  />
@@ -138,7 +138,7 @@ Since this sampling approach will randomly sample across the distribution of $y$
 
 ### Stratified sampling
 
-However, if we want to explicitly control our sampling so that our training and test sets have similar $y$ distributions, we can use stratified sampling.  This is more common with classification problems but we also apply within regression problems as our data sets have less observations and strongly deviate from normality.  With a continuous response variable, stratified sampling will break $y$ down into quantiles and randomly sample from each quantile.  Consequently, this will help ensure a balanced representation of the response distribution in both the training and test sets.
+However, if we want to explicitly control our sampling so that our training and test sets have similar $$y$$ distributions, we can use stratified sampling.  This is more common with classification problems but we also apply within regression problems as our data sets have less observations and strongly deviate from normality.  With a continuous response variable, stratified sampling will break $$y$$ down into quantiles and randomly sample from each quantile.  Consequently, this will help ensure a balanced representation of the response distribution in both the training and test sets.
 
 The easiest way to perform stratified sampling on a continuous response variable is to use the `rsample` package:
 
@@ -446,14 +446,14 @@ The model in the middle balances the two and, likely, will minimize the error on
 <figcaption>Fig 8: Bias-variance tradeoff.</figcaption>
 </center>
 
-To find the model that balances the ___bias-variance tradeoff___, we search for a model that minimizes a *k*-fold cross-validation error metric (you will also be introduced to what's called an _out of bag error_ which provides a similar form of evaluation).  *k*-fold cross-validation is a resampling method that randomly divides the training data into *k* groups (aka folds) of approximately equal size. The model is fit on $k-1$ folds and then the held-out validation fold is used to compute the error.  This procedure is repeated *k* times; each time, a different group of observations is treated as the validation set. This process results in *k* estimates of the test error ($\epsilon_1, \epsilon_2, \dots, \epsilon_k$). Thus, the _k_-fold CV estimate is computed by averaging these values, which provides us with an approximation of the error to expect on unseen data.
+To find the model that balances the ___bias-variance tradeoff___, we search for a model that minimizes a *k*-fold cross-validation error metric (you will also be introduced to what's called an _out of bag error_ which provides a similar form of evaluation).  *k*-fold cross-validation is a resampling method that randomly divides the training data into *k* groups (aka folds) of approximately equal size. The model is fit on $$k-1$$ folds and then the held-out validation fold is used to compute the error.  This procedure is repeated *k* times; each time, a different group of observations is treated as the validation set. This process results in *k* estimates of the test error ($$\epsilon_1, \epsilon_2, \dots, \epsilon_k$$). Thus, the _k_-fold CV estimate is computed by averaging these values, which provides us with an approximation of the error to expect on unseen data.
 
 <center>
 <img src="/public/images/analytics/regression_prep/cv.png" alt="Fig 9: Illustration of the k-fold cross validation process." width="70%" height="70%" />
 <figcaption>Fig 9: Illustration of the k-fold cross validation process.</figcaption>
 </center>
 
-Most algorithms and packages we cover in future tutorials have built-in cross validation capabilities.  One typically uses a 5 or 10 fold CV ($k = 5$ or $k = 10$).  For example, `h2o` implements CV with the `nfolds` argument:
+Most algorithms and packages we cover in future tutorials have built-in cross validation capabilities.  One typically uses a 5 or 10 fold CV ($$k = 5$$ or $$k = 10$$).  For example, `h2o` implements CV with the `nfolds` argument:
 
 
 ```r
@@ -471,17 +471,17 @@ h2o.cv <- h2o.glm(
 
 This leads us to our final topic, error metrics to evaluate performance.  There are several metrics we can choose from to assess the error of a regression model.  The most common include:
 
-* __MSE__: Mean squared error is the average of the squared error ($MSE = \frac{1}{n} \sum^n_{i=1}(y_i - \hat y_i)^2$). The squared component results in larger errors having larger penalties.  This (along with RMSE) is the most common error metric to use. __Objective: minimize__
+* __MSE__: Mean squared error is the average of the squared error ($$MSE = \frac{1}{n} \sum^n_{i=1}(y_i - \hat y_i)^2$$). The squared component results in larger errors having larger penalties.  This (along with RMSE) is the most common error metric to use. __Objective: minimize__
 
-* __RMSE__: Root mean squared error.  This simply takes the square root of the MSE metric ($RMSE = \sqrt{\frac{1}{n} \sum^n_{i=1}(y_i - \hat y_i)^2}$) so that your error is in the same units as your response variable. If your response variable units are dollars, the units of MSE are dollars-squared, but the RMSE will be in dollars. __Objective: minimize__
+* __RMSE__: Root mean squared error.  This simply takes the square root of the MSE metric ($$RMSE = \sqrt{\frac{1}{n} \sum^n_{i=1}(y_i - \hat y_i)^2}$$) so that your error is in the same units as your response variable. If your response variable units are dollars, the units of MSE are dollars-squared, but the RMSE will be in dollars. __Objective: minimize__
 
 * __Deviance__: Short for mean residual deviance. In essence, it provides a measure of _goodness-of-fit_ of the model being evaluated when compared to the null model (intercept only).  If the response variable distribution is gaussian, then it is equal to MSE.  When not, it usually gives a more useful estimate of error. __Objective: minimize__
 
-* __MAE__: Mean absolute error. Similar to MSE but rather than squaring, it just takes the mean absolute difference between the actual and predicted values ($MAE = \frac{1}{n} \sum^n_{i=1}(\vert y_i - \hat y_i \vert)$). __Objective: minimize__
+* __MAE__: Mean absolute error. Similar to MSE but rather than squaring, it just takes the mean absolute difference between the actual and predicted values ($$MAE = \frac{1}{n} \sum^n_{i=1}(\vert y_i - \hat y_i \vert)$$). __Objective: minimize__
 
-* __RMSLE__: Root mean squared logarithmic error. Similiar to RMSE but it performs a log() on the actual and predicted values prior to computing the difference ($RMSLE = \sqrt{\frac{1}{n} \sum^n_{i=1}(log(y_i + 1) - log(\hat y_i + 1))^2}$). When your response variable has a wide range of values, large repsonse values with large errors can dominate the MSE/RMSE metric. RMSLE minimizes this impact so that small response values with large errors can have just as meaningful of an impact as large response values with large errors. __Objective: minimize__
+* __RMSLE__: Root mean squared logarithmic error. Similiar to RMSE but it performs a `log()` on the actual and predicted values prior to computing the difference ($$RMSLE = \sqrt{\frac{1}{n} \sum^n_{i=1}(log(y_i + 1) - log(\hat y_i + 1))^2}$$). When your response variable has a wide range of values, large repsonse values with large errors can dominate the MSE/RMSE metric. RMSLE minimizes this impact so that small response values with large errors can have just as meaningful of an impact as large response values with large errors. __Objective: minimize__
 
-* __$R^2$__: This is a popular metric that represents the proportion of the variance in the dependent variable that is predictable from the independent variable. Unfortunately, it has several limitations. For example, two models built from two different data sets could have the exact same RMSE but if one has less variability in the response variable then it would have a lower $R^2$ than the other. You should not place too much emphasis on this metric. __Objective: maximize__
+* __$R^2$__: This is a popular metric that represents the proportion of the variance in the dependent variable that is predictable from the independent variable. Unfortunately, it has several limitations. For example, two models built from two different data sets could have the exact same RMSE but if one has less variability in the response variable then it would have a lower $$R^2$$ than the other. You should not place too much emphasis on this metric. __Objective: maximize__
 
 
 Most models we assess in future tutorials will report most, if not all, of these metrics.  We will often emphasize MSE and RMSE but its good to realize that certain situations warrant emphasis on some more than others.
