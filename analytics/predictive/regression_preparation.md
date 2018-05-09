@@ -84,10 +84,10 @@ To provide an accurate understanding of the generalizability of our final optima
 *  __Training Set__: these data are used to train our algorithms and tune hyper-parameters.
 *  __Test Set__: having chosen a final model, these data are used to estimate its prediction error (generalization error). These data should _not be used during model training!_
 
-<div class="figure" style="text-align: center">
+<center>
 <img src="images/data_split.png" alt="Fig 1: Splitting data into training and test sets." width="175" />
-<p class="caption">Fig 1: Splitting data into training and test sets.</p>
-</div>
+<figcaption>Fig 1: Splitting data into training and test sets.</figcaption>
+</center>
 
 Given a fixed amount of data, typical recommendations for splitting your data into training-testing splits include 60% (training) - 40% (testing), 70%-30%, or 80%-20%. Generally speaking, these are appropriate guidelines to follow; however, it is good to keep in mind that as your overall data set gets smaller,
 
@@ -129,10 +129,10 @@ test_4  <- split_2[[2]]
 
 Since this sampling approach will randomly sample across the distribution of $y$ (`Sale_Price` in our example), you will typically result in a similar distribution between your training and test sets as illustrated below.
 
-<div class="figure" style="text-align: center">
-<img src="imagesdistributions-1.svg" alt="Fig 2: Training (black) vs. test (red) distribution."  />
-<p class="caption">Fig 2: Training (black) vs. test (red) distribution.</p>
-</div>
+<center>
+<img src="/public/images/analytics/regression_prep/imagesdistributions-1.svg" alt="Fig 2: Training (black) vs. test (red) distribution."  />
+<figcaption>Fig 2: Training (black) vs. test (red) distribution.</figcaption>
+</center>
 
 
 
@@ -244,10 +244,10 @@ ggplot(train_1, aes(x = Sale_Price)) +
   geom_density(data = test_1, trim = TRUE, col = "red")
 ```
 
-<div class="figure" style="text-align: center">
+<center>
 <img src="imagesskewedresponse-1.svg" alt="Fig 3: Right skewed response variable."  />
-<p class="caption">Fig 3: Right skewed response variable.</p>
-</div>
+<figcaption>Fig 3: Right skewed response variable.</figcaption>
+</center>
 
 
 
@@ -274,10 +274,10 @@ test_bc_y  <- forecast::BoxCox(test_1$Sale_Price, lambda)
 
 We can see that in this example, the log transformation and Box Cox transformation both do about equally well in transforming our reponse variable to be normally distributed.
 
-<div class="figure" style="text-align: center">
-<img src="imagesunnamed-chunk-3-1.svg" alt="Fig 4: Response variable transformations."  />
-<p class="caption">Fig 4: Response variable transformations.</p>
-</div>
+<center>
+<img src="/public/images/analytics/regression_prep/imagesunnamed-chunk-3-1.svg" alt="Fig 4: Response variable transformations."  />
+<figcaption>Fig 4: Response variable transformations.</figcaption>
+</center>
 
 Note that when you model with a transformed response variable, your predictions will also be in the transformed value.  You will likely want to re-transform your predicted values back to their normal state so that decision-makers can interpret the results.  The following code can do this for you:
 
@@ -409,17 +409,17 @@ h2o.m1 <- h2o.glm(x = x, y = y, training_frame = train.h2o)
 
 Hyperparameters control the level of model complexity.  Some algorithms have many tuning parameters while others have only one or two.  Tuning can be a good thing as it allows us to transform our model to better align with patterns within our data. For example, the simple illustration below shows how the more flexible model aligns more closely to the data than the fixed linear model.
 
-<div class="figure" style="text-align: center">
-<img src="imagesunnamed-chunk-9-1.svg" alt="Fig 5: Tuning allows for more flexible patterns to be fit."  />
-<p class="caption">Fig 5: Tuning allows for more flexible patterns to be fit.</p>
-</div>
+<center>
+<img src="/public/images/analytics/regression_prep/imagesunnamed-chunk-9-1.svg" alt="Fig 5: Tuning allows for more flexible patterns to be fit."  />
+<figcaption>Fig 5: Tuning allows for more flexible patterns to be fit.</figcaption>
+<center>
 
 However, highly tunable models can also be dangerous because they allow us to overfit our model to the training data, which will not generalize well to future unseen data.
 
-<div class="figure" style="text-align: center">
-<img src="imagesunnamed-chunk-10-1.svg" alt="Fig 6: Highly tunable models can overfit if we are not careful."  />
-<p class="caption">Fig 6: Highly tunable models can overfit if we are not careful.</p>
-</div>
+<center>
+<img src="/public/images/analytics/regression_prep/imagesunnamed-chunk-10-1.svg" alt="Fig 6: Highly tunable models can overfit if we are not careful."  />
+<figcaption>Fig 6: Highly tunable models can overfit if we are not careful.</figcaption>
+</center>
 
 
 Throughout future tutorials we will demonstrate how to tune the different parameters for each model.  However, we bring up this point because it feeds into the next section nicely.
@@ -430,10 +430,10 @@ Our goal is to not only find a model that performs well on training data but to 
 
 Let's go back to this image...
 
-<div class="figure" style="text-align: center">
-<img src="imagesunnamed-chunk-11-1.svg" alt="Fig 7: Bias versus variance."  />
-<p class="caption">Fig 7: Bias versus variance.</p>
-</div>
+<center>
+<img src="/public/images/analytics/regression_prep/imagesunnamed-chunk-11-1.svg" alt="Fig 7: Bias versus variance."  />
+<figcaption>Fig 7: Bias versus variance.</figcaption>
+</center>
 
 The model on the left is considered rigid and consistent.  If we provided it a new training sample with slightly different values, the model would not change much, if at all.  Although it is consistent, the model does not accurately capture the underlying relationship.  This is considered a model with high ___bias___.
 
@@ -441,17 +441,17 @@ The model on the right is far more inconsistent.  Even with small changes to our
 
 The model in the middle balances the two and, likely, will minimize the error on future unseen data compared to the high bias and high variance models.  This is our goal.
 
-<div class="figure" style="text-align: center">
-<img src="images/bias_var.png" alt="Fig 8: Bias-variance tradeoff." width="50%" height="50%" />
-<p class="caption">Fig 8: Bias-variance tradeoff.</p>
-</div>
+<center>
+<img src="/public/images/analytics/regression_prep/bias_var.png" alt="Fig 8: Bias-variance tradeoff." width="50%" height="50%" />
+<figcaption>Fig 8: Bias-variance tradeoff.</figcaption>
+</center>
 
 To find the model that balances the ___bias-variance tradeoff___, we search for a model that minimizes a *k*-fold cross-validation error metric (you will also be introduced to what's called an _out of bag error_ which provides a similar form of evaluation).  *k*-fold cross-validation is a resampling method that randomly divides the training data into *k* groups (aka folds) of approximately equal size. The model is fit on $k-1$ folds and then the held-out validation fold is used to compute the error.  This procedure is repeated *k* times; each time, a different group of observations is treated as the validation set. This process results in *k* estimates of the test error ($\epsilon_1, \epsilon_2, \dots, \epsilon_k$). Thus, the _k_-fold CV estimate is computed by averaging these values, which provides us with an approximation of the error to expect on unseen data.
 
-<div class="figure" style="text-align: center">
-<img src="Images/cv.png" alt="Fig 9: Illustration of the k-fold cross validation process." width="70%" height="70%" />
-<p class="caption">Fig 9: Illustration of the k-fold cross validation process.</p>
-</div>
+<center>
+<img src="/public/images/analytics/regression_prep/cv.png" alt="Fig 9: Illustration of the k-fold cross validation process." width="70%" height="70%" />
+<figcaption>Fig 9: Illustration of the k-fold cross validation process.</figcaption>
+</center>
 
 Most algorithms and packages we cover in future tutorials have built-in cross validation capabilities.  One typically uses a 5 or 10 fold CV ($k = 5$ or $k = 10$).  For example, `h2o` implements CV with the `nfolds` argument:
 
