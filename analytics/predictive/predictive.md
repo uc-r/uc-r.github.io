@@ -9,11 +9,11 @@ Predictive methodologies use knowledge, usually extracted from historical data, 
 <br>
 
 ## Supervised Regression
-- [Preparing for Regression](regression_preparation)
+- [Preparing for Regression Problems](regression_preparation)
 - [Linear Regression](linear_regression)
 - [Linear Model Selection](model_selection)
 - [Regularized Regression](regularized_regression)
-- [Regression Trees](regression_trees)
+- [Regression Trees & Bagging](regression_trees)
 - [Random Forests](random_forests)
 - [Imprecise Regression](imprecise_regression)
 
@@ -25,7 +25,9 @@ Predictive methodologies use knowledge, usually extracted from historical data, 
 
 ## Deep Learning
 - [Neural Network Fundamentals](ann_fundamentals)
-- [Feedforward Deep Learning Models](feedforward_DNN)
+- [Neural Network for Regression](ann_regression)
+- [Neural Network for Classification](ann_classification)
+- [Feedforward Deep Learning with Keras & Tensorflow](feedforward_DNN)
 
 ## Resampling Methods
 - [Resampling Basics](resampling_methods)
