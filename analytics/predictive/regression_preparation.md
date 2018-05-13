@@ -318,7 +318,7 @@ For example, here we center and scale our predictor variables.  Note, it is impo
 
 ```r
 # identify only the predictor variables
-features <- setdiff(names(train_1), "Sale_Spend")
+features <- setdiff(names(train_1), "Sale_Price")
 
 # pre-process estimation based on training features
 pre_process <- preProcess(
@@ -347,7 +347,7 @@ There are some alternative transformations that you can perform:
 
 ```r
 # identify only the predictor variables
-features <- setdiff(names(train_1), "Sale_Spend")
+features <- setdiff(names(train_1), "Sale_Price")
 
 # pre-process estimation based on training features
 pre_process <- preProcess(
@@ -369,24 +369,24 @@ For example, these three functions will all produce the same linear regression m
 
 
 ```r
-lm.lm    <- lm(Sale_Spend ~ ., data = train_1)
-lm.glm   <- glm(Sale_Spend ~ ., data = train_1, family = gaussian)
-lm.caret <- train(Sale_Spend ~ ., data = train_1, method = "lm")
+lm.lm    <- lm(Sale_Price ~ ., data = train_1)
+lm.glm   <- glm(Sale_Price ~ ., data = train_1, family = gaussian)
+lm.caret <- train(Sale_Price ~ ., data = train_1, method = "lm")
 ```
 
 
-One thing you will notice throughout future tutorials is that we can specify our model formulation in different ways.  In the above examples we use the _model formulation_ (`Sale_Spend ~ .` which says explain `Sale_Spend` based on all features) approach.  Alternative approaches include the matrix formulation and variable name specification approaches.
+One thing you will notice throughout future tutorials is that we can specify our model formulation in different ways.  In the above examples we use the _model formulation_ (`Sale_Price ~ .` which says explain `Sale_Price` based on all features) approach.  Alternative approaches include the matrix formulation and variable name specification approaches.
 
 _Matrix formulation_ requires that we separate our response variable from our features.  For example, in the regularization tutorial we'll use `glmnet` which requires our features (`x`) and response (`y`) variable to be specified separately:
 
 
 ```r
 # get feature names
-features <- setdiff(names(train_1), "Sale_Spend")
+features <- setdiff(names(train_1), "Sale_Price")
 
 # create feature and response set
 train_x <- train_1[, features]
-train_y <- train_1$Sale_Spend
+train_y <- train_1$Sale_Price
 
 # example of matrix formulation
 glmnet.m1 <- glmnet(x = train_x, y = train_y)
@@ -397,7 +397,7 @@ Alternatively, `h2o` uses _variable name specification_ where we provide all the
 
 ```r
 # create variable names and h2o training frame
-y <- "Sale_Spend"
+y <- "Sale_Price"
 x <- setdiff(names(train_1), y)
 train.h2o <- as.h2o(train_1)
 
@@ -485,9 +485,9 @@ This leads us to our final topic, error metrics to evaluate performance.  There 
 
 * __MAE__: Mean absolute error. Similar to MSE but rather than squaring, it just takes the mean absolute difference between the actual and predicted values ($$MAE = \frac{1}{n} \sum^n_{i=1}(\vert y_i - \hat y_i \vert)$$). __Objective: minimize__
 
-* __RMSLE__: Root mean squared logarithmic error. Similiar to RMSE but it performs a `log()` on the actual and predicted values prior to computing the difference ($$RMSLE = \sqrt{\frac{1}{n} \sum^n_{i=1}(log(y_i + 1) - log(\hat y_i + 1))^2}$$). When your response variable has a wide range of values, large repsonse values with large errors can dominate the MSE/RMSE metric. RMSLE minimizes this impact so that small response values with large errors can have just as meaningful of an impact as large response values with large errors. __Objective: minimize__
+* __RMSLE__: Root mean squared logarithmic error. Similiar to RMSE but it performs a `log()` on the actual and predicted values prior to computing the difference ($$RMSLE = \sqrt{\frac{1}{n} \sum^n_{i=1}(log(y_i + 1) - log(\hat y_i + 1))^2}$$). When your response variable has a wide range of values, large response values with large errors can dominate the MSE/RMSE metric. RMSLE minimizes this impact so that small response values with large errors can have just as meaningful of an impact as large response values with large errors. __Objective: minimize__
 
-* __$R^2$__: This is a popular metric that represents the proportion of the variance in the dependent variable that is predictable from the independent variable. Unfortunately, it has several limitations. For example, two models built from two different data sets could have the exact same RMSE but if one has less variability in the response variable then it would have a lower $$R^2$$ than the other. You should not place too much emphasis on this metric. __Objective: maximize__
+* __$$R^2$$__: This is a popular metric that represents the proportion of the variance in the dependent variable that is predictable from the independent variable. Unfortunately, it has several limitations. For example, two models built from two different data sets could have the exact same RMSE but if one has less variability in the response variable then it would have a lower $$R^2$$ than the other. You should not place too much emphasis on this metric. __Objective: maximize__
 
 
 Most models we assess in future tutorials will report most, if not all, of these metrics.  We will often emphasize MSE and RMSE but its good to realize that certain situations warrant emphasis on some more than others.
