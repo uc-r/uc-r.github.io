@@ -89,7 +89,7 @@ There is often a balance to be achieved in the depth and complexity of the tree 
 
 $$ \texttt{minimize} \big\{ SSE + \alpha \vert T \vert \big\}  \tag{3}$$
 
-For a given value of $$\alpha$$, we find the smallest pruned tree that has the lowest penalized error.  If you are familiar with [regularized regression](http://uc-r.github.io/regularized_regression), you will realize the close association to the [lasso $$L_2$$ norm penalty](http://uc-r.github.io/regularized_regression#lasso).  As with these regularization methods, smaller penalties tend to produce more complex models, which result in larger trees.  Whereas larger penalties result in much smaller trees.  Consequently, as a tree grows larger, the reduction in the SSE must be greater than the cost complexity penalty. Typically, we evaluate multiple models across a spectrum of $$\alpha$$ and use cross-validation to identify the optimal $$\alpha$$ and, therefore, the optimal subtree.  
+For a given value of $$\alpha$$, we find the smallest pruned tree that has the lowest penalized error.  If you are familiar with [regularized regression](http://uc-r.github.io/regularized_regression), you will realize the close association to the [lasso $$L_1$$ norm penalty](http://uc-r.github.io/regularized_regression#lasso).  As with these regularization methods, smaller penalties tend to produce more complex models, which result in larger trees.  Whereas larger penalties result in much smaller trees.  Consequently, as a tree grows larger, the reduction in the SSE must be greater than the cost complexity penalty. Typically, we evaluate multiple models across a spectrum of $$\alpha$$ and use cross-validation to identify the optimal $$\alpha$$ and, therefore, the optimal subtree.  
 
 
 ### Strengths and weaknesses
