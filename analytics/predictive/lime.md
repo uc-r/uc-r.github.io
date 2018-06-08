@@ -4,7 +4,7 @@ title: Visualizing Machine Learning Models with LIME
 permalink: /lime
 ---
 
-<img src="/public/images/analytics/ML_interpretation/lime-sq.jpg"  style="float:right; margin: 0px 0px 0px 0px; width: 25%; height: 25%;" />
+<img src="https://www.data-imaginist.com/assets/images/lime_logo_small.jpg"  style="float:right; margin: 0px 0px 0px 0px; width: 45%; height: 45%;" />
 Machine learning (ML) models are often considered "black boxes" due to their complex inner-workings.  More advanced ML models such as random forests, gradient boosting machines (GBM), artificial neural networks (ANN), among others are typically more accurate for predicting nonlinear, faint, or rare phenomena.  Unfortunately, more accuracy often comes at the expense of interpretability, and interpretability is crucial for business adoption, model documentation, regulatory oversight, and human acceptance and trust.  Luckily, several advancements have been made to aid in interpreting ML models.
 
 Moreover, it’s often important to understand the ML model that you’ve trained on a global scale, and also to zoom into local regions of your data or your predictions and derive local explanations. ___Global interpretations___ help us understand the inputs and their entire modeled relationship with the prediction target, but global interpretations can be highly approximate in some cases. ___Local interpretations___ help us understand model predictions for a single row of data or a group of similar rows.
