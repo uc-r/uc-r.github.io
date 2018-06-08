@@ -29,11 +29,14 @@ Predictive methodologies use knowledge, usually extracted from historical data, 
 - [Neural Network for Classification](ann_classification)
 - [Feedforward Deep Learning with Keras & Tensorflow](feedforward_DNN)
 
-## Resampling Methods
-- [Resampling Basics](resampling_methods)
-
 ## Time Series
 - [Exploring & Visualizing Times Series](ts_exploration)
 - [Benchmark Methods & Forecast Accuracy](ts_benchmarking)
 - [Moving Averages](ts_moving_averages)
 - [Exponential Smoothing](ts_exp_smoothing)
+
+## Visualization for Model Interpretation
+- [Local Interpretable Model-agnostic Explanations (LIME)](lime)
+
+## Resampling Methods
+- [Resampling Basics](resampling_methods)
