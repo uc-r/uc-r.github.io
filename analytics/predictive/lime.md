@@ -258,7 +258,7 @@ explanation_caret <- explain(
   )
 ```
 
-The `explain` function above first creates permutations, then calculates similarities, followed by selecting the *m* features.  Lastly, `explain` will then fit a model (_algorithm steps 5 & 6_). `lime` applies a ridge regression model with the weighted permuted observations as the simple model. [[^glmnet]]  If the model is a regressor, the simple model will predict the output of the complex model directly. If the complex model is a classifier, the simple model will predict the probability of the chosen class(es). 
+The `explain` function above first creates permutations, then calculates similarities, followed by selecting the *m* features.  Lastly, `explain` will then fit a model (_algorithm steps 5 & 6_). `lime` applies a ridge regression model with the weighted permuted observations as the simple model.[^glmnet]  If the model is a regressor, the simple model will predict the output of the complex model directly. If the complex model is a classifier, the simple model will predict the probability of the chosen class(es). 
 
 The `explain` output is a data frame containing different information on the simple model predictions.  Most importantly, for each observation in `local_obs` it contains the simple model fit (`model_r2`) and the weighted importance (`feature_weight`) for each important feature (`feature_desc`) that best describes the local relationship.
 
@@ -308,7 +308,7 @@ plot_explanations(explanation_caret)
 
 ### Tuning
 
-As you saw in the above `plot_features` plot, the output provides the model fit.  In this case the best simple model fit for the given local regions was $R^2 = 0.59$ for case 3.  Considering there are several knobs we can turn when performing the LIME algorithm, we can treat these as tuning parameters to try find the best fit model for the local region.  This helps to maximize the amount of trust we can have in the local region explanation.
+As you saw in the above `plot_features` plot, the output provides the model fit.  In this case the best simple model fit for the given local regions was $$R^2 = 0.59$$ for case 3.  Considering there are several knobs we can turn when performing the LIME algorithm, we can treat these as tuning parameters to try find the best fit model for the local region.  This helps to maximize the amount of trust we can have in the local region explanation.
 
 As an example, the following changes the distance function to use the manhattan distance algorithm, we increase the kernel width substantially to create a larger local region, and we change our feature selection approach to a LARS lasso model.  The result is a fairly substantial increase in our explanation fits.  
 
