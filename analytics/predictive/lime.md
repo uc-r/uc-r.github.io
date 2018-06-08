@@ -1,6 +1,6 @@
 ---
 layout: tutorial
-title: Visualizing Machine Learning Models with LIME
+title: Visualizing ML Models with LIME
 permalink: /lime
 ---
 
