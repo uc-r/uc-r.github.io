@@ -76,11 +76,11 @@ Several supervised machine learning models are founded on a single predictive mo
 
 The main idea of boosting is to add new models to the ensemble ___sequentially___. At each particular iteration, a new weak, base-learner model is trained with respect to the error of the whole ensemble learnt so far.  
 
-<div class="figure" style="text-align: center">
+<center>
 <img src="/public/images/analytics/gbm/boosted-trees-process.png" alt="Fig 1. Sequential ensemble approach." width="60%" height="60%" />
-<p class="caption">Fig 1. Sequential ensemble approach.</p>
-</div>
-
+<figcaption>Fig 1. Sequential ensemble approach.</figcaption>
+</center>
+<br>
 
 Let's discuss each component of the previous sentence in closer detail because they are important.
 
@@ -94,11 +94,11 @@ __Training weak models__: A weak model is one whose error rate is only slightly 
 
 __Sequential training with respect to errors__: Boosted trees are grown sequentially; each tree is grown using information from previously grown trees. The basic algorithm for boosted regression trees can be generalized to the following where _x_ represents our features and _y_ represents our response:
 
-1. Fit a decision tree to the data: $F_1(x) = y$,
-2. We then fit the next decision tree to the residuals of the previous: $h_1(x) = y - F_1(x)$,
-3. Add this new tree to our algorithm: $F_2(x) = F_1(x) + h_1(x)$,
-4. Fit the next decision tree to the residuals of $F_2$: $h_2(x) = y - F_2(x)$,
-5. Add this new tree to our algorithm: $F_3(x) = F_2(x) + h_1(x)$,
+1. Fit a decision tree to the data: $$F_1(x) = y$$,
+2. We then fit the next decision tree to the residuals of the previous: $$h_1(x) = y - F_1(x)$$,
+3. Add this new tree to our algorithm: $$F_2(x) = F_1(x) + h_1(x)$$,
+4. Fit the next decision tree to the residuals of $$F_2$$: $$h_2(x) = y - F_2(x)$$,
+5. Add this new tree to our algorithm: $$F_3(x) = F_2(x) + h_1(x)$$,
 6. Continue this process until some mechanism (i.e. cross validation) tells us to stop.
 
 The basic algorithm for boosted regression trees can be generalized to the following where the final model is simply a stagewise additive model of *b* individual regression trees:
@@ -107,11 +107,11 @@ $$ f(x) =  \sum^B_{b=1}f^b(x) \tag{1} $$
 
 To illustrate the behavior, assume the following *x* and *y* observations.  The blue sine wave represents the true underlying function and the points represent observations that include some irriducible error (noise).  The boosted prediction illustrates the adjusted predictions after each additional sequential tree is added to the algorithm.  Initially, there are large errors which the boosted algorithm improves upon immediately but as the predictions get closer to the true underlying function you see each additional tree make small improvements in different areas across the feature space where errors remain. Towards the end of the gif, the predicted values nearly converge to the true underlying function.
 
-<div class="figure" style="text-align: center">
+<center>
 <img src="/public/images/analytics/gbm/boosted_stumps.gif" alt="Fig 2. Boosted regression tree predictions (courtesy of [Brandon Greenwell](https://github.com/bgreenwell))" width="50%" height="50%" />
-<p class="caption">Fig 2. Boosted regression tree predictions (courtesy of [Brandon Greenwell](https://github.com/bgreenwell))</p>
-</div>
-
+<figcaption>Fig 2. Boosted regression tree predictions (courtesy of [Brandon Greenwell](https://github.com/bgreenwell))</figcaption>
+</center>
+<br>
 
 ### Gradient descent
 
@@ -119,24 +119,27 @@ Many algorithms, including decision trees, focus on minimizing the residuals and
 
 Gradient boosting is considered a ___gradient descent___ algorithm. Gradient descent is a very generic optimization algorithm capable of finding optimal solutions to a wide range of problems. The general idea of gradient descent is to tweak parameters iteratively in order to minimize a cost function. Suppose you are a downhill skier racing your friend.  A good strategy to beat your friend to the bottom is to take the path with the steepest slope. This is exactly what gradient descent does - it measures the local gradient of the loss (cost) function for a given set of parameters ($\Theta$) and takes steps in the direction of the descending gradient. Once the gradient is zero, we have reached the minimum.
 
-<div class="figure" style="text-align: center">
+<center>
 <img src="/public/images/analytics/gbm/gradient_descent.png" alt="Fig 3. Gradient descent (Geron, 2017)." width="50%" height="50%" />
-<p class="caption">Fig 3. Gradient descent (Geron, 2017).</p>
-</div>
+<figcaption>Fig 3. Gradient descent (Geron, 2017).</figcaption>
+</center>
+<br>
 
 Gradient descent can be performed on any loss function that is differentiable.  Consequently, this allows GBMs to optimize different loss functions as desired (see [ESL, p. 360](http://web.stanford.edu/~hastie/ElemStatLearn/) for common loss functions). An important parameter in gradient descent is the size of the steps which is determined by the _learning rate_. If the learning rate is too small, then the algorithm will take many iterations to find the minimum. On the other hand, if the learning rate is too high, you might jump cross the minimum and end up further away than when you started. 
 
-<div class="figure" style="text-align: center">
+<center>
 <img src="/public/images/analytics/gbm/learning_rate_comparison.png" alt="Fig 4. Learning rate comparisons (Geron, 2017)." width="70%" height="70%" />
-<p class="caption">Fig 4. Learning rate comparisons (Geron, 2017).</p>
-</div>
+<figcaption>Fig 4. Learning rate comparisons (Geron, 2017).</figcaption>
+</center>
+<br>
 
 Moreover, not all cost functions are convex (bowl shaped). There may be local minimas, plateaus, and other irregular terrain of the loss function that makes finding the global minimum difficult.  ___Stochastic gradient descent___ can help us address this problem by sampling a fraction of the training observations (typically without replacement) and growing the next tree using that subsample.  This makes the algorithm faster but the stochastic nature of random sampling also adds some random nature in descending the loss function gradient.  Although this randomness does not allow the algorithm to find the absolute global minimum,  it can actually help the algorithm jump out of local minima and off plateaus and get near the global minimum. 
 
-<div class="figure" style="text-align: center">
+<center>
 <img src="/public/images/analytics/gbm/stochastic_gradient_descent.png" alt="Fig 5. Stochastic gradient descent (Geron, 2017)." width="40%" height="40%" />
-<p class="caption">Fig 5. Stochastic gradient descent (Geron, 2017).</p>
-</div>
+</figcaption>Fig 5. Stochastic gradient descent (Geron, 2017).</figcaption>
+</center>
+<br>
 
 As we'll see in the next section, there are several hyperparameter tuning options that allow us to address how we approach the gradient descent of our loss function.
 
@@ -146,7 +149,7 @@ As we'll see in the next section, there are several hyperparameter tuning option
 Part of the beauty and challenges of GBM is that they offer several tuning parameters.  The beauty in this is GBMs are highly flexible.  The challenge is that they can be time consuming to tune and find the optimal combination of hyperparamters.  The most common hyperparameters that you will find in most GBM implementations include:
 
 * __Number of trees:__ The total number of trees to fit. GBMs often require many trees; however, unlike random forests GBMs can overfit so the goal is to find the optimal number of trees that minimize the loss function of interest with cross validation.
-* __Depth of trees:__ The number *d* of splits in each tree, which controls the complexity of the boosted ensemble. Often $d = 1$ works well, in which case each tree is a _stump_ consisting of a single split. More commonly, d is greater than 1 but it is unlikely $d > 10$ will be required.
+* __Depth of trees:__ The number *d* of splits in each tree, which controls the complexity of the boosted ensemble. Often $$d = 1$$ works well, in which case each tree is a _stump_ consisting of a single split. More commonly, d is greater than 1 but it is unlikely $$d > 10$$ will be required.
 * __Learning rate:__ Controls how quickly the algorithm proceeds down the gradient descent. Smaller values reduce the chance of overfitting but also increases the time to find the optimal fit. This is also called _shrinkage_.
 * __Subsampling:__ Controls whether or not you use a fraction of the available training observations. Using less than 100% of the training observations means you are implementing stochastic gradient descent.  This can help to minimize overfitting and keep from getting stuck in a local minimum or plateau of the loss function gradient.
 
@@ -335,28 +338,17 @@ for(i in 1:nrow(hyper_grid)) {
 hyper_grid %>% 
   dplyr::arrange(min_RMSE) %>%
   head(10)
-##    shrinkage interaction.depth n.minobsinnode bag.fraction optimal_trees
-## 1       0.01                 5              5         0.65          3867
-## 2       0.01                 5              5         0.80          4209
-## 3       0.01                 5              5         1.00          4281
-## 4       0.10                 3             10         0.80           489
-## 5       0.01                 3              5         0.80          4777
-## 6       0.01                 3             10         0.80          4919
-## 7       0.01                 3              5         0.65          4997
-## 8       0.01                 5             10         0.80          4123
-## 9       0.01                 5             10         0.65          4850
-## 10      0.01                 3             10         1.00          4794
-##    min_RMSE
-## 1  16647.87
-## 2  16960.78
-## 3  17084.29
-## 4  17093.77
-## 5  17121.26
-## 6  17139.59
-## 7  17139.88
-## 8  17162.60
-## 9  17247.72
-## 10 17353.36
+##    shrinkage interaction.depth n.minobsinnode bag.fraction optimal_trees  min_RMSE
+## 1       0.01                 5              5         0.65          3867  16647.87
+## 2       0.01                 5              5         0.80          4209  16960.78
+## 3       0.01                 5              5         1.00          4281  17084.29
+## 4       0.10                 3             10         0.80           489  17093.77
+## 5       0.01                 3              5         0.80          4777  17121.26
+## 6       0.01                 3             10         0.80          4919  17139.59
+## 7       0.01                 3              5         0.65          4997  17139.88
+## 8       0.01                 5             10         0.80          4123  17162.60
+## 9       0.01                 5             10         0.65          4850  17247.72
+## 10      0.01                 3             10         1.00          4794  17353.36
 ```
 
 These results help us to zoom into areas where we can refine our search.  Let's adjust our grid and zoom into closer regions of the values that appear to produce the best results in our previous grid search.  This grid contains 81 combinations that we'll search across.
@@ -483,76 +475,7 @@ summary(
 ## Full_Bath                   Full_Bath 1.953775e+00
 ## MS_SubClass               MS_SubClass 1.169509e+00
 ## Kitchen_Qual             Kitchen_Qual 1.137581e+00
-## Exter_Qual                 Exter_Qual 8.995363e-01
-## Garage_Area               Garage_Area 8.545088e-01
-## Second_Flr_SF           Second_Flr_SF 8.078726e-01
-## Year_Remod_Add         Year_Remod_Add 8.069319e-01
-## Lot_Area                     Lot_Area 8.061212e-01
-## Bsmt_Unf_SF               Bsmt_Unf_SF 6.700940e-01
-## Screen_Porch             Screen_Porch 6.287905e-01
-## Mas_Vnr_Area             Mas_Vnr_Area 5.378796e-01
-## Fireplace_Qu             Fireplace_Qu 5.275599e-01
-## Bsmt_Exposure           Bsmt_Exposure 5.222352e-01
-## Overall_Cond             Overall_Cond 5.183049e-01
-## Fireplaces                 Fireplaces 4.554080e-01
-## BsmtFin_Type_1         BsmtFin_Type_1 4.468654e-01
-## Sale_Condition         Sale_Condition 4.101765e-01
-## Open_Porch_SF           Open_Porch_SF 3.943423e-01
-## Exterior_1st             Exterior_1st 3.463541e-01
-## Bsmt_Full_Bath         Bsmt_Full_Bath 3.440837e-01
-## Exterior_2nd             Exterior_2nd 3.079716e-01
-## Central_Air               Central_Air 2.734017e-01
-## Mo_Sold                       Mo_Sold 2.582696e-01
-## Year_Built                 Year_Built 2.434284e-01
-## Lot_Frontage             Lot_Frontage 2.425687e-01
-## Garage_Finish           Garage_Finish 2.376064e-01
-## Wood_Deck_SF             Wood_Deck_SF 1.848544e-01
-## Year_Sold                   Year_Sold 1.816664e-01
-## Garage_Cond               Garage_Cond 1.751730e-01
-## Sale_Type                   Sale_Type 1.736894e-01
-## Functional                 Functional 1.671529e-01
-## Condition_1               Condition_1 1.430977e-01
-## Latitude                     Latitude 1.374196e-01
-## Bedroom_AbvGr           Bedroom_AbvGr 1.085693e-01
-## Longitude                   Longitude 8.963797e-02
-## TotRms_AbvGrd           TotRms_AbvGrd 6.957011e-02
-## Land_Contour             Land_Contour 6.944511e-02
-## Heating_QC                 Heating_QC 6.385992e-02
-## Roof_Matl                   Roof_Matl 5.282944e-02
-## Lot_Shape                   Lot_Shape 5.174648e-02
-## MS_Zoning                   MS_Zoning 4.682674e-02
-## Bsmt_Cond                   Bsmt_Cond 4.254210e-02
-## Land_Slope                 Land_Slope 4.174710e-02
-## Lot_Config                 Lot_Config 3.995521e-02
-## Enclosed_Porch         Enclosed_Porch 3.824021e-02
-## Garage_Type               Garage_Type 3.550634e-02
-## Paved_Drive               Paved_Drive 3.457890e-02
-## Heating                       Heating 3.199564e-02
-## BsmtFin_Type_2         BsmtFin_Type_2 2.682602e-02
-## BsmtFin_SF_2             BsmtFin_SF_2 2.316680e-02
-## Roof_Style                 Roof_Style 2.215619e-02
-## Mas_Vnr_Type             Mas_Vnr_Type 1.987289e-02
-## Half_Bath                   Half_Bath 1.862143e-02
-## Alley                           Alley 1.838738e-02
-## Condition_2               Condition_2 1.789231e-02
-## Foundation                 Foundation 1.745666e-02
-## Three_season_porch Three_season_porch 1.497737e-02
-## Fence                           Fence 1.491262e-02
-## House_Style               House_Style 6.213166e-03
-## Garage_Qual               Garage_Qual 3.735267e-03
-## Exter_Cond                 Exter_Cond 3.192945e-03
-## Low_Qual_Fin_SF       Low_Qual_Fin_SF 2.999387e-03
-## Bsmt_Half_Bath         Bsmt_Half_Bath 2.637569e-03
-## BsmtFin_SF_1             BsmtFin_SF_1 2.135809e-03
-## Misc_Val                     Misc_Val 1.544593e-03
-## Bldg_Type                   Bldg_Type 1.197142e-03
-## Electrical                 Electrical 1.191279e-03
-## Pool_Area                   Pool_Area 9.890236e-04
-## Street                         Street 0.000000e+00
-## Utilities                   Utilities 0.000000e+00
-## Kitchen_AbvGr           Kitchen_AbvGr 0.000000e+00
-## Pool_QC                       Pool_QC 0.000000e+00
-## Misc_Feature             Misc_Feature 0.000000e+00
+...truncated...
 ```
 
 An alternative approach is to use the underdevelopment [`vip`](https://github.com/koalaverse/vip) package, which provides `ggplot2` plots.  `vip` also provides an additional measure of variable importance based on partial dependence measures and is a common variable importance plotting framework for many machine learning models.
