@@ -77,7 +77,7 @@ Several supervised machine learning models are founded on a single predictive mo
 The main idea of boosting is to add new models to the ensemble ___sequentially___. At each particular iteration, a new weak, base-learner model is trained with respect to the error of the whole ensemble learnt so far.  
 
 <center>
-<img src="/public/images/analytics/gbm/boosted-trees-process.png" alt="Fig 1. Sequential ensemble approach." width="60%" height="60%" />
+<img src="/public/images/analytics/gbm/boosted-trees-process.png" alt="Fig 1. Sequential ensemble approach." width="75%" height="75%" />
 <figcaption>Fig 1. Sequential ensemble approach.</figcaption>
 </center>
 <br>
@@ -137,7 +137,7 @@ Moreover, not all cost functions are convex (bowl shaped). There may be local mi
 
 <center>
 <img src="/public/images/analytics/gbm/stochastic_gradient_descent.png" alt="Fig 5. Stochastic gradient descent (Geron, 2017)." width="40%" height="40%" />
-</figcaption>Fig 5. Stochastic gradient descent (Geron, 2017).</figcaption>
+<figcaption>Fig 5. Stochastic gradient descent (Geron, 2017).</figcaption>
 </center>
 <br>
 
