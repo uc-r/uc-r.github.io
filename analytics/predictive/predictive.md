@@ -15,6 +15,7 @@ Predictive methodologies use knowledge, usually extracted from historical data, 
 - [Regularized Regression](regularized_regression)
 - [Regression Trees & Bagging](regression_trees)
 - [Random Forests](random_forests)
+- [Gradient Boosting Machines](gbm_regression)
 - [Imprecise Regression](imprecise_regression)
 
 ## Supervised Classification
