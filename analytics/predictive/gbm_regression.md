@@ -940,7 +940,7 @@ Features include:
 * Distributed and parallelized computation on either a single node or a multi-node cluster.
 * Automatic early stopping based on convergence of user-specified metrics to user-specified relative tolerance.
 * Stochastic GBM with column and row sampling (per split and per tree) for better generalization.
-* Support for exponential families (Poisson, Gamma, Tweedie) and loss functions in addition to binomial (Bernoulli), Gaussian and multinomial distributions, such as Quantile regression (including Laplace).
+* Support for exponential families (Poisson, Gamma, Tweedie) and loss functions in addition to binomial (Bernoulli), Gaussian and multinomial distributions, such as Quantile regression (including Laplace).
 * Grid search for hyperparameter optimization and model selection.
 * Data-distributed, which means the entire dataset does not need to fit into memory on a single node, hence scales to any size training set.
 * Uses histogram approximations of continuous variables for speedup.
