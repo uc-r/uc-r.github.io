@@ -167,10 +167,10 @@ The `DALEX` architecture can be split into three primary operations:
 2. The machine learning model is converted to an "explainer" object via `DALEX::explain()`, which is just a list that contains the training data and meta data on the machine learning model.
 3. The explainer object can be passed onto multiple functions that explain different components of the given model.
 
-<div class="figure" style="text-align: center">
+<center>
 <img src="/public/images/analytics/ML_interpretation/architecture.png" alt="DALEX application process (https://pbiecek.github.io/DALEX_docs/2-architecture.html#architecture)" width="75%" height="75%" />
-<p class="caption">DALEX application process (https://pbiecek.github.io/DALEX_docs/2-architecture.html#architecture)</p>
-</div>
+<figcaption>Fig 1. DALEX application process (https://pbiecek.github.io/DALEX_docs/2-architecture.html#architecture).</figcaption>
+</center>
 
 <br>
 
