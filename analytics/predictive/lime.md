@@ -180,7 +180,7 @@ fit.ranger %>%
   autoplot(rug = TRUE, train = train_obs, alpha = 0.1, center = TRUE)
 ```
 
-<img src="/public/images/analytics/ML_interpretation/unnamed-chunk-6-1.png" style="display: block; margin: auto;" />
+<img src="/public/images/analytics/ML_interpretation/lime_ice.png" style="display: block; margin: auto;" />
 
 
 These visualizations help us to understand our model from a global perspective: identifying the variables with the largest overall impact and the typical influence of a feature on the response variable across all observations.  However, what these do not help us understand is given a new observation, what were the most ___influential variables that determined the predicted outcome___.  Say we obtain information on an employee that makes about &#36;10,000 per month and we need to assess their probabilty of leaving the firm.  Although monthly income is the most important variable in our model, it may not be the most influential variable driving this employee to leave.  To retain the employee, leadership needs to understand what variables are most influential for that specific employee.  This is where `lime` can help.
