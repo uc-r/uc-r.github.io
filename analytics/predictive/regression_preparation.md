@@ -4,11 +4,11 @@ title: Preparing for Regression Problems
 permalink: /regression_preparation
 ---
 
-When the objective of a supervised model is to predict a continuous numeric output, we refer to this as a ___regression model___.  Applying statistical and machine learning algorithms for regression problems is a very iterative process.  If performed and interpreted correctly, we can have great confidence in our outcomes. If not, the results will be useless. Approaching this process correctly means approaching it strategically by spending our data wisely on learning and validation procedures, properly pre-processing variables, minimizing data leakage, tuning hyperparameters, and assessing model performance. <img src="/public/images/analytics/regression_prep/modeling_process2.png"  style="float:right; margin: 2px 0px 0px 10px; width: 65%; height: 65%;" /> This tutorial will prepare you with the fundamentals needed prior to applying regression machine learning algorithms.  
+Machine learning is a very iterative process.  If performed and interpreted correctly, we can have great confidence in our outcomes. If not, the results will be useless. Approaching machine learning correctly means approaching it strategically by spending our data wisely on learning and validation procedures, properly pre-processing variables, minimizing data leakage, tuning hyperparameters, and assessing model performance. Before introducing specific algorithms, this tutorial introduces concepts that are commonly required in the supervised machine learning process and that you'll see briskly covered in tutorials that follow.  <img src="/public/images/analytics/regression_prep/modeling_process2.png"  style="float:right; margin: 2px 0px 0px 10px; width: 65%; height: 65%;" /> This tutorial will prepare you with the fundamentals needed prior to applying supervised machine learning algorithms.  
 
 ## tl;dr
 
-Before introducing specific algorithms, this chapter introduces concepts that you'll see briskly covered in each chapter and are necessary for any type of supervised regression machine learning model:
+Before introducing specific algorithms, this tutorial introduces concepts that you'll see briskly covered in each chapter and are necessary for any type of supervised machine learning model:
 
 1. [Prerequisites](#reg_perf_prereq): What you'll need to reproduce the analysis in this tutorial.
 2. [Data splitting](#reg_perf_split): The need for training and test sets.
@@ -26,6 +26,7 @@ This tutorial leverages the following packages.
 library(rsample)
 library(caret)
 library(h2o)
+library(dplyr)
 
 # turn off progress bars
 h2o.no_progress()
@@ -54,19 +55,18 @@ h2o.init()
 ##     R Version:                  R version 3.4.4 (2018-03-15)
 ```
 
-To illustrate some of the concepts we will use  the Ames Housing data that has been included in the `AmesHousing package`.  This data represents a continuous response variable (`Sale_Price`) along with 80 features (predictor variables) for 2930 homes in Ames, IA.  Read more about this data [here](https://cran.r-project.org/web/packages/AmesHousing/AmesHousing.pdf).  Throughout this tutorial, we'll demonstrate approaches with the regular `df` data frame.  However, since many of the supervised regression tutorials that we provide leverage `h2o`, we'll also show how to do some of the things with `h2o`.  This requires your data to be in an H2O object, which you can convert any data frame easily with `as.h2o`.
+To illustrate some of the concepts we will use  the Ames Housing data that has been included in the `AmesHousing` package and the employee attrition data that has been included in the `rsample` package.  The housing data represents a continuous response variable (`Sale_Price`) along with 80 features (predictor variables) for 2930 homes in Ames, IA.  Read more about this data [here](https://cran.r-project.org/web/packages/AmesHousing/AmesHousing.pdf). The attrition data represents a classification response variable (`Attrition`) with 30 features for 1470 employees.  Read more about this data [here](https://www.ibm.com/communities/analytics/watson-analytics-blog/hr-employee-attrition/).  Throughout this tutorial, we'll demonstrate approaches with the regular `df` data frame.  However, since many of the supervised machine learning tutorials that we provide leverage `h2o`, we'll also show how to do some of the things with `h2o`.  This requires your data to be in an H2O object, which you can convert any data frame easily with `as.h2o`.
 
 
 ```r
-# import data
-df <- AmesHousing::make_ames()
+# ames data
+ames <- AmesHousing::make_ames()
+ames.h2o <- as.h2o(ames)
 
-# convert to h2o object
-df.h2o <- as.h2o(df)
-
-# dimensions
-dim(df)
-## [1] 2930   81
+# attrition data
+churn <- rsample::attrition %>% 
+  mutate_if(is.ordered, factor, ordered = FALSE)
+churn.h2o <- as.h2o(churn)
 ```
 
 
@@ -138,17 +138,31 @@ Since this sampling approach will randomly sample across the distribution of $$y
 
 ### Stratified sampling
 
-However, if we want to explicitly control our sampling so that our training and test sets have similar $$y$$ distributions, we can use stratified sampling.  This is more common with classification problems but we also apply within regression problems as our data sets have less observations and strongly deviate from normality.  With a continuous response variable, stratified sampling will break $$y$$ down into quantiles and randomly sample from each quantile.  Consequently, this will help ensure a balanced representation of the response distribution in both the training and test sets.
+However, if we want to explicitly control our sampling so that our training and test sets have similar $$y$$ distributions, we can use stratified sampling.  This is more common with classification problems where the reponse variable may be imbalanced (90% of observations with response "Yes" and 10% with response "No"). However, we can also apply to regression problems for data sets that have a small sample size and where the response variable deviates strongly from normality.  With a continuous response variable, stratified sampling will break $$y$$ down into quantiles and randomly sample from each quantile.  Consequently, this will help ensure a balanced representation of the response distribution in both the training and test sets.
 
-The easiest way to perform stratified sampling on a continuous response variable is to use the `rsample` package:
+The easiest way to perform stratified sampling on a response variable is to use the `rsample` package, where you specify the response variable to `strata`fy. The following illustrates that in our original employee attrition data we have an imbalanced response (No: 84%, Yes: 16%). By enforcing stratified sampling both our training and testing sets have approximately equal response distributions. 
 
 
 ```r
+# orginal response distribution
+table(churn$Attrition) %>% prop.table()
+##        No       Yes 
+## 0.8387755 0.1612245
+
 # stratified sampling with the rsample package
 set.seed(123)
-split_strat  <- initial_split(df, prop = 0.7, strata = "Sale_Price")
+split_strat  <- initial_split(churn, prop = 0.7, strata = "Attrition")
 train_strat  <- training(split_strat)
 test_strat   <- testing(split_strat)
+
+# consistent response ratio between train & test
+table(train_strat$Attrition) %>% prop.table()
+##       No      Yes 
+## 0.838835 0.161165
+
+table(test_strat$Attrition) %>% prop.table()
+##        No       Yes 
+## 0.8386364 0.1613636
 ```
 
 
@@ -475,7 +489,9 @@ h2o.cv <- h2o.glm(
 
 ## Model evaluation {#reg_perf_eval}
 
-This leads us to our final topic, error metrics to evaluate performance.  There are several metrics we can choose from to assess the error of a regression model.  The most common include:
+This leads us to our final topic, error metrics to evaluate performance.  There are several metrics we can choose from to assess the error of a supervised machine learning model.  The most common include:
+
+### Regression models
 
 * __MSE__: Mean squared error is the average of the squared error ($$MSE = \frac{1}{n} \sum^n_{i=1}(y_i - \hat y_i)^2$$). The squared component results in larger errors having larger penalties.  This (along with RMSE) is the most common error metric to use. __Objective: minimize__
 
@@ -491,5 +507,53 @@ This leads us to our final topic, error metrics to evaluate performance.  There 
 
 
 Most models we assess in future tutorials will report most, if not all, of these metrics.  We will often emphasize MSE and RMSE but its good to realize that certain situations warrant emphasis on some more than others.
+
+### Classification models
+
+* __Misclassification__: This is the overall error.  For example, say you are predicting 3 classes ( _high_, _medium_, _low_ ) and each class has 25, 30, 35 observations respectively (90 observations total). If you misclassify 3 observations of class _high_, 6 of class _medium_, and 4 of class _low_, then you misclassified 13 out of 90 observations resulting in a 14% misclassification rate. __Objective: minimize__
+
+* __Mean per class error__: This is the average error rate for each class. For the above example, this would be the mean of $$\frac{3}{25}, \frac{6}{30}, \frac{4}{35}$$, which is 12%. If your classes are balanced this will be identical to misclassification. __Objective: minimize__
+
+* __MSE__: Mean squared error. Computes the distance from 1.0 to the probability suggested. So, say we have three classes, A, B, and C, and your model predicts a probabilty of 0.91 for A, 0.07 for B, and 0.02 for C. If the correct answer was A the $$MSE = 0.09^2 = 0.0081$$, if it is B $$MSE = 0.93^2 = 0.8649$$, if it is C $$MSE = 0.98^2 = 0.9604$$. The squared component results in large differences in probabilities for the true class having larger penalties. __Objective: minimize__
+
+* __Cross-entropy (aka Log Loss or Deviance)__: Similar to MSE but it incorporates a log of the predicted probability multiplied by the true class.  Consequently, this metric disproportionately punishes predictions where we predict a small probability for the true class, which is another way of saying having high confidence in the wrong answer is really bad. __Objective: minimize__
+
+* __Gini index__: Mainly used with tree-based methods and commonly referred to as a measure of _purity_ where a small value indicates that a node contains predominantly observations from a single class. __Objective: minimize__
+
+
+
+When applying classification models, we often use a _confusion matrix_ to evaluate certain performance measures. A confusion matrix is simply a matrix that compares actual categorical levels (or events) to the predicted categorical levels. When we predict the right level, we refer to this as a _true positive_.  However, if we predict a level or event that did not happen this is called a _false positive_ (i.e. we predicted a customer would redeem a coupon and they did not). Alternatively, when we do not predict a level or event and it does happen that this is called a _false negative_ (i.e. a customer that we did not predict to redeem a coupon does). 
+
+
+<center>
+<img src="/public/images/analytics/regression_prep/confusion-matrix.png" alt="Fig 10: Confusion matrix." width="90%" height="90%" />
+<figcaption>Fig 10: Confusion matrix.</figcaption>
+</center>
+<br>
+
+We can extract different levels of performance from these measures.  For example, given the classification matrix below we can assess the following:
+
+* __Accuracy__: Overall, how often is the classifier correct? Opposite of misclassification above. Example: $$\frac{TP + TN}{total} = \frac{100+50}{165} = 0.91$$.  __Objective: maximize__ 
+
+* __Precision__: How accurately does the classifier predict events? This metric is concerned with maximizing the true positives to false positive ratio. In other words, for the number of predictions that we made, how many were correct?  Example: $$\frac{TP}{TP + FP} = \frac{100}{100+10} = 0.91$$.  __Objective: maximize__
+
+* __Sensitivity (aka recall)__: How accurately does the classifier classify actual events? This metric is concerned with maximizing the true positives to false negatives ratio. In other words, for the events that occurred, how many did we predict?  Example: $$\frac{TP}{TP + FN} = \frac{100}{100+5} = 0.95$$.  __Objective: maximize__
+
+* __Specificity__: How accurately does the classifier classify actual non-events? Example: $$\frac{TN}{TN + FP} = \frac{50}{50+10} = 0.83$$.  __Objective: maximize__
+
+
+<center>
+<img src="/public/images/analytics/regression_prep/confusion-matrix2.png" alt="Fig 11: Example confusion matrix." width="50%" height="50%" />
+<figcaption>Fig 11: Example confusion matrix.</figcaption>
+</center>
+<br>
+
+* __AUC__: Area under the curve. A good classifier will have high precision and sensitivity.  This means the classifier does well when it predicts an event will and will not occur, which minimizes false positives and false negatives.  To capture this balance, we often use a ROC curve that plots the false positive rate along the x-axis and the true positive rate along the y-axis.  A line that is diagonal from the lower left corner to the upper right corner represents a random guess. The higher the line is in the upper left-hand corner, the better.  AUC computes the area under this curve. __Objective: maximize__
+
+<center>
+<img src="/public/images/analytics/regression_prep/roc.png" alt="Fig 12: ROC curve." width="75%" height="75%" />
+<figcaption>Fig 12: ROC curve.</figcaption>
+</center>
+<br>
 
 
