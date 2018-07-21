@@ -8,19 +8,16 @@ Predictive methodologies use knowledge, usually extracted from historical data, 
 
 <br>
 
-## Supervised Regression
-- [Preparing for Regression Problems](regression_preparation)
+## Machine Learning
+- [Preparing for Machine Learning Tasks](regression_preparation)
 - [Linear Regression](linear_regression)
 - [Linear Model Selection](model_selection)
+- [Naïve Bayes](naive_bayes)
+- [Logistic Regression](logistic_regression)
 - [Regularized Regression](regularized_regression)
 - [Regression Trees & Bagging](regression_trees)
 - [Random Forests](random_forests)
 - [Gradient Boosting Machines](gbm_regression)
-- [Imprecise Regression](imprecise_regression)
-
-## Supervised Classification
-- [Naïve Bayes](naive_bayes)
-- [Logistic Regression](logistic_regression)
 - [Linear & Quadratic Discriminant Analysis](discriminant_analysis)
 - [Support Vector Machines](svm)
 
