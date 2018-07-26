@@ -14,8 +14,8 @@ permalink: /r_bootcamp
 
 ### Class Information
 
-* Time: August 19, 8:00-5:00
-* Location: [Old Chem 525](https://www.google.com/maps/place/Old+Chemistry,+Cincinnati,+OH+45219/@39.1332449,-84.5197717,17z/data=!3m1!4b1!4m5!3m4!1s0x8841b38b8e12d73f:0xd3ff6de37f352e82!8m2!3d39.1332449!4d-84.517583)
+* Date/Time: Tuesday, August 21, 8:00-5:00
+* Location: [Lindner 112](https://www.google.com/search?q=Lindner+112,+university+of+cincinnati&npsic=0&rflfq=1&rlha=0&rllag=39135736,-84509346,575&tbm=lcl&ved=0ahUKEwiK0PP1pr3cAhUPY6wKHezqDJgQtgMIKw&tbs=lrf:!2m1!1e2!2m1!1e16!3sIAE,lf:1,lf_ui:2&rldoc=1#rlfi=hd:;si:16810252174741659822;mv:!1m3!1d3062.4774379431506!2d-84.50934654999999!3d39.1357361!2m3!1f0!2f0!3f0!3m2!1i293!2i190!4f13.1)
 * Webpage: [http://uc-r.github.io/r_bootcamp](http://uc-r.github.io/r_bootcamp)
 * Additional Resources: [http://uc-r.github.io/](http://uc-r.github.io/)
 
@@ -43,7 +43,7 @@ Since we have limited class time be sure you have R and RStudio downloaded and o
 
 ### Material
 
-You can download the required classroom material here: <a href="https://www.dropbox.com/sh/2qv0a02l9ausnyh/AAD0cRwMz_qTU-w15TwDxgLSa?dl=1" style="color:black;"><i class="fa fa-folder-open" style="font-size:1em"></i></a>.  In this file you will find the slides, data, and initial code scripts that we will go through in class.
+You can download the required classroom material here: <a href="https://www.dropbox.com/sh/1olxlv3c5cly5am/AACP4ArKWOi6vxIHQoWDtmCta?dl=1" style="color:black;"><i class="fa fa-folder-open" style="font-size:1em"></i></a>.  In this file you will find the slides, data, and initial code scripts that we will go through in class.
 
 
 
