@@ -36,7 +36,7 @@ Predictive methodologies use knowledge, usually extracted from historical data, 
 ## Visualization for Model Interpretation
 - [Local Interpretable Model-agnostic Explanations (LIME)](lime)
 - [Model Interpretability with DALEX](dalex)
-- [Model Interpretability with iml](iml-pkg)
+- [Interpreting Machine Learning Models with the iml Package](iml-pkg)
 
 ## Resampling Methods
 - [Resampling Basics](resampling_methods)
