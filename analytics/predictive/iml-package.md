@@ -4,7 +4,7 @@ title: Interpreting Machine Learning Models with the iml Package
 permalink: /iml-pkg
 ---
 
-<img src="images/iml_icon.jpg"  style="float:right; margin: 0px 0px 0px 0px; width: 30%; height: 30%;" />
+<img src="/public/images/analytics/ML_interpretation/iml_icon.jpg"  style="float:right; margin: 0px 0px 0px 0px; width: 30%; height: 30%;" />
 
 With machine learning interpretability growing in importance, several R packages designed to provide this capability are gaining in popularity. In recent blog posts I assessed [`lime`](http://uc-r.github.io/lime) for model agnostic local interpretability functionality and [`DALEX`](http://uc-r.github.io/dalex) for both local and global machine learning explanation plots.  This post examines the `iml` package to assess its performance and efficiency to help you determine if it should become part of your preferred machine learning toolbox.
 
@@ -274,7 +274,7 @@ p3 <- plot(imp.gbm) + ggtitle("GBM")
 gridExtra::grid.arrange(p1, p2, p3, nrow = 1)
 ```
 
-<img src="iml-package_files/figure-html/vip-1.png" style="display: block; margin: auto;" />
+<img src="/public/images/analytics/ML_interpretation/iml-vip-1.png" style="display: block; margin: auto;" />
 
 Permutation-based approaches can become slow as your number of predictors grows. To assess variable importance for all 3 models in this example takes only 8 seconds.  However, performing the same procedure on a data set with 80 predictors (`AmesHousing::make_ames()`) takes roughly __3 minutes__. Although this is slower, it is comparable to other permutation-based implementations (i.e. `DALEX`, `ranger`). 
 
@@ -330,7 +330,7 @@ gbm.ot <- Partial$new(predictor.gbm, "OverTime") %>% plot() + ggtitle("GBM")
 gridExtra::grid.arrange(glm.ot, rf.ot, gbm.ot, nrow = 1)
 ```
 
-<img src="iml-package_files/figure-html/pdp-1.png" style="display: block; margin: auto;" />
+<img src="/public/images/analytics/ML_interpretation/iml-pdp-1.png" style="display: block; margin: auto;" />
 
 For continuous predictors you can reduce the grid space to make computation time more efficient and center the ICE curves.  __Note__: to produce the centered ICE curves (right plot) you use `ice$center` and provide it the value to center on.  This will modify the existing object in place (recall this is a unique characteristic of R6 $\rightarrow$ objects are mutable).  The following compares the marginal impact of age on the probability of attriting.  The regularized regression model shows a monotonic decrease in the probability (the log-odds probability is linear) while the two tree-based approaches capture the non-linear, non-monotonic relationship.
 
@@ -354,7 +354,7 @@ p3 <- plot(gbm.age) + ggtitle("GBM")
 gridExtra::grid.arrange(p1, p2, p3, nrow = 1)
 ```
 
-<img src="iml-package_files/figure-html/ice-1.png" style="display: block; margin: auto;" />
+<img src="/public/images/analytics/ML_interpretation/iml-ice-1.png" style="display: block; margin: auto;" />
 
 Similar to `pdp` you can also compute and plot 2-way interactions.  Here we assess how the interaction of `MonthlyIncome` and `OverTime` influences the predicted probability of attrition for all three models.
 
@@ -367,7 +367,7 @@ p3 <- Partial$new(predictor.gbm, c("MonthlyIncome", "OverTime")) %>% plot() + gg
 gridExtra::grid.arrange(p1, p2, p3, nrow = 1)
 ```
 
-<img src="iml-package_files/figure-html/pdp-interaction-1.png" style="display: block; margin: auto;" />
+<img src="/public/images/analytics/ML_interpretation/iml-pdp-interaction-1.png" style="display: block; margin: auto;" />
 
 
 
@@ -417,7 +417,7 @@ interact.gbm <- Interaction$new(predictor.gbm) %>% plot() + ggtitle("GBM")
 gridExtra::grid.arrange(interact.glm, interact.rf, interact.gbm, nrow = 1)
 ```
 
-<img src="iml-package_files/figure-html/interactions-1.png" style="display: block; margin: auto;" />
+<img src="/public/images/analytics/ML_interpretation/iml-interactions-1.png" style="display: block; margin: auto;" />
 
 Considering `OverTime` exhibits the strongest interaction signal, the next question is which other variable is this interaction the strongest.  The second interaction approach measures the 2-way interaction strength of feature $x_i$ and $x_j$ and performs the following steps:
 
@@ -447,7 +447,7 @@ interact.gbm <- Interaction$new(predictor.gbm, feature = "OverTime") %>% plot()
 gridExtra::grid.arrange(interact.glm, interact.rf, interact.gbm, nrow = 1)
 ```
 
-<img src="iml-package_files/figure-html/two-way-interactions-1.png" style="display: block; margin: auto;" />
+<img src="/public/images/analytics/ML_interpretation/iml-two-way-interactions-1.png" style="display: block; margin: auto;" />
 
 The H-statistic is not widely implemented so having this feature in `iml` is beneficial. However, its important to note that as your feature set grows, the H-statistic becomes computationally slow.  For this data set, measuring the interactions across all three models only took 45 seconds and 68 seconds for the two-way interactions.  However, for a wider data set such as `AmesHousing::make_ames()` where there are 80 predictors, this will up towards an hour to compute.
 
@@ -479,7 +479,7 @@ tree$r.squared
 plot(tree)
 ```
 
-<img src="iml-package_files/figure-html/surrogate-tree-1.png" style="display: block; margin: auto;" />
+<img src="/public/images/analytics/ML_interpretation/iml-surrogate-tree-1.png" style="display: block; margin: auto;" />
 
 When trying to explain a complicated machine learning model to decision makers, surrogate models can help simplify the process. However, its important to only use surrogate models for simplified explanations when they are actually good representatives of the black box model (in this example it is not).
 
@@ -533,7 +533,7 @@ lime.gbm <- LocalModel$new(predictor.gbm, k = 10, x.interest = high_prob_ob) %>%
 gridExtra::grid.arrange(lime.glm, lime.rf, lime.gbm, nrow = 1)
 ```
 
-<img src="iml-package_files/figure-html/lime-1.png" style="display: block; margin: auto;" />
+<img src="/public/images/analytics/ML_interpretation/iml-lime-1.png" style="display: block; margin: auto;" />
 
 Here, I reapply the same model to `low_prob_ob`.  Here, we see `Age`, `JobLevel`, and `OverTime` all having sizable influence on this employees very low predicted probability of attrition (zero).
 
@@ -547,7 +547,7 @@ lime.gbm <- LocalModel$new(predictor.gbm, k = 10, x.interest = low_prob_ob) %>% 
 gridExtra::grid.arrange(lime.glm, lime.rf, lime.gbm, nrow = 1)
 ```
 
-<img src="iml-package_files/figure-html/lime2-1.png" style="display: block; margin: auto;" />
+<img src="/public/images/analytics/ML_interpretation/iml-lime2-1.png" style="display: block; margin: auto;" />
 
 Although, `LocalModel` does not provide the fit metrics (i.e. $R^2$) for our local model, we can compare the local models predicted probability to the global (full) model's predicted probability.  For the high probability employee, the local model only predicts a 0.34 probability of attrition whereas the local model predicts a more accurate 0.12 probability of attrition for the low probability employee.  This can help you guage the trustworthiness of the local model. 
 
@@ -630,7 +630,7 @@ shapley.rf
 plot(shapley.rf)
 ```
 
-<img src="iml-package_files/figure-html/shapley1-1.png" style="display: block; margin: auto;" />
+<img src="/public/images/analytics/ML_interpretation/iml-shapley1-1.png" style="display: block; margin: auto;" />
 
 We can compare the Shapley values across each model to see if common themes appear.   Again, `OverTime` is a common theme across all three models.  We also see `MonthlyIncome` influential for the tree-based methods and there are other commonalities for the mildly influential variables across all three models (i.e. `StockOptionLevel`, `JobLevel`, `Age`, `MaritalStatus`). 
 
@@ -643,7 +643,7 @@ shapley.gbm <- Shapley$new(predictor.gbm, x.interest = high_prob_ob) %>% plot() 
 gridExtra::grid.arrange(shapley.glm, shapley.rf, shapley.gbm, nrow = 1)
 ```
 
-<img src="iml-package_files/figure-html/shapley2-1.png" style="display: block; margin: auto;" />
+<img src="/public/images/analytics/ML_interpretation/iml-shapley2-1.png" style="display: block; margin: auto;" />
 
 Similarly, we can apply for the low probability employee.  Some common themes pop out for this employee as well. It appears that the age, total number of working years, and the senior position (`JobLevel`, `JobRole`) play a large part in the low predicted probability of attrition for this employee.
 
@@ -656,7 +656,7 @@ shapley.gbm <- Shapley$new(predictor.gbm, x.interest = low_prob_ob) %>% plot() +
 gridExtra::grid.arrange(shapley.glm, shapley.rf, shapley.gbm, nrow = 1)
 ```
 
-<img src="iml-package_files/figure-html/shapley3-1.png" style="display: block; margin: auto;" />
+<img src="/public/images/analytics/ML_interpretation/iml-shapley3-1.png" style="display: block; margin: auto;" />
 
 
 Shapley values are considered more robust than the results you will get from LIME. However, similar to the different ways you can compute variable importance, although you will see differences between the two methods often you will see common variables being identified as highly influential in both approaches.  Consequently, we should use these approaches to help _indicate_ influential variables but not to definitively label a variables as the most influential.
