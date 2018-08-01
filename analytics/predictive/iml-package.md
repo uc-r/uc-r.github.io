@@ -257,7 +257,7 @@ For any given loss function do
 3. Sort variables by descending feature importance   
 ```
 
-We see that all three models find `OverTime` as the most influential variable; however, after that each model finds unique structure and signals within the data.  __Note__: you can extract the results with `imp.rf$results`$.
+We see that all three models find `OverTime` as the most influential variable; however, after that each model finds unique structure and signals within the data.  __Note__: you can extract the results with `imp.rf$results`.
 
 
 ```r
@@ -332,7 +332,7 @@ gridExtra::grid.arrange(glm.ot, rf.ot, gbm.ot, nrow = 1)
 
 <img src="/public/images/analytics/ML_interpretation/iml-pdp-1.png" style="display: block; margin: auto;" />
 
-For continuous predictors you can reduce the grid space to make computation time more efficient and center the ICE curves.  __Note__: to produce the centered ICE curves (right plot) you use `ice$center` and provide it the value to center on.  This will modify the existing object in place (recall this is a unique characteristic of R6 $\rightarrow$ objects are mutable).  The following compares the marginal impact of age on the probability of attriting.  The regularized regression model shows a monotonic decrease in the probability (the log-odds probability is linear) while the two tree-based approaches capture the non-linear, non-monotonic relationship.
+For continuous predictors you can reduce the grid space to make computation time more efficient and center the ICE curves.  __Note__: to produce the centered ICE curves (right plot) you use `ice$center` and provide it the value to center on.  This will modify the existing object in place (recall this is a unique characteristic of R6 $$\rightarrow$$ objects are mutable).  The following compares the marginal impact of age on the probability of attriting.  The regularized regression model shows a monotonic decrease in the probability (the log-odds probability is linear) while the two tree-based approaches capture the non-linear, non-monotonic relationship.
 
 
 ```r
@@ -378,8 +378,8 @@ __Advantages:__
 * Provides PDPs & ICE curves (unlike `DALEX`)
 * Allows you to center ICE curves
 * Computationally efficient
-* `grid.size` allows you to increase/reduce grid space of $x_i$ values
-* Rug option illustrates distribution of all $x_i$ values
+* `grid.size` allows you to increase/reduce grid space of $$x_i$$ values
+* Rug option illustrates distribution of all $$x_i$$ values
 * Provides convenient plot outputs for categorical predictors
 
 __Disadvantages:__
@@ -390,7 +390,7 @@ __Disadvantages:__
 
 ### Measuring interactions {#interactions}
 
-A wonderful feature provided by `iml` is to measure how strongly features interact with each other. To measure interaction, `iml` uses the H-statistic proposed by [Friedman and Popescu (2008)](https://projecteuclid.org/download/pdfview_1/euclid.aoas/1223908046). The H-statistic measures how much of the variation of the predicted outcome depends on the interaction of the features. There are two approaches to measure this. The first measures if a feature ($x_i$) interacts with any other feature.  The algorithm performs the following steps:
+A wonderful feature provided by `iml` is to measure how strongly features interact with each other. To measure interaction, `iml` uses the H-statistic proposed by [Friedman and Popescu (2008)](https://projecteuclid.org/download/pdfview_1/euclid.aoas/1223908046). The H-statistic measures how much of the variation of the predicted outcome depends on the interaction of the features. There are two approaches to measure this. The first measures if a feature ($$x_i$$) interacts with any other feature.  The algorithm performs the following steps:
 
 ```
 1: for variable i in {1,...,p} do
@@ -404,7 +404,7 @@ A wonderful feature provided by `iml` is to measure how strongly features intera
 2. Sort variables by descending rho (interaction strength)  
 ```
 
-The intereaction strength ($\rho$) will be between 0 when there is no interaction at all and 1 if all of variation of the predicted outcome depends on a given interaction.  All three models capture different interaction structures although some commonalities exist for different models (i.e. `OverTime`, `Age`, `JobRole`).  The interaction effects are stronger in the tree based models versus the GLM model, with the GBM model having the strongest interaction effect of 0.4.
+The intereaction strength ($$\rho$$) will be between 0 when there is no interaction at all and 1 if all of variation of the predicted outcome depends on a given interaction.  All three models capture different interaction structures although some commonalities exist for different models (i.e. `OverTime`, `Age`, `JobRole`).  The interaction effects are stronger in the tree based models versus the GLM model, with the GBM model having the strongest interaction effect of 0.4.
 
 
 ```r
@@ -419,7 +419,7 @@ gridExtra::grid.arrange(interact.glm, interact.rf, interact.gbm, nrow = 1)
 
 <img src="/public/images/analytics/ML_interpretation/iml-interactions-1.png" style="display: block; margin: auto;" />
 
-Considering `OverTime` exhibits the strongest interaction signal, the next question is which other variable is this interaction the strongest.  The second interaction approach measures the 2-way interaction strength of feature $x_i$ and $x_j$ and performs the following steps:
+Considering `OverTime` exhibits the strongest interaction signal, the next question is which other variable is this interaction the strongest.  The second interaction approach measures the 2-way interaction strength of feature $$x_i$$ and $$x_j$$ and performs the following steps:
 
 ```
 1: i = a selected variable of interest
@@ -434,7 +434,7 @@ Considering `OverTime` exhibits the strongest interaction signal, the next quest
 3. Sort interaction relationship by descending rho (interaction strength)  
 ```
 
-The following measures the two-way interactions of all variables with the `OverTime` variable.  The two tree-based models show `MonthlyIncome` having the strongest interaction (although it is a week interaction since $\rho < 0.13$). Identifying these interactions can be useful to understand which variables create co-denpendencies in our models behavior. It also helps us identify interactions to visualize with PDPs (which is why I showed the example of the `OverTime` and `MonthlyIncome` interaction PDP earlier).
+The following measures the two-way interactions of all variables with the `OverTime` variable.  The two tree-based models show `MonthlyIncome` having the strongest interaction (although it is a week interaction since $$\rho < 0.13$$). Identifying these interactions can be useful to understand which variables create co-denpendencies in our models behavior. It also helps us identify interactions to visualize with PDPs (which is why I showed the example of the `OverTime` and `MonthlyIncome` interaction PDP earlier).
 
 
 ```r
@@ -464,7 +464,7 @@ Another way to make the models more interpretable is to replace the "black box" 
 5. Interpret / visualize the surrogate model
 ```
 
-`iml` provides a simple decision tree surrogate approach, which leverages `partykit::cpart`. In this example we train a CART decision tree with max depth of 3 on our GBM model. You can see that the white box model does not do a good job of explaining the black box predictions ($R^2 = 0.438$). The plot illustrates the distribution of the probability of attrition for each terminal node.  We see an employee with `JobLevel` $>1$ and `DistanceFromHome` $\leq 12$ has a very low probability of attriting. 
+`iml` provides a simple decision tree surrogate approach, which leverages `partykit::cpart`. In this example we train a CART decision tree with max depth of 3 on our GBM model. You can see that the white box model does not do a good job of explaining the black box predictions ($$R^2 = 0.438$$). The plot illustrates the distribution of the probability of attrition for each terminal node.  We see an employee with `JobLevel` $$>1$$ and `DistanceFromHome` $$\leq 12$$ has a very low probability of attriting. 
 
 
 ```r
@@ -514,12 +514,12 @@ A few notable items about `iml` implementation (see referenced tutorial above fo
 
 - like `lime`, can change distance metric (default is gower but accepts all distance functions provided by `?dist`),
 - like `lime`, can change kernel (neighborhood size),
-- like `lime`, computationally efficient $\rightarrow$ takes about 5 seconds to compute,
+- like `lime`, computationally efficient $$\rightarrow$$ takes about 5 seconds to compute,
 - like `lime`, can be applied to multinomial responses,
 - like `lime`, uses the `glmnet` package to fit the local model; however...
 - unlike `lime`, only implements a ridge model (`lime` allows ridge, lasso, and more),
 - unlike `lime`, can only do one observation at a time (`lime` can do multiple),
-- unlike `lime`, does not provide fit metric such as ($R^2$) for the local model.
+- unlike `lime`, does not provide fit metric such as ($$R^2$$) for the local model.
 
 The following fits a local model for the observation with the highest probability of attrition.  In this example I look for the 10 variables in each model that are most influential in this observations predicted value (`k = 10`). The results show that the `Age` of the employee reduces the probability of attrition within all three models. Morever, all three models show that since this employee works `OverTime`, this is having a sizable increase in the probability of attrition.  However, the tree-based models also identify the `MaritalStatus` and `JobRole` of this employee contributing to his/her increased probability of attrition.
 
@@ -549,7 +549,7 @@ gridExtra::grid.arrange(lime.glm, lime.rf, lime.gbm, nrow = 1)
 
 <img src="/public/images/analytics/ML_interpretation/iml-lime2-1.png" style="display: block; margin: auto;" />
 
-Although, `LocalModel` does not provide the fit metrics (i.e. $R^2$) for our local model, we can compare the local models predicted probability to the global (full) model's predicted probability.  For the high probability employee, the local model only predicts a 0.34 probability of attrition whereas the local model predicts a more accurate 0.12 probability of attrition for the low probability employee.  This can help you guage the trustworthiness of the local model. 
+Although, `LocalModel` does not provide the fit metrics (i.e. $$R^2$$) for our local model, we can compare the local models predicted probability to the global (full) model's predicted probability.  For the high probability employee, the local model only predicts a 0.34 probability of attrition whereas the local model predicts a more accurate 0.12 probability of attrition for the low probability employee.  This can help you guage the trustworthiness of the local model. 
 
 
 ```r
@@ -573,7 +573,7 @@ lime_low$predict(low_prob_ob) # predicted probability
 
 ### Shapley values {#shap}
 
-An alternative for explaining individual predictions is a method from coalitional game theory that produces whats called Shapley values ([Lundberg & Lee, 2016](https://arxiv.org/abs/1611.07478)).  The idea behind Shapley values is to assess every combination of predictors to determine each predictors impact.  Focusing on feature $x_j$, the approach will test the accuracy of every combination of features not including $x_j$ and then test how adding $x_j$ to each combination improves the accuracy.  Unfortunately, computing Shapley values is very computationally expensive.  Consequently, `iml` implements an approximate Shapley estimation algorithm that follows the following steps:
+An alternative for explaining individual predictions is a method from coalitional game theory that produces whats called Shapley values ([Lundberg & Lee, 2016](https://arxiv.org/abs/1611.07478)).  The idea behind Shapley values is to assess every combination of predictors to determine each predictors impact.  Focusing on feature $$x_j$$, the approach will test the accuracy of every combination of features not including $$x_j$$ and then test how adding $$x_j$$ to each combination improves the accuracy.  Unfortunately, computing Shapley values is very computationally expensive.  Consequently, `iml` implements an approximate Shapley estimation algorithm that follows the following steps:
 
 ```
 ob = single observation of interest
@@ -588,7 +588,7 @@ ob = single observation of interest
 2. sort phi in decreasing order
 ```
 
-> _The Shapley value ($\phi$) represents the contribution of each respective variable towards the predicted valued compared to the average prediction for the data set._
+> _The Shapley value ($$\phi$$) represents the contribution of each respective variable towards the predicted valued compared to the average prediction for the data set._
 
 
 We use `Shapley$new` to create a new Shapley object.  For this data set it takes about __9 seconds__ to compute. The time to compute is largely driven by the number of predictors but you can also control the sample size drawn (see `sample.size` argument) to help reduce compute time.  If you look at the results, you will see that the predicted value of 0.667 is 0.496 larger than the average prediction of 0.17.  The plot displays the contribution each predictor played in this difference of 0.496.
