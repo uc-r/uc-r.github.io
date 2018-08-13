@@ -39,7 +39,7 @@ The in-class modules will consist of both lectures, live coding by the instructo
 
 ### Class Prep
 
-Since we have limited class time be sure you have R and RStudio downloaded and operational **before** class.  You can find instructions to install R and RStudio [here](http://uc-r.github.io/section2_basics#installation).  You will want to make sure your version of R is >= 3.4 and RStudio is >= 1.0.143. 
+Since we have limited class time be sure you have R and RStudio downloaded and operational **before** class.  You can find instructions to install R and RStudio [here](http://uc-r.github.io/basics#installation).  You will want to make sure your version of R is >= 3.4 and RStudio is >= 1.0.143. 
 
 ### Material
 
