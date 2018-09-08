@@ -160,7 +160,7 @@ plot(mars1, which = 1)
 <center>  
 <img src="/public/images/analytics/mars/basic-mod-plot-1.png" alt="Figure 4: Model summary capturing GCV $R^2$ (left-hand y-axis and solid black line) based on the number of terms retained (x-axis) which is based on the number of predictors used to make those terms (right-hand side y-axis). For this model, 37 non-intercept terms were retained which are based on 26 predictors.  Any additional terms retained in the model, over and above these 37, results in less than 0.001 improvement in the GCV $R^2$."  />
 </center>  
-<p class="caption" style="font-size:15px">Figure 4: Model summary capturing GCV $$R^2$$ (left-hand y-axis and solid black line) based on the number of terms retained (x-axis) which is based on the number of predictors used to make those terms (right-hand side y-axis). For this model, 37 non-intercept terms were retained which are based on 26 predictors.  Any additional terms retained in the model, over and above these 37, results in less than 0.001 improvement in the GCV $$R^2$$.</p>
+<p class="caption" style="font-size:15px">Figure 4: Model summary capturing GCV $R^2$ (left-hand y-axis and solid black line) based on the number of terms retained (x-axis) which is based on the number of predictors used to make those terms (right-hand side y-axis). For this model, 37 non-intercept terms were retained which are based on 26 predictors.  Any additional terms retained in the model, over and above these 37, results in less than 0.001 improvement in the GCV $R^2$.</p>
 </div>
 
 In addition to pruning the number of knots, `earth::earth()` allows us to also assess potential interactions between different hinge functions. The following illustrates by including a `degree = 2` argument. You can see that now our model includes interaction terms between multiple hinge functions (i.e. `h(Year_Built-2003)*h(Gr_Liv_Area-2274)`) is an interaction effect for those houses built prior to 2003 and have less than 2,274 square feet of living space above ground).
@@ -243,7 +243,7 @@ ggplot(tuned_mars)
 <center>  
 <img src="/public/images/analytics/mars/grid-search-1.png" alt="Figure 5: Cross-validated RMSE for the 30 different hyperparameter combinations in our grid search. The optimal model retains 34 terms and includes up to 2$^{nd}$ degree interactions."  />
 </center>  
-<p class="caption" style="font-size:15px">Figure 5: Cross-validated RMSE for the 30 different hyperparameter combinations in our grid search. The optimal model retains 34 terms and includes up to 2$$^{nd}$$ degree interactions.</p>
+<p class="caption" style="font-size:15px">Figure 5: Cross-validated RMSE for the 30 different hyperparameter combinations in our grid search. The optimal model retains 34 terms and includes up to 2$^{nd}$ degree interactions.</p>
 </div>
 
 The above grid search helps to focus where we can further refine our model tuning. As a next step, we could perform a grid search that focuses in on a refined grid space for `nprune` (i.e. comparing 25-40 terms retained). However, for brevity we will leave this as an exercise for the reader.
@@ -442,7 +442,7 @@ gridExtra::grid.arrange(p1, p2, p3, ncol = 3)
 
 <div class="figure" style="text-align: center">
 <img src="/public/images/analytics/mars/pdp-1.png" alt="Figure 7: Partial dependence plots to understand the relationship between `Sale_Price` and the `Gr_Liv_Area` and `Year_Built` features.  The PDPs tell us that as `Gr_Liv_Area` increases and for newer homes, `Sale_Price` increases dramatically."  />
-<p class="caption" style="font-size:15px">Figure 7: Partial dependence plots to understand the relationship between `Sale_Price` and the `Gr_Liv_Area` and `Year_Built` features.  The PDPs tell us that as `Gr_Liv_Area` increases and for newer homes, `Sale_Price` increases dramatically.</p>
+<p class="caption" style="font-size:15px">Figure 7: Partial dependence plots to understand the relationship between <code>Sale_Price</code> and the <code>Gr_Liv_Area</code> and <code>Year_Built</code> features.  The PDPs tell us that as <code>Gr_Liv_Area<code> increases and for newer homes, <code>Sale_Price</code> increases dramatically.</p>
 </div>
 
 
