@@ -58,7 +58,7 @@ where $C_1(x)$ represents *x* values ranging from $c_1 \leq x < c_2$, $C_2(x)$ r
 
 
 <div class="figure" style="text-align: center">
-<img src="mars-tutorial_files/figure-html/nonlinear-comparisons-1.png" alt="Figure 1: Blue line represents predicted `Sale_Price` values as a function of `Year_Built` for alternative approaches to modeling explicit nonlinear regression patterns. (A) Traditional nonlinear regression approach does not capture any nonlinearity unless the predictor or response is transformed (i.e. log transformation). (B) Degree-2 polynomial, (C) Degree-3 polynomial, (D) Step function fitting cutting `Year_Built` into three categorical levels."  />
+<img src="/public/images/analytics/mars/nonlinear-comparisons-1.png" alt="Figure 1: Blue line represents predicted `Sale_Price` values as a function of `Year_Built` for alternative approaches to modeling explicit nonlinear regression patterns. (A) Traditional nonlinear regression approach does not capture any nonlinearity unless the predictor or response is transformed (i.e. log transformation). (B) Degree-2 polynomial, (C) Degree-3 polynomial, (D) Step function fitting cutting `Year_Built` into three categorical levels."  />
 <p class="caption">Figure 1: Blue line represents predicted `Sale_Price` values as a function of `Year_Built` for alternative approaches to modeling explicit nonlinear regression patterns. (A) Traditional nonlinear regression approach does not capture any nonlinearity unless the predictor or response is transformed (i.e. log transformation). (B) Degree-2 polynomial, (C) Degree-3 polynomial, (D) Step function fitting cutting `Year_Built` into three categorical levels.</p>
 </div>
 
@@ -88,7 +88,7 @@ $$
 $$
 
 <div class="figure" style="text-align: center">
-<img src="mars-tutorial_files/figure-html/examples-of-multiple-knots-1.png" alt="Figure 2: Examples of fitted regression splines of one (A), two (B), three (C), and four (D) knots."  />
+<img src="/public/images/analytics/mars/examples-of-multiple-knots-1.png" alt="Figure 2: Examples of fitted regression splines of one (A), two (B), three (C), and four (D) knots."  />
 <p class="caption">Figure 2: Examples of fitted regression splines of one (A), two (B), three (C), and four (D) knots.</p>
 </div>
 
@@ -96,7 +96,7 @@ $$
 This procedure can continue until many knots are found, producing a highly non-linear pattern.  Although including many knots may allow us to fit a really good relationship with our training data, it may not generalize very well to new, unseen data.  For example, Figure 3 includes nine knots but this likley will not generalize very well to our test data.  
 
 <div class="figure" style="text-align: center">
-<img src="mars-tutorial_files/figure-html/example-9-knots-1.png" alt="Figure 3: Too many knots may not generalize well to unseen data."  />
+<img src="/public/images/analytics/mars/example-9-knots-1.png" alt="Figure 3: Too many knots may not generalize well to unseen data."  />
 <p class="caption">Figure 3: Too many knots may not generalize well to unseen data.</p>
 </div>
 
@@ -155,7 +155,7 @@ plot(mars1, which = 1)
 ```
 
 <div class="figure" style="text-align: center">
-<img src="mars-tutorial_files/figure-html/basic-mod-plot-1.png" alt="Figure 4: Model summary capturing GCV $R^2$ (left-hand y-axis and solid black line) based on the number of terms retained (x-axis) which is based on the number of predictors used to make those terms (right-hand side y-axis). For this model, 37 non-intercept terms were retained which are based on 26 predictors.  Any additional terms retained in the model, over and above these 37, results in less than 0.001 improvement in the GCV $R^2$."  />
+<img src="/public/images/analytics/mars/basic-mod-plot-1.png" alt="Figure 4: Model summary capturing GCV $R^2$ (left-hand y-axis and solid black line) based on the number of terms retained (x-axis) which is based on the number of predictors used to make those terms (right-hand side y-axis). For this model, 37 non-intercept terms were retained which are based on 26 predictors.  Any additional terms retained in the model, over and above these 37, results in less than 0.001 improvement in the GCV $R^2$."  />
 <p class="caption">Figure 4: Model summary capturing GCV $R^2$ (left-hand y-axis and solid black line) based on the number of terms retained (x-axis) which is based on the number of predictors used to make those terms (right-hand side y-axis). For this model, 37 non-intercept terms were retained which are based on 26 predictors.  Any additional terms retained in the model, over and above these 37, results in less than 0.001 improvement in the GCV $R^2$.</p>
 </div>
 
@@ -236,7 +236,7 @@ ggplot(tuned_mars)
 ```
 
 <div class="figure" style="text-align: center">
-<img src="mars-tutorial_files/figure-html/grid-search-1.png" alt="Figure 5: Cross-validated RMSE for the 30 different hyperparameter combinations in our grid search. The optimal model retains 34 terms and includes up to 2$^{nd}$ degree interactions."  />
+<img src="/public/images/analytics/mars/grid-search-1.png" alt="Figure 5: Cross-validated RMSE for the 30 different hyperparameter combinations in our grid search. The optimal model retains 34 terms and includes up to 2$^{nd}$ degree interactions."  />
 <p class="caption">Figure 5: Cross-validated RMSE for the 30 different hyperparameter combinations in our grid search. The optimal model retains 34 terms and includes up to 2$^{nd}$ degree interactions.</p>
 </div>
 
@@ -390,7 +390,7 @@ gridExtra::grid.arrange(p1, p2, ncol = 2)
 ```
 
 <div class="figure" style="text-align: center">
-<img src="mars-tutorial_files/figure-html/vip-1.png" alt="Figure 6: Variable importance based on impact to GCV (left) and RSS (right) values as predictors are added to the model. Both variable importance measures will usually give you very similar results."  />
+<img src="/public/images/analytics/mars/vip-1.png" alt="Figure 6: Variable importance based on impact to GCV (left) and RSS (right) values as predictors are added to the model. Both variable importance measures will usually give you very similar results."  />
 <p class="caption">Figure 6: Variable importance based on impact to GCV (left) and RSS (right) values as predictors are added to the model. Both variable importance measures will usually give you very similar results.</p>
 </div>
 
@@ -435,7 +435,7 @@ gridExtra::grid.arrange(p1, p2, p3, ncol = 3)
 ```
 
 <div class="figure" style="text-align: center">
-<img src="mars-tutorial_files/figure-html/pdp-1.png" alt="Figure 7: Partial dependence plots to understand the relationship between `Sale_Price` and the `Gr_Liv_Area` and `Year_Built` features.  The PDPs tell us that as `Gr_Liv_Area` increases and for newer homes, `Sale_Price` increases dramatically."  />
+<img src="/public/images/analytics/mars/pdp-1.png" alt="Figure 7: Partial dependence plots to understand the relationship between `Sale_Price` and the `Gr_Liv_Area` and `Year_Built` features.  The PDPs tell us that as `Gr_Liv_Area` increases and for newer homes, `Sale_Price` increases dramatically."  />
 <p class="caption">Figure 7: Partial dependence plots to understand the relationship between `Sale_Price` and the `Gr_Liv_Area` and `Year_Built` features.  The PDPs tell us that as `Gr_Liv_Area` increases and for newer homes, `Sale_Price` increases dramatically.</p>
 </div>
 
