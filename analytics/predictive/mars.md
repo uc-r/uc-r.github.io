@@ -59,7 +59,7 @@ where $$C_1(x)$$ represents *x* values ranging from $$c_1 \leq x < c_2$$, $$C_2(
 
 <div class="figure" style="text-align: center">
 <img src="/public/images/analytics/mars/nonlinear-comparisons-1.png" alt="Figure 1: Blue line represents predicted `Sale_Price` values as a function of `Year_Built` for alternative approaches to modeling explicit nonlinear regression patterns. (A) Traditional nonlinear regression approach does not capture any nonlinearity unless the predictor or response is transformed (i.e. log transformation). (B) Degree-2 polynomial, (C) Degree-3 polynomial, (D) Step function fitting cutting `Year_Built` into three categorical levels."  />
-<p class="caption" style="font-size:15px">Figure 1: Blue line represents predicted `Sale_Price` values as a function of `Year_Built` for alternative approaches to modeling explicit nonlinear regression patterns. (A) Traditional nonlinear regression approach does not capture any nonlinearity unless the predictor or response is transformed (i.e. log transformation). (B) Degree-2 polynomial, (C) Degree-3 polynomial, (D) Step function fitting cutting `Year_Built` into three categorical levels.</p>
+<p class="caption" style="font-size:15px">Figure 1: Blue line represents predicted <code>Sale_Price</code> values as a function of <code>Year_Built</code> for alternative approaches to modeling explicit nonlinear regression patterns. (A) Traditional nonlinear regression approach does not capture any nonlinearity unless the predictor or response is transformed (i.e. log transformation). (B) Degree-2 polynomial, (C) Degree-3 polynomial, (D) Step function fitting cutting <code>Year_Built</code> into three categorical levels.</p>
 </div>
 
 Although useful, the typical implementation of polynomial regression and step functions require the user to explicitly identify and incorporate which variables should have what specific degree of interaction or at what points of a variable *x* should cut points be made for the step functions.  Considering many data sets today can easily contain 50, 100, or more features, this would require an enormous and unncessary time commitment from an analyst to determine these explicit non-linear settings.
@@ -96,7 +96,9 @@ $$
 This procedure can continue until many knots are found, producing a highly non-linear pattern.  Although including many knots may allow us to fit a really good relationship with our training data, it may not generalize very well to new, unseen data.  For example, Figure 3 includes nine knots but this likley will not generalize very well to our test data.  
 
 <div class="figure" style="text-align: center">
-<img src="/public/images/analytics/mars/example-9-knots-1.png" alt="Figure 3: Too many knots may not generalize well to unseen data."  />
+  <center>
+   <img src="/public/images/analytics/mars/example-9-knots-1.png" alt="Figure 3: Too many knots may not generalize well to unseen data."  />
+  </center>
 <p class="caption" style="font-size:15px">Figure 3: Too many knots may not generalize well to unseen data.</p>
 </div>
 
@@ -155,7 +157,9 @@ plot(mars1, which = 1)
 ```
 
 <div class="figure" style="text-align: center">
+<center>  
 <img src="/public/images/analytics/mars/basic-mod-plot-1.png" alt="Figure 4: Model summary capturing GCV $R^2$ (left-hand y-axis and solid black line) based on the number of terms retained (x-axis) which is based on the number of predictors used to make those terms (right-hand side y-axis). For this model, 37 non-intercept terms were retained which are based on 26 predictors.  Any additional terms retained in the model, over and above these 37, results in less than 0.001 improvement in the GCV $R^2$."  />
+</center>  
 <p class="caption" style="font-size:15px">Figure 4: Model summary capturing GCV $$R^2$$ (left-hand y-axis and solid black line) based on the number of terms retained (x-axis) which is based on the number of predictors used to make those terms (right-hand side y-axis). For this model, 37 non-intercept terms were retained which are based on 26 predictors.  Any additional terms retained in the model, over and above these 37, results in less than 0.001 improvement in the GCV $$R^2$$.</p>
 </div>
 
@@ -236,7 +240,9 @@ ggplot(tuned_mars)
 ```
 
 <div class="figure" style="text-align: center">
+<center>  
 <img src="/public/images/analytics/mars/grid-search-1.png" alt="Figure 5: Cross-validated RMSE for the 30 different hyperparameter combinations in our grid search. The optimal model retains 34 terms and includes up to 2$^{nd}$ degree interactions."  />
+</center>  
 <p class="caption" style="font-size:15px">Figure 5: Cross-validated RMSE for the 30 different hyperparameter combinations in our grid search. The optimal model retains 34 terms and includes up to 2$$^{nd}$$ degree interactions.</p>
 </div>
 
@@ -244,7 +250,7 @@ The above grid search helps to focus where we can further refine our model tunin
 
 So how does this compare to some other linear models for the Ames housing data?  The following table compares the cross-validated RMSE for our tuned MARS model to a regular multiple regression model along with tuned principal component regression (PCR), partial least squares (PLS), and regularized regression (elastic net) models.  By incorporating non-linear relationships and interaction effects, the MARS model provides a substantial improvement over the previous linear models that we have explored.
 
-> Note that we standardize the features for the linear models but we did not for the MARS model.  Whereas linear models tend to be sensitive to the scale of the features, MARS models are not. 
+> __Note__: Notice that we standardize the features for the linear models but we did not for the MARS model.  Whereas linear models tend to be sensitive to the scale of the features, MARS models are not. 
 
 
 ```r
