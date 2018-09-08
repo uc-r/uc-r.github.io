@@ -42,7 +42,7 @@ ames_test  <- testing(ames_split)
 
 Some previous tutorials (i.e. [linear regression](http://uc-r.github.io/linear_regression), [logistic regression](http://uc-r.github.io/logistic_regression), [regularized regression](http://uc-r.github.io/regularized_regression)) have focused on linear models. In those tutorials we illustrated some of the advantages of linear models such as their ease and speed of computation and also the intuitive nature of interpreting their coefficients.  However, linear models make a strong assumption about linearity, and this assumption is often a poor one, which can affect predictive accuracy.
 
-We can extend linear models to capture non-linear relationships. Typically, this is done by explicitly including polynomial parameters or step functions.  Polynomial regression is a form of regression in which the relationship between the independent variable *x* and the dependent variable *y* is modeled as an n$^{th}$ degree polynomial of *x*.  For example, Equation 1 represents a polynomial regression function where *y* is modeled as a function of *x* with *d* degrees.  Generally speaking, it is unusual to use *d* greater than 3 or 4 as the larger *d* becomes, the easier the function fit becomes overly flexible and oddly shapened...especially near the boundaries of the range of *x* values.
+We can extend linear models to capture non-linear relationships. Typically, this is done by explicitly including polynomial parameters or step functions.  Polynomial regression is a form of regression in which the relationship between the independent variable *x* and the dependent variable *y* is modeled as an n$$^{th}$$ degree polynomial of *x*.  For example, Equation 1 represents a polynomial regression function where *y* is modeled as a function of *x* with *d* degrees.  Generally speaking, it is unusual to use *d* greater than 3 or 4 as the larger *d* becomes, the easier the function fit becomes overly flexible and oddly shapened...especially near the boundaries of the range of *x* values.
 
 $$
   y_i = \beta_0 + \beta_1 x_i + \beta_2 x^2_i + \beta_3 x^3_i \dots + \beta_d x^d_i + \epsilon_i, \tag{1}
@@ -66,7 +66,7 @@ Although useful, the typical implementation of polynomial regression and step fu
 
 ### Multivariate regression splines
 
-Multivariate adaptive regression splines (MARS) provide a convenient approach to capture the nonlinearity aspect of polynomial regression by assessing cutpoints (_knots_) similar to step functions.  The procedure assesses each data point for each predictor as a knot and creates a linear regression model with the candidate feature(s).  For example, consider our simple model of `Sale_Price ~ Year_Built`. The MARS procedure will first look for the single point across the range of `Year_Built` values where two different linear relationships between `Sale_Price` and `Year_Built` achieve the smallest error.  What results is known as a hinge function ($h(x-a)$ where *a* is the cutpoint value). For a single knot (Figure 2 (A)), our hinge function is $h(\text{Year_Built}-1968)$ such that our two linear models for `Sale_Price` are
+Multivariate adaptive regression splines (MARS) provide a convenient approach to capture the nonlinearity aspect of polynomial regression by assessing cutpoints (_knots_) similar to step functions.  The procedure assesses each data point for each predictor as a knot and creates a linear regression model with the candidate feature(s).  For example, consider our simple model of `Sale_Price ~ Year_Built`. The MARS procedure will first look for the single point across the range of `Year_Built` values where two different linear relationships between `Sale_Price` and `Year_Built` achieve the smallest error.  What results is known as a hinge function ($$h(x-a)$$ where *a* is the cutpoint value). For a single knot (Figure 2 (A)), our hinge function is $$h(\text{Year_Built}-1968)$$ such that our two linear models for `Sale_Price` are
 
 $$
   \text{Sale_Price} = 
@@ -104,11 +104,11 @@ Consequently, once the full set of knots have been created, we can sequentially 
 
 ## Fitting a basic MARS model
 
-We can fit a MARS model with the __earth__ package. By default, `earth::earth()` will assess all potential knots across all supplied features and then will prune to the optimal number of knots based on an expected change in $R^2$ (for the training data) of less than 0.001.  This calculation is performed by the Generalized cross-validation procedure (GCV statistic), which is a computational shortcut for linear models that produces an error value that _approximates_ leave-one-out cross-validation (see [here](http://w3.atomki.hu/~efo/hornyak/Tikhonov_references/Technometrics_Golub_Heath_Wahba) for technical details). 
+We can fit a MARS model with the __earth__ package. By default, `earth::earth()` will assess all potential knots across all supplied features and then will prune to the optimal number of knots based on an expected change in $$R^2$$ (for the training data) of less than 0.001.  This calculation is performed by the Generalized cross-validation procedure (GCV statistic), which is a computational shortcut for linear models that produces an error value that _approximates_ leave-one-out cross-validation (see [here](http://w3.atomki.hu/~efo/hornyak/Tikhonov_references/Technometrics_Golub_Heath_Wahba) for technical details). 
 
 > __Note__: The term “MARS” is trademarked and licensed exclusively to Salford Systems http://www.salfordsystems.com. We can use MARS as an abbreviation; however, it cannot be used for competing software solutions.  This is why the R package uses the name __earth__. 
 
-The following applies a basic MARS model to our __ames__ data and performs a search for required knots across all features.  The results show us the final models GCV statistic, generalized $R^2$ (GRSq), and more.  
+The following applies a basic MARS model to our __ames__ data and performs a search for required knots across all features.  The results show us the final models GCV statistic, generalized $$R^2$$ (GRSq), and more.  
 
 
 ```r
@@ -127,7 +127,7 @@ print(mars1)
 ## GCV 521186626    RSS 995776275391    GRSq 0.9165386    RSq 0.92229
 ```
 
-It also shows us that 38 of 41 terms were used from 27 of the 307 original predictors. But what does this mean?  If we were to look at all the coefficients, we would see that there are 38 terms in our model (including the intercept).  These terms include hinge functions produced from the original 307 predictors (307 predictors because the model automatically dummy encodes our categorical variables). Looking at the first 10 terms in our model, we see that  `Gr_Liv_Area` is included with a knot at 2945 (the coefficient for $h(2945-Gr\_Liv\_Area)$ is -49.85), `Year_Built` is included with a knot at 2003, etc.
+It also shows us that 38 of 41 terms were used from 27 of the 307 original predictors. But what does this mean?  If we were to look at all the coefficients, we would see that there are 38 terms in our model (including the intercept).  These terms include hinge functions produced from the original 307 predictors (307 predictors because the model automatically dummy encodes our categorical variables). Looking at the first 10 terms in our model, we see that  `Gr_Liv_Area` is included with a knot at 2945 (the coefficient for $$h(2945-Gr\_Liv\_Area)$$ is -49.85), `Year_Built` is included with a knot at 2003, etc.
 
 > __Tip__: You can check out all the coefficients with `summary(mars1)`.
 
@@ -147,7 +147,7 @@ summary(mars1) %>% .$coefficients %>% head(10)
 ## h(Bsmt_Unf_SF-278)            -21.15661
 ```
 
-The plot method for MARS model objects provide convenient performance and residual plots.  Figure 4 illustrates the model selection plot that graphs the GCV $R^2$ (left-hand y-axis and solid black line) based on the number of terms retained in the model (x-axis) which are constructed from a certain number of original predictors (right-hand y-axis). The vertical dashed lined at 37 tells us the optimal number of non-intercept terms retained where marginal increases in GCV $R^2$ are less than 0.001.
+The plot method for MARS model objects provide convenient performance and residual plots.  Figure 4 illustrates the model selection plot that graphs the GCV $$R^2$$ (left-hand y-axis and solid black line) based on the number of terms retained in the model (x-axis) which are constructed from a certain number of original predictors (right-hand y-axis). The vertical dashed lined at 37 tells us the optimal number of non-intercept terms retained where marginal increases in GCV $$R^2$$ are less than 0.001.
 
 
 ```r
@@ -156,7 +156,7 @@ plot(mars1, which = 1)
 
 <div class="figure" style="text-align: center">
 <img src="/public/images/analytics/mars/basic-mod-plot-1.png" alt="Figure 4: Model summary capturing GCV $R^2$ (left-hand y-axis and solid black line) based on the number of terms retained (x-axis) which is based on the number of predictors used to make those terms (right-hand side y-axis). For this model, 37 non-intercept terms were retained which are based on 26 predictors.  Any additional terms retained in the model, over and above these 37, results in less than 0.001 improvement in the GCV $R^2$."  />
-<p class="caption">Figure 4: Model summary capturing GCV $R^2$ (left-hand y-axis and solid black line) based on the number of terms retained (x-axis) which is based on the number of predictors used to make those terms (right-hand side y-axis). For this model, 37 non-intercept terms were retained which are based on 26 predictors.  Any additional terms retained in the model, over and above these 37, results in less than 0.001 improvement in the GCV $R^2$.</p>
+<p class="caption">Figure 4: Model summary capturing GCV $$R^2$$ (left-hand y-axis and solid black line) based on the number of terms retained (x-axis) which is based on the number of predictors used to make those terms (right-hand side y-axis). For this model, 37 non-intercept terms were retained which are based on 26 predictors.  Any additional terms retained in the model, over and above these 37, results in less than 0.001 improvement in the GCV $$R^2$$.</p>
 </div>
 
 In addition to pruning the number of knots, `earth::earth()` allows us to also assess potential interactions between different hinge functions. The following illustrates by including a `degree = 2` argument. You can see that now our model includes interaction terms between multiple hinge functions (i.e. `h(Year_Built-2003)*h(Gr_Liv_Area-2274)`) is an interaction effect for those houses built prior to 2003 and have less than 2,274 square feet of living space above ground).
@@ -237,7 +237,7 @@ ggplot(tuned_mars)
 
 <div class="figure" style="text-align: center">
 <img src="/public/images/analytics/mars/grid-search-1.png" alt="Figure 5: Cross-validated RMSE for the 30 different hyperparameter combinations in our grid search. The optimal model retains 34 terms and includes up to 2$^{nd}$ degree interactions."  />
-<p class="caption">Figure 5: Cross-validated RMSE for the 30 different hyperparameter combinations in our grid search. The optimal model retains 34 terms and includes up to 2$^{nd}$ degree interactions.</p>
+<p class="caption">Figure 5: Cross-validated RMSE for the 30 different hyperparameter combinations in our grid search. The optimal model retains 34 terms and includes up to 2$$^{nd}$$ degree interactions.</p>
 </div>
 
 The above grid search helps to focus where we can further refine our model tuning. As a next step, we could perform a grid search that focuses in on a refined grid space for `nprune` (i.e. comparing 25-40 terms retained). However, for brevity we will leave this as an exercise for the reader.
@@ -377,7 +377,7 @@ summary(resamples(list(
 
 ## Feature interpretation
 
-MARS models via `earth::earth()` include a backwards elimination feature selection routine that looks at reductions in the GCV estimate of error as each predictor is added to the model. This total reduction is used as the variable importance measure (`value = "gcv"`). Since MARS will automatically include and exclude terms during the pruning process, it essentially performs automated feature selection. If a predictor was never used in any of the MARS basis functions in the final model (after pruning), it has an importance value of zero. This is illustrated in Figure 6 where 27 features have $>0$ importance values while the rest of the features have an importance value of zero since they were not included in the final model.  Alternatively, you can also monitor the change in the residual sums of squares (RSS) as terms are added (`value = "rss"`); however, you will see very little difference between these methods.
+MARS models via `earth::earth()` include a backwards elimination feature selection routine that looks at reductions in the GCV estimate of error as each predictor is added to the model. This total reduction is used as the variable importance measure (`value = "gcv"`). Since MARS will automatically include and exclude terms during the pruning process, it essentially performs automated feature selection. If a predictor was never used in any of the MARS basis functions in the final model (after pruning), it has an importance value of zero. This is illustrated in Figure 6 where 27 features have $$>0$$ importance values while the rest of the features have an importance value of zero since they were not included in the final model.  Alternatively, you can also monitor the change in the residual sums of squares (RSS) as terms are added (`value = "rss"`); however, you will see very little difference between these methods.
 
 
 
