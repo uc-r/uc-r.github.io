@@ -243,7 +243,7 @@ ggplot(tuned_mars)
 <center>  
 <img src="/public/images/analytics/mars/grid-search-1.png" alt="Figure 5: Cross-validated RMSE for the 30 different hyperparameter combinations in our grid search. The optimal model retains 34 terms and includes up to 2$^{nd}$ degree interactions."  />
 </center>  
-<p class="caption" style="font-size:15px">Figure 5: Cross-validated RMSE for the 30 different hyperparameter combinations in our grid search. The optimal model retains 34 terms and includes up to 2$^{nd}$ degree interactions.</p>
+<p class="caption" style="font-size:15px">Figure 5: Cross-validated RMSE for the 30 different hyperparameter combinations in our grid search. The optimal model retains 34 terms and includes up to 2nd degree interactions.</p>
 </div>
 
 The above grid search helps to focus where we can further refine our model tuning. As a next step, we could perform a grid search that focuses in on a refined grid space for `nprune` (i.e. comparing 25-40 terms retained). However, for brevity we will leave this as an exercise for the reader.
@@ -442,7 +442,7 @@ gridExtra::grid.arrange(p1, p2, p3, ncol = 3)
 
 <div class="figure" style="text-align: center">
 <img src="/public/images/analytics/mars/pdp-1.png" alt="Figure 7: Partial dependence plots to understand the relationship between `Sale_Price` and the `Gr_Liv_Area` and `Year_Built` features.  The PDPs tell us that as `Gr_Liv_Area` increases and for newer homes, `Sale_Price` increases dramatically."  />
-<p class="caption" style="font-size:15px">Figure 7: Partial dependence plots to understand the relationship between <code>Sale_Price</code> and the <code>Gr_Liv_Area</code> and <code>Year_Built</code> features.  The PDPs tell us that as <code>Gr_Liv_Area<code> increases and for newer homes, <code>Sale_Price</code> increases dramatically.</p>
+<p class="caption" style="font-size:15px">Figure 7: Partial dependence plots to understand the relationship between <code>Sale_Price</code> and the <code>Gr_Liv_Area</code> and <code>Year_Built</code> features.  The PDPs tell us that as <code>Gr_Liv_Area</code> increases and for newer homes, <code>Sale_Price</code> increases dramatically.</p>
 </div>
 
 
