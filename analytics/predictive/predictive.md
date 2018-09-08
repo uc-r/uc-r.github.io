@@ -15,6 +15,7 @@ Predictive methodologies use knowledge, usually extracted from historical data, 
 - [Naïve Bayes](naive_bayes)
 - [Logistic Regression](logistic_regression)
 - [Regularized Regression](regularized_regression)
+- [Multivariate Adaptive Regression Splines](mars)
 - [Regression Trees & Bagging](regression_trees)
 - [Random Forests](random_forests)
 - [Gradient Boosting Machines](gbm_regression)
