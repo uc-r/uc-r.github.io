@@ -54,12 +54,12 @@ $$
   y_i = \beta_0 + \beta_1 C_1(x_i) + \beta_2 C_2(x_i) + \beta_3 C_3(x_i) \dots + \beta_d C_d(x_i) + \epsilon_i, \tag{2}
 $$
 
-where $C_1(x)$ represents *x* values ranging from $c_1 \leq x < c_2$, $C_2(x)$ represents *x* values ranging from $c_2 \leq x < c_3$, $\dots$, $C_d(x)$ represents *x* values ranging from $c_{d-1} \leq x < c_d$.  Figure 1 illustrate polynomial and step function fits for `Sale_Price` as a function of `Year_Built` in our __ames__ data.
+where $$C_1(x)$$ represents *x* values ranging from $$c_1 \leq x < c_2$$, $$C_2(x)$$ represents *x* values ranging from $$c_2 \leq x < c_3$4, $$\dots$$, $$C_d(x)$$ represents *x* values ranging from $$c_{d-1} \leq x < c_d$$.  Figure 1 illustrate polynomial and step function fits for `Sale_Price` as a function of `Year_Built` in our __ames__ data.
 
 
 <div class="figure" style="align: center">
 <img src="/public/images/analytics/mars/nonlinear-comparisons-1.png" alt="Figure 1: Blue line represents predicted `Sale_Price` values as a function of `Year_Built` for alternative approaches to modeling explicit nonlinear regression patterns. (A) Traditional nonlinear regression approach does not capture any nonlinearity unless the predictor or response is transformed (i.e. log transformation). (B) Degree-2 polynomial, (C) Degree-3 polynomial, (D) Step function fitting cutting `Year_Built` into three categorical levels."  />
-<p class="caption" style="font-size:20px">Figure 1: Blue line represents predicted `Sale_Price` values as a function of `Year_Built` for alternative approaches to modeling explicit nonlinear regression patterns. (A) Traditional nonlinear regression approach does not capture any nonlinearity unless the predictor or response is transformed (i.e. log transformation). (B) Degree-2 polynomial, (C) Degree-3 polynomial, (D) Step function fitting cutting `Year_Built` into three categorical levels.</p>
+<p class="caption" style="font-size:10px">Figure 1: Blue line represents predicted `Sale_Price` values as a function of `Year_Built` for alternative approaches to modeling explicit nonlinear regression patterns. (A) Traditional nonlinear regression approach does not capture any nonlinearity unless the predictor or response is transformed (i.e. log transformation). (B) Degree-2 polynomial, (C) Degree-3 polynomial, (D) Step function fitting cutting `Year_Built` into three categorical levels.</p>
 </div>
 
 Although useful, the typical implementation of polynomial regression and step functions require the user to explicitly identify and incorporate which variables should have what specific degree of interaction or at what points of a variable *x* should cut points be made for the step functions.  Considering many data sets today can easily contain 50, 100, or more features, this would require an enormous and unncessary time commitment from an analyst to determine these explicit non-linear settings.
