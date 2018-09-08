@@ -54,12 +54,12 @@ $$
   y_i = \beta_0 + \beta_1 C_1(x_i) + \beta_2 C_2(x_i) + \beta_3 C_3(x_i) \dots + \beta_d C_d(x_i) + \epsilon_i, \tag{2}
 $$
 
-where $$C_1(x)$$ represents *x* values ranging from $$c_1 \leq x < c_2$$, $$C_2(x)$$ represents *x* values ranging from $$c_2 \leq x < c_3$4, $$\dots$$, $$C_d(x)$$ represents *x* values ranging from $$c_{d-1} \leq x < c_d$$.  Figure 1 illustrate polynomial and step function fits for `Sale_Price` as a function of `Year_Built` in our __ames__ data.
+where $$C_1(x)$$ represents *x* values ranging from $$c_1 \leq x < c_2$$, $$C_2(x)$$ represents *x* values ranging from $$c_2 \leq x < c_3$$, $$\dots$$, $$C_d(x)$$ represents *x* values ranging from $$c_{d-1} \leq x < c_d$$.  Figure 1 illustrate polynomial and step function fits for `Sale_Price` as a function of `Year_Built` in our __ames__ data.
 
 
-<div class="figure" style="align: center">
+<div class="figure" style="text-align: center">
 <img src="/public/images/analytics/mars/nonlinear-comparisons-1.png" alt="Figure 1: Blue line represents predicted `Sale_Price` values as a function of `Year_Built` for alternative approaches to modeling explicit nonlinear regression patterns. (A) Traditional nonlinear regression approach does not capture any nonlinearity unless the predictor or response is transformed (i.e. log transformation). (B) Degree-2 polynomial, (C) Degree-3 polynomial, (D) Step function fitting cutting `Year_Built` into three categorical levels."  />
-<p class="caption" style="font-size:10px">Figure 1: Blue line represents predicted `Sale_Price` values as a function of `Year_Built` for alternative approaches to modeling explicit nonlinear regression patterns. (A) Traditional nonlinear regression approach does not capture any nonlinearity unless the predictor or response is transformed (i.e. log transformation). (B) Degree-2 polynomial, (C) Degree-3 polynomial, (D) Step function fitting cutting `Year_Built` into three categorical levels.</p>
+<p class="caption" style="font-size:15px">Figure 1: Blue line represents predicted `Sale_Price` values as a function of `Year_Built` for alternative approaches to modeling explicit nonlinear regression patterns. (A) Traditional nonlinear regression approach does not capture any nonlinearity unless the predictor or response is transformed (i.e. log transformation). (B) Degree-2 polynomial, (C) Degree-3 polynomial, (D) Step function fitting cutting `Year_Built` into three categorical levels.</p>
 </div>
 
 Although useful, the typical implementation of polynomial regression and step functions require the user to explicitly identify and incorporate which variables should have what specific degree of interaction or at what points of a variable *x* should cut points be made for the step functions.  Considering many data sets today can easily contain 50, 100, or more features, this would require an enormous and unncessary time commitment from an analyst to determine these explicit non-linear settings.
@@ -89,7 +89,7 @@ $$
 
 <div class="figure" style="text-align: center">
 <img src="/public/images/analytics/mars/examples-of-multiple-knots-1.png" alt="Figure 2: Examples of fitted regression splines of one (A), two (B), three (C), and four (D) knots."  />
-<p class="caption">Figure 2: Examples of fitted regression splines of one (A), two (B), three (C), and four (D) knots.</p>
+<p class="caption" style="font-size:15px">Figure 2: Examples of fitted regression splines of one (A), two (B), three (C), and four (D) knots.</p>
 </div>
 
 
@@ -97,7 +97,7 @@ This procedure can continue until many knots are found, producing a highly non-l
 
 <div class="figure" style="text-align: center">
 <img src="/public/images/analytics/mars/example-9-knots-1.png" alt="Figure 3: Too many knots may not generalize well to unseen data."  />
-<p class="caption">Figure 3: Too many knots may not generalize well to unseen data.</p>
+<p class="caption" style="font-size:15px">Figure 3: Too many knots may not generalize well to unseen data.</p>
 </div>
 
 Consequently, once the full set of knots have been created, we can sequentially remove knots that do not contribute significantly to predictive accuracy.  This process is known as "pruning" and we can use cross-validation, as we have with the previous models, to find the optimal number of knots.
@@ -156,7 +156,7 @@ plot(mars1, which = 1)
 
 <div class="figure" style="text-align: center">
 <img src="/public/images/analytics/mars/basic-mod-plot-1.png" alt="Figure 4: Model summary capturing GCV $R^2$ (left-hand y-axis and solid black line) based on the number of terms retained (x-axis) which is based on the number of predictors used to make those terms (right-hand side y-axis). For this model, 37 non-intercept terms were retained which are based on 26 predictors.  Any additional terms retained in the model, over and above these 37, results in less than 0.001 improvement in the GCV $R^2$."  />
-<p class="caption">Figure 4: Model summary capturing GCV $$R^2$$ (left-hand y-axis and solid black line) based on the number of terms retained (x-axis) which is based on the number of predictors used to make those terms (right-hand side y-axis). For this model, 37 non-intercept terms were retained which are based on 26 predictors.  Any additional terms retained in the model, over and above these 37, results in less than 0.001 improvement in the GCV $$R^2$$.</p>
+<p class="caption" style="font-size:15px">Figure 4: Model summary capturing GCV $$R^2$$ (left-hand y-axis and solid black line) based on the number of terms retained (x-axis) which is based on the number of predictors used to make those terms (right-hand side y-axis). For this model, 37 non-intercept terms were retained which are based on 26 predictors.  Any additional terms retained in the model, over and above these 37, results in less than 0.001 improvement in the GCV $$R^2$$.</p>
 </div>
 
 In addition to pruning the number of knots, `earth::earth()` allows us to also assess potential interactions between different hinge functions. The following illustrates by including a `degree = 2` argument. You can see that now our model includes interaction terms between multiple hinge functions (i.e. `h(Year_Built-2003)*h(Gr_Liv_Area-2274)`) is an interaction effect for those houses built prior to 2003 and have less than 2,274 square feet of living space above ground).
@@ -237,7 +237,7 @@ ggplot(tuned_mars)
 
 <div class="figure" style="text-align: center">
 <img src="/public/images/analytics/mars/grid-search-1.png" alt="Figure 5: Cross-validated RMSE for the 30 different hyperparameter combinations in our grid search. The optimal model retains 34 terms and includes up to 2$^{nd}$ degree interactions."  />
-<p class="caption">Figure 5: Cross-validated RMSE for the 30 different hyperparameter combinations in our grid search. The optimal model retains 34 terms and includes up to 2$$^{nd}$$ degree interactions.</p>
+<p class="caption" style="font-size:15px">Figure 5: Cross-validated RMSE for the 30 different hyperparameter combinations in our grid search. The optimal model retains 34 terms and includes up to 2$$^{nd}$$ degree interactions.</p>
 </div>
 
 The above grid search helps to focus where we can further refine our model tuning. As a next step, we could perform a grid search that focuses in on a refined grid space for `nprune` (i.e. comparing 25-40 terms retained). However, for brevity we will leave this as an exercise for the reader.
@@ -391,7 +391,7 @@ gridExtra::grid.arrange(p1, p2, ncol = 2)
 
 <div class="figure" style="text-align: center">
 <img src="/public/images/analytics/mars/vip-1.png" alt="Figure 6: Variable importance based on impact to GCV (left) and RSS (right) values as predictors are added to the model. Both variable importance measures will usually give you very similar results."  />
-<p class="caption">Figure 6: Variable importance based on impact to GCV (left) and RSS (right) values as predictors are added to the model. Both variable importance measures will usually give you very similar results.</p>
+<p class="caption" style="font-size:15px">Figure 6: Variable importance based on impact to GCV (left) and RSS (right) values as predictors are added to the model. Both variable importance measures will usually give you very similar results.</p>
 </div>
 
 Its important to realize that variable importance will only measure the impact of the prediction error as features are included; however, it does not measure the impact for particular hinge functions created for a given feature.  For example, in Figure 6 we see that `Gr_Liv_Area` and `Year_Built` are the two most influential variables; however, variable importance does not tell us how our model is treating the non-linear patterns for each feature.  Also, if we look at the interaction terms our model retained, we see interactions between different hinge functions for `Gr_Liv_Area` and `Year_Built`.
@@ -436,7 +436,7 @@ gridExtra::grid.arrange(p1, p2, p3, ncol = 3)
 
 <div class="figure" style="text-align: center">
 <img src="/public/images/analytics/mars/pdp-1.png" alt="Figure 7: Partial dependence plots to understand the relationship between `Sale_Price` and the `Gr_Liv_Area` and `Year_Built` features.  The PDPs tell us that as `Gr_Liv_Area` increases and for newer homes, `Sale_Price` increases dramatically."  />
-<p class="caption">Figure 7: Partial dependence plots to understand the relationship between `Sale_Price` and the `Gr_Liv_Area` and `Year_Built` features.  The PDPs tell us that as `Gr_Liv_Area` increases and for newer homes, `Sale_Price` increases dramatically.</p>
+<p class="caption" style="font-size:15px">Figure 7: Partial dependence plots to understand the relationship between `Sale_Price` and the `Gr_Liv_Area` and `Year_Built` features.  The PDPs tell us that as `Gr_Liv_Area` increases and for newer homes, `Sale_Price` increases dramatically.</p>
 </div>
 
 
