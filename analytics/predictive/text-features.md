@@ -74,11 +74,10 @@ glimpse(df)
 
 The simplest approach to convert text into structured features is using the _bag of words_ approach.  Bag of words simply breaks apart the words in the review text into individual word count statistics.
 
-<div class="figure" style="text-align: center">
-<img src="images/text-features/bow-image.png" alt="Turning raw text into a bag of words representation. Courtesy Zheng &amp; Casari (2018)." width="40%" height="40%" />
-<p class="caption">Turning raw text into a bag of words representation. Courtesy Zheng & Casari (2018).</p>
-</div>
-
+<center>
+<img src="/public/images/analytics/feature-engineering/bow-image.png" alt="Turning raw text into a bag of words representation)" width="40%" height="40%" />
+<figcaption>Fig 1. Turning raw text into a bag of words representation. Courtesy Zheng & Casari (2018).</figcaption>
+</center>
 
 In R, we can break up our text into individual words with `tidytext::unnest_tokens()`.  If we follow that with `dplyr::count()` we can sum up the unique word instances across the entire data set.
 
@@ -149,7 +148,9 @@ df %>%
   scale_x_log10()
 ```
 
-<img src="text-features-flatten-filter-chunk_files/figure-html/bow-r3-1.png" style="display: block; margin: auto;" />
+<center>
+<img src="/public/images/analytics/feature-engineering/bow-r3-1.png" alt="Turning raw text into a bag of words representation)" width="90%" height="90%" />
+</center>
 
 Often, low count words are obscure words, misspellings, or non-words. If we look closely at these low count words we see that many of them are truly uninformative non-words.   
 
