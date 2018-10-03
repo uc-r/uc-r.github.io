@@ -21,7 +21,7 @@ Welcome to Data Wrangling with R! This course provides an intensive, hands-on in
 * Webpage: [http://uc-r.github.io/data_wrangling](http://uc-r.github.io/data_wrangling)
 * Additional Resources: [http://uc-r.github.io](http://uc-r.github.io/)
 * Hardcopy Syllabus: &nbsp;
-  <a href="https://www.dropbox.com/s/n0iql9tlkmhzjk3/Data%20Wrangling%20with%20R%20Syllabus%20%282018%20Spring%29.pdf?dl=1" target="_blank" style="color:#515151;"><i class="fa fa-cloud-download" style="font-size:1em"></i></a>
+  <a href="https://www.dropbox.com/s/rmehwunbxc4ebyn/Data%20Wrangling%20with%20R%20Syllabus%20%282018%20Fall%29.pdf?dl=1" target="_blank" style="color:#515151;"><i class="fa fa-cloud-download" style="font-size:1em"></i></a>
 
 
 ## Course Objectives
