@@ -34,10 +34,13 @@ Predictive methodologies use knowledge, usually extracted from historical data, 
 - [Moving Averages](ts_moving_averages)
 - [Exponential Smoothing](ts_exp_smoothing)
 
-## Visualization for Model Interpretation
+## Machine Learning Interpretation
 - [Local Interpretable Model-agnostic Explanations (LIME)](lime)
 - [Model Interpretability with DALEX](dalex)
 - [Interpreting Machine Learning Models with the iml Package](iml-pkg)
+
+## Feature Engineering
+- [Creating text features bag-of-words, n-grams, parts-of-speach and more](creating-text-features)
 
 ## Resampling Methods
 - [Resampling Basics](resampling_methods)
