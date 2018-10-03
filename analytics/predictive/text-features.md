@@ -149,7 +149,7 @@ df %>%
 ```
 
 <center>
-<img src="/public/images/analytics/feature-engineering/bow-r3-1.png" alt="Turning raw text into a bag of words representation)" width="90%" height="90%" />
+<img src="/public/images/analytics/feature-engineering/bow-r3-1.png" alt="Turning raw text into a bag of words representation)" width="60%" height="60%" />
 </center>
 
 Often, low count words are obscure words, misspellings, or non-words. If we look closely at these low count words we see that many of them are truly uninformative non-words.   
