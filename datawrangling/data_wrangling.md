@@ -62,21 +62,21 @@ All required classroom material will be provided in class or online. Any recomme
 | **1**         | **Introduction** &nbsp;&nbsp; <a href="http://uc-r.github.io/data_wrangling/week-1" style="color:black;"><i class="fa fa-folder-open" style="font-size:1em"></i></a> |
 |               | Intro to data wrangling, R, and course outline  |
 |               | Managing your workflow and reproducibility |
-| **2**         | **First Date Guidelines for Data** &nbsp;&nbsp; <a href="http://uc-r.github.io/data_wrangling/week-2" style="color:black;"><i class="fa fa-folder-open" style="font-size:1em"></i></a>  |
+| **2**         | **First Date Guidelines for Data**   |
 |               | Importing data  |
 |               | Understanding the basics of your data |
-| **3**         | **Data Structures & Cleaning** &nbsp;&nbsp; <a href="http://uc-r.github.io/data_wrangling/week-3" style="color:black;"><i class="fa fa-folder-open" style="font-size:1em"></i></a>  |
+| **3**         | **Data Structures & Cleaning**   |
 |               | Understanding data structures
 |               | Tidying & preparing data for analysis |
-| **4**         | **Data Transformations**  &nbsp;&nbsp; <a href="http://uc-r.github.io/data_wrangling/week-4" style="color:black;"><i class="fa fa-folder-open" style="font-size:1em"></i></a>  |
+| **4**         | **Data Transformations**   |
 |               | Data manipulation |
 |               | Relational data |
-| **5**         | **Data Visualizations**   &nbsp;&nbsp; <a href="http://uc-r.github.io/data_wrangling/week-5" style="color:black;"><i class="fa fa-folder-open" style="font-size:1em"></i></a>  |
+| **5**         | **Data Visualizations**     |
 |               | Data visualization  |
-| **6**         | **Creating Efficient Code in R**   &nbsp;&nbsp; <a href="http://uc-r.github.io/data_wrangling/week-6" style="color:black;"><i class="fa fa-folder-open" style="font-size:1em"></i></a>    |
+| **6**         | **Creating Efficient Code in R**      |
 |               | Control statements & iteration  |
 |               | Writing functions |
-| **7**         | **Introduction to Applied Modeling**   &nbsp;&nbsp; <a href="http://uc-r.github.io/data_wrangling/week-7" style="color:black;"><i class="fa fa-folder-open" style="font-size:1em"></i></a> |
+| **7**         | **Introduction to Applied Modeling**   |
 |               | Correlation & regression  |
 |               | Introduction to machine learning |
 
