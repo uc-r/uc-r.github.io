@@ -1,7 +1,7 @@
 ---
 layout: tutorial
 title: Creating text features: bag-of-words, n-grams, parts-of-speach and more!
-permalink: /creating-text-features
+permalink: /creating_text_features
 ---
 
 Historically, data has been available to us in the form of numeric (i.e. customer age, income, household size) and categorical features (i.e. region, department, gender). However, as we look for ways to collect various types of information such as unstructured text, images, social media posts, etcetera, we need to understand how to convert this information into structured features to use in data science tasks such as customer segmentation or prediction tasks. In this post, we explore a few fundamental approaches that we can start using to convert unstructured text into structured features. 
