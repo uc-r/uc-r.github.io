@@ -1,10 +1,10 @@
 ---
 layout: tutorial
-title: Creating text features: bag-of-words, n-grams, parts-of-speach and more!
-permalink: /creating_text_features
+title: Creating text features with bag-of-words, n-grams, parts-of-speach and more
+permalink: /creating-text-features
 ---
 
-Historically, data has been available to us in the form of numeric (i.e. customer age, income, household size) and categorical features (i.e. region, department, gender). However, as we look for ways to collect various types of information such as unstructured text, images, social media posts, etcetera, we need to understand how to convert this information into structured features to use in data science tasks such as customer segmentation or prediction tasks. In this post, we explore a few fundamental approaches that we can start using to convert unstructured text into structured features. 
+Historically, data has been available to us in the form of numeric (i.e. customer age, income, household size) and categorical features (i.e. region, department, gender). However, as organizations look for ways to collect various types of information such as unstructured text, images, social media posts, etcetera, we need to understand how to convert this information into structured features to use in data science tasks such as customer segmentation or prediction tasks. In this post, we explore a few fundamental approaches that we can start using to convert unstructured text into structured features. 
 
 ## tl;dr
 
@@ -19,7 +19,7 @@ If you don't have enough time to read through the entire post, the following hit
 
 ## The situation
 
-Assume we have data on individual customer transactions for women's clothing across Kroger. Our task at the moment is to predict whether or not a customer is going to recommend a product.  This task has multiple applications, for example it can
+Assume you work for a retailer and you currently have data on individual customer transactions for women's clothing across. The task at the moment is to predict whether or not a customer is going to recommend a product.  This task has multiple applications, for example it can
 
 - help feed into a recommendation system that suggests certain products to similar customers,
 - be used to predict which coupons we should send to female shoppers,
@@ -51,10 +51,7 @@ Historically, assume we only had structured features such as product name, type,
 
 ## Prerequisites
 
-To demonstrate various approaches in this post we'll use Kaggle's [Women's Clothing E-Commerce data set](https://www.kaggle.com/nicapotato/womens-ecommerce-clothing-reviews). The challenge to you is to start thinking about how similar approaches could be applied to 84.51° data.  
-
-> __NOTE__: Although we demonstrate in R, similar approaches are illustrated in Python in chapter 3 of [Feature Engineering for Machine Learning](https://www.safaribooksonline.com/library/view/feature-engineering-for/9781491953235/ch03.html).
-
+To demonstrate various approaches in this post we'll use Kaggle's [Women's Clothing E-Commerce data set](https://www.kaggle.com/nicapotato/womens-ecommerce-clothing-reviews).   
 
 ```r
 # package required
@@ -126,10 +123,6 @@ To make text features more useful, informative, and to separate the wheat from t
 ### Stop words
 
 One problem that you probably see is that our bag of words vector contains many non-informative words.  Words such as "the", "i", "and", "it" do not provide much context. These are considered stop words. Most of the time we want our text features to identify words that provide context (i.e. dress, love, size, flattering, etc.). Thus, we can remove the stop words from our tibble with `anti_join()` and the built-in __stop_words__ data set provided by the __tidytext__ package.  
-
-> __Note__: Many languages have libraries with built-in stopwords that you can use to remove them.  A common one in Python is [NLTK](https://www.nltk.org/).
-
-
 
 ```r
 df %>%
@@ -593,15 +586,15 @@ ngram_features
 
 So far we have been using raw counts for our text features and primarily did filtering based on frequency.  Alternatively, we can use more robust statistical measures to determine if the observed words in an *n*-gram have a higher likelihood of being used together versus independently of one another.  This can help detect unique phrases that are more likely to be used together versus not (i.e. "witch hunt" is more probable than the use of "witch" or "hunt" independently or with other words).
 
-The log likelihood ratio test for bi-grams tests how much more likely one hypothesis is than than another. More specifically, we are testing how more likely word 2 occurs when word 1 precedes it in a bi-gram.  So basically $H_1$ is the hypothesis that the probability of word 2 occurring when word 1 precedes it is equal to the probability of word 2 occurring when word 1 _does not_ precede it.  Whereas $H_2$ is the hypothesis that these probabilities are not equal.
+The log likelihood ratio test for bi-grams tests how much more likely one hypothesis is than than another. More specifically, we are testing how more likely word 2 occurs when word 1 precedes it in a bi-gram.  So basically $$H_1$$ is the hypothesis that the probability of word 2 occurring when word 1 precedes it is equal to the probability of word 2 occurring when word 1 _does not_ precede it.  Whereas $$H_2$$ is the hypothesis that these probabilities are not equal.
 
-$H_1 = P(w_2 | w_1) = P(w_2 | \neg w_1) \tag{1}$
+$$H_1 = P(w_2 | w_1) = P(w_2 | \neg w_1) \tag{1}$$
 
-$H_2 = P(w_2 | w_1) \neq P(w_2 | \neg w_1) \tag{2}$
+$$H_2 = P(w_2 | w_1) \neq P(w_2 | \neg w_1) \tag{2}$$
 
-To test this we use Equation 3 which takes the log of the likelihood $H_1$ over the likelihood of $H_2$:
+To test this we use Equation 3 which takes the log of the likelihood $$H_1$$ over the likelihood of $$H_2$$:
 
-$\text{log}(\lambda) = \text{log}\bigg(\frac{\text{L}(H_1)}{\text{L}(H_2)} \bigg) \tag{3}$
+$$\text{log}(\lambda) = \text{log}\bigg(\frac{\text{L}(H_1)}{\text{L}(H_2)} \bigg) \tag{3}$$
 
 The steps to compute the likelihood ratio test include:
 
@@ -675,7 +668,7 @@ head(LL_test)
 ## 6 absolutely love        301   614   932 0.0238   0.490  0.0164   0.661
 ```
 
-The nice thing about these log likelihood values, if we multiply them by -2 then they align to the $\chi^2$ distribution.  Consequently, we can now use a p-value of interest to determine a cut-off. The following takes all bi-grams where the log likelihood p-value is less than 0.05.  This provides us with a list of 258 "unique" bi-grams where word 2 is strongly tied to the word that precedes it.  As before we could proceed to create our new text features based on these bi-grams and join them to our original feature set.
+The nice thing about these log likelihood values, if we multiply them by -2 then they align to the $$\chi^2$$ distribution.  Consequently, we can now use a p-value of interest to determine a cut-off. The following takes all bi-grams where the log likelihood p-value is less than 0.05.  This provides us with a list of 258 "unique" bi-grams where word 2 is strongly tied to the word that precedes it.  As before we could proceed to create our new text features based on these bi-grams and join them to our original feature set.
 
 
 ```r
@@ -705,9 +698,6 @@ head(unique_bigrams)
 ## Parts-of-Speech {#pos}
 
 So far we have been creating features from all words regardless of their semantic purpose.  There may be times where we want to use words that have specific purposes such as nouns, verbs, and adjectives.  To get this information from text we need to perform _parts-of-speech (POS) tagging_.  There are a few different packages that can provide POS tagging.  One is __RDRPOSTagger__.  __Note__: __RDRPOSTagger__ is not available on CRAN but can be downloaded from [https://github.com/bnosac/RDRPOSTagger](https://github.com/bnosac/RDRPOSTagger).  This is not recommended on the servers but there are alternative packages on CRAN that can perform the same task (i.e. __qdap__).  This is primarily for illustrative purposes.
-
-> __Note__: Python equivalents include __NLTK__, __spaCy__, and __TextBlob__.
-
 
 ```r
 words <- c("the", "quick", "brown", "fox", "jumps", "over", "the", "lazy", "dog")
@@ -777,8 +767,6 @@ head(bow_pos, 20)
 ## Conclusion
 
 This post was designed to introduce you to different ways that we can extract features from unstructured text.  This is not all inclusive and, in fact, future posts will likely discuss additional methods for extracting text features (i.e. tf-idf, word2vec). What is important to realize is there are many ways we can extract text features to include in our data sets for modeling purposes (both unsupervised and supervised). 
-
-> ___The challenge for you is to start looking for different ways that you could start incorporating unstructured text into your analytic projects.___
 
 To learn more about working with unstructured text check out the following resources:
 
