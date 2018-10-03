@@ -30,22 +30,11 @@ Historically, assume we only had structured features such as product name, type,
 
 
 ```
-##   ID Clothing ID Age
-## 1  0         767  33
-## 2  1        1080  34
-## 3  2        1077  60
-##                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            Review Text
-## 1                                                                                                                                                                                                                                                                                                                                                                                                                                                                Absolutely wonderful - silky and sexy and comfortable
-## 2                                                                                                                                                                                                     Love this dress!  it's sooo pretty.  i happened to find it in a store, and i'm glad i did bc i never would have ordered it online bc it's petite.  i bought a petite and am 5'8"".  i love the length on me- hits just a little below the knee.  would definitely be a true midi on someone who is truly petite.
-## 3 I had such high hopes for this dress and really wanted it to work for me. i initially ordered the petite small (my usual size) but i found this to be outrageously small. so small in fact that i could not zip it up! i reordered it in petite medium, which was just ok. overall, the top half was comfortable and fit nicely, but the bottom half had a very tight under layer and several somewhat cheap (net) over layers. imo, a major design flaw was the net over layer sewn directly into the zipper - it c
-##   Rating Recommended IND Positive Feedback Count Division Name
-## 1      4               1                       0     Initmates
-## 2      5               1                       4       General
-## 3      3               0                       0       General
-##   Department Name Class Name
-## 1        Intimate  Intimates
-## 2         Dresses    Dresses
-## 3         Dresses    Dresses
+[1] "Absolutely wonderful - silky and sexy and comfortable"                                                               
+[2] "Love this dress!  it's sooo pretty.  i happened to find it in a store, and i'm glad i did bc i never would have ordered it online bc it's petite.  i bought a petite and am 5'8\"\".  i love the length on me- hits just a little below the knee.  would definitely be a true midi on someone who is truly petite."       
+[3] "I had such high hopes for this dress and really wanted it to work for me. i initially ordered the petite small (my usual size) but i found this to be outrageously small. so small in fact that i could not zip it up! i reordered it in petite medium, which was just ok. overall, the top half was comfortable and fit nicely, but the bottom half had a very tight under layer and several somewhat cheap (net) over layers. imo, a major design flaw was the net over layer sewn directly into the zipper - it c"
+[4] "I love, love, love this jumpsuit. it's fun, flirty, and fabulous! every time i wear it, i get nothing but great compliments!"                
+[5] "This shirt is very flattering to all due to the adjustable front tie. it is the perfect length to wear with leggings and it is sleeveless so it pairs well with any cardigan. love this shirt!!!"
 ```
 
 
