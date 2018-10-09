@@ -1,6 +1,6 @@
 ---
 layout: tutorial
-title: Week 4 (March 25-31)
+title: Week 4 (November 5-11)
 permalink: data_wrangling/week-4
 ---
 
@@ -17,7 +17,7 @@ This module covers these basic capabilities by teaching you how to use the `dply
 Although many fundamental data manipulation functions exist in R, they have been a bit convoluted to date and have lacked consistent coding and the ability to easily flow together. dplyr is one such package which was built for the sole purpose of simplifying the process of manipulating, sorting, summarizing, and joining data frames. 
 
 - Read and work through [Chapter 5: Data Transformation](http://r4ds.had.co.nz/transform.html) in R for Data Science.
-- Now that you've learned the basics, complete the [Data Manipulation in R with dplyr](https://www.datacamp.com/groups/data-wrangling-with-r-spring-2018/assignments/18858) DataCamp assignment to hone your skills.
+- Now that you've learned the basics, complete the [Data Manipulation in R with dplyr](https://www.datacamp.com/enterprise/data-wrangling-with-r-0d290e96-8f6c-471a-be41-ebab2603699b/assignments/34435) DataCamp assignment to hone your skills.
 
 <hr>
 
@@ -25,14 +25,14 @@ Although many fundamental data manipulation functions exist in R, they have been
 It’s rare that a data analysis involves only a single data set. Typically you have many sets of data and you need to join them to perform your analysis and answer the questions that you’re interested in. This module will teach you to work with relational data sets.
 
 - Read and work through [Chapter 13: Relational Data](http://r4ds.had.co.nz/relational-data.html) in R for Data Science.
-- Now that you've learned the basics, complete the [Joining Data in R with dplyr](https://www.datacamp.com/groups/data-wrangling-with-r-spring-2018/assignments/18859) DataCamp assignment to hone your skills.
+- Now that you've learned the basics, complete the [Joining Data in R with dplyr](https://www.datacamp.com/enterprise/data-wrangling-with-r-0d290e96-8f6c-471a-be41-ebab2603699b/assignments/34437) DataCamp assignment to hone your skills.
 
    
 <hr>   
 
 ## Class
 
-Please download this material for Saturday's: &nbsp; <a href="https://www.dropbox.com/sh/kksvnl5pfvh8g5y/AAB3gsok1t4ebY-2GcKJi5b8a?dl=1" style="color:black;"><i class="fa fa-cloud-download" style="font-size:1em"></i></a>
+Please download this material for Saturday's class: &nbsp; <a href="https://www.dropbox.com/sh/kksvnl5pfvh8g5y/AAB3gsok1t4ebY-2GcKJi5b8a?dl=1" style="color:black;"><i class="fa fa-cloud-download" style="font-size:1em"></i></a>
 
 In addition, be sure to have identified which data you are going to use for your final project.  Be sure to have access to this data because you will work on it during class.  Furthermore, identify at least 10 specific questions you want to ask of your project data. Using what you learned this week, what type of data transformations do you need to make to help answer these questions? Be ready to use dplyr to answer these questions in class.
 
