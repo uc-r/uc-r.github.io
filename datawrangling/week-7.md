@@ -1,6 +1,6 @@
 ---
 layout: tutorial
-title: Week 7 (April 15-21)
+title: Week 7 (December 3-9)
 permalink: data_wrangling/week-7
 ---
 
