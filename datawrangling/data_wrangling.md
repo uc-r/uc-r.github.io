@@ -65,7 +65,7 @@ All required classroom material will be provided in class or online. Any recomme
 | **2**         | **First Date Guidelines for Data** &nbsp;&nbsp; <a href="http://uc-r.github.io/data_wrangling/week-2" style="color:black;"><i class="fa fa-folder-open" style="font-size:1em"></i></a>  |
 |               | Importing data  |
 |               | Understanding the basics of your data |
-| **3**         | **Data Structures & Cleaning**   |
+| **3**         | **Data Structures & Cleaning** &nbsp;&nbsp; <a href="http://uc-r.github.io/data_wrangling/week-3" style="color:black;"><i class="fa fa-folder-open" style="font-size:1em"></i></a>  |
 |               | Understanding data structures
 |               | Tidying & preparing data for analysis |
 | **4**         | **Data Transformations**   |
