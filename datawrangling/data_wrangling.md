@@ -68,7 +68,7 @@ All required classroom material will be provided in class or online. Any recomme
 | **3**         | **Data Structures & Cleaning** &nbsp;&nbsp; <a href="http://uc-r.github.io/data_wrangling/week-3" style="color:black;"><i class="fa fa-folder-open" style="font-size:1em"></i></a>  |
 |               | Understanding data structures
 |               | Tidying & preparing data for analysis |
-| **4**         | **Data Transformations**   |
+| **4**         | **Data Transformations** &nbsp;&nbsp; <a href="http://uc-r.github.io/data_wrangling/week-5" style="color:black;"><i class="fa fa-folder-open" style="font-size:1em"></i></a> |
 |               | Data manipulation |
 |               | Relational data |
 | **5**         | **Data Visualizations**     |
