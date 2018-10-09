@@ -1,6 +1,6 @@
 ---
 layout: tutorial
-title: Week 3 (March 18-24)
+title: Week 3 (October 29-November 4)
 permalink: data_wrangling/week-3
 ---
 
@@ -27,8 +27,8 @@ R’s basic data structures can be organized by their dimensionality (1d, 2d, or
 
 Now that you've gone through some initial tutorials, complete the following DataCamp assignments:
 
-- [Vectors](https://www.datacamp.com/groups/data-wrangling-with-r-spring-2018/assignments/18857) & [Factors](https://www.datacamp.com/groups/data-wrangling-with-r-spring-2018/assignments/18855) (factors are just categorical vectors and this assignment helps you learn a little more about these particular data types).
-- [Data frames](https://www.datacamp.com/groups/data-wrangling-with-r-spring-2018/assignments/18854)
+- [Vectors](https://www.datacamp.com/enterprise/data-wrangling-with-r-0d290e96-8f6c-471a-be41-ebab2603699b/assignments/34427) & [Factors](https://www.datacamp.com/enterprise/data-wrangling-with-r-0d290e96-8f6c-471a-be41-ebab2603699b/assignments/34428) (factors are just categorical vectors and this assignment helps you learn a little more about these particular data types).
+- [Data frames](https://www.datacamp.com/enterprise/data-wrangling-with-r-0d290e96-8f6c-471a-be41-ebab2603699b/assignments/34429)
 
 <hr>
 
@@ -40,8 +40,8 @@ You will work with vectors and data frames on a daily basis.  However, two addit
 
 Now that you've gone through some initial tutorials, complete the following DataCamp assignments:
 
-- [Matrices](https://www.datacamp.com/groups/data-wrangling-with-r-spring-2018/assignments/18856)
-- [Lists](https://www.datacamp.com/groups/data-wrangling-with-r-spring-2018/assignments/18853)
+- [Matrices](https://www.datacamp.com/enterprise/data-wrangling-with-r-0d290e96-8f6c-471a-be41-ebab2603699b/assignments/34430)
+- [Lists](https://www.datacamp.com/enterprise/data-wrangling-with-r-0d290e96-8f6c-471a-be41-ebab2603699b/assignments/34426)
    
 <hr>   
 
@@ -50,12 +50,12 @@ Now that you've gone through some initial tutorials, complete the following Data
 
 Now that you have imported your data and you understand the basics of managing your data structure, the next thing you probably want to do is jump into exploratory data analysis.  However, prior to that it is important to make sure your data frame is properly prepared for analysis.  This may require you to do some basic cleaning and ensure your data is in a "tidy" format.  Read and work through [Chapter 12: Tidy Data](http://r4ds.had.co.nz/tidy-data.html) in R for Data Science to learn how to organize your data the "tidy" way.
 
-Now that you've gone through some initial tutorials, complete the [Cleaning data in R](https://www.datacamp.com/groups/data-wrangling-with-r-spring-2018/assignments/18852) DataCamp assignment.
+Now that you've gone through some initial tutorials, complete the [Cleaning data in R](https://www.datacamp.com/enterprise/data-wrangling-with-r-0d290e96-8f6c-471a-be41-ebab2603699b/assignments/34432) DataCamp assignment.
 
 <hr>
 
 ## Class
 
-Please download this material for Saturday's: &nbsp; <a href="https://www.dropbox.com/sh/vcaeoxg6vu65e6l/AAAZryPxONaNqwpBE0ctuxb5a?dl=1" style="color:black;"><i class="fa fa-cloud-download" style="font-size:1em"></i></a>
+Please download this material for Saturday's class: &nbsp; <a href="https://www.dropbox.com/sh/vcaeoxg6vu65e6l/AAAZryPxONaNqwpBE0ctuxb5a?dl=1" style="color:black;"><i class="fa fa-cloud-download" style="font-size:1em"></i></a>
 
 See you in class on Saturday!
