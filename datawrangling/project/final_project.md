@@ -127,7 +127,7 @@ You will write an [R Markdown](http://wfu-r.github.io/r_markdown) HTML report th
 <p>
   <em>Total possible points: 50</em> 
   <br>
-  <em>Due no later than: Sunday, April 22, 11:59PM ET</em>
+  <em>Due no later than: Sunday, December 9, 11:59PM ET</em>
 </p>
 </div>
 
