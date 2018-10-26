@@ -1,7 +1,7 @@
 ---
 layout: tutorial
 title: Final Project
-permalink: /data_wrangling/final-project
+permalink: /data_wrangling/final-project-old
 ---
 
 
