@@ -18,34 +18,31 @@ The course is structured in a way that allows you to work on your project as you
 
 ### Project Goal
 
-The principal goal of this project is to import an existing data set on the web, clean and tidy the data, and perform basic exploratory data analysis; all while using R Markdown to produce an HTML report that is fully reproducible. 
+The principal goal of this project is to import a real life data set, clean and tidy the data, and perform basic exploratory data analysis; all while using R Markdown to produce an HTML report that is fully reproducible. 
 
 ### Project Data
 
-You will need to identify a data set that is freely available online. I have supplied several options below; however, you are free to choose a data set outside of these.  You will need to get your data set approved by me by. Considering this is a data wrangling class I do expect your data set to have certain qualities so that your analysis illustrates your knowledge of data wrangling.  The following are some data attributes that I will look for (but your data does not need to contain *all* of these attributes, just some):
+You will need to select one data set from the three that I have supplied below.  All three data sets contain key attributes that will demonstrate the data science capabilities that you have learned throughout this couse.  You may even need to learn new skills not taught to accomplish your mission.  These include working with:
 
 - multiple data types (numerics, characters, dates, etc)
 - non-normalized characteristics (may contain punctuations, upper and lowercase letters, etc)
-- variables that need to be separated or joined
-- two or more data sets that need to be merged
-- wide or long format where you need to re-shape the data
+- data sets that need to be merged
+- unclean data (missing values, values that do not align to the data dictionary)
 - variables that need to be created (i.e. the data may contain income and expense variables but you want to analyze savings such that you need to create a savings variable out of the income and expense variables)
-- data needs to be filtered out
+- data that needs to be filtered out
+- and much more!
 
-Potential data sets include:
+Available data sets include:
 
-- [GDP by industry](http://www.bea.gov/iTable/iTable.cfm?ReqID=51&step=1#reqid=51&step=51&isuri=1&5114=q&5102=1)
-- [Direct investments by country and industry](http://www.bea.gov/iTable/iTable.cfm?ReqID=2&step=1#reqid=2&step=10&isuri=1&202=1&203=30&204=1&205=1&200=1&201=1&207=30,31,32,33,34,35,36,37,38,39,40,41,42,43,48,49,52&208=1&209=1)
-- [American Community Survey data sets](https://www.census.gov/acs/www/data/data-tables-and-tools/data-profiles/2014/)
-- [Bureau of Labor Statistics data sets](http://www.bls.gov/data/)
-- [Cincinnati police crime incident data](https://data.cincinnati-oh.gov/Safer-Streets/Police-Crime-Incident-Data/w7vh-beui)
-- [City of Cincinnati vendor payments](https://data.cincinnati-oh.gov/Growing-Economy/City-of-Cincinnati-Vendor-Payments/qrj9-83t8)
-- [City of Cincinnati salary schedule](https://data.cincinnati-oh.gov/Innovative-Government/City-of-Cincinnati-Salary-Schedule/yaws-h72m)
-- [Kaggle](https://www.kaggle.com/datasets) data sets (lots to choose from!)
+You can choose from one of the following data sets.  All three represent customer transactions for a major retailer.
+
+- [Carbo-loading data](https://www.dropbox.com/sh/591v3xk6xn799vn/AADy_n-qROUJWBSPEtP-PSqSa?dl=1)
+- [Complete Journey customer transactions (without marketing campaigns)](https://www.dropbox.com/sh/xzat5mcqy9dt791/AAC8w9Ep0IWpaNze0XHY258Xa?dl=1)
+- [Complete Journey customer transactions (with marketing campaigns)](https://www.dropbox.com/sh/7g8npy9k51dhtjm/AACOwFfvFSjw26fWNDZmaSS1a?dl=1)
 
 ### Project Report
 
-You will write an [R Markdown](http://wfu-r.github.io/r_markdown) HTML report that provides the following sections:
+You will write an [R Markdown](http://wfu-r.github.io/r_markdown) HTML report that provides the sections in the grading rubric below.  You will need to assess the data, come up with your own research questions that you would like to answer from the data (i.e. Do specific marketing campaigns influence customer purchasing behavior? Have certain products experienced an increase or decrease in consumption over time?  Do certain products seem to be purchased together more often than others (complimentary products)?  Can we predict how much a customer is going to spend based on their attributes?).  
 
 <div id="final-project-rubric" class="section level1" style="width: 120%;">
 <table style="font-size:13px;">
