@@ -42,7 +42,14 @@ You can choose from one of the following data sets.  All three represent custome
 
 ### Project Report
 
-You will write an [R Markdown](http://wfu-r.github.io/r_markdown) HTML report that provides the sections in the grading rubric below.  You will need to assess the data, come up with your own research questions that you would like to answer from the data (i.e. Do specific marketing campaigns influence customer purchasing behavior? Have certain products experienced an increase or decrease in consumption over time?  Do certain products seem to be purchased together more often than others (complimentary products)?  Can we predict how much a customer is going to spend based on their attributes?).  
+You will write an [R Markdown](http://wfu-r.github.io/r_markdown) HTML report that provides the sections in the grading rubric below.  You will need to import, assess, clean & tidy the data, and then come up with your own research questions that you would like to answer from the data by performing exploratory data analysis (if you'd like to perform a predictive model to answer your hypothesis that is fine but it is not required.  Some questions you may want to ask include: 
+
+- Do specific marketing campaigns influence customer purchasing behavior? 
+- Have certain products experienced an increase or decrease in consumption over time?  
+- Do certain products seem to be purchased together more often than others (complimentary products)?  
+- Can we predict how much a customer is going to spend based on their attributes?
+
+Although each data sets data dictionary contains some additiona questions worth pursuing, try to be creative in your analysis and investigate the data in a way that your classmates most likely will not.  Creativity is an essential ingredient for a good data scientist!
 
 <div id="final-project-rubric" class="section level1" style="width: 120%;">
 <table style="font-size:13px;">
