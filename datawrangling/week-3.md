@@ -1,6 +1,6 @@
 ---
 layout: tutorial
-title: Week 3 (March 30, 2019)
+title: Week 3 (March 24-30)
 permalink: data_wrangling/week-3
 ---
 
