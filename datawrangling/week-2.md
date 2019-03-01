@@ -1,6 +1,6 @@
 ---
 layout: tutorial
-title: Week 2 (March 16, 2019)
+title: Week 2 (March 10-16)
 permalink: data_wrangling/week-2
 ---
 
