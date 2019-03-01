@@ -1,6 +1,6 @@
 ---
 layout: tutorial
-title: Week 6 (November 26-December 2)
+title: Week 6 (April 14-20)
 permalink: data_wrangling/week-6
 ---
 
@@ -22,8 +22,8 @@ The following tutorials will provide you the knowledge and skills required to st
 2. **Iteration:**  Another tool for reducing duplication is <u>iteration</u>, which helps you when you need to do the same thing to multiple inputs: repeating the same operation on different columns, or on different datasets. Read [Chapter 21: Iteration](http://r4ds.had.co.nz/iteration.html) to learn how to perform iteration programming.
 
 3. **DataCamp:**  Once you've read through these chapters, test your skills with the following DataCamp assignments:
-    - [Intermediate R](https://www.datacamp.com/enterprise/data-wrangling-with-r-0d290e96-8f6c-471a-be41-ebab2603699b/assignments/34441)
-    - [Writing Functions in R](https://www.datacamp.com/enterprise/data-wrangling-with-r-0d290e96-8f6c-471a-be41-ebab2603699b/assignments/34442)
+    - [Intermediate R](https://www.datacamp.com/enterprise/data-wrangling-5be74dc1-c06b-492c-a43e-10aa35bc87ec/assignments/45619)
+    - [Writing Functions in R](https://www.datacamp.com/enterprise/data-wrangling-5be74dc1-c06b-492c-a43e-10aa35bc87ec/assignments/45620)
 
 <hr>   
 
