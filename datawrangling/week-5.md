@@ -14,9 +14,9 @@ The following tutorials will provide you the knowledge and skills required to cr
     - Now that you've learned the basics, complete the [Data Visualization with ggplot2 (Part 1)](https://www.datacamp.com/enterprise/data-wrangling-5be74dc1-c06b-492c-a43e-10aa35bc87ec/assignments/45617) and the [Data Visualization with ggplot2 (Part 2)](https://www.datacamp.com/enterprise/data-wrangling-5be74dc1-c06b-492c-a43e-10aa35bc87ec/assignments/45618) DataCamp assignments to hone your skills.
 
 2. __Advancing your visualizations:__ In your final project I will be looking for publication worthy visualizations. Thus, I fully expect your visualizations to improve with each deliverable submitted. Therefore it is essential that you learn how to use some of the more advanced features of `ggplot2` and other packages to properly communicate your visual findings.  Here are some resources to help you take your visualizations to the next level:  
-    - Work through the [Visual Data Exploration tutorial](gda).
+    - Work through the [Visual Data Exploration tutorial](http://uc-r.github.io/gda).
     - Reading and working through [Chapter 28: Graphics for Communication](http://r4ds.had.co.nz/graphics-for-communication.html) in R for Data Science.
-    - Review some of the currently available [advanced plotting tutorials](ggplot).
+    - Review some of the currently available [advanced plotting tutorials](http://uc-r.github.io/ggplot).
     - Although not required, you can further hone you advanced visualization skills with the [Data Visualization with ggplot2 (Part 3)](https://www.datacamp.com/courses/data-visualization-with-ggplot2-part-3) DataCamp module, which covers statistical, network, and mapping plots along with some of the internal functioning of `ggplot2`.
    
 <hr>   
