@@ -131,7 +131,7 @@ Although each data sets data dictionary contains some additiona questions worth 
 <p>
   <em>Total possible points: 50</em> 
   <br>
-  <em>Due no later than: Sunday, December 9, 11:59PM ET</em>
+  <em>Due no later than: Sunday, April 28, 2019, 11:59PM ET</em>
 </p>
 </div>
 
