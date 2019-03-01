@@ -10,18 +10,16 @@ Welcome to Data Wrangling with R! This course provides an intensive, hands-on in
 
 ## Class Information
 
-* Instructor: [Justin Jodrey](http://bradleyboehmke.github.io/) &nbsp; 
-  <a href="mailto:boehmkbc@ucmail.uc.edu" target="_blank" style="color:#515151;"><i class="fa fa-envelope" style="font-size:1em"></i></a> &nbsp;
-  <a href="https://twitter.com/bradleyboehmke" target="_blank" style="color:#515151;"><i class="fa fa-twitter"></i></a> &nbsp;
-  <a href="https://github.com/bradleyboehmke" target="_blank" style="color:#515151;"><i class="fa fa-github" style="font-size:1em"></i></a> &nbsp;
-  <a href="https://www.linkedin.com/in/brad-boehmke-ph-d-9b0a257" target="_blank" style="color:#515151;"><i class="fa fa-linkedin" style="font-size:1em"></i></a>
+* Instructor: Justin Jodrey &nbsp; 
+  <a href="mailto:jodreyjt@ucmail.uc.edu" target="_blank" style="color:#515151;"><i class="fa fa-envelope" style="font-size:1em"></i></a> &nbsp;
+  <a href="https://www.linkedin.com/in/justin-jodrey" target="_blank" style="color:#515151;"><i class="fa fa-linkedin" style="font-size:1em"></i></a>
 * Day(s): Saturdays
 * Time: 1:00-4:50
 * Location: Lindner 110
 * Webpage: [http://uc-r.github.io/data_wrangling](http://uc-r.github.io/data_wrangling)
 * Additional Resources: [http://uc-r.github.io](http://uc-r.github.io/)
 * Hardcopy Syllabus: &nbsp;
-  <a href="https://www.dropbox.com/s/rmehwunbxc4ebyn/Data%20Wrangling%20with%20R%20Syllabus%20%282018%20Fall%29.pdf?dl=1" target="_blank" style="color:#515151;"><i class="fa fa-cloud-download" style="font-size:1em"></i></a>
+  <a href="https://www.dropbox.com/s/vx7fyufyerr4ljx/Data%20Wrangling%20with%20R%20Syllabus%20%282019%20Spring%29.pdf?dl=0" target="_blank" style="color:#515151;"><i class="fa fa-cloud-download" style="font-size:1em"></i></a>
 
 
 ## Course Objectives
@@ -109,7 +107,7 @@ Final grades will be distributed according to the following cutoffs:
 We will use this software during the course. Plan on bringing a computer to each class meeting.
 
 * [R](https://cran.r-project.org/) and [RStudio](https://www.rstudio.com/) will be used to perform all programming activities, assignments, and the final project.  You can find details on how to download these [here](http://uc-r.github.io/basics#installation).
-* [Slack](https://slack.com/) will replace e-mail and Blackboard for our course. You will receive an invitation to the [UC Data Wrangling slack team](data-wrangling-with-r.slack.com). You may wish to install one of the [apps](https://slack.com/downloads/osx). Here is an [introduction to Slack](https://vimeo.com/133692325) from one of Kris Shaffer’s courses (although this is a completely different course and slack team it provides a nice introduction that you might find useful).
+* [Slack](https://slack.com/) will replace e-mail and Blackboard for our course. You will receive an invitation to the [UC Data Wrangling slack team](https://uc-data-wrangling.slack.com). You may wish to install one of the [apps](https://slack.com/downloads/osx). Here is an [introduction to Slack](https://vimeo.com/133692325) from one of Kris Shaffer’s courses (although this is a completely different course and slack team it provides a nice introduction that you might find useful).
 
 
 
