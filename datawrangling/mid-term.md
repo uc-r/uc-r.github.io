@@ -64,7 +64,7 @@ Throughout the term you will progressively create your final project.  You will 
 <tr class="odd">
 <td align="left" valign="top">Formatting & Other Requirements </td>
 <td align="left" valign="top"> 
-  <b>7.1</b> All code is visible, proper coding style is followed, and code is well commented (see section regarding <a href="http://uc-r.github.io/basics#style">syle</a>). <br>
+  <b>7.1</b> All code is visible, proper coding style is followed, and code is well commented (see section regarding <a href="http://uc-r.github.io/basics#style">style</a>). <br>
   <b>7.2</b> Coding is systematic - complicated problem broken down into sub-problems that are individually much simpler. Code is efficient, correct, and minimal. Code uses appropriate data structure (list, data frame, vector/matrix/array). Code checks for common errors. <br>
   <b>7.3</b> Achievement, mastery, cleverness, creativity:  Tools and techniques from the course are applied very competently and, perhaps,somewhat creatively. Perhaps student has gone beyond what was expected and required, e.g., extraordinary effort, additional tools not addressed by this course, unusually sophisticated application of tools from course. <br>
   <b>7.4</b> .Rmd fully executes without any errors and HTML produced matches the HTML report submitted by student.
@@ -76,6 +76,6 @@ Throughout the term you will progressively create your final project.  You will 
 <p>
   <em>Total possible points: 40</em>
   <br>
-  <em>Due no later than: Saturday, November 10, 4:50PM ET</em>
+  <em>Due no later than: Saturday, April 6, 2019, 4:50PM ET</em>
 </p>
 </div>
