@@ -17,7 +17,7 @@ The following tutorials will provide you the knowledge and skills required to cr
     - Work through the [Visual Data Exploration tutorial](http://uc-r.github.io/gda).
     - Reading and working through [Chapter 28: Graphics for Communication](http://r4ds.had.co.nz/graphics-for-communication.html) in R for Data Science.
     - Review some of the currently available [advanced plotting tutorials](http://uc-r.github.io/ggplot).
-    - Although not required, you can further hone you advanced visualization skills with the [Data Visualization with ggplot2 (Part 3)](https://www.datacamp.com/courses/data-visualization-with-ggplot2-part-3) DataCamp module, which covers statistical, network, and mapping plots along with some of the internal functioning of `ggplot2`.
+    - Although not required, you can further hone your advanced visualization skills with the [Data Visualization with ggplot2 (Part 3)](https://www.datacamp.com/courses/data-visualization-with-ggplot2-part-3) DataCamp module, which covers statistical, network, and mapping plots along with some of the internal functioning of `ggplot2`.
    
 <hr>   
 
