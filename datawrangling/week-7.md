@@ -1,6 +1,6 @@
 ---
 layout: tutorial
-title: Week 7 (December 3-9)
+title: Week 7 (April 21-27)
 permalink: data_wrangling/week-7
 ---
 
@@ -12,9 +12,9 @@ The following tutorials will provide you the knowledge and skills required to st
 
 1. **Model Basics & Model Building:** Start learning how models work mechanistically and using them to identify and pull out patterns in your data. 
     - Read [Chapters 22-24](http://r4ds.had.co.nz/model-intro.html) in R for Data Science.
-    - Start practicing applying correlation and linear regression models with the [Correlation and Regression]( https://www.datacamp.com/enterprise/data-wrangling-with-r-0d290e96-8f6c-471a-be41-ebab2603699b/assignments/34443) DataCamp assignment.
+    - Start practicing applying correlation and linear regression models with the [Correlation and Regression]( https://www.datacamp.com/enterprise/data-wrangling-5be74dc1-c06b-492c-a43e-10aa35bc87ec/assignments/45621) DataCamp assignment.
 
-2. **Machine Learning Toolbox:**  Every analyst should have a basic understanding of a few key analytic techniques.  This includes cluster analysis, decision trees, k-nearest neighbors, simple and multivariate regression.  By working through the [Machine Learning Toolbox](https://www.datacamp.com/enterprise/data-wrangling-with-r-0d290e96-8f6c-471a-be41-ebab2603699b/assignments/34444) DataCamp assignment, you will learn how to apply, interpret, and assess the accuracy of these analytic techniques.
+2. **Machine Learning Toolbox:**  Every analyst should have a basic understanding of a few key analytic techniques.  This includes cluster analysis, decision trees, k-nearest neighbors, simple and multivariate regression.  By working through the [Machine Learning Toolbox](https://www.datacamp.com/enterprise/data-wrangling-5be74dc1-c06b-492c-a43e-10aa35bc87ec/assignments/45714) DataCamp assignment, you will learn how to apply, interpret, and assess the accuracy of these analytic techniques.
 
 
 <hr>
