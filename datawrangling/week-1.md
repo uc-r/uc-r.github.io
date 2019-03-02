@@ -50,7 +50,7 @@ Next, start learning how to organize your workflow with R Projects and how to cr
 
 ## Class
 
-Please download this material for Saturday's class: &nbsp; <a href="https://www.dropbox.com/sh/rffjjyaveexk2uu/AAATgRZ1ecjZ6Y__09Gd60uta?dl=1" style="color:black;"><i class="fa fa-cloud-download" style="font-size:1em"></i></a>
+Please download this material for Saturday's class: &nbsp; <a href="https://www.dropbox.com/sh/lvlj9v2c28j7lfi/AAAdTzxVpneD1fMsVlW42oMoa?dl=1" style="color:black;"><i class="fa fa-cloud-download" style="font-size:1em"></i></a>
 
 See you in class on Saturday!
 
