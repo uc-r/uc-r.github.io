@@ -26,7 +26,6 @@ First, get yourself (re-)introduced to R and the RStudio IDE by reading and comp
 
 ### Assignments
 
-- Open this [Google Sheet](https://docs.google.com/spreadsheets/d/1rVSQH_Bv1tBKe4r23QvrJPQ7iORwAdhveRZ116ZOw5A/edit?usp=sharing) to rate yourself as soon as possible (positive integers only!) from 1 to 4, where 1 is the worst and 4 is the best, on your current experience and knowledge in R.  1 means you have never opened R before, 2 means you have used R a little bit but have a lot to learn, 3 means you are comfortable using R and can help others somewhat easily, 4 means you are comfortable leading others using R and consider yourself an expert.
 - Complete the [Intro to basics](https://www.datacamp.com/enterprise/data-wrangling-5be74dc1-c06b-492c-a43e-10aa35bc87ec/assignments/45603) DataCamp assignment.
 - Complete the [Working with the RStudio IDE (Part 1)](https://www.datacamp.com/enterprise/data-wrangling-5be74dc1-c06b-492c-a43e-10aa35bc87ec/assignments/45605) DataCamp assignment.  (FYI you will not complete a Part 2, just Part 1.)
 
