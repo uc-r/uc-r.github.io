@@ -17,7 +17,7 @@ This module covers these basic capabilities by teaching you how to use the `dply
 Although many fundamental data manipulation functions exist in R, they have been a bit convoluted to date and have lacked consistent coding and the ability to easily flow together. dplyr is one such package which was built for the sole purpose of simplifying the process of manipulating, sorting, summarizing, and joining data frames. 
 
 - Read and work through [Chapter 5: Data Transformation](http://r4ds.had.co.nz/transform.html) in R for Data Science.
-- Now that you've learned the basics, complete the [Data Manipulation in R with dplyr](https://www.datacamp.com/enterprise/data-wrangling-5be74dc1-c06b-492c-a43e-10aa35bc87ec/assignments/45615) DataCamp assignment to hone your skills.
+- Now that you've learned the basics, complete the [Data Manipulation in R with dplyr](https://www.datacamp.com/enterprise/data-wrangling-3778d473-69e7-4941-97df-1bec3ca5ed7c/assignments/46410) DataCamp assignment to hone your skills.
 
 <hr>
 
@@ -25,7 +25,7 @@ Although many fundamental data manipulation functions exist in R, they have been
 It’s rare that a data analysis involves only a single data set. Typically you have many sets of data and you need to join them to perform your analysis and answer the questions that you’re interested in. This module will teach you to work with relational data sets.
 
 - Read and work through [Chapter 13: Relational Data](http://r4ds.had.co.nz/relational-data.html) in R for Data Science.
-- Now that you've learned the basics, complete the [Joining Data in R with dplyr](https://www.datacamp.com/enterprise/data-wrangling-5be74dc1-c06b-492c-a43e-10aa35bc87ec/assignments/45616) DataCamp assignment to hone your skills.
+- Now that you've learned the basics, complete the [Joining Data in R with dplyr](https://www.datacamp.com/enterprise/data-wrangling-3778d473-69e7-4941-97df-1bec3ca5ed7c/assignments/46411) DataCamp assignment to hone your skills.
 
    
 <hr>   
