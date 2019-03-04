@@ -42,13 +42,13 @@ Now that you know how to get data into R, learn the process of getting a basic u
 
 ### 3. DataCamp Assignment 
 
-Now that you've gone through some initial tutorials, complete the [Importing Data into R: Part 1](https://www.datacamp.com/enterprise/data-wrangling-5be74dc1-c06b-492c-a43e-10aa35bc87ec/assignments/45607) DataCamp assignment.
+Now that you've gone through some initial tutorials, complete the [Importing Data into R: Part 1](https://www.datacamp.com/enterprise/data-wrangling-3778d473-69e7-4941-97df-1bec3ca5ed7c/assignments/46402) DataCamp assignment.
 
 <hr>
 
 ### 4. Advanced
 
-Now that you have the basics down, work through the [Importing Data into R: Part 2](https://www.datacamp.com/enterprise/data-wrangling-5be74dc1-c06b-492c-a43e-10aa35bc87ec/assignments/45608) DataCamp assignment. This will take a deeper dive into the wide range of data formats out there. More specifically, you'll learn how to import data from relational databases and how to import and work with data coming from the web. Finally, you'll get hands-on experience with importing data from statistical software packages such SAS, STATA and SPSS. 
+Now that you have the basics down, work through the [Importing Data into R: Part 2](https://www.datacamp.com/enterprise/data-wrangling-3778d473-69e7-4941-97df-1bec3ca5ed7c/assignments/46403) DataCamp assignment. This will take a deeper dive into the wide range of data formats out there. More specifically, you'll learn how to import data from relational databases and how to import and work with data coming from the web. Finally, you'll get hands-on experience with importing data from statistical software packages such SAS, STATA and SPSS. 
 
 You may feel overwhelmed with this material but that is okay.  This advanced material is meant to give you exposure to the many data importing options available in R.  If this was not overwhelming and you are still looking for more to learn prior to Saturday, then dig into this [web scraping tutorial](http://uc-r.github.io/scraping).
 
