@@ -22,7 +22,7 @@ The principal goal of this project is to import a real life data set, clean and 
 
 ### Project Data
 
-You will need to select one data set from the three that I have supplied below.  All three data sets contain key attributes that will demonstrate the data science capabilities that you have learned throughout this couse.  You may even need to learn new skills not taught to accomplish your mission.  These include working with:
+You will need to select one data set from the four that I have supplied below.  All four data sets contain key attributes that will demonstrate the data science capabilities that you have learned throughout this couse.  You may even need to learn new skills not taught to accomplish your mission.  These include working with:
 
 - multiple data types (numerics, characters, dates, etc)
 - non-normalized characteristics (may contain punctuations, upper and lowercase letters, etc)
@@ -34,22 +34,32 @@ You will need to select one data set from the three that I have supplied below. 
 
 Available data sets include:
 
-You can choose from one of the following data sets.  All three represent customer transactions for a major retailer.
+You can choose from one of the following four data sets.  Each dataset has its own challenges and strengths.
 
-- [Carbo-loading data](https://www.dropbox.com/sh/591v3xk6xn799vn/AADy_n-qROUJWBSPEtP-PSqSa?dl=1)
-- [Complete Journey customer transactions (without marketing campaigns)](https://www.dropbox.com/sh/xzat5mcqy9dt791/AAC8w9Ep0IWpaNze0XHY258Xa?dl=1)
-- [Complete Journey customer transactions (with marketing campaigns)](https://www.dropbox.com/sh/7g8npy9k51dhtjm/AACOwFfvFSjw26fWNDZmaSS1a?dl=1)
+- [City of Cincinnati Crime Data](https://www.dropbox.com/s/cpya6okvbopi81y/city_of_cincinnati_police_data_initiative_crime_incidents.csv?dl=1)
+  * Information about the data can be found [here](https://data.cincinnati-oh.gov/Safer-Streets/PDI-Police-Data-Initiative-Crime-Incidents/k59e-2pvf)
+  * Data downloaded on March 8, 2019
+  * You may need to perform some research or contact the City of Cincinnati for definitions/explanations of certain fields.
+- [Tidy Tuesday Dairy Data](https://www.dropbox.com/s/x7vloqd578kro9d/tidy_tuesday_dairy.zip?dl=1)
+  * Information about the data can be found [here](https://github.com/rfordatascience/tidytuesday/tree/master/data/2019/2019-01-29)
+  * [More information](https://github.com/rfordatascience/tidytuesday) on the weekly #TidyTuesday event
+- [ACS 2015 Data](https://www.dropbox.com/s/889f7pjxlzafjch/acs_2015.zip?dl=1)
+  * This project combines county-level [FactFinder](https://factfinder.census.gov/faces/nav/jsf/pages/index.xhtml) data from the United States Census Bureau [2015 American Community Survey 5-year estimates](https://www.census.gov/programs-surveys/acs/technical-documentation/table-and-geography-changes/2015/5-year.html).
+- [MLB Pitch Data](https://www.dropbox.com/s/w2nig15yl06imof/mlb_pitch.zip?dl=1)
+  * Information about the data can be found [here](https://www.kaggle.com/pschale/mlb-pitch-data-20152018)
 
 ### Project Report
 
-You will write an [R Markdown](http://wfu-r.github.io/r_markdown) HTML report that provides the sections in the grading rubric below.  You will need to import, assess, clean & tidy the data, and then come up with your own research questions that you would like to answer from the data by performing exploratory data analysis (if you'd like to perform a predictive model to answer your hypothesis that is fine but it is not required.  Some questions you may want to ask include: 
+You will write an [R Markdown](http://wfu-r.github.io/r_markdown) HTML report that provides the sections in the grading rubric below.  You will need to import, assess, clean & tidy the data, and then come up with your own research questions that you would like to answer from the data by performing exploratory data analysis (if you'd like to perform a predictive model to answer your hypothesis that is fine but it is not required).  Some thoughts to help you: 
 
-- Do specific marketing campaigns influence customer purchasing behavior? 
-- Have certain products experienced an increase or decrease in consumption over time?  
-- Do certain products seem to be purchased together more often than others (complimentary products)?  
-- Can we predict how much a customer is going to spend based on their attributes?
+- [Make a storyboard](https://www.vox.com/culture/2018/11/20/18099001/animated-films-storyboards-script-story-ralph-breaks-the-internet).  Your project should be a logical, cohesive story--not simply a bunch of graphs created for the sake of making them.  The story may change as you dive deeper into the data and find insights, but a storyboard gives you direction and purpose for developing insights.  Clear writing means a clear mind, and a storyboard is vital to producing a good story.
+- Speaking of insights, keep in mind that your project should follow the chain of data -> insights -> actions.  As a future data analyst (or data scientist, or statistician, or whatever is trendy next year), you work to create insights that lead to actions, not to waste 40 hours on a awe-inspiring visualization that is ignored directly after a presentation and never used again.
+- Simple descriptive statistics can (and usually) yield more of an immediate impact than a complicated model.  [Brooke Watson](https://resources.rstudio.com/rstudio-conf-2019/r-at-the-aclu-joining-tables-to-to-reunite-families) gave a compelling and enlightening presentation at the 2019 RStudio Conference on how the ACLU used various R packages to count and reunite families.
+- Do subgroups matter in your data?
+- Why are data missing?
+- Are trends over time important?
 
-Although each data sets data dictionary contains some additiona questions worth pursuing, try to be creative in your analysis and investigate the data in a way that your classmates most likely will not.  Creativity is an essential ingredient for a good data scientist!
+Although each data set's data dictionary contains some additional questions worth pursuing, try to be creative in your analysis and investigate the data in a way that your classmates most likely will not.  Creativity is an essential ingredient for a good data scientist!
 
 <div id="final-project-rubric" class="section level1" style="width: 120%;">
 <table style="font-size:13px;">
