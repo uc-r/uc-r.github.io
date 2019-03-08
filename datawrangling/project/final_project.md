@@ -47,7 +47,7 @@ You can choose from one of the following four data sets.  Each dataset has its o
   * This project combines county-level [FactFinder](https://factfinder.census.gov/faces/nav/jsf/pages/index.xhtml) data from the United States Census Bureau [2015 American Community Survey 5-year estimates](https://www.census.gov/programs-surveys/acs/technical-documentation/table-and-geography-changes/2015/5-year.html).
 - [MLB Pitch Data](https://www.dropbox.com/s/w2nig15yl06imof/mlb_pitch.zip?dl=1)
   * Information about the data can be found [here](https://www.kaggle.com/pschale/mlb-pitch-data-20152018)
-
+ 
 ### Project Report
 
 You will write an [R Markdown](http://wfu-r.github.io/r_markdown) HTML report that provides the sections in the grading rubric below.  You will need to import, assess, clean & tidy the data, and then come up with your own research questions that you would like to answer from the data by performing exploratory data analysis (if you'd like to perform a predictive model to answer your hypothesis that is fine but it is not required).  Some thoughts to help you: 
