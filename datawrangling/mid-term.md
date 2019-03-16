@@ -5,8 +5,10 @@ layout: tutorial
 permalink: /data_wrangling/mid-term
 ---
 
-Throughout the term you will progressively create your final project.  You will submit your progress midway through the course for a progress evaluation.  This progress check will allow me to provide you direction for final completion.  This mid-term report will be rendered as an R Markdown HTML product.  You will need to upload your HTML report to [RPubs](https://rpubs.com/) and then:
-- Send me the url via Slack.
+**This is an individual project.**  Please read the [final project page](final-project) before reading this mid-term report page.
+
+Throughout the term you will progressively create your final project.  You will submit your progress midway through the course for a progress evaluation where you have fully completed standards 1.1-4.4 and 7.1-7.4 as shown below.  This progress check will allow your peers and me to provide you direction for final completion.  This mid-term report will be rendered as an R Markdown HTML product.  You will need to upload your HTML report to [RPubs](https://rpubs.com/) and then:
+- Send me the url via Slack in a private message.
 - Send your group members (not me) the same url via Slack for feedback.  Group members should respond via Slack (a private message!) or e-mail to provide:
   * Strengths
   * Weaknesses
@@ -16,7 +18,7 @@ Throughout the term you will progressively create your final project.  You will 
   * A virtual high five
   
 
-The following describes each deliverable and provides the expectations based on the [final project standards](final-project):
+The following describes the mid-term project and provides the mid-term expectations based on the [final project standards](final-project):
 
 
 <div id="final-project-rubric" class="section level1" style="width: 120%;">
