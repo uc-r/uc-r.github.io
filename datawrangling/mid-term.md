@@ -18,7 +18,7 @@ Throughout the term you will progressively create your final project.  Your mid-
   * A virtual high five
   
 
-The following describes the mid-term project and provides the mid-term expectations based on the [final project standards](final-project):
+Mid-term expectations, which are based on the [final project standards](final-project), are listed below:
 
 
 <div id="final-project-rubric" class="section level1" style="width: 120%;">
