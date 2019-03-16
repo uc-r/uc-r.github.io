@@ -7,7 +7,7 @@ permalink: /data_wrangling/final-project
 
 ### Purpose
 
-The purpose of this final project is to put to work the tools and knowledge that you gain throughout this course. This provides you with multiple benefits. 
+The purpose of this **individual** final project is to put to work the tools and knowledge that you gain throughout this course. This provides you with multiple benefits. 
 
 1. It will provide you with more experience using data wrangling tools on real life data sets. 
 2. It helps you become a self-directed learner. As a data scientist, a large part of your job is to self-direct your learning and interests to find unique and creative ways to find insights in data.
@@ -47,6 +47,8 @@ You can choose from one of the following four data sets.  Each dataset has its o
   * This project combines county-level [FactFinder](https://factfinder.census.gov/faces/nav/jsf/pages/index.xhtml) data from the United States Census Bureau [2015 American Community Survey 5-year estimates](https://www.census.gov/programs-surveys/acs/technical-documentation/table-and-geography-changes/2015/5-year.html).
 - [MLB Pitch Data](https://www.dropbox.com/s/w2nig15yl06imof/mlb_pitch.zip?dl=1)
   * Information about the data can be found [here](https://www.kaggle.com/pschale/mlb-pitch-data-20152018)
+
+*Note*: Your in-class group members may or may not all select the same dataset.  If members in your peer group select the same dataset, your work should reflect an individual effort.  The Lindner College of Business academic integrity policy applies here.
  
 ### Project Report
 
