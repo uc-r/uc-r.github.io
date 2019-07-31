@@ -14,7 +14,7 @@ permalink: /r_bootcamp
 
 ### Class Information
 
-* Date/Time: Tuesday, August 21, 8:00-5:00
+* Date/Time: Tuesday, August 12, 8:00-5:00
 * Location: [Lindner 112](https://www.google.com/search?q=Lindner+112,+university+of+cincinnati&npsic=0&rflfq=1&rlha=0&rllag=39135736,-84509346,575&tbm=lcl&ved=0ahUKEwiK0PP1pr3cAhUPY6wKHezqDJgQtgMIKw&tbs=lrf:!2m1!1e2!2m1!1e16!3sIAE,lf:1,lf_ui:2&rldoc=1#rlfi=hd:;si:16810252174741659822;mv:!1m3!1d3062.4774379431506!2d-84.50934654999999!3d39.1357361!2m3!1f0!2f0!3f0!3m2!1i293!2i190!4f13.1)
 * Webpage: [http://uc-r.github.io/r_bootcamp](http://uc-r.github.io/r_bootcamp)
 * Additional Resources: [http://uc-r.github.io/](http://uc-r.github.io/)
