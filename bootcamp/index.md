@@ -9,7 +9,7 @@ permalink: /r_bootcamp
 
 ### Instructor
 
-  * [Brad Boehmke](http://bradleyboehmke.github.io/)
+  * Justin Jodrey
 
 
 ### Class Information
