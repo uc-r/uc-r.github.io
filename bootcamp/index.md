@@ -45,6 +45,10 @@ Since we have limited class time be sure you have R and RStudio downloaded and o
 
 You can download the required classroom material here: <a href="https://www.dropbox.com/sh/1olxlv3c5cly5am/AACP4ArKWOi6vxIHQoWDtmCta?dl=1" style="color:black;"><i class="fa fa-folder-open" style="font-size:1em"></i></a>.  In this file you will find the slides, data, and initial code scripts that we will go through in class.
 
+### Insights Activity
+
+Download the cincy_crimes_20190812.csv file here: <a href="https://www.dropbox.com/s/c24c2sgag5kdiye/cincy_crimes_20190812.csv?dl=1" style="color:black;"><i class="fa fa-folder-open" style="font-size:1em"></i></a>
+
 
 
 
