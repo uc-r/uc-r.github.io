@@ -13,9 +13,9 @@ Welcome to Data Wrangling with R! This course provides an intensive, hands-on in
 * Instructor: Justin Jodrey &nbsp; 
   <a href="mailto:jodreyjt@ucmail.uc.edu" target="_blank" style="color:#515151;"><i class="fa fa-envelope" style="font-size:1em"></i></a> &nbsp;
   <a href="https://www.linkedin.com/in/justin-jodrey" target="_blank" style="color:#515151;"><i class="fa fa-linkedin" style="font-size:1em"></i></a>
-* Day(s): Saturdays
-* Time: 1:00-4:50
-* Location: Lindner 110
+* Day(s): Mondays
+* Time: 6:00PM-9:50PM
+* Location: Lindner 2021
 * Webpage: [http://uc-r.github.io/data_wrangling](http://uc-r.github.io/data_wrangling)
 * Additional Resources: [http://uc-r.github.io](http://uc-r.github.io/)
 * Hardcopy Syllabus: &nbsp;
@@ -40,7 +40,7 @@ Upon successfully completing this course, you will be able to:
 
 ## Class Structure 
 
-Each week you will read and work through selected tutorials on specific data wrangling activities in R.  In this class I blend external interactive learning modules via [DataCamp.com](https://www.datacamp.com/enterprise/data-wrangling-with-r-0d290e96-8f6c-471a-be41-ebab2603699b) where you will complete specified modules prior to each Saturday session. Then in each Saturday class I’ll spend the first part of class reviewing the data wrangling activity and answer any burning questions. Then you will break up into defined small groups and work together to complete a data wrangling problem prior to the end of class.  Thus, the majority of class time will be spent practicing and applying what you learned outside of the classroom.
+Each week you will read and work through selected tutorials on specific data wrangling activities in R.  In this class I blend external interactive reading modules via [R for Data Science](https://r4ds.had.co.nz/) where you will read chapters prior to each class session. Then in each class I’ll spend the first part of class reviewing the data wrangling activity and answer any burning questions. Then you will break up into defined small groups and work together to complete a data wrangling problem prior to the end of class.  Thus, the majority of class time will be spent practicing and applying what you learned outside of the classroom.
 
 The purpose for this course structure is multi-dimensional:
 
@@ -59,16 +59,16 @@ All required classroom material will be provided in class or online. Any recomme
 |:-------------:|--------------|
 | **1**         | **Introduction** &nbsp;&nbsp; <a href="http://uc-r.github.io/data_wrangling/week-1" style="color:black;"><i class="fa fa-folder-open" style="font-size:1em"></i></a> |
 |               | Intro to data wrangling, R, and course outline  |
-|               | Managing your workflow and reproducibility |
-| **2**         | **First Date Guidelines for Data** &nbsp;&nbsp; <a href="http://uc-r.github.io/data_wrangling/week-2" style="color:black;"><i class="fa fa-folder-open" style="font-size:1em"></i></a>  |
-|               | Importing data  |
-|               | Understanding the basics of your data |
-| **3**         | **Data Structures & Cleaning** &nbsp;&nbsp; <a href="http://uc-r.github.io/data_wrangling/week-3" style="color:black;"><i class="fa fa-folder-open" style="font-size:1em"></i></a>  |
-|               | Understanding data structures
+|               | Base R |
+| **2**         | **Reproducible Documents and Importing Data** &nbsp;&nbsp; <a href="http://uc-r.github.io/data_wrangling/week-2" style="color:black;"><i class="fa fa-folder-open" style="font-size:1em"></i></a>  |
+|               | Managing your workflow and reproducibility  |
+|               | Importing data and understanding the basics of it |
+| **3**         | **Tidy Data and Data Manipulation** &nbsp;&nbsp; <a href="http://uc-r.github.io/data_wrangling/week-3" style="color:black;"><i class="fa fa-folder-open" style="font-size:1em"></i></a>  |
 |               | Tidying & preparing data for analysis |
-| **4**         | **Data Transformations** &nbsp;&nbsp; <a href="http://uc-r.github.io/data_wrangling/week-4" style="color:black;"><i class="fa fa-folder-open" style="font-size:1em"></i></a> |
-|               | Data manipulation |
+|               | Data manipulation
+| **4**         | **Relational Data and More Tidyverse Packages** &nbsp;&nbsp; <a href="http://uc-r.github.io/data_wrangling/week-4" style="color:black;"><i class="fa fa-folder-open" style="font-size:1em"></i></a> |
 |               | Relational data |
+|               | Leveraging the Tidyverse to simplify data wrangling |
 | **5**         | **Data Visualizations** &nbsp;&nbsp; <a href="http://uc-r.github.io/data_wrangling/week-5" style="color:black;"><i class="fa fa-folder-open" style="font-size:1em"></i></a>  |
 |               | Data visualization  |
 | **6**         | **Creating Efficient Code in R** &nbsp;&nbsp; <a href="http://uc-r.github.io/data_wrangling/week-6" style="color:black;"><i class="fa fa-folder-open" style="font-size:1em"></i></a> |
@@ -83,7 +83,7 @@ All required classroom material will be provided in class or online. Any recomme
 
 Course grades will consist of: 
 
-- 20% [DataCamp Modules](data_wrangling/datacamp)
+- 20% Homework assignments (4 equally weighted assignments)
 - 20% [Mid-term Project Evaluation](data_wrangling/mid-term)
 - 50% [Final Project](data_wrangling/final-project)
 - 10% [Engagement](data_wrangling/engagement)
@@ -113,7 +113,7 @@ We will use this software during the course. Plan on bringing a computer to each
 
 ## Fine Print
 
-<u>Academic Integrity</u>: As with all Lindner College of Business efforts, this course will uphold the highest ethical standards, which are critical to building character. LCB instructors are required to report ANY incident of academic misconduct (e.g., cheating, plagiarism) to the college review process, which could result in severe consequences, including potential dismissal from the college. For further information on Academic Misconduct or related university policies and procedures, please see the [UC Code of Conduct](http://www.uc.edu/conduct/Code_of_Conduct.html)
+<u>Academic Integrity</u>: As with all Lindner College of Business efforts, this course will uphold the highest ethical standards, which are critical to building character. LCB instructors are required to report ANY incident of academic misconduct (e.g., cheating, plagiarism) to the college review process, which could result in severe consequences, including potential dismissal from the college. For further information on Academic Misconduct or related university policies and procedures, please see the [UC Code of Conduct](http://www.uc.edu/conduct/Code_of_Conduct.html).
 
 All academic programs at the Lindner College of Business apply a “Two Strikes Policy” regarding Academic Integrity. Any student who has been found responsible for two cases of academic misconduct may be dismissed from the College. The “Two Strikes Policy” supplements the UC Student Code of Conduct.
 
@@ -131,5 +131,6 @@ All cases of academic misconduct (e.g., cheating, plagiarism, falsification) wil
 * Jenny Bryan, [STAT 545: Data wrangling, exploration, and analysis with R](http://stat545.com/)
 * Lincoln Mullen, [HIST 688: Data and visualization in digital history](http://lincolnmullen.com/courses/data-dh.2016/)
 * Kieran Healy, [Soc 880: Data Visualization](http://socviz.github.io/soc880/)
+* Garrett Grolemund, [Hands-On Programming with R](https://rstudio-education.github.io/hopr/)
 
 
