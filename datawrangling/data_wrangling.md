@@ -15,7 +15,7 @@ Welcome to Data Wrangling with R! This course provides an intensive, hands-on in
   <a href="https://www.linkedin.com/in/justin-jodrey" target="_blank" style="color:#515151;"><i class="fa fa-linkedin" style="font-size:1em"></i></a>
 * Day(s): Mondays
 * Time: 6:00PM-9:50PM
-* Location: Lindner 2021
+* Location: Lindner 2120
 * Webpage: [http://uc-r.github.io/data_wrangling](http://uc-r.github.io/data_wrangling)
 * Additional Resources: [http://uc-r.github.io](http://uc-r.github.io/)
 * Hardcopy Syllabus: &nbsp;
