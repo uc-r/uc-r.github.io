@@ -27,6 +27,7 @@ First, get yourself (re-)introduced to R and the RStudio IDE by reading and comp
 
 - Complete Homework #1 located in this week's folder.
 - One person from each group will submit via Slack the group's .R script and Word document.
+- This homework assignment is due by 6PM, October 28, 2019.
 
 <hr>
 
