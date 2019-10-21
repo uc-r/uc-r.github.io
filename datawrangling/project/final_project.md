@@ -7,7 +7,7 @@ permalink: /data_wrangling/final-project
 
 ### Purpose
 
-The purpose of this **individual** final project is to put to work the tools and knowledge that you gain throughout this course. This provides you with multiple benefits. 
+The purpose of this **individual/pair** final project is to put to work the tools and knowledge that you gain throughout this course. This provides you with multiple benefits. 
 
 1. It will provide you with more experience using data wrangling tools on real life data sets. 
 2. It helps you become a self-directed learner. As a data scientist, a large part of your job is to self-direct your learning and interests to find unique and creative ways to find insights in data.
@@ -22,7 +22,7 @@ The principal goal of this project is to import a real life data set, clean and 
 
 ### Project Data
 
-You will need to select one data set from the four that I have supplied below.  All four data sets contain key attributes that will demonstrate the data science capabilities that you have learned throughout this couse.  You may even need to learn new skills not taught to accomplish your mission.  These include working with:
+You will need to select one data set from the five that I have supplied below.  All five data sets contain key attributes that will demonstrate the data science capabilities that you have learned throughout this couse.  You may even need to learn new skills not taught to accomplish your mission.  These include working with:
 
 - multiple data types (numerics, characters, dates, etc)
 - non-normalized characteristics (may contain punctuations, upper and lowercase letters, etc)
@@ -34,21 +34,25 @@ You will need to select one data set from the four that I have supplied below.  
 
 Available data sets include:
 
-You can choose from one of the following four data sets.  Each dataset has its own challenges and strengths.
+You can choose from one of the following five data sets.  Each dataset has its own challenges and strengths.
 
-- [City of Cincinnati Crime Data](https://www.dropbox.com/s/cpya6okvbopi81y/city_of_cincinnati_police_data_initiative_crime_incidents.csv?dl=1)
-  * Information about the data can be found [here](https://data.cincinnati-oh.gov/Safer-Streets/PDI-Police-Data-Initiative-Crime-Incidents/k59e-2pvf)
-  * Data downloaded on March 8, 2019
-  * You may need to perform some research or contact the City of Cincinnati for definitions/explanations of certain fields.
-- [Tidy Tuesday Dairy Data](https://www.dropbox.com/s/x7vloqd578kro9d/tidy_tuesday_dairy.zip?dl=1)
-  * Information about the data can be found [here](https://github.com/rfordatascience/tidytuesday/tree/master/data/2019/2019-01-29)
-  * [More information](https://github.com/rfordatascience/tidytuesday) on the weekly #TidyTuesday event
-- [ACS 2015 Data](https://www.dropbox.com/s/889f7pjxlzafjch/acs_2015.zip?dl=1)
-  * This project combines county-level [FactFinder](https://factfinder.census.gov/faces/nav/jsf/pages/index.xhtml) data from the United States Census Bureau [2015 American Community Survey 5-year estimates](https://www.census.gov/programs-surveys/acs/technical-documentation/table-and-geography-changes/2015/5-year.html).
-- [MLB Pitch Data](https://www.dropbox.com/s/w2nig15yl06imof/mlb_pitch.zip?dl=1)
-  * Information about the data can be found [here](https://www.kaggle.com/pschale/mlb-pitch-data-20152018)
+- Anime Data
+  * [Click here](https://www.dropbox.com/sh/0p62noz3med1hd7/AABITVPfQDQojMgal_nFqWf5a?dl=1) to download the data.
+  * Information about the data can be found [here](https://github.com/rfordatascience/tidytuesday/tree/master/data/2019/2019-04-23)
+- Big `mtcars` Data
+  * [Click here](https://www.dropbox.com/sh/o6oag1q83s7fbso/AAC5fT69NzJYiNbAsHPnxdnAa?dl=1) to download the data.
+  * Information about the data can be found [here](https://github.com/rfordatascience/tidytuesday/tree/master/data/2019/2019-10-15)
+- International Powerlifting Data
+  * [Click here](https://www.dropbox.com/sh/a13sqrv8ezmtoxb/AAASHUnRpJR83iKGYsCCJnGta?dl=1) to download the data.
+  * Information about the data can be found [here](https://github.com/rfordatascience/tidytuesday/tree/master/data/2019/2019-10-08)
+- Pizza Ratings Data
+  * [Click here](https://www.dropbox.com/sh/oey9azmwxfef9or/AACW3sdnsxD2P7AWhxfkxZPSa?dl=1) to download the data
+  * Information about the data can be found [here](https://github.com/rfordatascience/tidytuesday/tree/master/data/2019/2019-10-01)
+- Women in the Workplace Data
+  * [Click here](https://www.dropbox.com/sh/zv0lopiohegs273/AACT0YGScbcYXHrVOHvQRkgta?dl=1) to download the data.
+  * Information about the data can be found [here](https://github.com/rfordatascience/tidytuesday/tree/master/data/2019/2019-03-05)
 
-*Note*: Your in-class group members may or may not all select the same dataset.  If members in your peer group select the same dataset, your work should reflect an individual effort.  The Lindner College of Business academic integrity policy applies here.
+*Note*: Your homework group members may or may not all select the same dataset.  If members in your peer group select the same dataset, your work should reflect an individual/pair effort.  The Lindner College of Business academic integrity policy applies here.
  
 ### Project Report
 
@@ -143,7 +147,7 @@ Although each data set's data dictionary contains some additional questions wort
 <p>
   <em>Total possible points: 50</em> 
   <br>
-  <em>Due no later than: Sunday, April 28, 2019, 11:59PM ET</em>
+  <em>Due no later than: Tuesday, December 3, 2019, 11:59PM ET</em>
 </p>
 </div>
 
