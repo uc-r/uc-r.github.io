@@ -31,6 +31,7 @@ First, get yourself (re-)introduced to R and the RStudio IDE by reading and comp
 
 - BEFORE next week's class on October 28th, read Chapter 27 sections 27.1 through 27.5 of [R for Data Science](https://r4ds.had.co.nz/).
 - As you read, check your answers for the guided reading with [this solutions manual](https://jrnold.github.io/r4ds-exercise-solutions/).
+- On the [course website](http://uc-r.github.io/data_wrangling), read the pages for the midterm and final project.  We'll discuss them next week.
 
 
 <hr>
