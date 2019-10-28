@@ -17,7 +17,7 @@ Below outlines the reading and homework that you complete before next week's cla
 
 ## 1. Introduction to R and the RStudio IDE
 
-First, get yourself (re-)introduced to R and the RStudio IDE by reading and completing the following tutorials and DataCamp assignments.
+First, get yourself (re-)introduced to R and the RStudio IDE by reading and completing the following tutorials.
 
 
 ### Assignments
