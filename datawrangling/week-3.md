@@ -4,58 +4,36 @@ title: Week 3 (March 24-30)
 permalink: data_wrangling/week-3
 ---
 
-Last week we discussed general guidelines for first interacting with a new data set. This week we want to build on those activities by learning how to clean and tidy our data.  But first, it is important to understand the different structural forms for holding data within R. 
+Last week we discussed general guidelines for first interacting with a new data set. This week we want to build on those activities by learning how to clean and tidy our data, and then beginning our journey to creating insights with data through data manipulation.
 
 Specifically, this week you are going to learn: 
 
-1. The most common data structures in R.
-2. How to manage non-data frame data structures.
-3. How to make your data "tidy".
+1. How to make your data "tidy".
+2. How to manipulate data to create insights from data.
 
 Consequently, this week will give you a strong foundation for managing and cleaning your data. This will prepare you for your second challenge in completing your course project - that of cleaning, tidying, and preparing your data for exploratory data analysis!
 
-Below outlines the tutorials that you need to review, and the assignments you need to complete, prior to Saturday’s class. The skills and functions introduced in these tutorials will be necessary for Saturday’s in-class activities.
+Below outlines the tutorials that you need to review, and the assignments you need to complete, prior to Monday’s class. The skills and functions introduced in these tutorials will be necessary for Monday’s in-class activities.
 
 <hr>
 
-## 1. Most Common Data Structures
-R’s basic data structures can be organized by their dimensionality (1d, 2d, or nd) and whether they’re homogeneous (all contents must be of the same type) or heterogeneous (the contents can be of different types). This gives rise to five data types most often used in data analysis, and the five data types that nearly all R objects and outputs are built upon (there are five but we'll focus on four).  The two most common data structures are vectors and data frames.  To understand these data structures read and work through:
+### Assignments
 
-- [Data structure basics](http://uc-r.github.io/structure_basics)
-- [Managing vectors](http://uc-r.github.io/vectors)
-- [Managing data frames](http://uc-r.github.io/dataframes)
-
-Now that you've gone through some initial tutorials, complete the following DataCamp assignments:
-
-- [Vectors](https://www.datacamp.com/enterprise/data-wrangling-3778d473-69e7-4941-97df-1bec3ca5ed7c/assignments/46404) & [Factors](https://www.datacamp.com/enterprise/data-wrangling-3778d473-69e7-4941-97df-1bec3ca5ed7c/assignments/46405) (factors are just categorical vectors and this assignment helps you learn a little more about these particular data types).
-- [Data frames](https://www.datacamp.com/enterprise/data-wrangling-3778d473-69e7-4941-97df-1bec3ca5ed7c/assignments/46406)
-
-<hr>
-
-## 2. Less Common Data Structures
-You will work with vectors and data frames on a daily basis.  However, two additional data structures you might find your self dealing with are matrices and lists.  Read and work through:
-
-- [Managing matrices](http://uc-r.github.io/matrices)
-- [Managing lists](http://uc-r.github.io/lists)
-
-Now that you've gone through some initial tutorials, complete the following DataCamp assignments:
-
-- [Matrices](https://www.datacamp.com/enterprise/data-wrangling-3778d473-69e7-4941-97df-1bec3ca5ed7c/assignments/46407)
-- [Lists](https://www.datacamp.com/enterprise/data-wrangling-3778d473-69e7-4941-97df-1bec3ca5ed7c/assignments/46408)
-   
-<hr>   
+- Your midterm project is due by 4:50PM, November 18, 2019.
+- A precise grading rubric is in the folder to download for today's class (link below), and be sure to refer to the [midterm page](mid-term) so you understand what is expected.
+- You will send me through Slack (in a private message!) the URL to your project--only one person needs to send the link if you are working with another person.
+- Please include your name(s) in the YAML.
 
 
-## 3. Cleaning and Tidying Your Data
+### Readings
 
-Now that you have imported your data and you understand the basics of managing your data structure, the next thing you probably want to do is jump into exploratory data analysis.  However, prior to that it is important to make sure your data frame is properly prepared for analysis.  This may require you to do some basic cleaning and ensure your data is in a "tidy" format.  Read and work through [Chapter 12: Tidy Data](http://r4ds.had.co.nz/tidy-data.html) in R for Data Science to learn how to organize your data the "tidy" way.
-
-Now that you've gone through some initial tutorials, complete the [Cleaning data in R](https://www.datacamp.com/enterprise/data-wrangling-3778d473-69e7-4941-97df-1bec3ca5ed7c/assignments/46409) DataCamp assignment.
+- BEFORE next session's class on November 18th, read Chapter 5 sections 5.5 through 5.7 of [R for Data Science](https://r4ds.had.co.nz/).
+- As you read, check your answers for the guided reading with [this solutions manual](https://jrnold.github.io/r4ds-exercise-solutions/).
 
 <hr>
 
 ## Class
 
-Please download this material for Saturday's class: &nbsp; <a href="https://www.dropbox.com/sh/tbhbzn4iz4t0cx1/AACRd6wa-pVP8AlV3ee4CH6Ya?dl=1" style="color:black;"><i class="fa fa-cloud-download" style="font-size:1em"></i></a>
+Please download this material for Monday's class: &nbsp; <a href="https://www.dropbox.com/sh/a2h4v038wjb4ml3/AADljOf-JBSU9SCFpXrf2mfka?dl=1" style="color:black;"><i class="fa fa-cloud-download" style="font-size:1em"></i></a>
 
-See you in class on Saturday!
+See you in class on Monday!
