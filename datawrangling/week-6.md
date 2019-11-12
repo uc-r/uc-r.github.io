@@ -33,7 +33,7 @@ Thus, minimizing duplication by writing efficient code is important to becoming 
 
 ## Class
 
-Please download this material for Saturday's class: &nbsp; <a href="https://www.dropbox.com/sh/rk9j6gs5t5pouno/AAAbmEl4BNFymzyAAu4JeAWua?dl=1" style="color:black;"><i class="fa fa-cloud-download" style="font-size:1em"></i></a>
+Please download this material for Monday's class: &nbsp; <a href="https://www.dropbox.com/sh/rk9j6gs5t5pouno/AAAbmEl4BNFymzyAAu4JeAWua?dl=1" style="color:black;"><i class="fa fa-cloud-download" style="font-size:1em"></i></a>
 
 
 
