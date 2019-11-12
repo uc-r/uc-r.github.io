@@ -15,15 +15,19 @@ Thus, minimizing duplication by writing efficient code is important to becoming 
 
 <hr>
 
-The following tutorials will provide you the knowledge and skills required to start becomming more efficient with your programming.
+### Assignments
 
-1. **Writing functions:** Functions allow you to reduce code duplication by automating a generalized task to be applied recursively. Whenever you catch yourself repeating a function or copy-and-pasteing code there is a good chance that you should write a function to eliminate the redundancies. Read [Chapter 19: Functions](http://r4ds.had.co.nz/functions.html) to get started with functions.
+- Your final project is due by 11:59PM, December 3, 2019.  Other than completing the final project, there is no additional homework.
+- .Rmd files may take much longer to knit and render than you think.  Anticipate and plan for potential delays!
+- Refer to the [final project page](final-project) to know what to submit and how to submit everything.
+- Unless you have large files to send in addition to the data sets that are provided on the course website and need to email everything, please submit your final project URL and any necessary files in a private message via Slack.
+- Please include your name(s) in the YAML.
 
-2. **Iteration:**  Another tool for reducing duplication is <u>iteration</u>, which helps you when you need to do the same thing to multiple inputs: repeating the same operation on different columns, or on different datasets. Read [Chapter 21: Iteration](http://r4ds.had.co.nz/iteration.html) to learn how to perform iteration programming.
 
-3. **DataCamp:**  Once you've read through these chapters, test your skills with the following DataCamp assignments:
-    - [Intermediate R](https://www.datacamp.com/enterprise/data-wrangling-3778d473-69e7-4941-97df-1bec3ca5ed7c/assignments/46414)
-    - [Writing Functions in R](https://www.datacamp.com/enterprise/data-wrangling-3778d473-69e7-4941-97df-1bec3ca5ed7c/assignments/46415)
+### Readings
+
+- Optional (i.e., not mandatory) reading: Refer to the Week 7 page of the course website for machine learning with the Tidyverse.
+
 
 <hr>   
 
