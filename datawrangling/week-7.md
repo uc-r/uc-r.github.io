@@ -11,15 +11,12 @@ Now that you are equipped with powerful programming tools we can finally move in
 The following tutorials will provide you the knowledge and skills required to start performing applied modeling techniques to your project data set.  
 
 1. **Model Basics & Model Building:** Start learning how models work mechanistically and using them to identify and pull out patterns in your data. 
-    - Read [Chapters 22-24](http://r4ds.had.co.nz/model-intro.html) in R for Data Science.
-    - Start practicing applying correlation and linear regression models with the [Correlation and Regression]( https://www.datacamp.com/enterprise/data-wrangling-3778d473-69e7-4941-97df-1bec3ca5ed7c/assignments/46416) DataCamp assignment.
+    - Read [Chapters 22-25](http://r4ds.had.co.nz/model-intro.html) in R for Data Science.
 
-2. **Machine Learning Toolbox:**  Every analyst should have a basic understanding of a few key analytic techniques.  This includes cluster analysis, decision trees, k-nearest neighbors, simple and multivariate regression.  By working through the [Machine Learning Toolbox](https://www.datacamp.com/enterprise/data-wrangling-3778d473-69e7-4941-97df-1bec3ca5ed7c/assignments/46417) DataCamp assignment, you will learn how to apply, interpret, and assess the accuracy of these analytic techniques.
-
+2. **Machine Learning Toolbox:**  Every analyst should have a basic understanding of a few key analytic techniques.  This includes cluster analysis, decision trees, k-nearest neighbors, simple and multivariate regression.  Read [this introduction to tidymodels](https://rviews.rstudio.com/2019/06/19/a-gentle-intro-to-tidymodels/) to see an overview of how to apply, interpret, and assess these analytic techniques with the Tidyverse.
 
 <hr>
 
 ## Class  
 
-Please download this material for Saturday's class: &nbsp; <a href="https://www.dropbox.com/sh/bt940gcgfyr6pbd/AAC-PfYhcMrXonOprLCdvcvya?dl=1" style="color:black;"><i class="fa fa-cloud-download" style="font-size:1em"></i></a>
-
+Please download this material for Monday's class: &nbsp; <a href="https://www.dropbox.com/sh/bt940gcgfyr6pbd/AAC-PfYhcMrXonOprLCdvcvya?dl=1" style="color:black;"><i class="fa fa-cloud-download" style="font-size:1em"></i></a>
