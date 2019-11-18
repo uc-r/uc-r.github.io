@@ -1,6 +1,6 @@
 ---
 layout: tutorial
-title: Week 5 (April 7-13)
+title: Week 5 (November 19-25)
 permalink: data_wrangling/week-5
 ---
 
@@ -8,21 +8,26 @@ Being able to create visualizations (graphical representations) of data is a key
 
 <hr>
 
-The following tutorials will provide you the knowledge and skills required to create the meaningful, elegant, and finely tuned  data visualizations that I will be looking for in your final project.
+This week will provide you the knowledge and skills required to create the meaningful, elegant, and finely tuned data visualizations that I will be looking for in your final project.
 
-1. __Introduction to `ggplot2`:__ Read and work through [Chapter 3: Data Visualization](http://r4ds.had.co.nz/data-visualisation.html) in R for Data Science to get an introduction to the `ggplot2` package.
-    - Now that you've learned the basics, complete the [Data Visualization with ggplot2 (Part 1)](https://www.datacamp.com/enterprise/data-wrangling-3778d473-69e7-4941-97df-1bec3ca5ed7c/assignments/46412) and the [Data Visualization with ggplot2 (Part 2)](https://www.datacamp.com/enterprise/data-wrangling-3778d473-69e7-4941-97df-1bec3ca5ed7c/assignments/46413) DataCamp assignments to hone your skills.
+### Assignments
 
-2. __Advancing your visualizations:__ In your final project I will be looking for publication worthy visualizations. Thus, I fully expect your visualizations to improve with each deliverable submitted. Therefore it is essential that you learn how to use some of the more advanced features of `ggplot2` and other packages to properly communicate your visual findings.  Here are some resources to help you take your visualizations to the next level:  
-    - Work through the [Visual Data Exploration tutorial](http://uc-r.github.io/gda).
-    - Reading and working through [Chapter 28: Graphics for Communication](http://r4ds.had.co.nz/graphics-for-communication.html) in R for Data Science.
-    - Review some of the currently available [advanced plotting tutorials](http://uc-r.github.io/ggplot).
-    - Although not required, you can further hone your advanced visualization skills with the [Data Visualization with ggplot2 (Part 3)](https://www.datacamp.com/courses/data-visualization-with-ggplot2-part-3) DataCamp module, which covers statistical, network, and mapping plots along with some of the internal functioning of `ggplot2`.
+- Your final project is due by 11:59PM, December 3, 2019.  Other than completing the final project, there is no additional homework.
+- .Rmd files may take much longer to knit and render than you think.  Anticipate and plan for potential delays!
+- Refer to the [final project page](final-project) to know what to submit and how to submit everything.
+- Unless you have large files to send in addition to the data sets that are provided on the course website and need to email everything, please submit your final project URL and any necessary files in a private message via Slack.
+- Please include your name(s) in the YAML.
+
+
+### Readings
+
+- Optional (i.e., not mandatory) reading:
+    + Chapter 19 sections 19.1 through 19.6 of [R for Data Science](https://r4ds.had.co.nz/)
+    + Chapter 21 sections 21.1 through 21.5 of [R for Data Science](https://r4ds.had.co.nz/)
+- As you read, check your answers for the guided reading with [this solutions manual](https://jrnold.github.io/r4ds-exercise-solutions/).
    
 <hr>   
 
 ## Class
 
-Please download this material for Saturday's class: &nbsp; <a href="https://www.dropbox.com/sh/3z7rjqt3dixmzq5/AAAtfzODFUu-ENk5jZoNyz8Oa?dl=1" style="color:black;"><i class="fa fa-cloud-download" style="font-size:1em"></i></a>
-
-In addition, be sure to bring your final project data to class because you will work on it during class.  Furthermore, identify at least 10 specific questions you want to ask of your project data. Using what you learned this week, what type of visualizations can you apply to help answer these questions? Be ready to use `ggplot2` to answer these questions in class.
+Please download this material for Monday's class: &nbsp; <a href="https://www.dropbox.com/sh/87jwfq4t9nu8521/AAAwVu119Nezis2Q09aCQThra?dl=1" style="color:black;"><i class="fa fa-cloud-download" style="font-size:1em"></i></a>
