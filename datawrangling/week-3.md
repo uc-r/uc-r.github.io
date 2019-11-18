@@ -36,4 +36,6 @@ Below outlines the tutorials that you need to review, and the assignments you ne
 
 Please download this material for Monday's class: &nbsp; <a href="https://www.dropbox.com/sh/a2h4v038wjb4ml3/AADljOf-JBSU9SCFpXrf2mfka?dl=1" style="color:black;"><i class="fa fa-cloud-download" style="font-size:1em"></i></a>
 
+In addition, be sure to have identified which data you are going to use for your final project.  Be sure to have access to this data because you will work on it during class.  Furthermore, identify at least 10 specific questions you want to ask of your project data. Using what you learned this week, what type of data transformations do you need to make to help answer these questions? Be ready to use dplyr to answer these questions in class.
+
 See you in class on Monday!
