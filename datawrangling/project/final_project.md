@@ -34,23 +34,20 @@ You will need to select one data set from the five that I have supplied below.  
 
 Available data sets include:
 
-You can choose from one of the following five data sets.  Each dataset has its own challenges and strengths.
+You can choose from one of the following four data sets.  Each dataset has its own challenges and strengths.
 
-- Anime Data
-  * [Click here](https://www.dropbox.com/sh/0p62noz3med1hd7/AABITVPfQDQojMgal_nFqWf5a?dl=1) to download the data.
-  * Information about the data can be found [here](https://github.com/rfordatascience/tidytuesday/tree/master/data/2019/2019-04-23)
-- Big `mtcars` Data
-  * [Click here](https://www.dropbox.com/sh/o6oag1q83s7fbso/AAC5fT69NzJYiNbAsHPnxdnAa?dl=1) to download the data.
-  * Information about the data can be found [here](https://github.com/rfordatascience/tidytuesday/tree/master/data/2019/2019-10-15)
-- International Powerlifting Data
-  * [Click here](https://www.dropbox.com/sh/a13sqrv8ezmtoxb/AAASHUnRpJR83iKGYsCCJnGta?dl=1) to download the data.
-  * Information about the data can be found [here](https://github.com/rfordatascience/tidytuesday/tree/master/data/2019/2019-10-08)
-- Pizza Ratings Data
-  * [Click here](https://www.dropbox.com/sh/oey9azmwxfef9or/AACW3sdnsxD2P7AWhxfkxZPSa?dl=1) to download the data
-  * Information about the data can be found [here](https://github.com/rfordatascience/tidytuesday/tree/master/data/2019/2019-10-01)
-- Women in the Workplace Data
-  * [Click here](https://www.dropbox.com/sh/zv0lopiohegs273/AACT0YGScbcYXHrVOHvQRkgta?dl=1) to download the data.
-  * Information about the data can be found [here](https://github.com/rfordatascience/tidytuesday/tree/master/data/2019/2019-03-05)
+- Petfinder.com Dog Data
+  * [Click here](https://www.dropbox.com/sh/xlkz0ns0wvy6ohk/AABsSkAnNYcX5B-chu_fgf99a?dl=1) to download the data.
+  * Information about the data can be found [here](https://github.com/rfordatascience/tidytuesday/tree/master/data/2019/2019-12-17)
+- Hotel Bookings Data
+  * [Click here](https://www.dropbox.com/sh/qwdaldzkp8yrqwj/AADTj_WQcuKA0bsEeCKU__98a?dl=1) to download the data.
+  * Information about the data can be found [here](https://github.com/rfordatascience/tidytuesday/blob/master/data/2020/2020-02-11/readme.md)
+- NFL Attendance Data
+  * [Click here](https://www.dropbox.com/sh/q5a07l8yynlgwa7/AADwJykQfJLSSRZsfzLh2ylsa?dl=1) to download the data.
+  * Information about the data can be found [here](https://github.com/rfordatascience/tidytuesday/blob/master/data/2020/2020-02-04/readme.md)
+- Spotify Genre Data
+  * [Click here](https://www.dropbox.com/sh/qj0ueimxot3ltbf/AACzMOHv7sZCJsj3ErjtOG7ya?dl=1) to download the data
+  * Information about the data can be found [here](https://github.com/rfordatascience/tidytuesday/blob/master/data/2020/2020-01-21/readme.md)
 
 *Note*: Your homework group members may or may not all select the same dataset.  If members in your peer group select the same dataset, your work should reflect an individual/pair effort.  The Lindner College of Business academic integrity policy applies here.
  
