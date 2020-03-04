@@ -147,7 +147,7 @@ Although each data set's data dictionary contains some additional questions wort
 <p>
   <em>Total possible points: 50</em> 
   <br>
-  <em>Due no later than: Tuesday, December 3, 2019, 11:59PM ET</em>
+  <em>Due no later than: Sunday, April 26, 2019, 11:59PM ET</em>
 </p>
 </div>
 
@@ -161,7 +161,7 @@ I expect your report to tell a story with the data. I do not want you to just re
 - [Movie exploratory analysis](http://rpubs.com/yash91sharma/dw_project_ys)
 - [AirBnB user pathways](http://rpubs.com/angiechen/234334)
 
-Upon submission you will upload the final HTML report to RPubs and provide me with the URL. You will also submit the .Rmd file that produced the HTML report, your data, and any other files your .Rmd file leverages (images, .bib file, etc.). Your submitted files should be named with year, course number, lastname, first & middle initial, and then “finalproject.” For example my file name would be: 2019_BANA7025_jodreyjt_finalproject.Rmd.  I expect to be able to fully reproduce your report by knitting your .Rmd file.
+Upon submission you will upload the final HTML report to RPubs and provide me with the URL. You will also submit the .Rmd file that produced the HTML report, your data, and any other files your .Rmd file leverages (images, .bib file, etc.). Your submitted files should be named with year, course number, lastname, first & middle initial, and then “finalproject.” For example my file name would be: 2020_BANA7025_jodreyjt_finalproject.Rmd.  I expect to be able to fully reproduce your report by knitting your .Rmd file.
 
 
 **Optional:**  For those who are more advanced or daring, I challenge you to develop a [Shiny app](http://shiny.rstudio.com/) using [flexdashboard](http://rmarkdown.rstudio.com/flexdashboard/) to accompany your report. This will turn your exploratory data analysis into an interactive tool for users.  Here are some examples:
