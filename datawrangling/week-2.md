@@ -1,6 +1,6 @@
 ---
 layout: tutorial
-title: Week 2 (March 10-16)
+title: Week 2 (March 14)
 permalink: data_wrangling/week-2
 ---
 
@@ -18,7 +18,7 @@ Welcome to week 2!  This week we will focus on:
 
 Consequently, this week will give you a strong foundation for the different ways to get your data into R and understanding the basics of your data set. This will prepare you for your first challenge in completing your course project - that of *acquiring* your data!
 
-Below outlines the readings that you need to review and the assignments you need to complete after Monday's class. The skills and functions introduced in these tutorials will be necessary for Monday's in-class activities.
+Below outlines the readings that you need to review and the assignments you need to complete after Saturday's class. The skills and functions introduced in these tutorials will be necessary for Saturday's in-class activities.
 
 <hr>
 
@@ -26,13 +26,13 @@ Below outlines the readings that you need to review and the assignments you need
 
 - Complete Homework #2 located in this week's folder.
 - One person from each group will submit via Slack the group's Word document.
-- This homework assignment is due by 6PM, November 4, 2019.
+- This homework assignment is due by 9AM, March 28, 2020.
 
 
 ### Readings
 
-- BEFORE next week's class on November 4th, read Chapter 12 sections 12.1 through 12.5 of [R for Data Science](https://r4ds.had.co.nz/).
-- BEFORE next week's class on November 4th, read Chapter 5 sections 5.1 through 5.4 of [R for Data Science](https://r4ds.had.co.nz/).
+- BEFORE next week's class on March 28th, read Chapter 12 sections 12.1 through 12.5 of [R for Data Science](https://r4ds.had.co.nz/).
+- BEFORE next week's class on March 28th, read Chapter 5 sections 5.1 through 5.4 of [R for Data Science](https://r4ds.had.co.nz/).
 - As you read, check your answers for the guided reading with [this solutions manual](https://jrnold.github.io/r4ds-exercise-solutions/).
 - On the [course website](http://uc-r.github.io/data_wrangling), read the pages for the midterm and final project.
 
@@ -41,6 +41,6 @@ Below outlines the readings that you need to review and the assignments you need
 
 ## Class
 
-Please download this material for Monday's class: &nbsp; <a href="https://www.dropbox.com/sh/6qw8q7bxvgl6gal/AABHHsTKY1ukONi4CSQtFk1Ua?dl=1" style="color:black;"><i class="fa fa-cloud-download" style="font-size:1em"></i></a>
+Please download this material for Saturday's class: &nbsp; <a href="https://www.dropbox.com/sh/6qw8q7bxvgl6gal/AABHHsTKY1ukONi4CSQtFk1Ua?dl=1" style="color:black;"><i class="fa fa-cloud-download" style="font-size:1em"></i></a>
 
-See you in class on Monday!
+See you in class on Saturday!
