@@ -1,6 +1,6 @@
 ---
 layout: tutorial
-title: Week 4 (November 18-25)
+title: Week 4 (April 4)
 permalink: data_wrangling/week-4
 ---
 
@@ -19,12 +19,12 @@ This module covers these basic capabilities by teaching you how to use the `dply
 
 - Complete Homework #3 located in this week's folder.
 - One person from each group will submit via Slack the group's .R script and Word document.
-- This homework assignment is due by 6PM, November 25, 2019.
+- This homework assignment is due by 9AM, April 11, 2020.
 
 
 ### Readings
 
-- BEFORE next session's class on November 25th, read Chapter 3, all sections, of [R for Data Science](https://r4ds.had.co.nz/).
+- BEFORE next session's class on April 11th, read Chapter 3, all sections, of [R for Data Science](https://r4ds.had.co.nz/).
 - As you read, check your answers for the guided reading with [this solutions manual](https://jrnold.github.io/r4ds-exercise-solutions/).
 
    
