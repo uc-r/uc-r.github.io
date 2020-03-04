@@ -15,6 +15,7 @@ Welcome to Data Wrangling with R! This course provides an intensive, hands-on in
 * Day(s): Saturdays
 * Time: 9:00AM-12:50PM
 * Location: Lindner 2240
+* Office Hours: 8:00AM-8:50AM outside Lindner 4306 at the empty desks
 * Webpage: [http://uc-r.github.io/data_wrangling](http://uc-r.github.io/data_wrangling)
 * Additional Resources: [http://uc-r.github.io](http://uc-r.github.io/)
 * Hardcopy Syllabus: &nbsp;
