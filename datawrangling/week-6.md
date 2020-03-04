@@ -1,6 +1,6 @@
 ---
 layout: tutorial
-title: Week 6 (April 14-20)
+title: Week 6 (April 18)
 permalink: data_wrangling/week-6
 ---
 
@@ -17,7 +17,7 @@ Thus, minimizing duplication by writing efficient code is important to becoming 
 
 ### Assignments
 
-- Your final project is due by 11:59PM, December 3, 2019.  Other than completing the final project, there is no additional homework.
+- Your final project is due by 11:59PM, April 26, 2020.  Other than completing the final project, there are no additional homework assignments.
 - .Rmd files may take much longer to knit and render than you think.  Anticipate and plan for potential delays!
 - Refer to the [final project page](final-project) to know what to submit and how to submit everything.
 - Unless you have large files to send in addition to the data sets that are provided on the course website and need to email everything, please submit your final project URL and any necessary files in a private message via Slack.
@@ -33,7 +33,7 @@ Thus, minimizing duplication by writing efficient code is important to becoming 
 
 ## Class
 
-Please download this material for Monday's class: &nbsp; <a href="https://www.dropbox.com/sh/rk9j6gs5t5pouno/AAAbmEl4BNFymzyAAu4JeAWua?dl=1" style="color:black;"><i class="fa fa-cloud-download" style="font-size:1em"></i></a>
+Please download this material for Saturday's class: &nbsp; <a href="https://www.dropbox.com/sh/jx0h0maeooy2cqx/AAAHriW2neafZ1Kg6-dCC0rca?dl=1" style="color:black;"><i class="fa fa-cloud-download" style="font-size:1em"></i></a>
 
 
 
