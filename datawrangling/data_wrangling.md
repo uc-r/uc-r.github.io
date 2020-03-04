@@ -11,15 +11,14 @@ Welcome to Data Wrangling with R! This course provides an intensive, hands-on in
 ## Class Information
 
 * Instructor: Justin Jodrey &nbsp; 
-  <a href="mailto:jodreyjt@ucmail.uc.edu" target="_blank" style="color:#515151;"><i class="fa fa-envelope" style="font-size:1em"></i></a> &nbsp;
-  <a href="https://www.linkedin.com/in/justin-jodrey" target="_blank" style="color:#515151;"><i class="fa fa-linkedin" style="font-size:1em"></i></a>
-* Day(s): Mondays
-* Time: 6:00PM-9:50PM
-* Location: Lindner 2120
+  <a href="mailto:jodreyjt@ucmail.uc.edu" target="_blank" style="color:#515151;"><i class="fa fa-envelope" style="font-size:1em"></i></a>
+* Day(s): Saturdays
+* Time: 9:00AM-12:50PM
+* Location: Lindner 2240
 * Webpage: [http://uc-r.github.io/data_wrangling](http://uc-r.github.io/data_wrangling)
 * Additional Resources: [http://uc-r.github.io](http://uc-r.github.io/)
 * Hardcopy Syllabus: &nbsp;
-  <a href="https://www.dropbox.com/s/8icyjucwdcs76b0/Data%20Wrangling%20with%20R%20Syllabus%20%282019%20Fall%29.pdf?dl=1" target="_blank" style="color:#515151;"><i class="fa fa-cloud-download" style="font-size:1em"></i></a>
+  <a href="https://www.dropbox.com/s/kfk7pztj7567v50/Data%20Wrangling%20with%20R%20Syllabus%20%282020%20Spring%29.pdf?dl=1" target="_blank" style="color:#515151;"><i class="fa fa-cloud-download" style="font-size:1em"></i></a>
 
 
 ## Course Objectives
@@ -87,7 +86,7 @@ Course grades will consist of:
 - 20% [Mid-term Project Evaluation](data_wrangling/mid-term)
 - 50% [Final Project](data_wrangling/final-project)
 - 10% [Engagement](data_wrangling/engagement)
-- There will be no final exam
+- There will be no in-class final exam
 
 Final grades will be distributed according to the following cutoffs:
 		
