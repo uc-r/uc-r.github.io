@@ -22,7 +22,7 @@ The principal goal of this project is to import a real life data set, clean and 
 
 ### Project Data
 
-You will need to select one data set from the five that I have supplied below.  All five data sets contain key attributes that will demonstrate the data science capabilities that you have learned throughout this couse.  You may even need to learn new skills not taught to accomplish your mission.  These include working with:
+You will need to select one data set from the four that I have supplied below.  All four data sets contain key attributes that will demonstrate the data science capabilities that you have learned throughout this couse.  You may even need to learn new skills not taught to accomplish your mission.  These include working with:
 
 - multiple data types (numerics, characters, dates, etc)
 - non-normalized characteristics (may contain punctuations, upper and lowercase letters, etc)
