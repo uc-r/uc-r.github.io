@@ -91,6 +91,6 @@ Mid-term expectations, which are based on the [final project standards](final-pr
 <p>
   <em>Total possible points: 40</em>
   <br>
-  <em>Due no later than: Monday, November 18, 2019, 9:50PM ET</em>
+  <em>Due no later than: Saturday, April 4, 2020, 12:50PM ET</em>
 </p>
 </div>
